@@ -1,0 +1,27 @@
+{
+  "name": "common-beer-format",
+  "version": "0.0.0",
+  "description": "An implementation  of the BeerXML spec in multiple formats",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wall-Brew-Co/common-beer-format.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wall-Brew-Co/common-beer-format/issues"
+  },
+  "homepage": "https://github.com/Wall-Brew-Co/common-beer-format#readme",
+  "devDependencies": {
+    "karma": "^4.4.1",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-cljs-test": "^0.1.0"
+  }
+}
