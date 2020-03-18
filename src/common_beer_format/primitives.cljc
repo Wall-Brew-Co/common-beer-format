@@ -63,3 +63,13 @@
     :decode/json   #(np/try-parse-float %2)
     :encode/string #(str %2)
     :encode/json   #(str %2)}))
+
+(s/def ::version
+  (st/spec
+   {:type          :int
+    :spec          #(= 1 %)
+    :description   "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists"
+    :decode/string #(np/try-parse-int %2)
+    :decode/json   #(np/try-parse-int %2)
+    :encode/string #(str %2)
+    :encode/json   #(str %2)}))

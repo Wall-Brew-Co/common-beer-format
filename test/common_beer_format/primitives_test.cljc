@@ -70,3 +70,14 @@
     (is (csa/valid? ::prim/kilopascal (st/coerce ::prim/kilopascal 1.234 st/string-transformer)))
     (is (not (csa/valid? ::prim/kilopascal -1.234)))
     (is (not (csa/valid? ::prim/kilopascal false)))))
+
+(deftest version-spec-test
+  (testing "Ensure version spec conforms and validates data appropriately"
+    (is (csa/valid? ::prim/version 1))
+    (is (csa/valid? ::prim/version (st/coerce ::prim/version "1" st/json-transformer)))
+    (is (csa/valid? ::prim/version (st/coerce ::prim/version "1" st/string-transformer)))
+    (is (csa/valid? ::prim/version (st/coerce ::prim/version 1 st/json-transformer)))
+    (is (csa/valid? ::prim/version (st/coerce ::prim/version 1 st/string-transformer)))
+    (is (not (csa/valid? ::prim/version (st/coerce ::prim/version 1.0 st/json-transformer))))
+    (is (not (csa/valid? ::prim/version -1.234)))
+    (is (not (csa/valid? ::prim/version false)))))
