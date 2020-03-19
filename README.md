@@ -1,44 +1,25 @@
 # common-beer-format
 
-FIXME: description
+**UNDER CONSTRUCTION**
+
+A Clojure(Script) implementation of the BeerXML 1.0 schema with cross-format support.
+The library endeavors to support the data specification across JSON, XML, and EDN.
 
 ## Installation
 
-Download from http://example.com/FIXME.
+Temporary: Clone the repository and build a useable version:
+```bash
+$ git clone git@github.com:Wall-Brew-Co/common-beer-format.git
+$ cd common-beer-format
+$ lein install
+```
 
 ## Usage
 
-FIXME: explanation
-
-    $ java -jar common-beer-format-0.1.0-standalone.jar [args]
-
-## Options
-
-FIXME: listing of options this app accepts.
-
-## Examples
-
-...
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
+Once the library has been built, add it as a dependency to your project.clj
 
 ## License
 
-Copyright © 2020 FIXME
+Copyright © 2020 - [Wall Brew Co](https://wallbrew.com/)
 
-This program and the accompanying materials are made available under the
-terms of the Eclipse Public License 2.0 which is available at
-http://www.eclipse.org/legal/epl-2.0.
-
-This Source Code may also be made available under the following Secondary
-Licenses when the conditions for such availability set forth in the Eclipse
-Public License, v. 2.0 are satisfied: GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or (at your
-option) any later version, with the GNU Classpath Exception which is available
-at https://www.gnu.org/software/classpath/license.html.
+This software is provided for public use as outlined in the [MIT License](https://github.com/Wall-Brew-Co/common-beer-format/blob/master/LICENSE)
