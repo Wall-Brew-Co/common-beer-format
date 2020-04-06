@@ -7,7 +7,9 @@
                  [nnichols "0.7.0"]
                  [org.clojure/clojure "1.10.0"]
                  [org.clojure/clojurescript "1.10.597" :scope "provided"]
-                 [org.clojure/test.check "0.10.0"]]
+                 [org.clojure/test.check "0.10.0"]
+                 [org.clojure/data.xml "0.0.8"]
+       [clj-http "3.10.0"]] ;;;;;;;;; TEMPORARY
   :plugins [[lein-cljsbuild "1.1.7"]]
   :profiles {:uberjar {:aot :all}
              :dev     {:dependencies [[doo "0.1.11"]]
