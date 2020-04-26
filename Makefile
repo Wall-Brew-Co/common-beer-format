@@ -24,3 +24,10 @@ version/bugfix:
 version:
 	$(info Adding CHANGELOG entry for existing version...)
 	@ $(VERCHG) 'push'
+
+clean:
+	@ $(LEIN) clean
+	@ rm -rf $(TARGET_DIR)
+
+tests:
+	@ $(LEIN) do clean, test
