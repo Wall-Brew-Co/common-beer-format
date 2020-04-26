@@ -1,0 +1,21 @@
+<MISCS>
+
+    <MISC>
+
+        <NAME>Irish Moss</NAME>
+
+        <VERSION>1</VERSION>
+
+        <TYPE>Fining</TYPE>
+
+        <USE>Boil</USE>
+
+        <TIME>15.0</TIME>
+
+        <AMOUNT>0.010</AMOUNT>
+
+        <NOTES>Used as a clarifying agent during the last few minutes of the boil</NOTES>
+
+    </MISC>
+
+</MISCS>

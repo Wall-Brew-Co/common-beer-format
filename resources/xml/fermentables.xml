@@ -1,0 +1,101 @@
+<FERMENTABLES>
+
+    <FERMENTABLE>
+
+        <NAME>Pale Malt (2 row) UK</NAME>
+
+        <VERSION>1</VERSION>
+
+        <AMOUNT>2.27</AMOUNT>
+
+        <TYPE>Grain</TYPE>
+
+        <YIELD>78.0</YIELD>
+
+        <COLOR>3.0</COLOR>
+
+        <ORIGIN>United Kingdom</ORIGIN>
+
+        <SUPPLIER>Fussybrewer Malting</SUPPLIER>
+
+        <NOTES>All purpose base malt for English styles</NOTES>
+
+        <COARSE_FINE_DIFF>1.5</COARSE_FINE_DIFF>
+
+        <MOISTURE>4.0</MOISTURE>
+
+        <DIASTATIC_POWER>45.0</DIASTATIC_POWER>
+
+        <PROTEIN>10.2</PROTEIN>
+
+        <MAX_IN_BATCH>100.0</MAX_IN_BATCH>
+
+    </FERMENTABLE>
+
+    <FERMENTABLE>
+
+        <NAME>Barley, Flaked</NAME>
+
+        <VERSION>1</VERSION>
+
+        <AMOUNT>0.91</AMOUNT>
+
+        <TYPE>Grain</TYPE>
+
+        <YIELD>70.0</YIELD>
+
+        <COLOR>2.0</COLOR>
+
+        <ORIGIN>United Kingdom</ORIGIN>
+
+        <SUPPLIER>Fussybrewer Malting</SUPPLIER>
+
+        <NOTES>Adds body to porters and stouts, must be mashed</NOTES>
+
+        <COARSE_FINE_DIFF>1.5</COARSE_FINE_DIFF>
+
+        <MOISTURE>9.0</MOISTURE>
+
+        <DIASTATIC_POWER>0.0</DIASTATIC_POWER>
+
+        <PROTEIN>13.2</PROTEIN>
+
+        <MAX_IN_BATCH>20.0</MAX_IN_BATCH>
+
+        <RECOMMEND_MASH>TRUE</RECOMMEND_MASH>
+
+    </FERMENTABLE>
+
+    <FERMENTABLE>
+
+        <NAME>Black Barley</NAME>
+
+        <VERSION>1</VERSION>
+
+        <AMOUNT>0.45</AMOUNT>
+
+        <TYPE>Grain</TYPE>
+
+        <YIELD>78.0</YIELD>
+
+        <COLOR>500.0</COLOR>
+
+        <ORIGIN>United Kingdom</ORIGIN>
+
+        <SUPPLIER>Fussybrewer Malting</SUPPLIER>
+
+        <NOTES>Unmalted roasted barley for stouts, porters</NOTES>
+
+        <COARSE_FINE_DIFF>1.5</COARSE_FINE_DIFF>
+
+        <MOISTURE>5.0</MOISTURE>
+
+        <DIASTATIC_POWER>0.0</DIASTATIC_POWER>
+
+        <PROTEIN>13.2</PROTEIN>
+
+        <MAX_IN_BATCH>10.0</MAX_IN_BATCH>
+
+    </FERMENTABLE>
+
+</FERMENTABLES>
