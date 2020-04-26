@@ -1,0 +1,33 @@
+<YEASTS>
+
+    <YEAST>
+
+        <NAME>Irish Ale</NAME>
+
+        <TYPE>Ale</TYPE>
+
+        <VERSION>1</VERSION>
+
+        <FORM>Liquid</FORM>
+
+        <AMOUNT>0.250</AMOUNT>
+
+        <LABORATORY>Wyeast Labs</LABORATORY>
+
+        <PRODUCT_ID>1084</PRODUCT_ID>
+
+        <MIN_TEMPERATURE>16.7</MIN_TEMPERATURE>
+
+        <MAX_TEMPERATURE>22.2</MAX_TEMPERATURE>
+
+        <ATTENUATION>73.0</ATTENUATION>
+
+        <NOTES>Dry, fruity flavor characteristic of stouts.  Full bodied, dry, clean flavor.</NOTES>
+
+        <BEST_FOR>Irish Dry Stouts</BEST_FOR>
+
+        <FLOCCULATION>Medium</FLOCCULATION>
+
+    </YEAST>
+
+</YEASTS>
