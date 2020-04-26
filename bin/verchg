@@ -1,10 +1,9 @@
 #!/bin/bash
 
 #
-# Update the version in the project.clj, add a new entry in CHANGELOG.md,
-# and update Terraform Deployment image tag/version.
+# Update the version in the project.clj and add a new entry in CHANGELOG.md.
 # Script arguments:
-# $1 = mode (major, minor, bugfix)
+# $1 = mode (major/maj, minor/min, bugfix/patch/fix/bug)
 #
 
 #
@@ -12,30 +11,18 @@
 # the proper components so that the result is placed in the variable
 # `new_version`.
 #
-# $1 = mode (major, minor, bugfix, push)
-# $2 = version (x.y.z)
-#
-function bump {
+# $1 = mode (major, minor, bugfix)
+function update_code {
   local mode="$1"
-  local old="$2"
-  # find out the three components of the current version...
-  local parts=( ${old//./ } )
-  # now bump it up based on the mode...
   case "$1" in
     major|maj)
-      local bv=$((parts[0] + 1))
-      new_version="${bv}.0.0"
+      lein do change version leiningen.release/bump-version :major, change version leiningen.release/bump-version release
       ;;
     minor|min)
-      local bv=$((parts[1] + 1))
-      new_version="${parts[0]}.${bv}.0"
+      lein do change version leiningen.release/bump-version :minor, change version leiningen.release/bump-version release
       ;;
     bugfix|patch|fix|bug)
-      local bv=$((parts[2] + 1))
-      new_version="${parts[0]}.${parts[1]}.${bv}"
-      ;;
-    push|nothing)
-      new_version=${old}
+      lein do change version leiningen.release/bump-version :patch, change version leiningen.release/bump-version release
       ;;
   esac
 }
@@ -45,21 +32,14 @@ function bump {
 # and populate the following variables:
 #
 # $version = "1.54.3"
-# $project = "brew-bot-ui"
+# $project = "common-beer-format"
 # $today = "2019 Dec 12"
 #
 function pull_values {
-  local fline=`head -1 ${proj}`
+  local fline=`grep defproject ${proj}`
   project=`echo ${fline} | awk '{print $2}'`
   version=`echo ${fline} | awk '{print $3}' | tr -d '"'`
   today=$(date +"%Y %b %d")
-}
-
-#
-# Update the project.clj file with the new version by a simple exchange.
-#
-function update_code {
-  sed -e "1s/${version}/${new_version}/" ${proj} > p.tmp && mv p.tmp ${proj}
 }
 
 #
@@ -76,9 +56,7 @@ proj="project.clj"
 log="CHANGELOG.md"
 style="doc/templates/changelog_entry.txt"
 
+update_code $1
 pull_values
-bump $1 ${version}
-update_code
 update_docs
-# TODO: Inc deployment # in terraform scripts
-echo "Project is now at $new_version"
+echo "common-beer-format is now at $new_version"
