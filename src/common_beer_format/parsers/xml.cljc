@@ -1,38 +1,33 @@
 (ns common-beer-format.parsers.xml
-  (:require [clj-http.client :as http]
-            [clojure.data.xml :as xml]
-            [clojure.string :as cs])) ;; XML is truly the worst
+  "Functions to translate between BeerXML and common-beer-format"
+  (:require [clojure.xml :as xml]
+            [nnichols.xml :as nx]))
 
-(defn keywordize
-  [s]
-  (keyword (cs/join "-" (re-seq #"[a-zA-Z0-9]+" (cs/lower-case (str s))))))
-
-(defn try-or-nil
-  "Returns result of applying args to f inside a try/catch, returning nil in case of Exception."
-  [f & args]
-  (try
-    (apply f args)
-    (catch Exception _ nil)))
-
-(defn fetch-recipe
-  [recipe-number]
-  (let [url (str "https://www.brewersfriend.com/homebrew/recipe/beerxml1.0/" recipe-number)
-        page (http/get url)]
-    (when (= 200 (:status page))
-      (-> page
-          :body
-          xml/parse-str))))
-
-(def clojure-xml (fetch-recipe "364091"))
-
-(defn xml-tag->map-entry
+(defn beer-xml->common-beer-format
+  "Convert the results of clojure parsed xml into cleaner EDN"
   [xml]
-  (cond
-    (map? xml)        {(:tag xml) (xml-tag->map-entry (:content xml))}
-    (and (every? map? xml)
-         (< 1 (count (mapv :tag xml)))
-         (= (mapv :tag xml)
-            (distinct (mapv :tag xml))))   (into {} (filter second (apply merge (map xml-tag->map-entry xml))))
-    (and (seq xml)
-         (every? coll? xml))               (keep xml-tag->map-entry xml)
-    (= 1 (count xml))                      (first xml)))
+  (nx/xml->edn xml {:preserve-attrs? false}))
+
+(defn common-beer-format->beer-xml
+  "Restructure EDN to the expected structure for clojure.data.xml"
+  [edn]
+  (nx/edn->xml edn {:to-xml-case? true :stringify-values? true}))
+
+(defn parse-beer-xml
+  "Parse an XML resource as defined by clojure.data.xml, and return the equivalent EDN."
+  [xml-doc]
+  (beer-xml->common-beer-format (xml/parse xml-doc)))
+
+(defn emit-beer-xml
+  "Restructure common-beer-format EDN into emitted XML."
+  [edn-doc]
+  (xml/emit (common-beer-format->beer-xml edn-doc)))
+
+#?(:clj
+   (defn parse-beer-xml-string
+     "Clojure's XML parsing implementation doesn't allow users to pass XML strings that aren't resource paths.
+      Unfortunately, this forces us to convert strings to streams for the JVM.
+      When a better implementation is added to the language, this should be removed."
+     [xml-doc]
+     (let [string-streamer (fn [s] (java.io.ByteArrayInputStream. (.getBytes (.trim s))))]
+       (parse-beer-xml (string-streamer xml-doc)))))
