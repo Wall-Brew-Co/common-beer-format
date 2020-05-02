@@ -94,3 +94,11 @@
     :spec                (s/and string? #(not (cs/blank? %)))
     :description         "A non-empty string denoting ingredients with me bay used in place of those deonted in the reocrd"
     :json-schema/example "Citra or Sorachi"}))
+
+(s/def ::amount-is-weight
+  (st/spec
+   {:type                :boolean
+    :spec                boolean?
+    :description         "A boolean representing if the amount of the substance is measured in kilograms.
+                          When absent, assume false and that the amount of substance is measured in liters."
+    :json-schema/example "false"}))

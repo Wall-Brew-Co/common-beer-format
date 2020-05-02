@@ -29,14 +29,6 @@
     :description         "A case-insensitive string representing the form of the yeast added to the beer. Must be one of: 'Liquid', 'Dry', 'Slant', and 'Culture'"
     :json-schema/example "Ale"}))
 
-(s/def ::amount-is-weight
-  (st/spec
-   {:type                :boolean
-    :spec                boolean?
-    :description         "A boolean representing if the amount of the yeast is in kilograms.
-                          When absent, assume false and that the amount of yeast is measured in liters."
-    :json-schema/example "false"}))
-
 (s/def ::laboratory
   (st/spec
    {:type                :string
@@ -120,7 +112,7 @@
                    ::type
                    ::form
                    ::prim/amount]
-          :opt-un [::amount-is-weight
+          :opt-un [::prim/amount-is-weight
                    ::laboratory
                    ::product-id
                    ::min-temperature
