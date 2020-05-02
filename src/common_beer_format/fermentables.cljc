@@ -97,26 +97,29 @@
     :json-schema/example "12.5"}))
 
 (s/def ::fermentable
-  (s/keys :req-un [::prim/name
-                   ::prim/version
-                   ::type
-                   ::prim/amount
-                   ::yield
-                   ::color]
-          :opt-un [::add-after-boil
-                   ::prim/origin
-                   ::supplier
-                   ::prim/notes
-                   ::coarse-fine-diff
-                   ::moisture
-                   ::diastatic-power
-                   ::protein
-                   ::max-in-batch
-                   ::recommend-mash
-                   ::ibu-gal-per-lb]))
+  (st/spec
+   {:type        :map
+    :description "A record representing a fermentable ingredient in a beer recipe."
+    :spec        (s/keys :req-un [::prim/name
+                                  ::prim/version
+                                  ::type
+                                  ::prim/amount
+                                  ::yield
+                                  ::color]
+                         :opt-un [::add-after-boil
+                                  ::prim/origin
+                                  ::supplier
+                                  ::prim/notes
+                                  ::coarse-fine-diff
+                                  ::moisture
+                                  ::diastatic-power
+                                  ::protein
+                                  ::max-in-batch
+                                  ::recommend-mash
+                                  ::ibu-gal-per-lb])}))
 
 (s/def ::fermentables
   (st/spec
-    {:type        :vector
-     :description "A vector of valid ::fermentable records"
-     :spec        (s/coll-of #(s/valid? ::fermentable %))}))
+   {:type        :vector
+    :description "A vector of valid ::fermentable records"
+    :spec        (s/coll-of #(s/valid? ::fermentable %))}))

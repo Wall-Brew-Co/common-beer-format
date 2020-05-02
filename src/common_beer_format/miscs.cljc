@@ -47,15 +47,21 @@
     :json-schema/example "Used to impart a mild, zesty flavor"}))
 
 (s/def ::misc
-  (s/keys :req-un [::prim/name
-                   ::prim/version
-                   ::type
-                   ::use
-                   ::time
-                   ::prim/amount]
-          :opt-un [::prim/amount-is-weight
-                   ::use-for
-                   ::prim/notes]))
+  (st/spec
+   {:type        :map
+    :description "A record representing a miscelaneous ingredient in a beer recipe."
+    :spec        (s/keys :req-un [::prim/name
+                                  ::prim/version
+                                  ::type
+                                  ::use
+                                  ::time
+                                  ::prim/amount]
+                         :opt-un [::prim/amount-is-weight
+                                  ::use-for
+                                  ::prim/notes])}))
 
 (s/def ::miscs
-  (s/coll-of #(s/valid? ::misc %)))
+  (st/spec
+   {:type        :vector
+    :description "A vector of valid ::misc records"
+    :spec        (s/coll-of #(s/valid? ::misc %))}))

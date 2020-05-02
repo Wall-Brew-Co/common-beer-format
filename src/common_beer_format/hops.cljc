@@ -103,23 +103,29 @@
     :json-schema/example "10.7"}))
 
 (s/def ::hop
-  (s/keys :req-un [::prim/name
-                   ::prim/version
-                   ::alpha
-                   ::prim/amount
-                   ::use
-                   ::time]
-          :opt-un [::prim/notes
-                   ::type
-                   ::form
-                   ::beta
-                   ::hsi
-                   ::prim/origin
-                   ::prim/substitutes
-                   ::humulene
-                   ::caryophyllene
-                   ::cohumulone
-                   ::myrcene]))
+  (st/spec
+   {:type        :map
+    :description "A record representing a hop in a beer recipe."
+    :spec        (s/keys :req-un [::prim/name
+                                  ::prim/version
+                                  ::alpha
+                                  ::prim/amount
+                                  ::use
+                                  ::time]
+                         :opt-un [::prim/notes
+                                  ::type
+                                  ::form
+                                  ::beta
+                                  ::hsi
+                                  ::prim/origin
+                                  ::prim/substitutes
+                                  ::humulene
+                                  ::caryophyllene
+                                  ::cohumulone
+                                  ::myrcene])}))
 
 (s/def ::hops
-  (s/coll-of #(s/valid? ::hop %)))
+  (st/spec
+   {:type        :vector
+    :description "A vector of valid ::hop records"
+    :spec        (s/coll-of #(s/valid? ::hop %))}))

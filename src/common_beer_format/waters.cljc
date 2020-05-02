@@ -46,13 +46,6 @@
     :description         "A positive IEEE-754 floating point number representing the amount of magnesium (Mg) in parts per million"
     :json-schema/example "2.5"}))
 
-(s/def ::magnesium
-  (st/spec
-   {:type                :float
-    :spec                number?
-    :description         "A positive IEEE-754 floating point number representing the amount of magnesium (Mg) in parts per million"
-    :json-schema/example "2.5"}))
-
 (s/def ::ph
   (st/spec
    {:type                :float
@@ -61,17 +54,23 @@
     :json-schema/example "2.5"}))
 
 (s/def ::water
-  (s/keys :req-un [::prim/name
-                   ::prim/version
-                   ::prim/amount
-                   ::calcium
-                   ::bicarbonate
-                   ::sulfate
-                   ::chloride
-                   ::sodium
-                   ::magnesium]
-          :opt-un [::ph
-                   ::prim/notes]))
+  (st/spec
+   {:type        :map
+    :description "A record representing the water in a beer recipe."
+    :spec        (s/keys :req-un [::prim/name
+                                  ::prim/version
+                                  ::prim/amount
+                                  ::calcium
+                                  ::bicarbonate
+                                  ::sulfate
+                                  ::chloride
+                                  ::sodium
+                                  ::magnesium]
+                         :opt-un [::ph
+                                  ::prim/notes])}))
 
 (s/def ::waters
-  (s/coll-of #(s/valid? ::water %)))
+  (st/spec
+   {:type        :vector
+    :description "A vector of valid ::water records"
+    :spec        (s/coll-of #(s/valid? ::water %))}))

@@ -107,23 +107,29 @@
     :json-schema/example "false"}))
 
 (s/def ::yeast
-  (s/keys :req-un [::prim/name
-                   ::prim/version
-                   ::type
-                   ::form
-                   ::prim/amount]
-          :opt-un [::prim/amount-is-weight
-                   ::laboratory
-                   ::product-id
-                   ::min-temperature
-                   ::max-temperature
-                   ::flocculation
-                   ::attenuation
-                   ::prim/notes
-                   ::best-for
-                   ::times-cultured
-                   ::max-reuse
-                   ::add-to-secondary]))
+  (st/spec
+   {:type        :map
+    :description "A record representing the yeast in a beer recipe."
+    :spec        (s/keys :req-un [::prim/name
+                                  ::prim/version
+                                  ::type
+                                  ::form
+                                  ::prim/amount]
+                         :opt-un [::prim/amount-is-weight
+                                  ::laboratory
+                                  ::product-id
+                                  ::min-temperature
+                                  ::max-temperature
+                                  ::flocculation
+                                  ::attenuation
+                                  ::prim/notes
+                                  ::best-for
+                                  ::times-cultured
+                                  ::max-reuse
+                                  ::add-to-secondary])}))
 
 (s/def ::yeasts
-  (s/coll-of #(s/valid? ::yeast %)))
+  (st/spec
+   {:type        :vector
+    :description "A vector of valid ::yeast records"
+    :spec        (s/coll-of #(s/valid? ::yeast %))}))
