@@ -25,6 +25,13 @@
     :description         "A positive IEEE-754 floating point number representing the percent rendered sugar from the fermentable"
     :json-schema/example "85.6"}))
 
+(s/def ::color
+  (st/spec
+   {:type                :float
+    :spec                (s/and number? pos?)
+    :description         "A positive IEEE-754 floating point number representing the color in SRM for the fermentable"
+    :json-schema/example "32"}))
+
 (s/def ::add-after-boil
   (st/spec
    {:type                :boolean

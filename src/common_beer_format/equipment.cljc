@@ -18,7 +18,7 @@
     :description         "A positive IEEE-754 floating point number representing the target volume of the batch at the start of fermentation"
     :json-schema/example "5.8"}))
 
-(s/def ::tun-volumne
+(s/def ::tun-volume
   (st/spec
    {:type                :float
     :spec                ::prim/liter
@@ -32,7 +32,7 @@
     :description         "A positive IEEE-754 floating point number representing the weight of the of the mash tun in kilograms"
     :json-schema/example "15.0"}))
 
-(s/def ::tun-weight
+(s/def ::tun-specific-heat
   (st/spec
    {:type                :float
     :spec                (s/and number? pos?)
@@ -64,7 +64,7 @@
   (st/spec
    {:type                :boolean
     :spec                ::prim/boolean
-    :description         "A boolean denoting wether or not programs reading this equipment record should calculate the boil size.
+    :description         "A boolean denoting whether or not programs reading this equipment record should calculate the boil size.
                           When absent, assume false.
                           When true, then boil-size = (batch-seze – top-up-water – trub-chiller-loss) * (1 + boil-time * evap-rate)"
     :json-schema/example "true"}))
