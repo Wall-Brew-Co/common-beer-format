@@ -28,7 +28,7 @@
 (s/def ::add-after-boil
   (st/spec
    {:type                :boolean
-    :spec                boolean?
+    :spec                ::prim/boolean
     :description         "A boolean representing if the fermentable was added after the boil.
                           When absent, assume false."
     :json-schema/example "false"}))
@@ -82,7 +82,7 @@
 (s/def ::recommend-mash
   (st/spec
    {:type                :boolean
-    :spec                boolean?
+    :spec                ::prim/boolean
     :description         "A boolean representing if the fermentable is recommended to be included in the mashing step.
                           Only appropriate for the 'Grain' or 'Adjunct' types.
                           When absent, assume false."

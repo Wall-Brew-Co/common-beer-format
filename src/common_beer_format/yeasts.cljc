@@ -101,7 +101,7 @@
 (s/def ::add-to-secondary
   (st/spec
    {:type                :boolean
-    :spec                boolean?
+    :spec                ::prim/boolean
     :description         "A boolean representing if this yeast was added for a secondary fermentation.
                           When absent, assume false."
     :json-schema/example "false"}))

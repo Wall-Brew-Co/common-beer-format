@@ -2,6 +2,7 @@
   "The basic definitions, units, etc. used in BeerXML"
   (:require [clojure.spec.alpha :as s]
             [clojure.string :as cs]
+            [nnichols.predicate :as np]
             [spec-tools.core :as st]))
 
 (s/def ::kilogram
@@ -53,6 +54,13 @@
     :description         "A positive IEEE-754 floating point number representing a human-readable percentage - e.g 5.5"
     :json-schema/example "4.5"}))
 
+(s/def ::boolean
+  (st/spec
+   {:type                :boolean
+    :spec                np/boolean?
+    :description         "A boolean logic value of true or false"
+    :json-schema/example "false"}))
+
 (s/def ::version
   (st/spec
    {:type                :int
@@ -98,7 +106,7 @@
 (s/def ::amount-is-weight
   (st/spec
    {:type                :boolean
-    :spec                boolean?
+    :spec                ::boolean
     :description         "A boolean representing if the amount of the substance is measured in kilograms.
                           When absent, assume false and that the amount of substance is measured in liters."
     :json-schema/example "false"}))
