@@ -14,7 +14,8 @@
     :spec                (s/and string?
                                 #(not (cs/blank? %))
                                 #(contains? misc-types (cs/lower-case %)))
-    :description         "A case-insensitive string representing the type of the miscelaneous item added to the beer. Must be one of: 'Spice', 'Fining', 'Water Agent', 'Herb', 'Flavor', and 'Other'"
+    :description         "A case-insensitive string representing the type of the miscelaneous item added to the beer.
+                          Must be one of: 'Spice', 'Fining', 'Water Agent', 'Herb', 'Flavor', and 'Other'"
     :json-schema/example "Spice"}))
 
 (def ^:const misc-uses
@@ -26,7 +27,8 @@
     :spec                (s/and string?
                                 #(not (cs/blank? %))
                                 #(contains? misc-uses (cs/lower-case %)))
-    :description         "A case-insensitive string representing the point in the brewing cycle the miscelaneous ingredient is added to the beer. Must be one of: 'Boil', 'Mash', 'Primary', 'Secondary', and 'Bottling'"
+    :description         "A case-insensitive string representing the point in the brewing cycle the miscelaneous ingredient is added to the beer.
+                          Must be one of: 'Boil', 'Mash', 'Primary', 'Secondary', and 'Bottling'"
     :json-schema/example "Mash"}))
 
 (s/def ::time
@@ -42,7 +44,7 @@
 (s/def ::use-for
   (st/spec
    {:type                :string
-    :spec                (s/and string? #(not (cs/blank? %)))
+    :spec                ::prim/text
     :description         "A non-empty string denoting what the ingredient is used for"
     :json-schema/example "Used to impart a mild, zesty flavor"}))
 

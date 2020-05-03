@@ -61,6 +61,13 @@
     :description         "A boolean logic value of true or false"
     :json-schema/example "false"}))
 
+(s/def ::text
+  (st/spec
+   {:type                :string
+    :spec                (s/and string? #(not (cs/blank? %)))
+    :description         "A non-empty string"
+    :json-schema/example "Used to impart a mild, zesty flavor"}))
+
 (s/def ::version
   (st/spec
    {:type                :int
@@ -71,7 +78,7 @@
 (s/def ::name
   (st/spec
    {:type                :string
-    :spec                (s/and string? #(not (cs/blank? %)))
+    :spec                ::text
     :description         "A non-empty string representing the name of the ingredient"
     :json-schema/example "Citra"}))
 
@@ -85,21 +92,21 @@
 (s/def ::notes
   (st/spec
    {:type                :string
-    :spec                (s/and string? #(not (cs/blank? %)))
+    :spec                ::text
     :description         "A non-empty string representing any notes about the subject"
     :json-schema/example "A wonderful, zesty aroma"}))
 
 (s/def ::origin
   (st/spec
    {:type                :string
-    :spec                (s/and string? #(not (cs/blank? %)))
+    :spec                ::text
     :description         "A non-empty string denoting the place of originfor a particular ingredient"
     :json-schema/example "Nice, France"}))
 
 (s/def ::substitutes
   (st/spec
    {:type                :string
-    :spec                (s/and string? #(not (cs/blank? %)))
+    :spec                ::text
     :description         "A non-empty string denoting ingredients with me bay used in place of those deonted in the reocrd"
     :json-schema/example "Citra or Sorachi"}))
 

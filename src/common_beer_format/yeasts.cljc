@@ -14,7 +14,8 @@
     :spec                (s/and string?
                                 #(not (cs/blank? %))
                                 #(contains? yeast-types (cs/lower-case %)))
-    :description         "A case-insensitive string representing the type of yeast added to the beer. Must be one of: 'Ale', 'Lager', 'Wheat', 'Wine', and 'Champagne'"
+    :description         "A case-insensitive string representing the type of yeast added to the beer.
+                          Must be one of: 'Ale', 'Lager', 'Wheat', 'Wine', and 'Champagne'"
     :json-schema/example "Ale"}))
 
 (def ^:const yeast-forms
@@ -26,20 +27,21 @@
     :spec                (s/and string?
                                 #(not (cs/blank? %))
                                 #(contains? yeast-forms (cs/lower-case %)))
-    :description         "A case-insensitive string representing the form of the yeast added to the beer. Must be one of: 'Liquid', 'Dry', 'Slant', and 'Culture'"
+    :description         "A case-insensitive string representing the form of the yeast added to the beer.
+                          Must be one of: 'Liquid', 'Dry', 'Slant', and 'Culture'"
     :json-schema/example "Ale"}))
 
 (s/def ::laboratory
   (st/spec
    {:type                :string
-    :spec                (s/and string? #(not (cs/blank? %)))
+    :spec                ::prim/text
     :description         "A non-empty string denoting the laboratory that cultivated the yeast"
     :json-schema/example "White Labs"}))
 
 (s/def ::product-id
   (st/spec
    {:type                :string
-    :spec                (s/and string? #(not (cs/blank? %)))
+    :spec                ::prim/text
     :description         "A non-empty string denoting the product label or id number that identifies the strain of yeast"
     :json-schema/example "WLP008"}))
 
@@ -66,7 +68,8 @@
     :spec                (s/and string?
                                 #(not (cs/blank? %))
                                 #(contains? yeast-flocculation-types (cs/lower-case %)))
-    :description         "A case-insensitive string representing how dense of a floc the yeast will form. Must be one of: 'Low', 'MEdium', 'High', and 'Very High'"
+    :description         "A case-insensitive string representing how dense of a floc the yeast will form.
+                          Must be one of: 'Low', 'Medium', 'High', and 'Very High'"
     :json-schema/example "High"}))
 
 (s/def ::attenuation
@@ -79,7 +82,7 @@
 (s/def ::best-for
   (st/spec
    {:type                :string
-    :spec                (s/and string? #(not (cs/blank? %)))
+    :spec                ::prim/text
     :description         "A non-empty string denoting the styles of beer this yeast is best suited for"
     :json-schema/example "WLP008"}))
 

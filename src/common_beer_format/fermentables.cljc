@@ -36,7 +36,7 @@
 (s/def ::supplier
   (st/spec
    {:type                :string
-    :spec                (s/and string? #(not (cs/blank? %)))
+    :spec                ::prim/text
     :description         "A non-empty string denoting the supplier of the fermentable ingredient"
     :json-schema/example "Gnome Brew"}))
 

@@ -65,3 +65,24 @@
     (is (csa/valid? ::prim/amount 5))
     (is (not (csa/valid? ::prim/amount -1.234)))
     (is (not (csa/valid? ::prim/amount false)))))
+
+(deftest boolean-spec-test
+  (testing "Ensure the boolean spec is correct"
+    (is (csa/valid? ::prim/boolean true))
+    (is (csa/valid? ::prim/boolean false))
+    (is (not (csa/valid? ::prim/boolean -1.234)))
+    (is (not (csa/valid? ::prim/boolean "false")))))
+
+(deftest amount-is-weight-test
+  (testing "Ensure the amount-is-weight spec wraps the boolean spec appropriately"
+    (is (csa/valid? ::prim/amount-is-weight true))
+    (is (csa/valid? ::prim/amount-is-weight false))
+    (is (not (csa/valid? ::prim/amount-is-weight -1.234)))
+    (is (not (csa/valid? ::prim/amount-is-weight "false")))))
+
+(deftest text-test
+  (testing "Ensure the text spec is correct"
+    (is (csa/valid? ::prim/text "Text goes here"))
+    (is (not (csa/valid? ::prim/amount-is-weight "")))
+    (is (not (csa/valid? ::prim/amount-is-weight -1.234)))
+    (is (not (csa/valid? ::prim/amount-is-weight "  ")))))
