@@ -11,6 +11,7 @@
             [common-beer-format.styles :as cbf-styles]
             [common-beer-format.waters :as cbf-waters]
             [common-beer-format.yeasts :as cbf-yeasts]
+            [nnichols.parse :as n-parse]
             [spec-tools.core :as st]))
 
 (def ^:const recipe-types
@@ -35,21 +36,21 @@
 
 (s/def ::batch-size
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/liter
     :description         "A positive IEEE-754 floating point number representing the target final volume of recipe."
     :json-schema/example "5.8"}))
 
 (s/def ::boil-size
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/liter
     :description         "A positive IEEE-754 floating point number representing the starting volume of the wort."
     :json-schema/example "7.5"}))
 
 (s/def ::boil-time
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/minute
     :description         "A positive IEEE-754 floating point number representing the time in minutes to boil the wort"
     :json-schema/example "45.0"}))
@@ -63,7 +64,7 @@
 
 (s/def ::efficiency
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/percent
     :description         "A positive IEEE-754 floating point number representing the percent brewhouse efficiency to be used for estimating the starting gravity of the beer."
     :json-schema/example "85.6"}))
@@ -77,84 +78,84 @@
 
 (s/def ::taste-rating
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                number?
     :description         "An IEEE-754 floating point number representing the tasting score of the beer"
     :json-schema/example "100.0"}))
 
 (s/def ::og
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/specific-gravity
     :description         "A positive IEEE-754 floating point number representing the pre-fermentation specific gravity of the recipe"
     :json-schema/example "1.060"}))
 
 (s/def ::fg
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/specific-gravity
     :description         "A positive IEEE-754 floating point number representing the post-fermentation specific gravity of the recipe"
     :json-schema/example "1.048"}))
 
 (s/def ::fermentation-stages
   (st/spec
-   {:type                :int
-    :spec                #(>= % 1)
+   {:type                :long
+    :spec                (s/and integer? pos?)
     :description         "An integer representing the number of fermentation stages in the recipe"
     :json-schema/example "2"}))
 
 (s/def ::primary-age
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                (s/and number? pos?)
     :description         "A positive IEEE-754 floating point number representing the number of days spent in primary fermentation"
     :json-schema/example "12.0"}))
 
 (s/def ::primary-temp
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/degrees-celsius
     :description         "A positive IEEE-754 floating point number representing the temperaure in degrees Celsius for primary fermentation"
     :json-schema/example "12.0"}))
 
 (s/def ::secondary-age
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                (s/and number? pos?)
     :description         "A positive IEEE-754 floating point number representing the number of days spent in secondary fermentation"
     :json-schema/example "12.0"}))
 
 (s/def ::secondary-temp
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/degrees-celsius
     :description         "A positive IEEE-754 floating point number representing the temperaure in degrees Celsius for secondary fermentation"
     :json-schema/example "12.0"}))
 
 (s/def ::tertiary-age
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                (s/and number? pos?)
     :description         "A positive IEEE-754 floating point number representing the number of days spent in tertiary fermentation"
     :json-schema/example "12.0"}))
 
 (s/def ::tertiary-temp
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/degrees-celsius
     :description         "A positive IEEE-754 floating point number representing the temperaure in degrees Celsius for tertiary fermentation"
     :json-schema/example "12.0"}))
 
 (s/def ::age
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                (s/and number? pos?)
     :description         "A positive IEEE-754 floating point number representing the number of days to bottle age the beer"
     :json-schema/example "12.0"}))
 
 (s/def ::temp
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/degrees-celsius
     :description         "A positive IEEE-754 floating point number representing the temperaure in degrees Celsius for bottle aging"
     :json-schema/example "12.0"}))
@@ -169,18 +170,19 @@
 
 (s/def ::carbonation
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                (s/and number? pos?)
     :description         "A positive IEEE-754 floating point number representing the carbonation for this recipe in volumes of CO2"
     :json-schema/example "1.5"}))
 
 (s/def ::forced-carbonation
   (st/spec
-   {:type                :boolean
-    :spec                ::prim/boolean
+   {:spec                ::prim/boolean
     :description         "A boolean representing if this batch was force carbonated with CO2 pressure..
                           When absent, assume false."
-    :json-schema/example "false"}))
+    :json-schema/example "false"
+    :decode/string #(-> %2 str n-parse/parse-boolean)
+    :encode/string #(-> %2 str cs/upper-case)}))
 
 (s/def ::priming-sugar-name
   (st/spec
@@ -191,21 +193,21 @@
 
 (s/def ::carbonation-temp
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/degrees-celsius
     :description         "A positive IEEE-754 floating point number representing the temperaure in degrees Celsius for either bottling or forced carbonation"
     :json-schema/example "12.0"}))
 
 (s/def ::priming-sugar-equiv
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                number?
     :description         "An IEEE-754 floating point number representing the conversion factor to an equivalent amount of corn sugar"
     :json-schema/example "1.5"}))
 
 (s/def ::keg-priming-factor
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                number?
     :description         "An IEEE-754 floating point number representing the conversion factor of sugar needed to prime carbonation in large containers."
     :json-schema/example "1.5"}))

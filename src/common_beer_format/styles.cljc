@@ -49,84 +49,84 @@
 
 (s/def ::og-min
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/specific-gravity
     :description         "A positive IEEE-754 floating point number representing the minimum pre-fermentation specific gravity for the style"
     :json-schema/example "1.048"}))
 
 (s/def ::og-max
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/specific-gravity
     :description         "A positive IEEE-754 floating point number representing the maximum pre-fermentation specific gravity for the style"
     :json-schema/example "1.060"}))
 
 (s/def ::fg-min
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/specific-gravity
     :description         "A positive IEEE-754 floating point number representing the minimum post-fermentation specific gravity for the style"
     :json-schema/example "1.048"}))
 
 (s/def ::fg-max
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/specific-gravity
     :description         "A positive IEEE-754 floating point number representing the maximum post-fermentation specific gravity for the style"
     :json-schema/example "1.060"}))
 
 (s/def ::ibu-min
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                (s/and number? pos?)
     :description         "A positive IEEE-754 floating point number representing the minimum bitterness in IBUs for the style"
     :json-schema/example "32"}))
 
 (s/def ::ibu-max
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                (s/and number? pos?)
     :description         "A positive IEEE-754 floating point number representing the maximum bitterness in IBUs for the style"
     :json-schema/example "40"}))
 
 (s/def ::color-min
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                (s/and number? pos?)
     :description         "A positive IEEE-754 floating point number representing the lightest color in SRM for the style"
     :json-schema/example "32"}))
 
 (s/def ::color-max
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                (s/and number? pos?)
     :description         "A positive IEEE-754 floating point number representing the darkest color in SRM for the style"
     :json-schema/example "40"}))
 
 (s/def ::carb-min
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                (s/and number? pos?)
     :description         "A positive IEEE-754 floating point number representing the minimum carbonation for this style in volumes of CO2"
     :json-schema/example "1.5"}))
 
 (s/def ::carb-max
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                (s/and number? pos?)
     :description         "A positive IEEE-754 floating point number representing the maximum carbonation for this style in volumes of CO2"
     :json-schema/example "2.2"}))
 
 (s/def ::abv-min
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/percent
     :description         "A positive IEEE-754 floating point number representing the minimum recommended ABV percentage for the style"
     :json-schema/example "3.2"}))
 
 (s/def ::abv-max
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/percent
     :description         "A positive IEEE-754 floating point number representing the maximum recommended ABV percentage for the style"
     :json-schema/example "4.0"}))

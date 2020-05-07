@@ -3,6 +3,7 @@
   (:require [clojure.spec.alpha :as s]
             [clojure.string :as cs]
             [common-beer-format.primitives :as prim]
+            [nnichols.parse :as n-parse]
             [spec-tools.core :as st]))
 
 (def ^:const fermentable-types
@@ -20,25 +21,26 @@
 
 (s/def ::yield
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/percent
     :description         "A positive IEEE-754 floating point number representing the percent rendered sugar from the fermentable"
     :json-schema/example "85.6"}))
 
 (s/def ::color
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                (s/and number? pos?)
     :description         "A positive IEEE-754 floating point number representing the color in SRM for the fermentable"
     :json-schema/example "32"}))
 
 (s/def ::add-after-boil
   (st/spec
-   {:type                :boolean
-    :spec                ::prim/boolean
+   {:spec                ::prim/boolean
     :description         "A boolean representing if the fermentable was added after the boil.
                           When absent, assume false."
-    :json-schema/example "false"}))
+    :json-schema/example "false"
+    :decode/string #(-> %2 str n-parse/parse-boolean)
+    :encode/string #(-> %2 str cs/upper-case)}))
 
 (s/def ::supplier
   (st/spec
@@ -49,7 +51,7 @@
 
 (s/def ::coarse-fine-diff
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/percent
     :description         "A positive IEEE-754 floating point number representing the percent difference between the coarse grain yield and fine grain yield.
                           Only appropriate for the 'Grain' or 'Adjunct' types."
@@ -57,7 +59,7 @@
 
 (s/def ::moisture
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/percent
     :description         "A positive IEEE-754 floating point number representing the percent moisture in the grain.
                           Only appropriate for the 'Grain' or 'Adjunct' types."
@@ -65,7 +67,7 @@
 
 (s/def ::diastatic-power
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                number?
     :description         "A positive IEEE-754 floating point number representing the diastatic power of the grain in Lintner units.
                           Only appropriate for the 'Grain' or 'Adjunct' types."
@@ -73,7 +75,7 @@
 
 (s/def ::protein
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/percent
     :description         "A positive IEEE-754 floating point number representing the protein contents of the grain.
                           Only appropriate for the 'Grain' or 'Adjunct' types."
@@ -81,23 +83,24 @@
 
 (s/def ::max-in-batch
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/percent
     :description         "A positive IEEE-754 floating point number representing the suggested maximum percent by weight of the fermentable with respect to all fermentables."
     :json-schema/example "60.5"}))
 
 (s/def ::recommend-mash
   (st/spec
-   {:type                :boolean
-    :spec                ::prim/boolean
+   {:spec                ::prim/boolean
     :description         "A boolean representing if the fermentable is recommended to be included in the mashing step.
                           Only appropriate for the 'Grain' or 'Adjunct' types.
                           When absent, assume false."
-    :json-schema/example "false"}))
+    :json-schema/example "false"
+    :decode/string #(-> %2 str n-parse/parse-boolean)
+    :encode/string #(-> %2 str cs/upper-case)}))
 
 (s/def ::ibu-gal-per-lb
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                number?
     :description         "A positive IEEE-754 floating point number representing the IBUs per pound per gallon of water assuming a 60 minute boil.
                           Only appropriate for the 'Extract' type."
@@ -125,8 +128,20 @@
                                   ::recommend-mash
                                   ::ibu-gal-per-lb])}))
 
+(s/def ::fermentable-wrapper
+  (st/spec
+   {:type        :map
+    :description "A ::fermentable record wrapped in a ::fermentable map"
+    :spec        (s/keys :req-un [::fermentable])}))
+
 (s/def ::fermentables
   (st/spec
    {:type        :vector
-    :description "A vector of valid ::fermentable records"
-    :spec        (s/coll-of #(s/valid? ::fermentable %))}))
+    :description "A vector of valid ::fermentable-wrapper records"
+    :spec        (s/coll-of #(s/valid? ::fermentable-wrapper %))}))
+
+(s/def ::fermentables-wrapper
+  (st/spec
+   {:type        :map
+    :description "A ::fermentables-wrapper record"
+    :spec        (s/keys :req-un [::fermentables])}))

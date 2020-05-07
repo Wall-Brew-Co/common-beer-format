@@ -7,7 +7,7 @@
 
 (s/def ::alpha
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/percent
     :description         "A positive IEEE-754 floating point number representing the percent contents of alpha acid in the hop"
     :json-schema/example "10.7"}))
@@ -27,7 +27,7 @@
 
 (s/def ::time
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/minute
     :description         "A positive IEEE-754 floating point number representing the time in minutes the hop was added dependant on the :use field.
                           For \"Boil\" this is the boil time.
@@ -65,42 +65,42 @@
 
 (s/def ::beta
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/percent
     :description         "A positive IEEE-754 floating point number representing the percent contents of beta acid in the hop"
     :json-schema/example "10.7"}))
 
 (s/def ::hsi
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/percent
     :description         "A positive IEEE-754 floating point number representing the Hop Stability Index, or percent decay of a hop's alpha acid over six months"
     :json-schema/example "2.2"}))
 
 (s/def ::humulene
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/percent
     :description         "A positive IEEE-754 floating point number representing the percent contents of humulene in the hop"
     :json-schema/example "10.7"}))
 
 (s/def ::caryophyllene
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/percent
     :description         "A positive IEEE-754 floating point number representing the percent contents of caryophyllene in the hop"
     :json-schema/example "10.7"}))
 
 (s/def ::cohumulone
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/percent
     :description         "A positive IEEE-754 floating point number representing the percent contents of cohumulone in the hop"
     :json-schema/example "10.7"}))
 
 (s/def ::myrcene
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/percent
     :description         "A positive IEEE-754 floating point number representing the percent contents of myrcene in the hop"
     :json-schema/example "10.7"}))

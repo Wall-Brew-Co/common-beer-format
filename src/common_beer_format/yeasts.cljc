@@ -3,6 +3,7 @@
   (:require [clojure.spec.alpha :as s]
             [clojure.string :as cs]
             [common-beer-format.primitives :as prim]
+            [nnichols.parse :as n-parse]
             [spec-tools.core :as st]))
 
 (def ^:const yeast-types
@@ -47,14 +48,14 @@
 
 (s/def ::min-temperature
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/degrees-celsius
     :description         "A positive IEEE-754 floating point number representing the minimum recommended temperature of fermenation"
     :json-schema/example "19.5"}))
 
 (s/def ::max-temperature
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/degrees-celsius
     :description         "A positive IEEE-754 floating point number representing the maximum recommended temperature of fermenation"
     :json-schema/example "23.9"}))
@@ -74,7 +75,7 @@
 
 (s/def ::attenuation
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/percent
     :description         "A positive IEEE-754 floating point number representing the percent of malt sugar that can be converted to ethanol and carbon dioxide"
     :json-schema/example "73.2"}))
@@ -103,11 +104,12 @@
 
 (s/def ::add-to-secondary
   (st/spec
-   {:type                :boolean
-    :spec                ::prim/boolean
+   {:spec                ::prim/boolean
     :description         "A boolean representing if this yeast was added for a secondary fermentation.
                           When absent, assume false."
-    :json-schema/example "false"}))
+    :json-schema/example "false"
+    :decode/string #(-> %2 str n-parse/parse-boolean)
+    :encode/string #(-> %2 str cs/upper-case)}))
 
 (s/def ::yeast
   (st/spec

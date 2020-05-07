@@ -6,49 +6,49 @@
 
 (s/def ::calcium
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                number?
     :description         "A positive IEEE-754 floating point number representing the amount of calcium (Ca) in parts per million"
     :json-schema/example "2.5"}))
 
 (s/def ::bicarbonate
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                number?
     :description         "A positive IEEE-754 floating point number representing the amount of bicarbonate (HCO3) in parts per million"
     :json-schema/example "2.5"}))
 
 (s/def ::sulfate
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                number?
     :description         "A positive IEEE-754 floating point number representing the amount of sulfate (SO4) in parts per million"
     :json-schema/example "2.5"}))
 
 (s/def ::chloride
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                number?
     :description         "A positive IEEE-754 floating point number representing the amount of chloride (Cl-) in parts per million"
     :json-schema/example "2.5"}))
 
 (s/def ::sodium
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                number?
     :description         "A positive IEEE-754 floating point number representing the amount of sodium (Na) in parts per million"
     :json-schema/example "2.5"}))
 
 (s/def ::magnesium
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                number?
     :description         "A positive IEEE-754 floating point number representing the amount of magnesium (Mg) in parts per million"
     :json-schema/example "2.5"}))
 
 (s/def ::ph
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                number?
     :description         "A positive IEEE-754 floating point number representing the PH of the water"
     :json-schema/example "2.5"}))

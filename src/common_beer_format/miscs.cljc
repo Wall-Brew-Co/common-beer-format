@@ -33,7 +33,7 @@
 
 (s/def ::time
   (st/spec
-   {:type                :float
+   {:type                :double
     :spec                ::prim/minute
     :description         "A positive IEEE-754 floating point number representing the time in minutes the ingredient was added dependant on the :use field.
                           For \"Boil\" this is the boil time.
