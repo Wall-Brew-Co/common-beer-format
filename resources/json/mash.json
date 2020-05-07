@@ -1,0 +1,19 @@
+{
+    "mash": {
+        "name": "Single Step Infusion, 68 C",
+        "version": "1",
+        "grain-temp": "22.0",
+        "mash-steps": [
+            {
+                "mash-step": {
+                    "name": "Conversion Step, 68C",
+                    "version": "1",
+                    "type": "Infusion",
+                    "step-temp": "68.0",
+                    "step-time": "60.0",
+                    "infuse-amount": "10.0"
+                }
+            }
+        ]
+    }
+}

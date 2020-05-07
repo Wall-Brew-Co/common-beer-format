@@ -1,0 +1,24 @@
+{
+    "style": {
+        "name": "Dry Stout",
+        "category": "Stout",
+        "category-number": "16",
+        "style-letter": "A",
+        "style-guide": "BJCP",
+        "version": "1",
+        "type": "Ale",
+        "og-min": "1.035",
+        "og-max": "1.050",
+        "fg-min": "1.007",
+        "fg-max": "1.011",
+        "ibu-min": "30.0",
+        "ibu-max": "50.0",
+        "color-min": "35.0",
+        "color-max": "200.0",
+        "abv-min": "3.2",
+        "abv-max": "5.5",
+        "carb-min": "1.6",
+        "carb-max": "2.1",
+        "notes": "Famous Irish Stout.  Dry, roasted, almost coffee like flavor.  Often soured with pasteurized sour beer.  Full body perception due to flaked barley, though starting gravity may be low.  Dry roasted flavor."
+    }
+}
