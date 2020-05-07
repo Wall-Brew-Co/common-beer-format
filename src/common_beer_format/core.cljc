@@ -2,15 +2,6 @@
   "A collection of handy functions to utilize the specs in this library"
   (:require [common-beer-format.parsers.json :as cbf-json]
             [common-beer-format.parsers.xml :as cbf-xml]
-            [common-beer-format.specs.equipment :as cbf-equipment]
-            [common-beer-format.specs.fermentables :as cbf-fermentables]
-            [common-beer-format.specs.hops :as cbf-hops]
-            [common-beer-format.specs.mash :as cbf-mash]
-            [common-beer-format.specs.miscs :as cbf-miscs]
-            [common-beer-format.specs.recipes :as cbf-recipes]
-            [common-beer-format.specs.styles :as cbf-styles]
-            [common-beer-format.specs.waters :as cbf-waters]
-            [common-beer-format.specs.yeasts :as cbf-yeasts]
             [common-beer-format.util :as cbf]
             [spec-tools.core :as st]))
 
