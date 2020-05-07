@@ -15,7 +15,7 @@
     :spec                (s/and string?
                                 #(not (cs/blank? %))
                                 #(contains? misc-types (cs/lower-case %)))
-    :description         "A case-insensitive string representing the type of the miscelaneous item added to the beer.
+    :description         "A case-insensitive string representing the type of the miscellaneous item added to the beer.
                           Must be one of: 'Spice', 'Fining', 'Water Agent', 'Herb', 'Flavor', and 'Other'"
     :json-schema/example "Spice"}))
 
@@ -28,7 +28,7 @@
     :spec                (s/and string?
                                 #(not (cs/blank? %))
                                 #(contains? misc-uses (cs/lower-case %)))
-    :description         "A case-insensitive string representing the point in the brewing cycle the miscelaneous ingredient is added to the beer.
+    :description         "A case-insensitive string representing the point in the brewing cycle the miscellaneous ingredient is added to the beer.
                           Must be one of: 'Boil', 'Mash', 'Primary', 'Secondary', and 'Bottling'"
     :json-schema/example "Mash"}))
 
@@ -52,7 +52,7 @@
 (s/def ::misc
   (st/spec
    {:type        :map
-    :description "A record representing a miscelaneous ingredient in a beer recipe."
+    :description "A record representing a miscellaneous ingredient in a beer recipe."
     :spec        (s/keys :req-un [::prim/name
                                   ::prim/version
                                   ::type
