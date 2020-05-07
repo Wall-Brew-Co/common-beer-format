@@ -59,7 +59,7 @@
   (st/spec
    {:type                :string
     :spec                ::prim/text
-    :description         "A non-empty string denoting the name of the assitant brewer"
+    :description         "A non-empty string denoting the name of the assistant brewer"
     :json-schema/example "Dariusz R. Jakubowski"}))
 
 (s/def ::efficiency

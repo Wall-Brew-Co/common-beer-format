@@ -44,7 +44,7 @@
   (st/spec
    {:type                :double
     :spec                ::prim/minute
-    :description         "A positive IEEE-754 floating point number representing the time in minutes to acheive the desired step temperature"
+    :description         "A positive IEEE-754 floating point number representing the time in minutes to achieve the desired step temperature"
     :json-schema/example "45.0"}))
 
 (s/def ::end-temp
