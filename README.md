@@ -1,18 +1,20 @@
 # common-beer-format
 
-**UNDER CONSTRUCTION**
+[![Clojars Project](https://img.shields.io/clojars/v/com.wallbrew/common-beer-format.svg)](https://clojars.org/com.wallbrew/common-beer-format)
+![GitHub Runner](https://github.com/Wall-Brew-Co/common-beer-format/workflows/Clojurescript%20CI/badge.svg)
 
 A Clojure(Script) implementation of the BeerXML 1.0 schema with cross-format support using Metosin's [spec-tools.](https://github.com/metosin/spec-tools)
 The library endeavors to support the data specification across JSON, XML, and EDN.
 
 ## Installation
 
-Temporary: Clone the repository and build a useable version:
-```bash
-$ git clone git@github.com:Wall-Brew-Co/common-beer-format.git
-$ cd common-beer-format
-$ lein install
-```
+A deployed copy of the most recent version of [common-beer-format can be found on clojars.](https://clojars.org/com.wallbrew/common-beer-format)
+To use it, add the following as a dependency in your project.clj file:
+
+[![Clojars Project](https://clojars.org/com.wallbrew/common-beer-format/latest-version.svg)](com.wallbrew/common-beer-format)
+
+The next time you build your application, [Leiningen](https://leiningen.org/) should pull it automatically.
+Alternatively, you may clone or fork the repository to work with it directly.
 
 ## Usage
 
