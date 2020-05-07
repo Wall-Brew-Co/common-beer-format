@@ -1,8 +1,8 @@
-(ns common-beer-format.hops
+(ns common-beer-format.specs.hops
   "The definition of a hop record used in BeerXML"
   (:require [clojure.spec.alpha :as s]
             [clojure.string :as cs]
-            [common-beer-format.primitives :as prim]
+            [common-beer-format.specs.primitives :as prim]
             [spec-tools.core :as st]))
 
 (s/def ::alpha

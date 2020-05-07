@@ -1,16 +1,16 @@
-(ns common-beer-format.recipes
+(ns common-beer-format.specs.recipes
   "The definition of a recipe record used in BeerXML"
   (:require [clojure.spec.alpha :as s]
             [clojure.string :as cs]
-            [common-beer-format.equipment :as cbf-equipment]
-            [common-beer-format.fermentables :as cbf-fermentables]
-            [common-beer-format.hops :as cbf-hops]
-            [common-beer-format.mash :as cbf-mash]
-            [common-beer-format.miscs :as cbf-miscs]
-            [common-beer-format.primitives :as prim]
-            [common-beer-format.styles :as cbf-styles]
-            [common-beer-format.waters :as cbf-waters]
-            [common-beer-format.yeasts :as cbf-yeasts]
+            [common-beer-format.specs.equipment :as cbf-equipment]
+            [common-beer-format.specs.fermentables :as cbf-fermentables]
+            [common-beer-format.specs.hops :as cbf-hops]
+            [common-beer-format.specs.mash :as cbf-mash]
+            [common-beer-format.specs.miscs :as cbf-miscs]
+            [common-beer-format.specs.primitives :as prim]
+            [common-beer-format.specs.styles :as cbf-styles]
+            [common-beer-format.specs.waters :as cbf-waters]
+            [common-beer-format.specs.yeasts :as cbf-yeasts]
             [nnichols.parse :as n-parse]
             [spec-tools.core :as st]))
 

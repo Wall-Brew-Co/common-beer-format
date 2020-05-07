@@ -1,7 +1,7 @@
-(ns common-beer-format.waters
+(ns common-beer-format.specs.waters
   "The definition of a water record used in BeerXML"
   (:require [clojure.spec.alpha :as s]
-            [common-beer-format.primitives :as prim]
+            [common-beer-format.specs.primitives :as prim]
             [spec-tools.core :as st]))
 
 (s/def ::calcium

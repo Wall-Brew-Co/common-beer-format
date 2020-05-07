@@ -1,8 +1,8 @@
-(ns common-beer-format.yeasts
+(ns common-beer-format.specs.yeasts
   "The definition of a yeast record used in BeerXML"
   (:require [clojure.spec.alpha :as s]
             [clojure.string :as cs]
-            [common-beer-format.primitives :as prim]
+            [common-beer-format.specs.primitives :as prim]
             [nnichols.parse :as n-parse]
             [spec-tools.core :as st]))
 

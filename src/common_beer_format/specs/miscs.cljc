@@ -1,8 +1,8 @@
-(ns common-beer-format.miscs
+(ns common-beer-format.specs.miscs
   "The definition of a misc record used in BeerXML"
   (:require [clojure.spec.alpha :as s]
             [clojure.string :as cs]
-            [common-beer-format.primitives :as prim]
+            [common-beer-format.specs.primitives :as prim]
             [spec-tools.core :as st]))
 
 (def ^:const misc-types

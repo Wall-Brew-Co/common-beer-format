@@ -1,4 +1,4 @@
-(ns common-beer-format.primitives
+(ns common-beer-format.specs.primitives
   "The basic definitions, units, etc. used in BeerXML"
   (:require [clojure.spec.alpha :as s]
             [clojure.string :as cs]

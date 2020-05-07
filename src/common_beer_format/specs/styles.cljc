@@ -1,8 +1,8 @@
-(ns common-beer-format.styles
+(ns common-beer-format.specs.styles
   "The definition of a style record used in BeerXML"
   (:require [clojure.spec.alpha :as s]
             [clojure.string :as cs]
-            [common-beer-format.primitives :as prim]
+            [common-beer-format.specs.primitives :as prim]
             [spec-tools.core :as st]))
 
 (s/def ::category

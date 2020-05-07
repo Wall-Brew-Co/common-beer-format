@@ -1,9 +1,9 @@
-(ns common-beer-format.fermentables
+(ns common-beer-format.specs.fermentables
   "The definition of a fermentable record used in BeerXML"
   (:require [clojure.spec.alpha :as s]
             [clojure.string :as cs]
-            [common-beer-format.primitives :as prim]
-            [nnichols.parse :as n-parse]
+            [common-beer-format.specs.primitives :as prim]
+            [common-beer-format.util :as util]
             [spec-tools.core :as st]))
 
 (def ^:const fermentable-types
@@ -39,8 +39,8 @@
     :description         "A boolean representing if the fermentable was added after the boil.
                           When absent, assume false."
     :json-schema/example "false"
-    :decode/string #(-> %2 str n-parse/parse-boolean)
-    :encode/string #(-> %2 str cs/upper-case)}))
+    :decode/string       util/decode-boolean
+    :encode/string       util/encode-boolean}))
 
 (s/def ::supplier
   (st/spec
@@ -95,8 +95,8 @@
                           Only appropriate for the 'Grain' or 'Adjunct' types.
                           When absent, assume false."
     :json-schema/example "false"
-    :decode/string #(-> %2 str n-parse/parse-boolean)
-    :encode/string #(-> %2 str cs/upper-case)}))
+    :decode/string       util/decode-boolean
+    :encode/string       util/encode-boolean}))
 
 (s/def ::ibu-gal-per-lb
   (st/spec
@@ -136,9 +136,11 @@
 
 (s/def ::fermentables
   (st/spec
-   {:type        :vector
-    :description "A vector of valid ::fermentable-wrapper records"
-    :spec        (s/coll-of #(s/valid? ::fermentable-wrapper %))}))
+   {:type          :vector
+    :description   "A vector of valid ::fermentable-wrapper records"
+    :spec          (s/coll-of #(s/valid? ::fermentable-wrapper %))
+    :decode/string #(util/decode-sequence %1 ::fermentable-wrapper %2)
+    :encode/string #(util/encode-sequence %1 ::fermentable-wrapper %2)}))
 
 (s/def ::fermentables-wrapper
   (st/spec
