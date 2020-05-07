@@ -1,9 +1,8 @@
 (ns common-beer-format.specs.equipment
   "The definition of an equipment record used in BeerXML"
   (:require [clojure.spec.alpha :as s]
-            [clojure.string :as cs]
             [common-beer-format.specs.primitives :as prim]
-            [nnichols.parse :as n-parse]
+            [common-beer-format.util :as util]
             [spec-tools.core :as st]))
 
 (s/def ::boil-size
@@ -37,7 +36,7 @@
 (s/def ::tun-specific-heat
   (st/spec
    {:type                :double
-    :spec                (s/and number? pos?)
+    :spec                number?
     :description         "A positive IEEE-754 floating point number representing the specific heat of the mashtun in Calories per gram-degree Celsius"
     :json-schema/example "0.2"}))
 
@@ -69,8 +68,8 @@
                           When absent, assume false.
                           When true, then boil-size = (batch-seze – top-up-water – trub-chiller-loss) * (1 + boil-time * evap-rate)"
     :json-schema/example "true"
-    :decode/string #(-> %2 str n-parse/parse-boolean)
-    :encode/string #(-> %2 str cs/upper-case)}))
+    :decode/string       util/decode-boolean
+    :encode/string       util/encode-boolean}))
 
 (s/def ::lauter-deadspace
   (st/spec
@@ -113,3 +112,11 @@
                                   ::top-up-kettle
                                   ::hop-utilization
                                   ::prim/notes])}))
+
+(s/def ::equipment-wrapper
+  (st/spec
+   {:type          :map
+    :description   "An ::equipment record wrapped in an ::equipment map"
+    :spec          (s/keys :req-un [::equipment])
+    :decode/string #(util/decode-wrapper %1 ::equipment %2)
+    :encode/string #(util/encode-wrapper %1 ::equipment %2)}))

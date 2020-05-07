@@ -29,7 +29,7 @@
 (s/def ::color
   (st/spec
    {:type                :double
-    :spec                (s/and number? pos?)
+    :spec                number?
     :description         "A positive IEEE-754 floating point number representing the color in SRM for the fermentable"
     :json-schema/example "32"}))
 

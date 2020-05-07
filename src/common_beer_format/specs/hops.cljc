@@ -3,6 +3,7 @@
   (:require [clojure.spec.alpha :as s]
             [clojure.string :as cs]
             [common-beer-format.specs.primitives :as prim]
+            [common-beer-format.util :as util]
             [spec-tools.core :as st]))
 
 (s/def ::alpha
@@ -127,8 +128,22 @@
                                   ::cohumulone
                                   ::myrcene])}))
 
+(s/def ::hop-wrapper
+  (st/spec
+   {:type        :map
+    :description "A ::hop record wrapped in a ::hop map"
+    :spec        (s/keys :req-un [::hop])}))
+
 (s/def ::hops
   (st/spec
-   {:type        :vector
-    :description "A vector of valid ::hop records"
-    :spec        (s/coll-of #(s/valid? ::hop %))}))
+   {:type          :vector
+    :description   "A vector of valid ::hop records"
+    :spec          (s/coll-of #(s/valid? ::hop-wrapper %))
+    :decode/string #(util/decode-sequence %1 ::hop-wrapper %2)
+    :encode/string #(util/encode-sequence %1 ::hop-wrapper %2)}))
+
+(s/def ::hops-wrapper
+  (st/spec
+   {:type        :map
+    :description "A ::hops-wrapper record"
+    :spec        (s/keys :req-un [::hops])}))

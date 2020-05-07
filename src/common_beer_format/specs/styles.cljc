@@ -3,6 +3,7 @@
   (:require [clojure.spec.alpha :as s]
             [clojure.string :as cs]
             [common-beer-format.specs.primitives :as prim]
+            [common-beer-format.util :as util]
             [spec-tools.core :as st]))
 
 (s/def ::category
@@ -78,42 +79,42 @@
 (s/def ::ibu-min
   (st/spec
    {:type                :double
-    :spec                (s/and number? pos?)
+    :spec                number?
     :description         "A positive IEEE-754 floating point number representing the minimum bitterness in IBUs for the style"
     :json-schema/example "32"}))
 
 (s/def ::ibu-max
   (st/spec
    {:type                :double
-    :spec                (s/and number? pos?)
+    :spec                number?
     :description         "A positive IEEE-754 floating point number representing the maximum bitterness in IBUs for the style"
     :json-schema/example "40"}))
 
 (s/def ::color-min
   (st/spec
    {:type                :double
-    :spec                (s/and number? pos?)
+    :spec                number?
     :description         "A positive IEEE-754 floating point number representing the lightest color in SRM for the style"
     :json-schema/example "32"}))
 
 (s/def ::color-max
   (st/spec
    {:type                :double
-    :spec                (s/and number? pos?)
+    :spec                number?
     :description         "A positive IEEE-754 floating point number representing the darkest color in SRM for the style"
     :json-schema/example "40"}))
 
 (s/def ::carb-min
   (st/spec
    {:type                :double
-    :spec                (s/and number? pos?)
+    :spec                number?
     :description         "A positive IEEE-754 floating point number representing the minimum carbonation for this style in volumes of CO2"
     :json-schema/example "1.5"}))
 
 (s/def ::carb-max
   (st/spec
    {:type                :double
-    :spec                (s/and number? pos?)
+    :spec                number?
     :description         "A positive IEEE-754 floating point number representing the maximum carbonation for this style in volumes of CO2"
     :json-schema/example "2.2"}))
 
@@ -180,8 +181,22 @@
                                   ::ingredients
                                   ::examples])}))
 
+(s/def ::style-wrapper
+  (st/spec
+   {:type        :map
+    :description "A ::style record wrapped in a ::style map"
+    :spec        (s/keys :req-un [::style])}))
+
 (s/def ::styles
   (st/spec
-   {:type        :vector
-    :description "A vector of valid ::style records"
-    :spec        (s/coll-of #(s/valid? ::style %))}))
+   {:type          :vector
+    :description   "A vector of valid ::style records"
+    :spec          (s/coll-of #(s/valid? ::style-wrapper %))
+    :decode/string #(util/decode-sequence %1 ::style-wrapper %2)
+    :encode/string #(util/encode-sequence %1 ::style-wrapper %2)}))
+
+(s/def ::styles-wrapper
+  (st/spec
+   {:type        :map
+    :description "A ::styles-wrapper record"
+    :spec        (s/keys :req-un [::styles])}))

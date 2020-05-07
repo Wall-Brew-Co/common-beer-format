@@ -2,21 +2,21 @@
   "The basic definitions, units, etc. used in BeerXML"
   (:require [clojure.spec.alpha :as s]
             [clojure.string :as cs]
-            [nnichols.parse :as n-parse]
+            [common-beer-format.util :as util]
             [nnichols.predicate :as np]
             [spec-tools.core :as st]))
 
 (s/def ::kilogram
   (st/spec
    {:type                :double
-    :spec                (s/and number? pos?)
+    :spec                number?
     :description         "A positive IEEE-754 floating point number representing weight in kilograms"
     :json-schema/example "10.7"}))
 
 (s/def ::liter
   (st/spec
    {:type                :double
-    :spec                (s/and number? pos?)
+    :spec                number?
     :description         "A positive IEEE-754 floating point number representing volume in liters"
     :json-schema/example "12.3"}))
 
@@ -30,28 +30,28 @@
 (s/def ::minute
   (st/spec
    {:type                :double
-    :spec                (s/and number? pos?)
+    :spec                number?
     :description         "A positive IEEE-754 floating point number representing time in minutes"
     :json-schema/example "45.0"}))
 
 (s/def ::specific-gravity
   (st/spec
    {:type                :double
-    :spec                (s/and number? pos?)
+    :spec                number?
     :description         "A positive IEEE-754 floating point number representing the specific gravity relative to the weight of the same size sample of water"
     :json-schema/example "1.045"}))
 
 (s/def ::kilopascal
   (st/spec
    {:type                :double
-    :spec                (s/and number? pos?)
+    :spec                number?
     :description         "A positive IEEE-754 floating point number representing pressure in kilopascals"
     :json-schema/example "101.325"}))
 
 (s/def ::percent
   (st/spec
    {:type                :double
-    :spec                (s/and number? pos?)
+    :spec                number?
     :description         "A positive IEEE-754 floating point number representing a human-readable percentage - e.g 5.5"
     :json-schema/example "4.5"}))
 
@@ -60,8 +60,8 @@
    {:spec                np/boolean?
     :description         "A boolean logic value of true or false"
     :json-schema/example "false"
-    :decode/string #(-> %2 str n-parse/parse-boolean)
-    :encode/string #(-> %2 str cs/upper-case)}))
+    :decode/string       util/decode-boolean
+    :encode/string       util/encode-boolean}))
 
 (s/def ::text
   (st/spec
@@ -118,4 +118,6 @@
     :spec                ::boolean
     :description         "A boolean representing if the amount of the substance is measured in kilograms.
                           When absent, assume false and that the amount of substance is measured in liters."
-    :json-schema/example "false"}))
+    :json-schema/example "false"
+    :decode/string       util/decode-boolean
+    :encode/string       util/encode-boolean}))

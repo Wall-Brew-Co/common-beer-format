@@ -11,7 +11,7 @@
             [common-beer-format.specs.styles :as cbf-styles]
             [common-beer-format.specs.waters :as cbf-waters]
             [common-beer-format.specs.yeasts :as cbf-yeasts]
-            [nnichols.parse :as n-parse]
+            [common-beer-format.util :as util]
             [spec-tools.core :as st]))
 
 (def ^:const recipe-types
@@ -107,7 +107,7 @@
 (s/def ::primary-age
   (st/spec
    {:type                :double
-    :spec                (s/and number? pos?)
+    :spec                number?
     :description         "A positive IEEE-754 floating point number representing the number of days spent in primary fermentation"
     :json-schema/example "12.0"}))
 
@@ -121,7 +121,7 @@
 (s/def ::secondary-age
   (st/spec
    {:type                :double
-    :spec                (s/and number? pos?)
+    :spec                number?
     :description         "A positive IEEE-754 floating point number representing the number of days spent in secondary fermentation"
     :json-schema/example "12.0"}))
 
@@ -135,7 +135,7 @@
 (s/def ::tertiary-age
   (st/spec
    {:type                :double
-    :spec                (s/and number? pos?)
+    :spec                number?
     :description         "A positive IEEE-754 floating point number representing the number of days spent in tertiary fermentation"
     :json-schema/example "12.0"}))
 
@@ -149,7 +149,7 @@
 (s/def ::age
   (st/spec
    {:type                :double
-    :spec                (s/and number? pos?)
+    :spec                number?
     :description         "A positive IEEE-754 floating point number representing the number of days to bottle age the beer"
     :json-schema/example "12.0"}))
 
@@ -171,7 +171,7 @@
 (s/def ::carbonation
   (st/spec
    {:type                :double
-    :spec                (s/and number? pos?)
+    :spec                number?
     :description         "A positive IEEE-754 floating point number representing the carbonation for this recipe in volumes of CO2"
     :json-schema/example "1.5"}))
 
@@ -181,8 +181,8 @@
     :description         "A boolean representing if this batch was force carbonated with CO2 pressure..
                           When absent, assume false."
     :json-schema/example "false"
-    :decode/string #(-> %2 str n-parse/parse-boolean)
-    :encode/string #(-> %2 str cs/upper-case)}))
+    :decode/string       util/decode-boolean
+    :encode/string       util/encode-boolean}))
 
 (s/def ::priming-sugar-name
   (st/spec
@@ -255,8 +255,22 @@
                                   ::priming-sugar-equic
                                   ::keg-priming-factor])}))
 
+(s/def ::recipe-wrapper
+  (st/spec
+   {:type        :map
+    :description "A ::recipe record wrapped in a ::recipes map"
+    :spec        (s/keys :req-un [::recipe])}))
+
 (s/def ::recipes
   (st/spec
-   {:type        :vector
-    :description "A vector of valid ::recipe records"
-    :spec        (s/coll-of #(s/valid? ::recipe %))}))
+   {:type          :vector
+    :description   "A vector of valid ::recipe records"
+    :spec          (s/coll-of #(s/valid? ::recipe-wrapper %))
+    :decode/string #(util/decode-sequence %1 ::recipe-wrapper %2)
+    :encode/string #(util/encode-sequence %1 ::recipe-wrapper %2)}))
+
+(s/def ::recipes-wrapper
+  (st/spec
+   {:type        :map
+    :description "A ::recipes-wrapper record"
+    :spec        (s/keys :req-un [::recipes])}))

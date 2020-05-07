@@ -3,7 +3,7 @@
   (:require [clojure.spec.alpha :as s]
             [clojure.string :as cs]
             [common-beer-format.specs.primitives :as prim]
-            [nnichols.parse :as n-parse]
+            [common-beer-format.util :as util]
             [spec-tools.core :as st]))
 
 (def ^:const mash-step-types
@@ -67,11 +67,19 @@
                          :opt-un [::ramp-time
                                   ::end-temp])}))
 
+(s/def ::mash-step-wrapper
+  (st/spec
+   {:type        :map
+    :description "A ::mash record wrapped in a ::mash map"
+    :spec        (s/keys :req-un [::mash-step])}))
+
 (s/def ::mash-steps
   (st/spec
-   {:type        :vector
-    :description "A vector of valid ::mash-step records"
-    :spec        (s/coll-of #(s/valid? ::mash-step %))}))
+   {:type          :vector
+    :description   "A vector of valid ::mash-step records"
+    :spec          (s/coll-of #(s/valid? ::mash-step-wrapper %))
+    :decode/string #(util/decode-sequence %1 ::mash-step-wrapper %2)
+    :encode/string #(util/encode-sequence %1 ::mash-step-wrapper %2)}))
 
 (s/def ::grain-temp
   (st/spec
@@ -111,7 +119,7 @@
 (s/def ::tun-specific-heat
   (st/spec
    {:type                :double
-    :spec                (s/and number? pos?)
+    :spec                number?
     :description         "A positive IEEE-754 floating point number representing the specific heat of the mashtun in Calories per gram-degree Celsius"
     :json-schema/example "0.2"}))
 
@@ -121,8 +129,8 @@
     :description         "A boolean denoting whether or not programs should account for the temperature effects of the equipment used.
                           When absent, assume false."
     :json-schema/example "true"
-    :decode/string #(-> %2 str n-parse/parse-boolean)
-    :encode/string #(-> %2 str cs/upper-case)}))
+    :decode/string       util/decode-boolean
+    :encode/string       util/encode-boolean}))
 
 (s/def ::mash
   (st/spec
@@ -139,3 +147,9 @@
                                   ::tun-weight
                                   ::tun-specific-heat
                                   ::equip-adjust])}))
+
+(s/def ::mash-wrapper
+  (st/spec
+   {:type        :map
+    :description "A ::mash-wrapper record"
+    :spec        (s/keys :req-un [::mash])}))

@@ -2,6 +2,7 @@
   "The definition of a water record used in BeerXML"
   (:require [clojure.spec.alpha :as s]
             [common-beer-format.specs.primitives :as prim]
+            [common-beer-format.util :as util]
             [spec-tools.core :as st]))
 
 (s/def ::calcium
@@ -69,8 +70,22 @@
                          :opt-un [::ph
                                   ::prim/notes])}))
 
+(s/def ::water-wrapper
+  (st/spec
+   {:type        :map
+    :description "A ::water record wrapped in a ::water map"
+    :spec        (s/keys :req-un [::water])}))
+
 (s/def ::waters
   (st/spec
-   {:type        :vector
-    :description "A vector of valid ::water records"
-    :spec        (s/coll-of #(s/valid? ::water %))}))
+   {:type          :vector
+    :description   "A vector of valid ::water records"
+    :spec          (s/coll-of #(s/valid? ::water-wrapper %))
+    :decode/string #(util/decode-sequence %1 ::water-wrapper %2)
+    :encode/string #(util/encode-sequence %1 ::water-wrapper %2)}))
+
+(s/def ::waters-wrapper
+  (st/spec
+   {:type        :map
+    :description "A ::waterss-wrapper record"
+    :spec        (s/keys :req-un [::waters])}))

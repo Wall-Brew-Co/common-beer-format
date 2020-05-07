@@ -3,6 +3,7 @@
   (:require [clojure.spec.alpha :as s]
             [clojure.string :as cs]
             [common-beer-format.specs.primitives :as prim]
+            [common-beer-format.util :as util]
             [spec-tools.core :as st]))
 
 (def ^:const misc-types
@@ -62,8 +63,22 @@
                                   ::use-for
                                   ::prim/notes])}))
 
+(s/def ::misc-wrapper
+  (st/spec
+   {:type        :map
+    :description "A ::misc record wrapped in a :misc map"
+    :spec        (s/keys :req-un [::misc])}))
+
 (s/def ::miscs
   (st/spec
-   {:type        :vector
-    :description "A vector of valid ::misc records"
-    :spec        (s/coll-of #(s/valid? ::misc %))}))
+   {:type          :vector
+    :description   "A vector of valid ::misc records"
+    :spec          (s/coll-of #(s/valid? ::misc-wrapper %))
+    :decode/string #(util/decode-sequence %1 ::misc-wrapper %2)
+    :encode/string #(util/encode-sequence %1 ::misc-wrapper %2)}))
+
+(s/def ::miscs-wrapper
+  (st/spec
+   {:type        :map
+    :description "A ::miscs record"
+    :spec        (s/keys :req-un [::miscs])}))
