@@ -1,12 +1,14 @@
 (ns common-beer-format.parsers.json
   "Functions to translate between BeerJSON and common-beer-format"
-  (:require #?(:clj [clojure.data.json :as json])))
+  (:require [common-beer-format.util :as util]
+            #?(:clj [clojure.data.json :as json])))
 
 (defn parse-beer-json
   "Convert the results of clojure parsed json into cleaner EDN"
   [json-doc]
-  #?(:clj  (json/read-str json-doc :key-fn keyword))
-  #?(:cljs (js->clj json-doc :keywordize-keys true)))
+  (let [clean-json (util/deformat json-doc)]
+    #?(:clj  (json/read-str clean-json :key-fn keyword))
+    #?(:cljs (js->clj clean-json :keywordize-keys true))))
 
 (defn emit-beer-json
   "Restructure EDN to the expected structure for clojure.data.json"

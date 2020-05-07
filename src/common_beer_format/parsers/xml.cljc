@@ -1,6 +1,7 @@
 (ns common-beer-format.parsers.xml
   "Functions to translate between BeerXML and common-beer-format"
   (:require [clojure.data.xml :as xml]
+            [common-beer-format.util :as util]
             [nnichols.xml :as nx]))
 
 (defn beer-xml->common-beer-format
@@ -16,7 +17,7 @@
 (defn parse-beer-xml
   "Parse an XML resource as defined by clojure.data.xml, and return the equivalent EDN."
   [xml-doc]
-  (beer-xml->common-beer-format (xml/parse-str xml-doc)))
+  (beer-xml->common-beer-format (xml/parse-str (util/deformat xml-doc))))
 
 (defn emit-beer-xml
   "Restructure common-beer-format EDN into emitted XML."
