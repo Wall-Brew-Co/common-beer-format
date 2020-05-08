@@ -61,7 +61,10 @@
                                   ::prim/amount]
                          :opt-un [::prim/amount-is-weight
                                   ::use-for
-                                  ::prim/notes])}))
+                                  ::prim/notes
+                                  ::prim/display-amount
+                                  ::prim/inventory
+                                  ::prim/display-time])}))
 
 (s/def ::misc-wrapper
   (st/spec

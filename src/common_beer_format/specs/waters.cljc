@@ -68,7 +68,8 @@
                                   ::sodium
                                   ::magnesium]
                          :opt-un [::ph
-                                  ::prim/notes])}))
+                                  ::prim/notes
+                                  ::prim/display-amount])}))
 
 (s/def ::water-wrapper
   (st/spec

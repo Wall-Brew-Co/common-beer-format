@@ -111,6 +111,27 @@
     :decode/string       util/decode-boolean
     :encode/string       util/encode-boolean}))
 
+(s/def ::disp-min-temp
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the minimum fermentation temperature formatted for display in arbitrary units"
+    :json-schema/example "68F"}))
+
+(s/def ::disp-max-temp
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the maximum fermentation temperature formatted for display in arbitrary units"
+    :json-schema/example "75F"}))
+
+(s/def ::culture-date
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the date the yeast sample was last cultured formatted for display in arbitrary structure"
+    :json-schema/example "10/10/2020"}))
+
 (s/def ::yeast
   (st/spec
    {:type        :map
@@ -131,7 +152,12 @@
                                   ::best-for
                                   ::times-cultured
                                   ::max-reuse
-                                  ::add-to-secondary])}))
+                                  ::add-to-secondary
+                                  ::prim/display-amount
+                                  ::disp-min-temp
+                                  ::disp-max-temp
+                                  ::prim/inventory
+                                  ::culture-date])}))
 
 (s/def ::yeast-wrapper
   (st/spec

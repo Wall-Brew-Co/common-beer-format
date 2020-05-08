@@ -121,3 +121,24 @@
     :json-schema/example "false"
     :decode/string       util/decode-boolean
     :encode/string       util/encode-boolean}))
+
+(s/def ::display-amount
+  (st/spec
+   {:type                :string
+    :spec                ::text
+    :description         "A non-empty string denoting a display value for the amount of the ingredient in a recipe formatted for display in arbitrary units"
+    :json-schema/example "100 g"}))
+
+(s/def ::inventory
+  (st/spec
+   {:type                :string
+    :spec                ::text
+    :description         "A non-empty string denoting a display value for the amount of the ingredient in inventory formatted for display in arbitrary units"
+    :json-schema/example "100 lbs"}))
+
+(s/def ::display-time
+  (st/spec
+   {:type                :string
+    :spec                ::text
+    :description         "A non-empty string denoting a display value for an amount of time formatted for display in arbitrary units"
+    :json-schema/example "10 days"}))

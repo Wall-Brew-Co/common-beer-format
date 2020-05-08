@@ -4,7 +4,7 @@
 ![GitHub Runner](https://github.com/Wall-Brew-Co/common-beer-format/workflows/Clojurescript%20CI/badge.svg)
 
 A Clojure(Script) implementation of the BeerXML 1.0 schema with cross-format support using Metosin's [spec-tools.](https://github.com/metosin/spec-tools)
-The library endeavors to support the data specification across JSON, XML, and EDN.
+The library endeavors to support the data specification across JSON, XML, and EDN, and includes all optional fields in the core BeerXML spec.
 
 ## Installation
 
