@@ -153,6 +153,90 @@
     :description         "A non-empty string denoting example beers of this style"
     :json-schema/example "Every overly citrus IPA on the market"}))
 
+(s/def ::display-og-min
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the minimum original gravity formatted for display in arbitrary units"
+    :json-schema/example "1.036sg"}))
+
+(s/def ::display-og-max
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the maximum original gravity formatted for display in arbitrary units"
+    :json-schema/example "1.050sg"}))
+
+(s/def ::display-fg-min
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the minimum final gravity formatted for display in arbitrary units"
+    :json-schema/example "1.036sg"}))
+
+(s/def ::display-fg-max
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the maximum final gravity formatted for display in arbitrary units"
+    :json-schema/example "1.050sg"}))
+
+(s/def ::display-color-min
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the minimum color formatted for display in arbitrary units"
+    :json-schema/example "32SRM"}))
+
+(s/def ::display-color-max
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the maximum color formatted for display in arbitrary units"
+    :json-schema/example "40 SRM"}))
+
+(s/def ::og-range
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the range of original gravities formatted for display in arbitrary units"
+    :json-schema/example "1.036sg-1.050sg"}))
+
+(s/def ::fg-range
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the range of final gravities formatted for display in arbitrary units"
+    :json-schema/example "1.036sg-1.050sg"}))
+
+(s/def ::ibu-range
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the range of International Bittering Units formatted for display in arbitrary units"
+    :json-schema/example "10-20IBUs"}))
+
+(s/def ::carb-range
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the range of carbonation volumes formatted for display in arbitrary units"
+    :json-schema/example "2.0-2.6 vols CO2"}))
+
+(s/def ::color-range
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the range of colors formatted for display in arbitrary units"
+    :json-schema/example "10 - 22 SRM"}))
+
+(s/def ::abv-range
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the range of ABV levels formatted for display in arbitrary units"
+    :json-schema/example "8.0-11.2%"}))
+
 (s/def ::style
   (st/spec
    {:type        :map
@@ -179,7 +263,19 @@
                                   ::prim/notes
                                   ::profile
                                   ::ingredients
-                                  ::examples])}))
+                                  ::examples
+                                  ::display-og-min
+                                  ::display-og-max
+                                  ::display-fg-min
+                                  ::display-fg-max
+                                  ::display-color-min
+                                  ::display-color-max
+                                  ::og-range
+                                  ::fg-range
+                                  ::ibu-range
+                                  ::carb-range
+                                  ::color-range
+                                  ::abv-range])}))
 
 (s/def ::style-wrapper
   (st/spec

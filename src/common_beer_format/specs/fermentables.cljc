@@ -106,6 +106,20 @@
                           Only appropriate for the 'Extract' type."
     :json-schema/example "12.5"}))
 
+(s/def ::potential
+  (st/spec
+   {:type                :double
+    :spec                ::prim/specific-gravity
+    :description         "A positive IEEE-754 floating point number representing the potential yield in specific gravity units of the ingredient"
+    :json-schema/example "1.048"}))
+
+(s/def ::display-color
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the color of the ingredient formatted for display in arbitrary units"
+    :json-schema/example "200 Lovibond"}))
+
 (s/def ::fermentable
   (st/spec
    {:type        :map
@@ -126,7 +140,11 @@
                                   ::protein
                                   ::max-in-batch
                                   ::recommend-mash
-                                  ::ibu-gal-per-lb])}))
+                                  ::ibu-gal-per-lb
+                                  ::prim/display-amount
+                                  ::potential
+                                  ::prim/inventory
+                                  ::display-color])}))
 
 (s/def ::fermentable-wrapper
   (st/spec

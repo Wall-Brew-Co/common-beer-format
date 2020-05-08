@@ -126,7 +126,10 @@
                                   ::humulene
                                   ::caryophyllene
                                   ::cohumulone
-                                  ::myrcene])}))
+                                  ::myrcene
+                                  ::prim/display-amount
+                                  ::prim/inventory
+                                  ::prim/display-time])}))
 
 (s/def ::hop-wrapper
   (st/spec

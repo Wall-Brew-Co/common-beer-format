@@ -92,6 +92,62 @@
     :description         "A positive IEEE-754 floating point number representing the percentage of large batch hop utilization"
     :json-schema/example "1.2"}))
 
+(s/def ::display-boil-size
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the pre-boil volume formatted for display in arbitrary units"
+    :json-schema/example "5.0 gallons"}))
+
+(s/def ::display-batch-size
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the pre-permentation volume formatted for display in arbitrary units"
+    :json-schema/example "4.5 gallons"}))
+
+(s/def ::display-tun-volume
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the volume capacity of the mash tun formatted for display in arbitrary units"
+    :json-schema/example "20 liters"}))
+
+(s/def ::display-tun-weight
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the empty weight of the mash tun formatted for display in arbitrary units"
+    :json-schema/example "5.5 pounds"}))
+
+(s/def ::display-top-up-water
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the volume of top-up water added before fermentation formatted for display in arbitrary units"
+    :json-schema/example "2.2 liters"}))
+
+(s/def ::display-trub-chiller-loss
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the volume of wort lost in transition between boiler and fermentation vessel formatted for display in arbitrary units"
+    :json-schema/example "2.2 liters"}))
+
+(s/def ::display-lauter-deadspace
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the volume of wort lost in the lauter vessel formatted for display in arbitrary units"
+    :json-schema/example "2.2 liters"}))
+
+(s/def ::display-top-up-kettle
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the top-up water added to the pre-boil stage of the kettle formatted for display in arbitrary units"
+    :json-schema/example "2.2 liters"}))
+
 (s/def ::equipment
   (st/spec
    {:type        :map
@@ -111,7 +167,15 @@
                                   ::lauter-deadspace
                                   ::top-up-kettle
                                   ::hop-utilization
-                                  ::prim/notes])}))
+                                  ::prim/notes
+                                  ::display-boil-size
+                                  ::display-batch-size
+                                  ::display-tun-volume
+                                  ::display-tun-weight
+                                  ::display-top-up-water
+                                  ::display-trub-chiller-loss
+                                  ::display-lauter-deadspace
+                                  ::display-top-up-kettle])}))
 
 (s/def ::equipment-wrapper
   (st/spec

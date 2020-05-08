@@ -54,6 +54,48 @@
     :description         "A positive IEEE-754 floating point number representing the temperature of the mash after the step has completed"
     :json-schema/example "80"}))
 
+(s/def ::description
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string describing the mash step"
+    :json-schema/example "Stir your grain bag carefully at 140F"}))
+
+(s/def ::water-grain-ratio
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the water:grain ratio after infusion formatted for display in arbitrary units"
+    :json-schema/example "1.5qt/lb"}))
+
+(s/def ::decoction-amt
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the calculated volume of mash to decoct formatted for display in arbitrary units"
+    :json-schema/example "7.5 liters"}))
+
+(s/def ::infuse-temp
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the temperature of an infusion step formatted for display in arbitrary units"
+    :json-schema/example "150F"}))
+
+(s/def ::display-step-temp
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the temperature of an arbitrary step formatted for display in arbitrary units"
+    :json-schema/example "150F"}))
+
+(s/def ::display-infuse-amt
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the volume of infused liquid formatted for display in arbitrary units"
+    :json-schema/example "2.2L"}))
+
 (s/def ::mash-step
   (st/spec
    {:type        :map
@@ -65,7 +107,13 @@
                                   ::step-temp
                                   ::step-time]
                          :opt-un [::ramp-time
-                                  ::end-temp])}))
+                                  ::end-temp
+                                  ::description
+                                  ::water-grain-ratio
+                                  ::decoction-amt
+                                  ::infuse-temp
+                                  ::display-step-temp
+                                  ::display-infuse-amt])}))
 
 (s/def ::mash-step-wrapper
   (st/spec
@@ -132,6 +180,34 @@
     :decode/string       util/decode-boolean
     :encode/string       util/encode-boolean}))
 
+(s/def ::display-grain-temp
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for grain temperature formatted for display in arbitrary units"
+    :json-schema/example "72F"}))
+
+(s/def ::display-tun-temp
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for mash tun temperature formatted for display in arbitrary units"
+    :json-schema/example "72F"}))
+
+(s/def ::display-sparge-temp
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for sparging process temperature formatted for display in arbitrary units"
+    :json-schema/example "172F"}))
+
+(s/def ::display-tun-weight
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for mash tun weight formatted for display in arbitrary units"
+    :json-schema/example "72lbs"}))
+
 (s/def ::mash
   (st/spec
    {:type        :map
@@ -146,7 +222,11 @@
                                   ::ph
                                   ::tun-weight
                                   ::tun-specific-heat
-                                  ::equip-adjust])}))
+                                  ::equip-adjust
+                                  ::display-grain-temp
+                                  ::display-tun-temp
+                                  ::display-sparge-temp
+                                  ::display-tun-weight])}))
 
 (s/def ::mash-wrapper
   (st/spec

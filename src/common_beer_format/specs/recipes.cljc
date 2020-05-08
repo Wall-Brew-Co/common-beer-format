@@ -212,6 +212,145 @@
     :description         "An IEEE-754 floating point number representing the conversion factor of sugar needed to prime carbonation in large containers."
     :json-schema/example "1.5"}))
 
+(s/def ::est-og
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string describing the calculated estimated original gravity formatted for display in arbitrary units"
+    :json-schema/example "1.050sg"}))
+
+(s/def ::est-fg
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string describing the calculated estimated final gravity formatted for display in arbitrary units"
+    :json-schema/example "1.050sg"}))
+
+(s/def ::est-color
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string describing the calculated color formatted for display in arbitrary units"
+    :json-schema/example "30SRM"}))
+
+(s/def ::ibu
+  (st/spec
+   {:type                :double
+    :spec                number?
+    :description         "A positive IEEE-754 floating point number representing the bitterness in IBUs for the recipe"
+    :json-schema/example "40"}))
+
+(def ^:const ibu-method-types
+  #{"rager" "tinseth" "garetz"})
+
+(s/def ::ibu-method
+  (st/spec
+   {:type                :string
+    :spec                (s/and string?
+                                #(not (cs/blank? %))
+                                #(contains? ibu-method-types (cs/lower-case %)))
+    :description         "A case-insensitive string representing the method of calculation used derive the IBUs.
+                          Must be one of: 'Rager', 'Tinseth', and 'Garetz'"
+    :json-schema/example "Garetz"}))
+
+(s/def ::est-abv
+  (st/spec
+   {:type                :double
+    :spec                ::prim/percent
+    :description         "A positive IEEE-754 floating point number representing the estimated ABV for the recipe"
+    :json-schema/example "40"}))
+
+(s/def ::abv
+  (st/spec
+   {:type                :double
+    :spec                ::prim/percent
+    :description         "A positive IEEE-754 floating point number representing the actual ABV for the recipe"
+    :json-schema/example "40"}))
+
+(s/def ::actual-efficiency
+  (st/spec
+   {:type                :double
+    :spec                ::prim/percent
+    :description         "A positive IEEE-754 floating point number representing the actual conversion efficiency between the measured final and original gravities"
+    :json-schema/example "40"}))
+
+(s/def ::calories
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string describing the number of dietary calories per serving of this recipe"
+    :json-schema/example "180 Cal / pint"}))
+
+(s/def ::display-boil-size
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the pre-boil volume formatted for display in arbitrary units"
+    :json-schema/example "5.0 gallons"}))
+
+(s/def ::display-batch-size
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the pre-permentation volume formatted for display in arbitrary units"
+    :json-schema/example "4.5 gallons"}))
+
+(s/def ::display-og
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the pre-permentation gravity formatted for display in arbitrary units"
+    :json-schema/example "1.050sg"}))
+
+(s/def ::display-fg
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the post-permentation gravity formatted for display in arbitrary units"
+    :json-schema/example "1.050sg"}))
+
+(s/def ::display-primary-temp
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the temperature of the primary fermentation step formatted for display in arbitrary units"
+    :json-schema/example "68F"}))
+
+(s/def ::display-secondary-temp
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the temperature of the secondary fermentation step formatted for display in arbitrary units"
+    :json-schema/example "68F"}))
+
+(s/def ::display-tertiary-temp
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the temperature of the tertiary fermentation step formatted for display in arbitrary units"
+    :json-schema/example "68F"}))
+
+(s/def ::display-age-temp
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the temperature of the aging step formatted for display in arbitrary units"
+    :json-schema/example "68F"}))
+
+(s/def ::carbonation-used
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the carbonation measures used formatted for display in arbitrary units"
+    :json-schema/example "Kegged at 1.36 atmospheres"}))
+
+(s/def ::display-carb-temp
+  (st/spec
+   {:type                :string
+    :spec                ::prim/text
+    :description         "A non-empty string denoting a display value for the temperature of the bottling step formatted for display in arbitrary units"
+    :json-schema/example "68F"}))
+
 (s/def ::recipe
   (st/spec
    {:type        :map
@@ -253,7 +392,26 @@
                                   ::priming-sugar-name
                                   ::carbonation-temp
                                   ::priming-sugar-equic
-                                  ::keg-priming-factor])}))
+                                  ::keg-priming-factor
+                                  ::est-og
+                                  ::est-fg
+                                  ::est-color
+                                  ::ibu
+                                  ::ibu-method
+                                  ::est-abv
+                                  ::abv
+                                  ::actual-efficiency
+                                  ::calories
+                                  ::display-batch-size
+                                  ::display-boil-size
+                                  ::display-og
+                                  ::display-fg
+                                  ::display-primary-temp
+                                  ::display-secondary-temp
+                                  ::display-tertiary-temp
+                                  ::display-age-temp
+                                  ::carbonation-used
+                                  ::display-carb-temp])}))
 
 (s/def ::recipe-wrapper
   (st/spec
