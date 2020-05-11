@@ -24,7 +24,7 @@
    {:type                :double
     :spec                ::prim/percent
     :description         "A positive IEEE-754 floating point number representing the percent rendered sugar from the fermentable"
-    :json-schema/example "85.6"}))
+    :json-schema/example "0.856"}))
 
 (s/def ::color
   (st/spec
@@ -55,7 +55,7 @@
     :spec                ::prim/percent
     :description         "A positive IEEE-754 floating point number representing the percent difference between the coarse grain yield and fine grain yield.
                           Only appropriate for the 'Grain' or 'Adjunct' types."
-    :json-schema/example "85.6"}))
+    :json-schema/example "0.856"}))
 
 (s/def ::moisture
   (st/spec
@@ -63,7 +63,7 @@
     :spec                ::prim/percent
     :description         "A positive IEEE-754 floating point number representing the percent moisture in the grain.
                           Only appropriate for the 'Grain' or 'Adjunct' types."
-    :json-schema/example "85.6"}))
+    :json-schema/example "0.45"}))
 
 (s/def ::diastatic-power
   (st/spec
@@ -71,7 +71,7 @@
     :spec                number?
     :description         "A positive IEEE-754 floating point number representing the diastatic power of the grain in Lintner units.
                           Only appropriate for the 'Grain' or 'Adjunct' types."
-    :json-schema/example "85.6"}))
+    :json-schema/example "0.65"}))
 
 (s/def ::protein
   (st/spec
@@ -79,14 +79,14 @@
     :spec                ::prim/percent
     :description         "A positive IEEE-754 floating point number representing the protein contents of the grain.
                           Only appropriate for the 'Grain' or 'Adjunct' types."
-    :json-schema/example "85.6"}))
+    :json-schema/example "0.10"}))
 
 (s/def ::max-in-batch
   (st/spec
    {:type                :double
     :spec                ::prim/percent
     :description         "A positive IEEE-754 floating point number representing the suggested maximum percent by weight of the fermentable with respect to all fermentables."
-    :json-schema/example "60.5"}))
+    :json-schema/example "1.0"}))
 
 (s/def ::recommend-mash
   (st/spec
