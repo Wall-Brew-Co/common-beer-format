@@ -152,6 +152,12 @@ For example, CTZ hops may also be called Zeus hops.
 
 If we've missed an ingredient you'd like to see in common-beer-format, you can fork the repository and open a pull request or [suggest it here.](https://github.com/Wall-Brew-Co/common-beer-format/issues/new?template=data_request.md)
 
+### Further Reading
+
+For more in-depth information about the specs defined within common-beer-format, view their individual documentation pages.
+
+* [Fermentables](https://github.com/Wall-Brew-Co/common-beer-format/blob/documentation/doc/fermentables.md)
+
 ## License
 
 Copyright © 2020 - [Wall Brew Co](https://wallbrew.com/)
