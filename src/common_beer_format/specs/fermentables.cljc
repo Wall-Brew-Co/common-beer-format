@@ -30,7 +30,7 @@
   (st/spec
    {:type                :double
     :spec                number?
-    :description         "A positive IEEE-754 floating point number representing the color in SRM for the fermentable"
+    :description         "A positive IEEE-754 floating point number representing the color in Lovibond for the grain type, and SRM for all other types for the fermentable"
     :json-schema/example "32"}))
 
 (s/def ::add-after-boil
