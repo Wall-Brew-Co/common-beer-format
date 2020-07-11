@@ -2,6 +2,7 @@
 *.iml
 *.jar
 *.DS_Store
+*.vscode
 ._*
 .hg/
 .hgignore

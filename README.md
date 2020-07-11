@@ -140,6 +140,16 @@ This was chosen intentionally for two reasons:
 
 For Clojure-only use cases, several streaming functions have been created in the respective namespaces.
 
+## Ingredients
+
+common-beer-format also comes pre-packaged with many of the most common brewing ingredients used.
+These can safely be used by consumers of the library for computational brewing; however, several assumptions were necessary in the encoding of data.
+In general, the ingredient quantities and stock amounts have been hard-coded to 0 - so be sure to update these fields with the amounts you'd like to brew with or keep on hand.
+Other assumptions, such as the physical form of the ingredient, may also need to be updated based on your brewing case.
+The assumptions are called out in the functions named `build-adjunct`, `build-hop`, etc in their respective namespaces.
+Finally, each canonical ingredient is intended to exist exactly once within the library, but alternative names may be found in the ingredient's `::notes`.
+For example, CTZ hops may also be called Zeus hops.
+
 ## License
 
 Copyright © 2020 - [Wall Brew Co](https://wallbrew.com/)
