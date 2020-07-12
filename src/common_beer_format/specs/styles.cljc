@@ -123,14 +123,14 @@
    {:type                :double
     :spec                ::prim/percent
     :description         "A positive IEEE-754 floating point number representing the minimum recommended ABV percentage for the style"
-    :json-schema/example "3.2"}))
+    :json-schema/example "0.032"}))
 
 (s/def ::abv-max
   (st/spec
    {:type                :double
     :spec                ::prim/percent
     :description         "A positive IEEE-754 floating point number representing the maximum recommended ABV percentage for the style"
-    :json-schema/example "4.0"}))
+    :json-schema/example "0.04"}))
 
 (s/def ::profile
   (st/spec
