@@ -140,7 +140,7 @@ This was chosen intentionally for two reasons:
 
 For Clojure-only use cases, several streaming functions have been created in the respective namespaces.
 
-## Ingredients
+## Pre-Packaged Data
 
 common-beer-format also comes pre-packaged with many of the most common brewing ingredients used.
 These can safely be used by consumers of the library for computational brewing; however, several assumptions were necessary in the encoding of data.
