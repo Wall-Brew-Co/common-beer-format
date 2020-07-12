@@ -13,5 +13,5 @@ examples:
 spec:
   - src/common_beer_format/specs/*
 
-ingredients:
-  - src/common_beer_format/ingredients/*
+data:
+  - src/common_beer_format/data/*
