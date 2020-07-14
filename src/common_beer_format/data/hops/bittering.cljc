@@ -49,7 +49,7 @@
                            :myrcene       0.6
                            :humulene      0.005
                            :hsi           0.8
-                           :notes         "Posseses a sharp fruity essence"
+                           :notes         "Possesses a sharp fruity essence"
                            :caryophyllene 0.09
                            :alpha         0.12
                            :substitutes   "Galena, Cluster, Brewer's Gold"}))
