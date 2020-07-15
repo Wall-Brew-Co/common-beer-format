@@ -1,5 +1,6 @@
 dotfiles:
   - .github/**/*
+  - .gitignore
 
 restricted:
   - CODE_OF_CONDUCT.md
@@ -8,3 +9,9 @@ restricted:
 
 examples:
   - resources/**/*
+
+spec:
+  - src/common_beer_format/specs/*
+
+data:
+  - src/common_beer_format/data/*

@@ -13,7 +13,7 @@ To use it, add the following as a dependency in your project.clj file:
 
 [![Clojars Project](https://clojars.org/com.wallbrew/common-beer-format/latest-version.svg)](com.wallbrew/common-beer-format)
 
-The next time you build your application, [Leiningen](https://leiningen.org/) should pull it automatically.
+The next time you build your application, [Leiningen](https://leiningen.org/) or [deps.edn](https://clojure.org/guides/deps_and_cli) should pull it automatically.
 Alternatively, you may clone or fork the repository to work with it directly.
 
 ## Usage
@@ -135,10 +135,22 @@ That allows the clean interop between the internal data structure of `clojure.da
 By default, this library uses the tools provided by `org.clojure/data.json` and `org.clojure/data.xml`.
 This was chosen intentionally for two reasons:
 
-1) To maximize the interopability between Clojure and Clojurescript
+1) To maximize the interoperability between Clojure and Clojurescript
 2) To minimize dependency conflicts with common data utility libraries, such as [Cheshire](https://github.com/dakrone/cheshire)
 
 For Clojure-only use cases, several streaming functions have been created in the respective namespaces.
+
+## Pre-Packaged Data
+
+common-beer-format also comes pre-packaged with many of the most common brewing ingredients used.
+These can safely be used by consumers of the library for computational brewing; however, several assumptions were necessary in the encoding of data.
+In general, the ingredient quantities and stock amounts have been hard-coded to 0 - so be sure to update these fields with the amounts you'd like to brew with or keep on hand.
+Other assumptions, such as the physical form of the ingredient, may also need to be updated based on your brewing case.
+The assumptions are called out in the functions named `build-adjunct`, `build-hop`, etc in their respective namespaces.
+Finally, each canonical ingredient is intended to exist exactly once within the library, but alternative names may be found in the ingredient's `::notes`.
+For example, CTZ hops may also be called Zeus hops.
+
+If we've missed an ingredient you'd like to see in common-beer-format, you can fork the repository and open a pull request or [suggest it here.](https://github.com/Wall-Brew-Co/common-beer-format/issues/new?template=data_request.md)
 
 ## License
 

@@ -2,6 +2,7 @@
 *.iml
 *.jar
 *.DS_Store
+*.vscode
 ._*
 .hg/
 .hgignore
@@ -25,3 +26,9 @@ doo-index.html
 figwheel_server.log
 pom.xml
 pom.xml.asc
+sample.xml
+sample.json
+sample.edn
+yeast.csv
+fermentables.csv
+hops.csv
