@@ -179,7 +179,7 @@
                                               :best-for        "British bitters and pale ales."
                                               :laboratory      "White Labs"
                                               :attenuation     0.765
-                                              :notes           "From Suffolk county. Products complex fruity and citrus flavors. Slight sulfer production, but this will fade with ageing."
+                                              :notes           "From Suffolk county. Products complex fruity and citrus flavors. Slight sulfer production, but this will fade with aging."
                                               :flocculation    "Medium"
                                               :form            "Liquid"
                                               :product-id      "WLP025"}))

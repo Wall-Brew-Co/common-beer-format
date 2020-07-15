@@ -41,9 +41,9 @@
                                                     :form            "Liquid"
                                                     :product-id      "CL-0050"}))
 
-(def cl-0060-noth-eastern-micro-ale
-  (yeasts/build-yeasts :cl-0060-noth-eastern-micro-ale {:min-temperature 13.33
-                                                        :name            "CL-0060 Noth-Eastern Micro Ale"
+(def cl-0060-north-eastern-micro-ale
+  (yeasts/build-yeasts :cl-0060-north-eastern-micro-ale {:min-temperature 13.33
+                                                        :name            "CL-0060 North-Eastern Micro Ale"
                                                         :max-temperature 22.22
                                                         :type            "Ale"
                                                         :best-for        "American Ales, Reds, Ambers"
@@ -445,7 +445,7 @@
                                                       :product-id      "CL-5600"}))
 
 (def ^:const brewtek
-  (merge cl-0010-american-microbrewery-ale-1 cl-0020-american-microbrewery-ale-2 cl-0050-california-pub-ale cl-0060-noth-eastern-micro-ale cl-0110-british-microbrewery-ale cl-0120-british-pale-ale-1 cl-0130-british-pale-ale-2 cl-0150-british-real-ale
+  (merge cl-0010-american-microbrewery-ale-1 cl-0020-american-microbrewery-ale-2 cl-0050-california-pub-ale cl-0060-north-eastern-micro-ale cl-0110-british-microbrewery-ale cl-0120-british-pale-ale-1 cl-0130-british-pale-ale-2 cl-0150-british-real-ale
          cl-0160-british-draft-ale cl-0170-classic-british-ale cl-0200-scottish-ale cl-0240-irish-dry-stout cl-0260-canadian-ale cl-0270-australian-ale cl-0300-belgian-ale-1 cl-0320-belgian-ale-2 cl-0340-belgian-ale-3 cl-0380-saison cl-0400-old-german-ale
          cl-0450-kolsch cl-0600-original-pilsner cl-0620-american-megabrewery cl-0630-american-microbrewery-lager cl-0650-old-bavarian-lager cl-0660-northern-german-lager cl-0670-swiss-lager cl-0680-east-european-lager cl-0690-california-esteem-gold cl-0900-belgian-wheat
          cl-0920-german-wheat-bt cl-0930-german-weiss cl-0980-american-white-ale cl-5200-brettanomyces-lambicus cl-5600-pediococcus-damnosus))
