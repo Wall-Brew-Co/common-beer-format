@@ -1,3 +1,7 @@
+## v1.2.1 / 2020 Jul 18
+
+> Fix selection function for all-yeasts
+
 ## v1.2.0 / 2020 Jul 15
 
 > Add /data/ sub-folders and namespaces for common fermentables, hops, styles, and yeasts
