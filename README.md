@@ -11,7 +11,7 @@ The library endeavors to support the data specification across JSON, XML, and ED
 A deployed copy of the most recent version of [common-beer-format can be found on clojars.](https://clojars.org/com.wallbrew/common-beer-format)
 To use it, add the following as a dependency in your project.clj file:
 
-[![Clojars Project](https://clojars.org/com.wallbrew/common-beer-format/latest-version.svg)](com.wallbrew/common-beer-format)
+[![Clojars Project](https://clojars.org/com.wallbrew/common-beer-format/latest-version.svg)](https://clojars.org/com.wallbrew/common-beer-format)
 
 The next time you build your application, [Leiningen](https://leiningen.org/) or [deps.edn](https://clojure.org/guides/deps_and_cli) should pull it automatically.
 Alternatively, you may clone or fork the repository to work with it directly.
