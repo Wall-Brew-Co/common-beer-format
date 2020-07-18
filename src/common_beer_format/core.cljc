@@ -6,6 +6,7 @@
             [spec-tools.core :as st]))
 
 (defn conform
+  "Conform `data` to a given `spec` while eliminating non-conforming keys and values"
   [spec data]
   (st/conform spec data cbf/strict-transformer))
 

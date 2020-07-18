@@ -1,3 +1,7 @@
+## v1.3.0 / 2020 Jul 18
+
+> Expose a conform function so downstream users aren't required to install spec tools as a dependency for edn data
+
 ## v1.2.1 / 2020 Jul 18
 
 > Fix selection function for all-yeasts
