@@ -40,7 +40,7 @@
 
 (def all-hops
   (select-hops {:include-aroma?     true
-                :include-bittering? true 
+                :include-bittering? true
                 :include-both?      true}))
 
 (defn select-style-guides
@@ -61,8 +61,8 @@
     include-wyeast?        (merge wyeast/wyeast)))
 
 (def all-yeasts
-  (select-style-guides {:include-brewtek?       true
-                        :include-dcl-fermentis? true
-                        :include-lallemand?     true
-                        :include-white-labs?    true
-                        :include-wyeast?        true}))
+  (select-yeasts {:include-brewtek?       true
+                  :include-dcl-fermentis? true
+                  :include-lallemand?     true
+                  :include-white-labs?    true
+                  :include-wyeast?        true}))
