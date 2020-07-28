@@ -156,7 +156,7 @@ If we've missed an ingredient you'd like to see in common-beer-format, you can f
 
 For more in-depth information about the specs defined within common-beer-format, view their individual documentation pages.
 
-* [Fermentables](https://github.com/Wall-Brew-Co/common-beer-format/blob/documentation/doc/fermentables.md)
+* [Fermentables](https://github.com/Wall-Brew-Co/common-beer-format/blob/master/doc/v1/fermentables.md)
 
 ## License
 
