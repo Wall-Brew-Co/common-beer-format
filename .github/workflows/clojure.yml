@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Test artifact build
-      run: lein uberjar
+      run: lein compile
     - name: Install Clojure/ClojureScript dependencies
       run: lein deps
     - name: Install node.js dependencies
