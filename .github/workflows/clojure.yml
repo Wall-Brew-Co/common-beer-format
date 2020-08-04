@@ -9,12 +9,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - name: Test artifact build
+      run: lein uberjar
     - name: Install Clojure/ClojureScript dependencies
       run: lein deps
     - name: Install node.js dependencies
       run: npm install
     - name: Run tests
       run: lein test-build
-#    - name: Secret Scan
-#      uses: max/secret-scan@1.0.0
-
