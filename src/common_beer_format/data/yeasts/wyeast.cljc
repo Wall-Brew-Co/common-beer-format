@@ -756,7 +756,7 @@
                                           :form            "Liquid"
                                           :product-id      "5733"}))
 
-(def ^:const wyeast
+(def wyeast
   (merge german-ale-1007 american-wheat-ale-1010 british-cask-ale-1026 london-ale-yeast-1028 american-ale-1056 irish-ale-1084 wyeast-ale-blend-1087
          british-ale-yeast-1098 whitbread-ale-1099 ringwood-ale-1187 belgian-ale-yeast-1214 american-ale-ii-1272 gf-all-american-ale-1272 thames-valley-ale-1275
          london-ale-iii-1318 northwest-ale-1332 british-ale-ii-1335 european-ale-yeast-1338 belgian-strong-ale-1388 denny-s-favorite-50-1450 scottish-ale-1728

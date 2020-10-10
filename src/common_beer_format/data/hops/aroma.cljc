@@ -314,6 +314,6 @@
                              :alpha         0.06
                              :substitutes   "Hallertau, Saaz, Mt Hood"}))
 
-(def ^:const aroma
+(def aroma
   (merge crystal liberty glacier mt-hood simcoe cascade willamette spalt sterling santiam ultra ahtanum mosaic golding-us
          east-kent-golding fuggle-us delta saaz-us palisade centennial hallertau-us amarillo vanguard strisselspalt))

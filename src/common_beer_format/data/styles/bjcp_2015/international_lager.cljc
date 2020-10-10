@@ -71,5 +71,5 @@
                                                  :profile         "Aroma: Little to no malt aroma; may have a light corn character. Medium-low to no roast and caramel malt aroma. Hop aroma may range from none to light spicy or floral hop presence. While a clean fermentation profile is generally most desirable, low levels of yeast character (such as a light apple fruitiness) are not a fault. A light amount of DMS or corn aroma is not a fault. Appearance: Deep amber to dark brown with bright clarity and ruby highlights. Foam stand may not be long lasting, and is beige to light tan in color. Flavor: Low to medium malty sweetness with medium-low to no caramel and/or roasted malt flavors (and may include hints of coffee, molasses or cocoa). Hop flavor ranges from none to low levels, and is typically floral, spicy, or herbal. Low to medium hop bitterness. May have a very light fruitiness. Moderately crisp finish. The balance is typically somewhat malty. Burnt or moderately strong roasted malt flavors are a defect. Mouthfeel: Light to medium-light body. Smooth with a light creaminess. Medium to high carbonation."
                                                  :ibu-min         8}))
 
-(def ^:const international-lager
+(def international-lager
   (merge international-pale-lager international-amber-lager international-dark-lager))

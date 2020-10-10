@@ -158,5 +158,5 @@
                           :alpha         0.15
                           :substitutes   "Galaxy, Citra, Amarillo"}))
 
-(def ^:const both
+(def both
   (merge el-dorado celeia perle-us northdown horizon columbus challenger citra tettnanger galaxy topaz))

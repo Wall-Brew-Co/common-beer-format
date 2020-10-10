@@ -37,5 +37,5 @@
                               :potential    1.0
                               :notes        "Neutral hulls used to improve lautering."}))
 
-(def ^:const adjuncts
+(def adjuncts
   (merge barley-hulls grits rice-hulls))

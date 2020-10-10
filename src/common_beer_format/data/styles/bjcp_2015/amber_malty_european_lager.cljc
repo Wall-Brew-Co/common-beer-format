@@ -71,5 +71,5 @@
                                      :profile         "Aroma: Medium to medium-high bready-malty-rich aroma, often with moderate amounts of rich Maillard products and/or toasty overtones. Virtually no hop aroma. Some alcohol may be noticeable. Clean lager character, although the malts can provide a slight (low to none) dark fruit character, particularly in aged examples. Appearance: Light copper to brown color, often with attractive garnet highlights. Lagering should provide good clarity despite the dark color. Large, creamy, persistent, off-white head. Flavor: Complex, rich maltiness is dominated by the toasty-rich Maillard products. Some caramel notes may be present. Hop bitterness is generally only high enough to support the malt flavors, allowing a bit of sweetness to linger into the finish. Well-attenuated, not cloying. Clean fermentation profile, although the malt can provide a slight dark fruit character. No hop flavor. No roasted or burnt character. Mouthfeel: Medium to medium-full bodied. Moderate to moderately low carbonation. Some alcohol warmth may be found, but should never be hot. Smooth, without harshness or astringency."
                                      :ibu-min         20}))
 
-(def ^:const amber-malty-european-lager
+(def amber-malty-european-lager
   (merge märzen rauchbier dunkles-bock))

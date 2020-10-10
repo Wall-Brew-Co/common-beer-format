@@ -44,5 +44,5 @@
                                      :potential 1.044
                                      :notes     "Wheat extract for general-purpose use in wheat beers."}))
 
-(def ^:const dry-extracts
+(def dry-extracts
   (merge amber-dry-extract dark-dry-extract extra-light-dry-extract light-dry-extract wheat-dry-extract))

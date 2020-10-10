@@ -13,7 +13,7 @@
     :description         "A positive IEEE-754 floating point number representing the percent contents of alpha acid in the hop"
     :json-schema/example "10.7"}))
 
-(def ^:const hop-uses
+(def hop-uses
   #{"boil" "dry hop" "mash" "first wort" "aroma"})
 
 (s/def ::use
@@ -38,7 +38,7 @@
                           For \"Dry Hop\" this is the amount of time to dry hop."
     :json-schema/example "15.0"}))
 
-(def ^:const hop-types
+(def hop-types
   #{"bittering" "aroma" "both"})
 
 (s/def ::type
@@ -51,7 +51,7 @@
                           Must be one of: 'Bittering', 'Aroma', and 'Both'"
     :json-schema/example "bittering"}))
 
-(def ^:const hop-forms
+(def hop-forms
   #{"pellet" "plug" "leaf"})
 
 (s/def ::form

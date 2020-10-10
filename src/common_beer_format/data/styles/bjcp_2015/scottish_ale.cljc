@@ -71,5 +71,5 @@
                                         :profile         "Aroma: Low to medium maltiness, often with flavors of toasted breadcrumbs, lady fingers, and English biscuits. Low to medium caramel and low butterscotch is allowable. Light pome fruitiness in best examples. May have low traditional English hop aroma (earthy, floral, orange-citrus, spicy, etc.). Peat smoke is inappropriate. Appearance: Pale copper to very dark brown. Clear. Low to moderate, creamy off-white. Flavor: Entirely malt-focused, with flavors ranging from pale, bready malt with caramel overtones to rich-toasty malt with roasted accents (but never roasty) or a combination thereof. Fruity esters are not required but add depth yet are never high. Hop bitterness to balance the malt. No to low hop flavor is also allowed and should of traditional English character (earthy, floral, orange-citrus, spicy, etc.). Finish ranges from rich and malty to dry and grainy. A subtle butterscotch character is acceptable; however, burnt sugars are not. The malt-hop balance tilts toward malt. Peat smoke is inappropriate. Mouthfeel: Medium-low to medium body. Low to moderate carbonation. Can be relatively rich and creamy to dry and grainy."
                                         :ibu-min         15}))
 
-(def ^:const scottish-ale
+(def scottish-ale
   (merge scottish-light scottish-heavy scottish-export))

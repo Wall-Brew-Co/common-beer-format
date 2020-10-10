@@ -6,7 +6,7 @@
             [common-beer-format.util :as util]
             [spec-tools.core :as st]))
 
-(def ^:const yeast-types
+(def yeast-types
   #{"ale" "lager" "wheat" "wine" "champagne"})
 
 (s/def ::type
@@ -19,7 +19,7 @@
                           Must be one of: 'Ale', 'Lager', 'Wheat', 'Wine', and 'Champagne'"
     :json-schema/example "Ale"}))
 
-(def ^:const yeast-forms
+(def yeast-forms
   #{"liquid" "dry" "slant" "culture"})
 
 (s/def ::form
@@ -60,7 +60,7 @@
     :description         "A positive IEEE-754 floating point number representing the maximum recommended temperature of fermenation"
     :json-schema/example "23.9"}))
 
-(def ^:const yeast-flocculation-types
+(def yeast-flocculation-types
   #{"low" "medium" "high" "very high"})
 
 (s/def ::flocculation

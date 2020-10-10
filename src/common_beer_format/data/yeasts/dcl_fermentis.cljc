@@ -119,6 +119,6 @@
                                              :form            "Dry"
                                              :product-id      "WB-06"}))
 
-(def ^:const dcl-fermentis
+(def dcl-fermentis
   (merge k-97-safale-german-ale s-04-safale-english-ale s-189-saflager-german-lager s-23-saflager-west-european-lager
          s-33-safbrew-ale t-58-safbrew-specialty-ale us-05-safale-american w-34-70-saflager-lager wb-06-safbrew-wheat))

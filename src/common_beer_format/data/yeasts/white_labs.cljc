@@ -1068,7 +1068,7 @@
                                               :form            "Liquid"
                                               :product-id      "WLP940"}))
 
-(def ^:const white-labs
+(def white-labs
   (merge wlp001-california-ale wlp002-english-ale wlp003-german-ale-ii wlp004-irish-ale-yeast wlp005-british-ale wlp006-bedford-british-ale wlp007-dry-english-ale
          wlp008-east-coast-ale wlp009-australian-ale-yeast wlp011-european-ale wlp013-london-ale wlp022-essex-ale-yeast wlp023-burton-ale wlp025-southwold-ale
          wlp026-premium-bitter-ale wlp028-edinburgh-ale wlp029-german-ale-kolsch wlp033-klassic-ale-yeast wlp036-dusseldorf-alt-yeast wlp037-yorkshire-square-ale-yeast

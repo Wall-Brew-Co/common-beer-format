@@ -48,5 +48,5 @@
                                                :profile         "Aroma: Same as the base beer, except that some additional fermentables (honey, molasses, etc.) may add an aroma component. Whatever additional aroma component is present should be in balance with the beer components, and be a pleasant combination. Appearance: Same as the base beer, although some sugars will bring additional colors. Flavor: Same as the base beer, except that some additional fermentables (honey, molasses, etc.) may add a flavor component. Whatever additional flavor component is present should be in balance with the beer components, and be a pleasant combination. Added sugars should not have a raw, unfermented flavor. Some added sugars will have unfermentable elements that may provide a fuller finish; fully fermentable sugars may thin out the finish. Mouthfeel: Same as the base beer, although depending on the type of sugar added, could increase or decrease the body."
                                                :ibu-min         7}))
 
-(def ^:const alternative-fermentables-beer
+(def alternative-fermentables-beer
   (merge alternative-grain-beer alternative-sugar-beer))

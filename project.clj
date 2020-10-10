@@ -1,4 +1,4 @@
-(defproject com.wallbrew/common-beer-format "1.3.0"
+(defproject com.wallbrew/common-beer-format "1.3.1"
   :description "An implementation of the BeerXML spec in multiple formats"
   :url "https://github.com/Wall-Brew-Co/common-beer-format"
   :license {:name "MIT"

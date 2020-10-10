@@ -14,7 +14,7 @@
             [common-beer-format.util :as util]
             [spec-tools.core :as st]))
 
-(def ^:const recipe-types
+(def recipe-types
   #{"extract" "partial mash" "all grain"})
 
 (s/def ::type
@@ -240,7 +240,7 @@
     :description         "A positive IEEE-754 floating point number representing the bitterness in IBUs for the recipe"
     :json-schema/example "40"}))
 
-(def ^:const ibu-method-types
+(def ibu-method-types
   #{"rager" "tinseth" "garetz"})
 
 (s/def ::ibu-method

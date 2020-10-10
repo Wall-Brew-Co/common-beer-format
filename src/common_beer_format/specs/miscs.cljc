@@ -6,7 +6,7 @@
             [common-beer-format.util :as util]
             [spec-tools.core :as st]))
 
-(def ^:const misc-types
+(def misc-types
   #{"spice" "fining" "water agent" "herb" "flavor" "other"})
 
 (s/def ::type
@@ -19,7 +19,7 @@
                           Must be one of: 'Spice', 'Fining', 'Water Agent', 'Herb', 'Flavor', and 'Other'"
     :json-schema/example "Spice"}))
 
-(def ^:const misc-uses
+(def misc-uses
   #{"boil" "mash" "primary" "secondary" "bottling"})
 
 (s/def ::use

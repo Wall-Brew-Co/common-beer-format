@@ -172,6 +172,6 @@
                            :max-in-batch 0.1
                            :notes        "A light, raw brown sugar used to increase starting gravity"}))
 
-(def ^:const sugars
+(def sugars
   (merge dark-brown-sugar light-brown-sugar belgian-candi-syrup-45l belgian-candi-syrup-90l belgian-candi-syrup-180l clear-candi-sugar cane-sugar beet-sugar
          dextrose corn-sugar corn-syrup demerara-sugar invert-sugar milk-sugar lactose molasses maple-syrup sucrose table-sugar turbinado))

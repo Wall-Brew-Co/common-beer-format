@@ -236,5 +236,5 @@
                             :alpha         0.08
                             :substitutes   "Columbus, Chinook, Galena"}))
 
-(def ^:const bittering
+(def bittering
   (merge summit chelan cluster eroica tillicum brewers-gold-us nugget bravo magnum-us apollo ctz super-galena warrior chinook millennium newport galena bullion))
