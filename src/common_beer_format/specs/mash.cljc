@@ -6,7 +6,7 @@
             [common-beer-format.util :as util]
             [spec-tools.core :as st]))
 
-(def ^:const mash-step-types
+(def mash-step-types
   #{"infusion" "temperature" "decoction"})
 
 (s/def ::type

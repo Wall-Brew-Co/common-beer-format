@@ -93,5 +93,5 @@
                                         :potential      1.036
                                         :notes          "Wheat/barley extract for general-purpose use in wheat beers."}))
 
-(def ^:const extracts
+(def extracts
   (merge amber-liquid-extract dark-liquid-extract honey pale-liquid-extract pilsner-liquid-extract rice-extract-syrup rye-liquid-extract sorghum-syrup wheat-liquid-extract))

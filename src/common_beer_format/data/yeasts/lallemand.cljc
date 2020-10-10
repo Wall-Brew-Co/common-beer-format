@@ -67,5 +67,5 @@
                                        :form            "Dry"
                                        :product-id      "RC-212"}))
 
-(def ^:const lallemand
+(def lallemand
   (merge lalvin-71b-1122 lalvin-d-47 lalvin-ec-1118 lalvin-k1v-1116 lalvin-rc-212))

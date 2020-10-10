@@ -906,7 +906,7 @@
                                   :protein          0.145
                                   :notes            "White wheat gives a malty flavor not available from raw wheat."}))
 
-(def ^:const grains
+(def grains
   (merge acid-malt amber-malt aromatic-malt barley-flaked barley-raw barley-torrefied biscuit-malt black-patent-malt black-barley-stout brown-malt brumalt
          cara-pils-dextrine carafoam dextrine caraamber caramel-crystal-malt-10l caramel-crystal-malt-20l caramel-crystal-malt-30l caramel-crystal-malt-40l
          caramel-crystal-malt-60l caramel-crystal-malt-80l caramel-crystal-malt-90l caramel-crystal-malt-120l caramel-crystal-malt-140l caramel-crystal-malt-160l

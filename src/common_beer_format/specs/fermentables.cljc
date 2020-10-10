@@ -6,7 +6,7 @@
             [common-beer-format.util :as util]
             [spec-tools.core :as st]))
 
-(def ^:const fermentable-types
+(def fermentable-types
   #{"grain" "sugar" "extract" "dry extract" "adjunct"})
 
 (s/def ::type

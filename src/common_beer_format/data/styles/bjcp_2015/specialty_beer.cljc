@@ -71,5 +71,5 @@
                                           :profile         "Aroma: Varies. Appearance: Varies. Flavor: Varies. Mouthfeel: Varies."
                                           :ibu-min         7}))
 
-(def ^:const specialty-beer
+(def specialty-beer
   (merge clone-beer mixed-style-beer experimental-beer))

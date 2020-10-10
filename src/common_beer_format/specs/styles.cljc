@@ -35,7 +35,7 @@
     :description         "A non-empty string denoting the name of the style guide the style/category belongs to"
     :json-schema/example "BJCP"}))
 
-(def ^:const style-types
+(def style-types
   #{"lager" "ale" "mead" "wheat" "mixed" "cider"})
 
 (s/def ::type

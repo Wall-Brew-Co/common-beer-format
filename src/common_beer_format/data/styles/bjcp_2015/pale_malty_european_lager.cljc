@@ -71,5 +71,5 @@
                                     :profile         "Aroma: Moderate to strong grainy-sweet malt aroma, often with a lightly toasted quality and low Maillard products. Moderately-low to no hop aroma, often with a spicy, herbal, or floral quality. Clean fermentation profile. Fruity esters should be low to none. Very light alcohol may be noticeable. May have a light DMS aroma. Appearance: Deep gold to light amber in color. Bright to clear clarity. Large, creamy, persistent, white head. Flavor: Moderately to moderately strong grainy-sweet malt flavor dominates with some toasty notes and/or Maillard products providing added interest. Little to no caramel flavors. May have a light DMS flavor. Moderate to no hop flavor (spicy, herbal, floral, peppery). Moderate hop bitterness (more so in the balance than in other bocks). Clean fermentation profile. Well-attenuated, not cloying, with a moderately-dry finish that may taste of both malt and hops. Mouthfeel: Medium-bodied. Moderate to moderately-high carbonation. Smooth and clean with no harshness or astringency, despite the increased hop bitterness. A light alcohol warming may be present."
                                     :ibu-min         23}))
 
-(def ^:const pale-malty-european-lager
+(def pale-malty-european-lager
   (merge munich-helles festbier helles-bock))

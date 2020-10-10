@@ -209,5 +209,5 @@
                               :profile         "Aroma: High banana esters with moderate to moderately-high clove-like phenolics. Not sour. May have a low to moderate juniper character. Grainy malt, caramel, and rye in background. Light alcohol aroma. Sweet malt impression. Appearance: Pale yellow to dark brown color; most are medium to dark amber. Generally quite cloudy (unfiltered). Little head, due to low carbonation. Flavor: Strong banana and moderate to moderately-high clove yeast character. Moderate grainy rye flavor. Low bitterness. Fairly sweet finish. Juniper can add a pine-like flavor; juniper berries can add a gin-like flavor; both should be complementary, not dominant. No noticeable hop flavor. Moderate caramel flavor but no roast. Multi-layered and complex, with kind of a wortiness that is unusual in other beer styles. Not sour. Mouthfeel: Thick, viscous, and heavy with protein (no boil means no hot break). Nearly still to medium-low carbonation. Strongly warming from the alcohol level and young age, but often masked by sweetness."
                               :ibu-min         7}))
 
-(def ^:const historic-beer
+(def historic-beer
   (merge gose kentucky-common lichtenhainer london-brown-ale piwo-grodziskie pre-prohibition-lager pre-prohibition-porter roggenbier sahti))
