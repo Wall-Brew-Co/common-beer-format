@@ -1,3 +1,7 @@
+## v1.3.1 / 2020 Oct 10
+
+> Drop ^:const use to allow uberjarring and to fix some performance issues in js contexts
+
 ## v1.3.0 / 2020 Jul 18
 
 > Expose a conform function so downstream users aren't required to install spec tools as a dependency for edn data
