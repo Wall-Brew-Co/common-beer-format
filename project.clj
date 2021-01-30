@@ -3,7 +3,7 @@
   :url "https://github.com/Wall-Brew-Co/common-beer-format"
   :license {:name "MIT"
             :url  "https://opensource.org/licenses/MIT"}
-  :dependencies [[metosin/spec-tools "0.10.3"]
+  :dependencies [[metosin/spec-tools "0.10.5"]
                  [nnichols "0.9.0"]
                  [org.clojure/clojure "1.10.1"]
                  [org.clojure/clojurescript "1.10.773" :scope "provided"]
