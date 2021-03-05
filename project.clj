@@ -5,7 +5,7 @@
             :url  "https://opensource.org/licenses/MIT"}
   :dependencies [[metosin/spec-tools "0.10.5"]
                  [nnichols "0.9.0"]
-                 [org.clojure/clojure "1.10.2"]
+                 [org.clojure/clojure "1.10.3"]
                  [org.clojure/clojurescript "1.10.773" :scope "provided"]
                  [org.clojure/data.json "1.0.0"]
                  [org.clojure/data.xml "0.2.0-alpha6"]
