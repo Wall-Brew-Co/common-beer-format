@@ -4,16 +4,16 @@
   :license {:name "MIT"
             :url  "https://opensource.org/licenses/MIT"}
   :dependencies [[metosin/spec-tools "0.10.5"]
-                 [nnichols "0.9.0"]
+                 [nnichols "1.0.0"]
                  [org.clojure/clojure "1.10.3"]
                  [org.clojure/clojurescript "1.10.844" :scope "provided"]
                  [org.clojure/data.json "2.2.2"]
                  [org.clojure/data.xml "0.2.0-alpha6"]
                  [org.clojure/test.check "1.1.0"]]
-  :plugins [[lein-cljsbuild "1.1.7"]]
+  :plugins [[lein-cljsbuild "1.1.8"]]
   :profiles {:uberjar {:aot :all}
              :dev     {:dependencies [[doo "0.1.11"]]
-                       :plugins      [[lein-doo "0.1.10"]]}}
+                       :plugins      [[lein-doo "0.1.11"]]}}
 
   :min-lein-version "2.5.3"
 
