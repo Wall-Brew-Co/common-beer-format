@@ -7,7 +7,7 @@
                  [nnichols "1.0.0"]
                  [org.clojure/clojure "1.10.3"]
                  [org.clojure/clojurescript "1.10.844" :scope "provided"]
-                 [org.clojure/data.json "2.2.3"]
+                 [org.clojure/data.json "2.3.0"]
                  [org.clojure/data.xml "0.2.0-alpha6"]
                  [org.clojure/test.check "1.1.0"]]
   :plugins [[lein-cljsbuild "1.1.8"]]
