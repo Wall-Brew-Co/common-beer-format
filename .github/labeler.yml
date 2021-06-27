@@ -3,9 +3,13 @@ dotfiles:
   - .gitignore
 
 restricted:
-  - CODE_OF_CONDUCT.md
-  - CONTRIBUTING.md
   - LICENSE
+  - CONTRIBUTING.md
+  - CODE_OF_CONDUCT.md
+  - CODEOWNERS
+  - .github/**/*
+  - .cljstyle
+  - SECURITY.md
 
 examples:
   - resources/**/*
