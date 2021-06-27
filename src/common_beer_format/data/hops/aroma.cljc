@@ -2,6 +2,7 @@
   "Data for aromatic hops"
   (:require [common-beer-format.data.hops.hops :as hops]))
 
+
 (def crystal
   (hops/build-hop :crystal {:beta          0.065
                             :name          "Crystal"
@@ -14,6 +15,7 @@
                             :caryophyllene 0.07
                             :alpha         0.055
                             :substitutes   "Liberty, Mt Hood, Hallertau"}))
+
 
 (def liberty
   (hops/build-hop :liberty {:beta          0.04
@@ -28,6 +30,7 @@
                             :alpha         0.05
                             :substitutes   "Mt Hood, Hallertau"}))
 
+
 (def glacier
   (hops/build-hop :glacier {:beta          0.082
                             :name          "Glacier"
@@ -40,6 +43,7 @@
                             :caryophyllene 0.1
                             :alpha         0.055
                             :substitutes   "Willamette"}))
+
 
 (def mt-hood
   (hops/build-hop :mt-hood {:beta          0.08
@@ -54,6 +58,7 @@
                             :alpha         0.07
                             :substitutes   "Crystal"}))
 
+
 (def strisselspalt
   (hops/build-hop :strisselspalt {:beta          0.045
                                   :name          "Strisselspalt"
@@ -66,6 +71,7 @@
                                   :caryophyllene 0.09
                                   :alpha         0.045
                                   :substitutes   "Hallertau, Mt Hood"}))
+
 
 (def simcoe
   (hops/build-hop :simcoe {:beta          0.05
@@ -80,6 +86,7 @@
                            :alpha         0.14
                            :substitutes   "Summit"}))
 
+
 (def cascade
   (hops/build-hop :cascade {:beta          0.07
                             :name          "Cascade"
@@ -92,6 +99,7 @@
                             :caryophyllene 0.05
                             :alpha         0.07
                             :substitutes   "Centennial, Amarillo, Columbus"}))
+
 
 (def willamette
   (hops/build-hop :willamette {:beta          0.045
@@ -106,6 +114,7 @@
                                :alpha         0.06
                                :substitutes   "Fuggle, Glacier"}))
 
+
 (def spalt
   (hops/build-hop :spalt {:beta          0.04
                           :name          "Spalt"
@@ -118,6 +127,7 @@
                           :caryophyllene 0.1
                           :alpha         0.041
                           :substitutes   "Saaz, Hallertau, Sterling"}))
+
 
 (def sterling
   (hops/build-hop :sterling {:beta          0.06
@@ -132,6 +142,7 @@
                              :alpha         0.05
                              :substitutes   "Saaz"}))
 
+
 (def santiam
   (hops/build-hop :santiam {:beta          0.08
                             :name          "Santiam"
@@ -144,6 +155,7 @@
                             :caryophyllene 0.055
                             :alpha         0.07
                             :substitutes   "Spalt, Hallertau, Liberty"}))
+
 
 (def ultra
   (hops/build-hop :ultra {:beta          0.045
@@ -158,6 +170,7 @@
                           :alpha         0.035
                           :substitutes   "Hallertau, Saaz"}))
 
+
 (def ahtanum
   (hops/build-hop :ahtanum {:beta          0.05
                             :name          "Ahtanum"
@@ -170,6 +183,7 @@
                             :caryophyllene 0.1
                             :alpha         0.057
                             :substitutes   "Willamette, Centennial, Cascade"}))
+
 
 (def mosaic
   (hops/build-hop :mosaic {:beta          0.04
@@ -184,6 +198,7 @@
                            :alpha         0.135
                            :substitutes   "Citra"}))
 
+
 (def golding-us
   (hops/build-hop :golding-us {:beta          0.03
                                :name          "Golding US"
@@ -196,6 +211,7 @@
                                :caryophyllene 0.15
                                :alpha         0.06
                                :substitutes   "Fuggle, East Kent Golding"}))
+
 
 (def east-kent-golding
   (hops/build-hop :east-kent-golding {:beta          0.03
@@ -210,6 +226,7 @@
                                       :alpha         0.06
                                       :substitutes   "Fuggle, Golding"}))
 
+
 (def fuggle-us
   (hops/build-hop :fuggle-us {:beta          0.02
                               :name          "Fuggle US"
@@ -222,6 +239,7 @@
                               :caryophyllene 0.09
                               :alpha         0.055
                               :substitutes   "Willamette, Newport"}))
+
 
 (def delta
   (hops/build-hop :delta {:beta          0.07
@@ -236,6 +254,7 @@
                           :alpha         0.07
                           :substitutes   "Fuggle, Willamette"}))
 
+
 (def saaz-us
   (hops/build-hop :saaz-us {:beta          0.045
                             :name          "Saaz US"
@@ -248,6 +267,7 @@
                             :caryophyllene 0.06
                             :alpha         0.045
                             :substitutes   "Centennial, Amarillo"}))
+
 
 (def palisade
   (hops/build-hop :palisade {:beta          0.08
@@ -262,6 +282,7 @@
                              :alpha         0.095
                              :substitutes   "Golding, Chinook"}))
 
+
 (def centennial
   (hops/build-hop :centennial {:beta          0.045
                                :name          "Centennial"
@@ -274,6 +295,7 @@
                                :caryophyllene 0.05
                                :alpha         0.115
                                :substitutes   "Chinook, Galena, CTZ"}))
+
 
 (def hallertau-us
   (hops/build-hop :hallertau-us {:beta          0.055
@@ -288,6 +310,7 @@
                                  :alpha         0.055
                                  :substitutes   "Liberty"}))
 
+
 (def amarillo
   (hops/build-hop :amarillo {:beta          0.07
                              :name          "Amarillo"
@@ -301,6 +324,7 @@
                              :alpha         0.11
                              :substitutes   "Cascade, Chinook"}))
 
+
 (def vanguard
   (hops/build-hop :vanguard {:beta          0.07
                              :name          "Vanguard"
@@ -313,6 +337,7 @@
                              :caryophyllene 0.13
                              :alpha         0.06
                              :substitutes   "Hallertau, Saaz, Mt Hood"}))
+
 
 (def aroma
   (merge crystal liberty glacier mt-hood simcoe cascade willamette spalt sterling santiam ultra ahtanum mosaic golding-us

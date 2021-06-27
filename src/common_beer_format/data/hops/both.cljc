@@ -2,6 +2,7 @@
   "Data for multi-purpose hops"
   (:require [common-beer-format.data.hops.hops :as hops]))
 
+
 (def el-dorado
   (hops/build-hop :el-dorado {:beta          0.08
                               :name          "El Dorado"
@@ -14,6 +15,7 @@
                               :caryophyllene 0.06
                               :alpha         0.16
                               :substitutes   "Galena, Simcoe"}))
+
 
 (def celeia
   (hops/build-hop :celeia {:beta          0.035
@@ -28,6 +30,7 @@
                            :alpha         0.055
                            :substitutes   "Saaz US"}))
 
+
 (def perle-us
   (hops/build-hop :perle-us {:beta          0.05
                              :name          "Perle US"
@@ -40,6 +43,7 @@
                              :caryophyllene 0.1
                              :alpha         0.095
                              :substitutes   "Northern Brewer"}))
+
 
 (def northdown
   (hops/build-hop :northdown {:beta          0.048
@@ -54,6 +58,7 @@
                               :alpha         0.085
                               :substitutes   "Challenger"}))
 
+
 (def horizon
   (hops/build-hop :horizon {:beta          0.05
                             :name          "Horizon"
@@ -66,6 +71,7 @@
                             :caryophyllene 0.1
                             :alpha         0.1
                             :substitutes   "Magnum"}))
+
 
 (def northern-brewer
   (hops/build-hop :northern-brewer {:beta          0.04
@@ -80,6 +86,7 @@
                                     :alpha         0.095
                                     :substitutes   "Perle US, Columbus"}))
 
+
 (def columbus
   (hops/build-hop :columbus {:beta          0.053
                              :name          "Columbus"
@@ -92,6 +99,7 @@
                              :caryophyllene 0.09
                              :alpha         0.16
                              :substitutes   "Chinook, Northern Brewer, Nugget"}))
+
 
 (def challenger
   (hops/build-hop :challenger {:beta          0.037
@@ -106,6 +114,7 @@
                                :alpha         0.021
                                :substitutes   "Admiral, Perle"}))
 
+
 (def citra
   (hops/build-hop :citra {:beta          0.045
                           :name          "Citra"
@@ -118,6 +127,7 @@
                           :caryophyllene 0.05
                           :alpha         0.13
                           :substitutes   "Cascade, Simcoe"}))
+
 
 (def tettnanger
   (hops/build-hop :tettnanger {:beta          0.04
@@ -132,6 +142,7 @@
                                :alpha         0.05
                                :substitutes   "Spalt, Saaz"}))
 
+
 (def galaxy
   (hops/build-hop :galaxy {:beta          0.055
                            :name          "Galaxy"
@@ -145,6 +156,7 @@
                            :alpha         0.13
                            :substitutes   "Topaz, Citra, Cascade"}))
 
+
 (def topaz
   (hops/build-hop :topaz {:beta          0.07
                           :name          "Topaz"
@@ -157,6 +169,7 @@
                           :caryophyllene 0.1
                           :alpha         0.15
                           :substitutes   "Galaxy, Citra, Amarillo"}))
+
 
 (def both
   (merge el-dorado celeia perle-us northdown horizon columbus challenger citra tettnanger galaxy topaz))

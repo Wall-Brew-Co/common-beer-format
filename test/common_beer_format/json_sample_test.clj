@@ -14,11 +14,13 @@
             [common-beer-format.util :as cbf-util]
             [spec-tools.core :as st]))
 
+
 (test/deftest equipment-test
   (let [json-blob (slurp "resources/json/equipment.json")
         parsed-data (cbf-json/parse-beer-json json-blob)
         conformed-data (st/conform ::cbf-equipment/equipment-wrapper parsed-data cbf-util/strict-transformer)]
     (test/is (s/valid? ::cbf-equipment/equipment-wrapper conformed-data))))
+
 
 (test/deftest fermentables-test
   (let [json-blob (slurp "resources/json/fermentables.json")
@@ -26,11 +28,13 @@
         conformed-data (st/conform ::cbf-fermentables/fermentables-wrapper parsed-data cbf-util/strict-transformer)]
     (test/is (s/valid? ::cbf-fermentables/fermentables-wrapper conformed-data))))
 
+
 (test/deftest hops-test
   (let [json-blob (slurp "resources/json/hops.json")
         parsed-data (cbf-json/parse-beer-json json-blob)
         conformed-data (st/conform ::cbf-hops/hops-wrapper parsed-data cbf-util/strict-transformer)]
     (test/is (s/valid? ::cbf-hops/hops-wrapper conformed-data))))
+
 
 (test/deftest mash-test
   (let [json-blob (slurp "resources/json/mash.json")
@@ -38,11 +42,13 @@
         conformed-data (st/conform ::cbf-mash/mash-wrapper parsed-data cbf-util/strict-transformer)]
     (test/is (s/valid? ::cbf-mash/mash-wrapper conformed-data))))
 
+
 (test/deftest miscs-test
   (let [json-blob (slurp "resources/json/miscs.json")
         parsed-data (cbf-json/parse-beer-json json-blob)
         conformed-data (st/conform ::cbf-miscs/miscs-wrapper parsed-data cbf-util/strict-transformer)]
     (test/is (s/valid? ::cbf-miscs/miscs-wrapper conformed-data))))
+
 
 (test/deftest recipes-test
   (let [json-blob (slurp "resources/json/recipes.json")
@@ -50,17 +56,20 @@
         conformed-data (st/conform ::cbf-recipes/recipes-wrapper parsed-data cbf-util/strict-transformer)]
     (test/is (s/valid? ::cbf-recipes/recipes-wrapper conformed-data))))
 
+
 (test/deftest styles-test
   (let [json-blob (slurp "resources/json/style.json")
         parsed-data (cbf-json/parse-beer-json json-blob)
         conformed-data (st/conform ::cbf-styles/style-wrapper parsed-data cbf-util/strict-transformer)]
     (test/is (s/valid? ::cbf-styles/style-wrapper conformed-data))))
 
+
 (test/deftest waters-test
   (let [json-blob (slurp "resources/json/waters.json")
         parsed-data (cbf-json/parse-beer-json json-blob)
         conformed-data (st/conform ::cbf-waters/waters-wrapper parsed-data cbf-util/strict-transformer)]
     (test/is (s/valid? ::cbf-waters/waters-wrapper conformed-data))))
+
 
 (test/deftest yeasts-test
   (let [json-blob (slurp "resources/json/yeasts.json")

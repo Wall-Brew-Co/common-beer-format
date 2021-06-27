@@ -2,7 +2,8 @@
   "2015 BJCP guidelines on Specialty Beers"
   (:require [common-beer-format.data.styles.bjcp-2015.styles :as styles]))
 
-(def clone-beer 
+
+(def clone-beer
   (styles/build-style :clone-beer {:category        "Specialty Beer"
                                    :carb-min        1.5
                                    :fg-max          1.02
@@ -25,7 +26,8 @@
                                    :profile         "Aroma: Based on declared clone beer. Appearance: Based on declared clone beer. Flavor: Based on declared clone beer. Mouthfeel: Based on declared clone beer."
                                    :ibu-min         7}))
 
-(def mixed-style-beer 
+
+(def mixed-style-beer
   (styles/build-style :mixed-style-beer {:category        "Specialty Beer"
                                          :carb-min        1.5
                                          :fg-max          1.02
@@ -48,7 +50,8 @@
                                          :profile         "Aroma: Based on the declared base styles. Appearance: Based on the declared base styles. Flavor: Based on the declared base styles. Mouthfeel: Based on the declared base styles."
                                          :ibu-min         7}))
 
-(def experimental-beer 
+
+(def experimental-beer
   (styles/build-style :experimental-beer {:category        "Specialty Beer"
                                           :carb-min        1.5
                                           :fg-max          1.02
@@ -70,6 +73,7 @@
                                           :color-max       22.0
                                           :profile         "Aroma: Varies. Appearance: Varies. Flavor: Varies. Mouthfeel: Varies."
                                           :ibu-min         7}))
+
 
 (def specialty-beer
   (merge clone-beer mixed-style-beer experimental-beer))

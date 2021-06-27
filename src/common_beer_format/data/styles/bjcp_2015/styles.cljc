@@ -1,9 +1,11 @@
 (ns common-beer-format.data.styles.bjcp-2015.styles
   "Function to help minimize repeated data in 2015 BJCP style guidelines")
 
+
 (def ^:private style-defaults
   {:version 1
    :style-guide "BJCP 2015"})
+
 
 (defn build-style
   "Construct a style, including display/range values derived from core style data"

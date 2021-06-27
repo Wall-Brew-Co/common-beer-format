@@ -2,7 +2,8 @@
   "2015 BJCP guidelines on Beers with alternative (non-barley, non-wheat) fermentables"
   (:require [common-beer-format.data.styles.bjcp-2015.styles :as styles]))
 
-(def alternative-grain-beer 
+
+(def alternative-grain-beer
   (styles/build-style :alternative-grain-beer {:category        "Alternative Fermentables Beer"
                                                :carb-min        1.5
                                                :fg-max          1.02
@@ -25,7 +26,8 @@
                                                :profile         "Aroma: Same as base beer style. The added grain will lend a particular character, although with some grains the beer will simply seem a bit more grainy or nutty. The alternative grain should provide the major aroma profile for this beer. Appearance: Same as base beer style, although some additional haze may be noticeable. Flavor: Same as base beer style. The additional grain should be noticeable in flavor, although it may not be necessarily identifiable. However, the alternative grain should provide the major flavor profile for this beer. Different grains have different characters; the additional grain should enhance the flavor of the base beer. Many will add an additional grainy, bready, or nutty flavor. Mouthfeel: Same as the base beer, although many additional grains will tend to increase the body (oats, rye) and increase the viscosity, while some may decrease the body (GF grains) resulting in thinness."
                                                :ibu-min         7}))
 
-(def alternative-sugar-beer 
+
+(def alternative-sugar-beer
   (styles/build-style :alternative-sugar-beer {:category        "Alternative Fermentables Beer"
                                                :carb-min        1.5
                                                :fg-max          1.02
@@ -47,6 +49,7 @@
                                                :color-max       22.0
                                                :profile         "Aroma: Same as the base beer, except that some additional fermentables (honey, molasses, etc.) may add an aroma component. Whatever additional aroma component is present should be in balance with the beer components, and be a pleasant combination. Appearance: Same as the base beer, although some sugars will bring additional colors. Flavor: Same as the base beer, except that some additional fermentables (honey, molasses, etc.) may add a flavor component. Whatever additional flavor component is present should be in balance with the beer components, and be a pleasant combination. Added sugars should not have a raw, unfermented flavor. Some added sugars will have unfermentable elements that may provide a fuller finish; fully fermentable sugars may thin out the finish. Mouthfeel: Same as the base beer, although depending on the type of sugar added, could increase or decrease the body."
                                                :ibu-min         7}))
+
 
 (def alternative-fermentables-beer
   (merge alternative-grain-beer alternative-sugar-beer))

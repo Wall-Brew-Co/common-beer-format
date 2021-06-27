@@ -1,6 +1,7 @@
 (ns common-beer-format.data.hops.hops
   "Function to help minimize repeated data in hop entry")
 
+
 (def ^:private hop-defaults
   "To generate complete records that match the ::hop spec, we have defaulted the following:
    ::use  - 'boil'
@@ -11,6 +12,7 @@
    :time    0.0
    :use     "boil"
    :form    "pellet"})
+
 
 (defn build-hop
   [hop-key hop-data]

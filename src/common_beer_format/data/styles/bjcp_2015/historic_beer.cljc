@@ -2,6 +2,7 @@
   "2015 BJCP guidelines on Historic Beer"
   (:require [common-beer-format.data.styles.bjcp-2015.styles :as styles]))
 
+
 (def gose
   (styles/build-style :gose {:category        "Historical Beer"
                              :carb-min        1.5
@@ -24,6 +25,7 @@
                              :color-max       4.0
                              :profile         "Aroma: Light to moderately fruity aroma of pome fruit. Light sourness, slightly sharp. Noticeable coriander, which can have an aromatic lemony quality, and an intensity up to moderate. Light bready, doughy, yeasty character like uncooked sourdough bread. The acidity and coriander can give a bright, lively impression. The salt may be perceived as a very light, clean sea breeze character or just a general freshness, if noticeable at all. Appearance: Unfiltered, with a moderate to full haze. Moderate to tall sized white head with tight bubbles and good retention. Effervescent. Medium yellow color. Flavor: Moderate to restrained but noticeable sourness, like a squeeze of lemon in iced tea. Moderate bready/doughy malt flavor. Light to moderate fruity character of pome fruit, stone fruit, or lemons. Light to moderate salt character, up to the threshold of taste; the salt should be noticeable (particularly in the initial taste) but not taste overtly salty. Low bitterness, no hop flavor. Dry, fully-attenuated finish, with acidity not hops balancing the malt. Acidity can be more noticeable in the finish, and enhance the refreshing quality of the beer. The acidity should be balanced, not forward (although historical versions could be very sour). Mouthfeel: High to very high carbonation, effervescent. Medium-light to medium-full body. Salt may give a slightly tingly, mouthwatering quality, if perceived at all. The yeast and wheat can give it a little body, but it shouldn't have a heavy feel."
                              :ibu-min         5}))
+
 
 (def kentucky-common
   (styles/build-style :kentucky-common {:category        "Historical Beer"
@@ -48,6 +50,7 @@
                                         :profile         "Aroma: Low to medium grainy, corn-like or sweet maltiness with a low toast, biscuity-grainy, bready, or caramel malt accent. Medium to moderately-low hop aroma, usually floral or spicy in character. Clean fermentation character, with possible faint berry ester. Low levels of DMS are acceptable. No sourness. Malt-forward in the balance. Appearance: Amber-orange to light brown in color. Typically clear, but may have some light haze due to limited conditioning. Foam stand may not be long lasting, and is usually white to beige in color. Flavor: Moderate grainy-sweet maltiness with low to medium-low caramel, toffee, bready, and/or biscuity notes. Generally light palate flavors typical of adjunct beers; a low grainy, corn-like sweetness is common. Medium to low floral or spicy hop flavor. Medium to low hop bitterness, which should neither be coarse nor have a harsh aftertaste. May exhibit light fruitiness. Balance in the finish is towards the malt. May have a lightly flinty or minerally-sulfate flavor in the finish. The finish is fairly dry, including the contributions of roasted grains and minerals. No sourness. Mouthfeel: Medium to medium-light body with a relatively soft mouthfeel. Highly carbonated. Can have a creamy texture."
                                         :ibu-min         15}))
 
+
 (def lichtenhainer
   (styles/build-style :lichtenhainer {:category        "Historical Beer"
                                       :carb-min        1.5
@@ -70,6 +73,7 @@
                                       :color-max       6.0
                                       :profile         "Aroma: Moderately strong fresh smoky aroma, light hints of sourness, medium-low fruity esters, possibly apples or lemons, moderate bready-grainy malt. The smoke character is stronger than the bready notes, and the smoke has a ‘dry' character, like the remnants of an old fire, not a ‘greasy' smoke. Appearance: Tall off-white head, rocky and persistent. Deep yellow to light gold color. Fair clarity, may be somewhat hazy. Flavor: Moderately strong fruity flavor, possibly lemons or apples. Moderate intensity, clean lactic tartness (no funk). Similar smoky character as aroma (dry wood fire), medium strength. Dry finish, with acidity and smoke in the aftertaste. Low bitterness; the acidity is providing the balance, not hops. Fresh, clean palate and slightly puckery aftertaste. The wheat character is on the low side; the smoke and acidity are more prominent in the balance. The lemony-tart/green apple flavor is strongest in the finish, with smoke a close second. Complex. Mouthfeel: Tingly acidity. High carbonation. Medium to medium-light body."
                                       :ibu-min         5}))
+
 
 (def london-brown-ale
   (styles/build-style :london-brown-ale {:category        "Historical Beer"
@@ -94,7 +98,8 @@
                                          :profile         "Aroma: Moderate malty-sweet aroma, often with a rich, caramel or toffee-like character. Low to medium fruity esters, often dark fruit like plums. Very low to no hop aroma, earthy or floral qualities. Appearance: Medium to very dark brown color, but can be nearly black. Nearly opaque, although should be relatively clear if visible. Low to moderate off-white to tan head. Flavor: Deep, caramel or toffee-like malty and sweet flavor on the palate and lasting into the finish. Hints of biscuit and coffee are common. Some fruity esters can be present (typically dark fruit); relatively clean fermentation profile for an English ale. Low hop bitterness. Hop flavor is low to non-existent, possibly earthy or floral in character. Moderately-low to no perceivable roasty or bitter black malt flavor. Moderately sweet finish with a smooth, malty aftertaste. May have a sugary-sweet flavor. Mouthfeel: Medium body, but the residual sweetness may give a heavier impression. Medium-low to medium carbonation. Quite creamy and smooth in texture, particularly for its gravity."
                                          :ibu-min         15}))
 
-(def piwo-grodziskie 
+
+(def piwo-grodziskie
   (styles/build-style :piwo-grodziskie {:category        "Historical Beer"
                                         :carb-min        1.5
                                         :fg-max          1.012
@@ -117,7 +122,8 @@
                                         :profile         "Aroma: Low to moderate oak wood smoke is the most prominent aroma component, but can be subtle and hard to detect. A low spicy, herbal, or floral hop aroma is typically present, and should be lower than or equal to the smoke in intensity. Hints of grainy wheat are also detected in the best examples. The aroma is otherwise clean, although light pome fruit esters (especially ripe red apple or pear) are welcome. No acidity. Slight water-derived sulfury notes may be present. Appearance: Pale yellow to medium gold in color with excellent clarity. A tall, billowy, white, tightly-knit head with excellent retention is distinctive. Murkiness is a fault. Flavor: Moderately-low to medium oak smoke flavor up front which carries into the finish; the smoke can be stronger in flavor than in aroma. The smoke character is gentle, should not be acrid, and can lend an impression of sweetness. A moderate to strong bitterness is readily evident which lingers through the finish. The overall balance is toward bitterness. Low but perceptible spicy, herbal, or floral hop flavor. Low grainy wheat character in the background. Light pome fruit esters (red apple or pear) may be present. Dry, crisp finish. No sourness. Mouthfeel: Light in body, with a crisp and dry finish. Carbonation is quite high and can add a slight carbonic bite or prickly sensation. No noticeable alcohol warmth."
                                         :ibu-min         20}))
 
-(def pre-prohibition-lager 
+
+(def pre-prohibition-lager
   (styles/build-style :pre-prohibition-lager {:category        "Historical Beer"
                                               :carb-min        1.5
                                               :fg-max          1.015
@@ -140,7 +146,8 @@
                                               :profile         "Aroma: Low to medium grainy, corn-like or sweet maltiness may be evident (although rice-based beers are more neutral). Medium to moderately high hop aroma, with a range of character from rustic to floral to herbal/spicy; a fruity or citrusy modern hop character is inappropriate. Clean lager character. Low DMS is acceptable. May show some yeast character, as with modern American lagers; allow for a range of subtle supporting yeast notes. Appearance: Yellow to deep gold color. Substantial, long lasting white head. Bright clarity. Flavor: Medium to medium-high maltiness with a grainy flavor, and optionally a corn-like roundness and impression of sweetness. Substantial hop bitterness stands up to the malt and lingers through the dry finish. All malt and rice-based versions are often crisper, drier, and generally lack corn-like flavors. Medium to high hop flavor, with a rustic, floral, or herbal/spicy character. Medium to high hop bitterness, which should neither be overly coarse nor have a harsh aftertaste. Allow for a range of lager yeast character, as with modern American lagers, but generally fairly neutral. Mouthfeel: Medium body with a moderately rich, creamy mouthfeel. Smooth and well-lagered. Medium to high carbonation levels."
                                               :ibu-min         25}))
 
-(def pre-prohibition-porter 
+
+(def pre-prohibition-porter
   (styles/build-style :pre-prohibition-porter {:category        "Historical Beer"
                                                :carb-min        1.5
                                                :fg-max          1.016
@@ -163,7 +170,8 @@
                                                :profile         "Aroma: Base grainy malt aroma with low levels of dark malt (slight burnt or chocolate notes). Low hop aroma. Low to moderate low levels of DMS acceptable. May show low levels of caramel and biscuit aroma. No to very low esters. Light adjunct (licorice, molasses) aroma acceptable. Diacetyl low to none. Clean lager profile acceptable. Appearance: Medium to dark brown, though some examples can be nearly black in color, with ruby or mahogany highlights. Relatively clear. Light to medium tan head which will persist in the glass. Flavor: Grainy base malt flavor, with low levels of chocolate or burnt black malt notes, along with low levels of caramel, biscuit, licorice, and toast notes. Corn/DMS flavor acceptable at low to moderate levels. American hop bitterness low to moderate and American hop flavor low to none. Balance is typically even between malt and hops, with a moderate dry finish. Mouthfeel: Medium light to medium body, moderate carbonation, low to moderate creaminess. May have a slight astringency from the dark malts."
                                                :ibu-min         20}))
 
-(def roggenbier 
+
+(def roggenbier
   (styles/build-style :roggenbier {:category        "Historical Beer"
                                    :carb-min        1.5
                                    :fg-max          1.014
@@ -186,7 +194,8 @@
                                    :profile         "Aroma: Light to moderate spicy rye aroma intermingled with light to moderate weizen yeast aromatics (spicy clove and fruity esters, either banana or citrus). Light spicy, floral, or herbal hops are acceptable. Appearance: Light coppery-orange to very dark reddish or coppery-brown color. Large creamy off-white to tan head, quite dense and persistent (often thick and rocky). Cloudy, hazy appearance. Flavor: Grainy, moderately-low to moderately-strong spicy rye flavor, often having a hearty flavor reminiscent of rye or pumpernickel bread. Medium to medium-low bitterness allows an initial malt sweetness (sometimes with a bit of caramel) to be tasted before yeast and rye character takes over. Low to moderate weizen yeast character (banana, clove), although the balance can vary. Medium-dry, grainy finish with a lightly bitter (from rye) aftertaste. Low to moderate spicy, herbal, or floral hop flavor acceptable, and can persist into aftertaste. Mouthfeel: Medium to medium-full body. High carbonation. Moderately creamy."
                                    :ibu-min         10}))
 
-(def sahti 
+
+(def sahti
   (styles/build-style :sahti {:category        "Historical Beer"
                               :carb-min        1.5
                               :fg-max          1.02
@@ -208,6 +217,7 @@
                               :color-max       22.0
                               :profile         "Aroma: High banana esters with moderate to moderately-high clove-like phenolics. Not sour. May have a low to moderate juniper character. Grainy malt, caramel, and rye in background. Light alcohol aroma. Sweet malt impression. Appearance: Pale yellow to dark brown color; most are medium to dark amber. Generally quite cloudy (unfiltered). Little head, due to low carbonation. Flavor: Strong banana and moderate to moderately-high clove yeast character. Moderate grainy rye flavor. Low bitterness. Fairly sweet finish. Juniper can add a pine-like flavor; juniper berries can add a gin-like flavor; both should be complementary, not dominant. No noticeable hop flavor. Moderate caramel flavor but no roast. Multi-layered and complex, with kind of a wortiness that is unusual in other beer styles. Not sour. Mouthfeel: Thick, viscous, and heavy with protein (no boil means no hot break). Nearly still to medium-low carbonation. Strongly warming from the alcohol level and young age, but often masked by sweetness."
                               :ibu-min         7}))
+
 
 (def historic-beer
   (merge gose kentucky-common lichtenhainer london-brown-ale piwo-grodziskie pre-prohibition-lager pre-prohibition-porter roggenbier sahti))

@@ -2,6 +2,7 @@
   "2015 BJCP guidelines on Pale Malty European Lagers"
   (:require [common-beer-format.data.styles.bjcp-2015.styles :as styles]))
 
+
 (def munich-helles
   (styles/build-style :munich-helles {:category        "Pale Malty European Lager"
                                       :carb-min        1.5
@@ -24,6 +25,7 @@
                                       :color-max       5.0
                                       :profile         "Aroma: Moderate grainy-sweet malt aroma. Low to moderately-low spicy, floral, or herbal hop aroma. While a clean aroma is most desirable, a very low background note of DMS is not a fault. Pleasant, clean fermentation profile, with malt dominating the balance. The freshest examples will have more of a malty-sweet aroma. Appearance: Medium yellow to pale gold. Clear. Persistent creamy white head. Flavor: Moderately malty start with the suggestion of sweetness, moderate grainy-sweet malt flavor with a soft, rounded palate impression, supported by a low to medium-low hop bitterness. The finish is soft and dry, not crisp and biting. Low to moderately-low spicy, floral or herbal hop flavor. The malt dominates the hops in the palate, finish, and aftertaste, but the hops should be noticeable. There should not be any residual sweetness, simply the impression of maltiness with restrained bitterness. Very fresh examples will seem sweeter due to the fresh, rich malt character that can fade with time. Clean fermentation profile. Mouthfeel: Medium body. Medium carbonation. Smooth, well-lagered character."
                                       :ibu-min         16}))
+
 
 (def festbier
   (styles/build-style :festbier {:category        "Pale Malty European Lager"
@@ -48,6 +50,7 @@
                                  :profile         "Aroma: Moderate malty richness, with an emphasis on toasty-doughy aromatics and an impression of sweetness. Low to medium-low floral, herbal, or spicy hops. The malt should not have a deeply toasted, caramel, or biscuity quality. Clean lager fermentation character. Appearance: Deep yellow to deep gold color; should not have amber hues. Bright clarity. Persistent white to off-white foam stand. Most commercial examples are medium gold in color. Flavor: Medium to medium-high malty flavor initially, with a lightly toasty, bread dough quality and an impression of soft sweetness. Medium to medium-low bitterness, definitely malty in the balance. Well-attenuated and crisp, but not dry. Medium-low to medium floral, herbal, or spicy hop flavor. Clean lager fermentation character. The taste is mostly of Pils malt, but with slightly toasty hints. The bitterness is supportive, but still should yield a malty, flavorful finish. Mouthfeel: Medium body, with a smooth, somewhat creamy texture. Medium carbonation. Alcohol strength barely noticeable as warming, if at all."
                                  :ibu-min         18}))
 
+
 (def helles-bock
   (styles/build-style :helles-bock {:category        "Pale Malty European Lager"
                                     :carb-min        1.5
@@ -70,6 +73,7 @@
                                     :color-max       11.0
                                     :profile         "Aroma: Moderate to strong grainy-sweet malt aroma, often with a lightly toasted quality and low Maillard products. Moderately-low to no hop aroma, often with a spicy, herbal, or floral quality. Clean fermentation profile. Fruity esters should be low to none. Very light alcohol may be noticeable. May have a light DMS aroma. Appearance: Deep gold to light amber in color. Bright to clear clarity. Large, creamy, persistent, white head. Flavor: Moderately to moderately strong grainy-sweet malt flavor dominates with some toasty notes and/or Maillard products providing added interest. Little to no caramel flavors. May have a light DMS flavor. Moderate to no hop flavor (spicy, herbal, floral, peppery). Moderate hop bitterness (more so in the balance than in other bocks). Clean fermentation profile. Well-attenuated, not cloying, with a moderately-dry finish that may taste of both malt and hops. Mouthfeel: Medium-bodied. Moderate to moderately-high carbonation. Smooth and clean with no harshness or astringency, despite the increased hop bitterness. A light alcohol warming may be present."
                                     :ibu-min         23}))
+
 
 (def pale-malty-european-lager
   (merge munich-helles festbier helles-bock))

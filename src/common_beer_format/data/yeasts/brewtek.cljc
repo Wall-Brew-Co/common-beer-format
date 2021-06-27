@@ -2,6 +2,7 @@
   "Data for yeasts cultivated by Brewtek"
   (:require [common-beer-format.data.yeasts.yeasts :as yeasts]))
 
+
 (def cl-0010-american-microbrewery-ale-1
   (yeasts/build-yeasts :cl-0010-american-microbrewery-ale-1 {:min-temperature 13.33
                                                              :name            "CL-0010 American Microbrewery Ale #1"
@@ -14,6 +15,7 @@
                                                              :flocculation    "Medium"
                                                              :form            "Liquid"
                                                              :product-id      "CL-0010"}))
+
 
 (def cl-0020-american-microbrewery-ale-2
   (yeasts/build-yeasts :cl-0020-american-microbrewery-ale-2 {:min-temperature 13.33
@@ -28,6 +30,7 @@
                                                              :form            "Liquid"
                                                              :product-id      "CL-0020"}))
 
+
 (def cl-0050-california-pub-ale
   (yeasts/build-yeasts :cl-0050-california-pub-ale {:min-temperature 15.56
                                                     :name            "CL-0050 California Pub Ale"
@@ -41,18 +44,20 @@
                                                     :form            "Liquid"
                                                     :product-id      "CL-0050"}))
 
+
 (def cl-0060-north-eastern-micro-ale
   (yeasts/build-yeasts :cl-0060-north-eastern-micro-ale {:min-temperature 13.33
-                                                        :name            "CL-0060 North-Eastern Micro Ale"
-                                                        :max-temperature 22.22
-                                                        :type            "Ale"
-                                                        :best-for        "American Ales, Reds, Ambers"
-                                                        :laboratory      "Brewtek"
-                                                        :attenuation     0.765
-                                                        :notes           "Malty, bready, yet clean malt character. Leaves hops flavor and aroma intact. Versitile yeast for many American styles."
-                                                        :flocculation    "Medium"
-                                                        :form            "Liquid"
-                                                        :product-id      "CL-0060"}))
+                                                         :name            "CL-0060 North-Eastern Micro Ale"
+                                                         :max-temperature 22.22
+                                                         :type            "Ale"
+                                                         :best-for        "American Ales, Reds, Ambers"
+                                                         :laboratory      "Brewtek"
+                                                         :attenuation     0.765
+                                                         :notes           "Malty, bready, yet clean malt character. Leaves hops flavor and aroma intact. Versitile yeast for many American styles."
+                                                         :flocculation    "Medium"
+                                                         :form            "Liquid"
+                                                         :product-id      "CL-0060"}))
+
 
 (def cl-0110-british-microbrewery-ale
   (yeasts/build-yeasts :cl-0110-british-microbrewery-ale {:min-temperature 16.67
@@ -67,6 +72,7 @@
                                                           :form            "Liquid"
                                                           :product-id      "CL-0110"}))
 
+
 (def cl-0120-british-pale-ale-1
   (yeasts/build-yeasts :cl-0120-british-pale-ale-1 {:min-temperature 16.67
                                                     :name            "CL-0120 British Pale Ale #1"
@@ -79,6 +85,7 @@
                                                     :flocculation    "Medium"
                                                     :form            "Liquid"
                                                     :product-id      "CL-0120"}))
+
 
 (def cl-0130-british-pale-ale-2
   (yeasts/build-yeasts :cl-0130-british-pale-ale-2 {:min-temperature 16.67
@@ -93,6 +100,7 @@
                                                     :form            "Liquid"
                                                     :product-id      "CL-0130"}))
 
+
 (def cl-0150-british-real-ale
   (yeasts/build-yeasts :cl-0150-british-real-ale {:min-temperature 16.67
                                                   :name            "CL-0150 British Real Ale"
@@ -105,6 +113,7 @@
                                                   :flocculation    "Medium"
                                                   :form            "Liquid"
                                                   :product-id      "CL-0150"}))
+
 
 (def cl-0160-british-draft-ale
   (yeasts/build-yeasts :cl-0160-british-draft-ale {:min-temperature 16.67
@@ -119,6 +128,7 @@
                                                    :form            "Liquid"
                                                    :product-id      "CL-0160"}))
 
+
 (def cl-0170-classic-british-ale
   (yeasts/build-yeasts :cl-0170-classic-british-ale {:min-temperature 16.67
                                                      :name            "CL-0170 Classic British Ale"
@@ -131,6 +141,7 @@
                                                      :flocculation    "Medium"
                                                      :form            "Liquid"
                                                      :product-id      "CL-0170"}))
+
 
 (def cl-0200-scottish-ale
   (yeasts/build-yeasts :cl-0200-scottish-ale {:min-temperature 15.56
@@ -145,6 +156,7 @@
                                               :form            "Liquid"
                                               :product-id      "CL-0200"}))
 
+
 (def cl-0240-irish-dry-stout
   (yeasts/build-yeasts :cl-0240-irish-dry-stout {:min-temperature 16.67
                                                  :name            "CL-0240 Irish Dry Stout"
@@ -157,6 +169,7 @@
                                                  :flocculation    "Medium"
                                                  :form            "Liquid"
                                                  :product-id      "CL-0240"}))
+
 
 (def cl-0260-canadian-ale
   (yeasts/build-yeasts :cl-0260-canadian-ale {:min-temperature 16.67
@@ -171,6 +184,7 @@
                                               :form            "Liquid"
                                               :product-id      "CL-0260"}))
 
+
 (def cl-0270-australian-ale
   (yeasts/build-yeasts :cl-0270-australian-ale {:min-temperature 18.89
                                                 :name            "CL-0270 Australian Ale"
@@ -183,6 +197,7 @@
                                                 :flocculation    "Medium"
                                                 :form            "Liquid"
                                                 :product-id      "CL-0270"}))
+
 
 (def cl-0300-belgian-ale-1
   (yeasts/build-yeasts :cl-0300-belgian-ale-1 {:min-temperature 16.67
@@ -197,6 +212,7 @@
                                                :form            "Liquid"
                                                :product-id      "CL-0300"}))
 
+
 (def cl-0320-belgian-ale-2
   (yeasts/build-yeasts :cl-0320-belgian-ale-2 {:min-temperature 16.67
                                                :name            "CL-0320 Belgian Ale #2"
@@ -209,6 +225,7 @@
                                                :flocculation    "Low"
                                                :form            "Liquid"
                                                :product-id      "CL-0320"}))
+
 
 (def cl-0340-belgian-ale-3
   (yeasts/build-yeasts :cl-0340-belgian-ale-3 {:min-temperature 16.67
@@ -223,6 +240,7 @@
                                                :form            "Liquid"
                                                :product-id      "CL-0340"}))
 
+
 (def cl-0380-saison
   (yeasts/build-yeasts :cl-0380-saison {:min-temperature 16.67
                                         :name            "CL-0380 Saison"
@@ -235,6 +253,7 @@
                                         :flocculation    "Medium"
                                         :form            "Liquid"
                                         :product-id      "CL-0380"}))
+
 
 (def cl-0400-old-german-ale
   (yeasts/build-yeasts :cl-0400-old-german-ale {:min-temperature 16.67
@@ -249,6 +268,7 @@
                                                 :form            "Liquid"
                                                 :product-id      "CL-0400"}))
 
+
 (def cl-0450-kolsch
   (yeasts/build-yeasts :cl-0450-kolsch {:min-temperature 16.67
                                         :name            "CL-0450 Kolsch"
@@ -261,6 +281,7 @@
                                         :flocculation    "Medium"
                                         :form            "Liquid"
                                         :product-id      "CL-0450"}))
+
 
 (def cl-0600-original-pilsner
   (yeasts/build-yeasts :cl-0600-original-pilsner {:min-temperature 8.89
@@ -275,6 +296,7 @@
                                                   :form            "Liquid"
                                                   :product-id      "CL-0600"}))
 
+
 (def cl-0620-american-megabrewery
   (yeasts/build-yeasts :cl-0620-american-megabrewery {:min-temperature 8.89
                                                       :name            "CL-0620 American Megabrewery"
@@ -287,6 +309,7 @@
                                                       :flocculation    "Medium"
                                                       :form            "Liquid"
                                                       :product-id      "CL-0620"}))
+
 
 (def cl-0630-american-microbrewery-lager
   (yeasts/build-yeasts :cl-0630-american-microbrewery-lager {:min-temperature 8.89
@@ -301,6 +324,7 @@
                                                              :form            "Liquid"
                                                              :product-id      "CL-0630"}))
 
+
 (def cl-0650-old-bavarian-lager
   (yeasts/build-yeasts :cl-0650-old-bavarian-lager {:min-temperature 8.89
                                                     :name            "CL-0650 Old Bavarian Lager"
@@ -313,6 +337,7 @@
                                                     :flocculation    "Medium"
                                                     :form            "Liquid"
                                                     :product-id      "CL-0650"}))
+
 
 (def cl-0660-northern-german-lager
   (yeasts/build-yeasts :cl-0660-northern-german-lager {:min-temperature 8.89
@@ -327,6 +352,7 @@
                                                        :form            "Liquid"
                                                        :product-id      "CL-0660"}))
 
+
 (def cl-0670-swiss-lager
   (yeasts/build-yeasts :cl-0670-swiss-lager {:min-temperature 8.89
                                              :name            "CL-0670 Swiss Lager"
@@ -339,6 +365,7 @@
                                              :flocculation    "Medium"
                                              :form            "Liquid"
                                              :product-id      "CL-0670"}))
+
 
 (def cl-0680-east-european-lager
   (yeasts/build-yeasts :cl-0680-east-european-lager {:min-temperature 8.89
@@ -353,6 +380,7 @@
                                                      :form            "Liquid"
                                                      :product-id      "CL-0680"}))
 
+
 (def cl-0690-california-esteem-gold
   (yeasts/build-yeasts :cl-0690-california-esteem-gold {:min-temperature 8.89
                                                         :name            "CL-0690 California Esteem (Gold)"
@@ -365,6 +393,7 @@
                                                         :flocculation    "Medium"
                                                         :form            "Liquid"
                                                         :product-id      "CL-0690"}))
+
 
 (def cl-0900-belgian-wheat
   (yeasts/build-yeasts :cl-0900-belgian-wheat {:min-temperature 12.78
@@ -379,6 +408,7 @@
                                                :form            "Liquid"
                                                :product-id      "CL-0900"}))
 
+
 (def cl-0920-german-wheat-bt
   (yeasts/build-yeasts :cl-0920-german-wheat-bt {:min-temperature 12.78
                                                  :name            "CL-0920 German Wheat BT"
@@ -391,6 +421,7 @@
                                                  :flocculation    "Medium"
                                                  :form            "Liquid"
                                                  :product-id      "CL-0920"}))
+
 
 (def cl-0930-german-weiss
   (yeasts/build-yeasts :cl-0930-german-weiss {:min-temperature 12.78
@@ -405,6 +436,7 @@
                                               :form            "Liquid"
                                               :product-id      "CL-0930"}))
 
+
 (def cl-0980-american-white-ale
   (yeasts/build-yeasts :cl-0980-american-white-ale {:min-temperature 12.78
                                                     :name            "CL-0980 American White Ale"
@@ -417,6 +449,7 @@
                                                     :flocculation    "Low"
                                                     :form            "Liquid"
                                                     :product-id      "CL-0980"}))
+
 
 (def cl-5200-brettanomyces-lambicus
   (yeasts/build-yeasts :cl-5200-brettanomyces-lambicus {:min-temperature 8.89
@@ -431,6 +464,7 @@
                                                         :form            "Liquid"
                                                         :product-id      "CL-5200"}))
 
+
 (def cl-5600-pediococcus-damnosus
   (yeasts/build-yeasts :cl-5600-pediococcus-damnosus {:min-temperature 8.89
                                                       :name            "CL-5600 Pediococcus Damnosus"
@@ -443,6 +477,7 @@
                                                       :flocculation    "Medium"
                                                       :form            "Liquid"
                                                       :product-id      "CL-5600"}))
+
 
 (def brewtek
   (merge cl-0010-american-microbrewery-ale-1 cl-0020-american-microbrewery-ale-2 cl-0050-california-pub-ale cl-0060-north-eastern-micro-ale cl-0110-british-microbrewery-ale cl-0120-british-pale-ale-1 cl-0130-british-pale-ale-2 cl-0150-british-real-ale

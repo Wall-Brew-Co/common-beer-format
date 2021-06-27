@@ -2,6 +2,7 @@
   "Data for yeasts cultivated by White Labs"
   (:require [common-beer-format.data.yeasts.yeasts :as yeasts]))
 
+
 (def wlp001-california-ale
   (yeasts/build-yeasts :wlp001-california-ale {:min-temperature 20.0
                                                :name            "WLP001 California Ale"
@@ -14,6 +15,7 @@
                                                :flocculation    "High"
                                                :form            "Liquid"
                                                :product-id      "WLP001"}))
+
 
 (def wlp002-english-ale
   (yeasts/build-yeasts :wlp002-english-ale {:min-temperature 18.33
@@ -28,6 +30,7 @@
                                             :form            "Liquid"
                                             :product-id      "WLP002"}))
 
+
 (def wlp003-german-ale-ii
   (yeasts/build-yeasts :wlp003-german-ale-ii {:min-temperature 18.33
                                               :name            "WLP003 German Ale II"
@@ -40,6 +43,7 @@
                                               :flocculation    "Medium"
                                               :form            "Liquid"
                                               :product-id      "WLP003"}))
+
 
 (def wlp004-irish-ale-yeast
   (yeasts/build-yeasts :wlp004-irish-ale-yeast {:min-temperature 18.33
@@ -54,6 +58,7 @@
                                                 :form            "Liquid"
                                                 :product-id      "WLP004"}))
 
+
 (def wlp005-british-ale
   (yeasts/build-yeasts :wlp005-british-ale {:min-temperature 19.44
                                             :name            "WLP005 British Ale"
@@ -66,6 +71,7 @@
                                             :flocculation    "High"
                                             :form            "Liquid"
                                             :product-id      "WLP005"}))
+
 
 (def wlp006-bedford-british-ale
   (yeasts/build-yeasts :wlp006-bedford-british-ale {:min-temperature 18.33
@@ -80,6 +86,7 @@
                                                     :form            "Liquid"
                                                     :product-id      "WLP006"}))
 
+
 (def wlp007-dry-english-ale
   (yeasts/build-yeasts :wlp007-dry-english-ale {:min-temperature 18.33
                                                 :name            "WLP007 Dry English Ale"
@@ -92,6 +99,7 @@
                                                 :flocculation    "High"
                                                 :form            "Liquid"
                                                 :product-id      "WLP007"}))
+
 
 (def wlp008-east-coast-ale
   (yeasts/build-yeasts :wlp008-east-coast-ale {:min-temperature 20.0
@@ -106,6 +114,7 @@
                                                :form            "Liquid"
                                                :product-id      "WLP008"}))
 
+
 (def wlp009-australian-ale-yeast
   (yeasts/build-yeasts :wlp009-australian-ale-yeast {:min-temperature 18.33
                                                      :name            "WLP009 Australian Ale Yeast"
@@ -118,6 +127,7 @@
                                                      :flocculation    "High"
                                                      :form            "Liquid"
                                                      :product-id      "WLP009"}))
+
 
 (def wlp011-european-ale
   (yeasts/build-yeasts :wlp011-european-ale {:min-temperature 18.33
@@ -132,6 +142,7 @@
                                              :form            "Liquid"
                                              :product-id      "WLP011"}))
 
+
 (def wlp013-london-ale
   (yeasts/build-yeasts :wlp013-london-ale {:min-temperature 18.89
                                            :name            "WLP013 London Ale"
@@ -144,6 +155,7 @@
                                            :flocculation    "Medium"
                                            :form            "Liquid"
                                            :product-id      "WLP013"}))
+
 
 (def wlp022-essex-ale-yeast
   (yeasts/build-yeasts :wlp022-essex-ale-yeast {:min-temperature 18.89
@@ -158,6 +170,7 @@
                                                 :form            "Liquid"
                                                 :product-id      "WLP022"}))
 
+
 (def wlp023-burton-ale
   (yeasts/build-yeasts :wlp023-burton-ale {:min-temperature 20.0
                                            :name            "WLP023 Burton Ale"
@@ -170,6 +183,7 @@
                                            :flocculation    "Medium"
                                            :form            "Liquid"
                                            :product-id      "WLP023"}))
+
 
 (def wlp025-southwold-ale
   (yeasts/build-yeasts :wlp025-southwold-ale {:min-temperature 18.89
@@ -184,6 +198,7 @@
                                               :form            "Liquid"
                                               :product-id      "WLP025"}))
 
+
 (def wlp026-premium-bitter-ale
   (yeasts/build-yeasts :wlp026-premium-bitter-ale {:min-temperature 19.44
                                                    :name            "WLP026 Premium Bitter Ale"
@@ -196,6 +211,7 @@
                                                    :flocculation    "Medium"
                                                    :form            "Liquid"
                                                    :product-id      "WLP026"}))
+
 
 (def wlp028-edinburgh-ale
   (yeasts/build-yeasts :wlp028-edinburgh-ale {:min-temperature 18.33
@@ -210,6 +226,7 @@
                                               :form            "Liquid"
                                               :product-id      "WLP028"}))
 
+
 (def wlp029-german-ale-kolsch
   (yeasts/build-yeasts :wlp029-german-ale-kolsch {:min-temperature 18.33
                                                   :name            "WLP029 German Ale/Kolsch"
@@ -222,6 +239,7 @@
                                                   :flocculation    "Medium"
                                                   :form            "Liquid"
                                                   :product-id      "WLP029"}))
+
 
 (def wlp033-klassic-ale-yeast
   (yeasts/build-yeasts :wlp033-klassic-ale-yeast {:min-temperature 18.89
@@ -236,6 +254,7 @@
                                                   :form            "Liquid"
                                                   :product-id      "WLP033"}))
 
+
 (def wlp036-dusseldorf-alt-yeast
   (yeasts/build-yeasts :wlp036-dusseldorf-alt-yeast {:min-temperature 18.33
                                                      :name            "WLP036 Dusseldorf Alt Yeast"
@@ -248,6 +267,7 @@
                                                      :flocculation    "Medium"
                                                      :form            "Liquid"
                                                      :product-id      "WLP036"}))
+
 
 (def wlp037-yorkshire-square-ale-yeast
   (yeasts/build-yeasts :wlp037-yorkshire-square-ale-yeast {:min-temperature 18.33
@@ -262,6 +282,7 @@
                                                            :form            "Liquid"
                                                            :product-id      "WLP037"}))
 
+
 (def wlp038-manchester-ale-yeast
   (yeasts/build-yeasts :wlp038-manchester-ale-yeast {:min-temperature 18.33
                                                      :name            "WLP038 Manchester Ale Yeast"
@@ -274,6 +295,7 @@
                                                      :flocculation    "Medium"
                                                      :form            "Liquid"
                                                      :product-id      "WLP038"}))
+
 
 (def wlp039-nottingham-ale-yeast
   (yeasts/build-yeasts :wlp039-nottingham-ale-yeast {:min-temperature 18.89
@@ -288,6 +310,7 @@
                                                      :form            "Liquid"
                                                      :product-id      "WLP039"}))
 
+
 (def wlp041-pacific-ale
   (yeasts/build-yeasts :wlp041-pacific-ale {:min-temperature 18.33
                                             :name            "WLP041 Pacific Ale"
@@ -300,6 +323,7 @@
                                             :flocculation    "High"
                                             :form            "Liquid"
                                             :product-id      "WLP041"}))
+
 
 (def wlp051-california-ale-v
   (yeasts/build-yeasts :wlp051-california-ale-v {:min-temperature 18.89
@@ -314,6 +338,7 @@
                                                  :form            "Liquid"
                                                  :product-id      "WLP051"}))
 
+
 (def wlp060-american-ale-yeast-blend
   (yeasts/build-yeasts :wlp060-american-ale-yeast-blend {:min-temperature 20.0
                                                          :name            "WLP060 American Ale Yeast Blend"
@@ -326,6 +351,7 @@
                                                          :flocculation    "Medium"
                                                          :form            "Liquid"
                                                          :product-id      "WLP060"}))
+
 
 (def wlp080-cream-ale-yeast-blend
   (yeasts/build-yeasts :wlp080-cream-ale-yeast-blend {:min-temperature 18.33
@@ -340,6 +366,7 @@
                                                       :form            "Liquid"
                                                       :product-id      "WLP080"}))
 
+
 (def wlp090-san-diego-super-yeast
   (yeasts/build-yeasts :wlp090-san-diego-super-yeast {:min-temperature 18.33
                                                       :name            "WLP090 San Diego Super Yeast"
@@ -352,6 +379,7 @@
                                                       :flocculation    "Very High"
                                                       :form            "Liquid"
                                                       :product-id      "WLP090"}))
+
 
 (def wlp099-super-high-gravity-ale
   (yeasts/build-yeasts :wlp099-super-high-gravity-ale {:min-temperature 20.56
@@ -366,6 +394,7 @@
                                                        :form            "Liquid"
                                                        :product-id      "WLP099"}))
 
+
 (def wlp300-hefeweizen-ale
   (yeasts/build-yeasts :wlp300-hefeweizen-ale {:min-temperature 20.0
                                                :name            "WLP300 Hefeweizen Ale"
@@ -378,6 +407,7 @@
                                                :flocculation    "Low"
                                                :form            "Liquid"
                                                :product-id      "WLP300"}))
+
 
 (def wlp320-american-hefeweizen-ale
   (yeasts/build-yeasts :wlp320-american-hefeweizen-ale {:min-temperature 18.33
@@ -392,6 +422,7 @@
                                                         :form            "Liquid"
                                                         :product-id      "WLP320"}))
 
+
 (def wlp351-bavarian-weizen-yeast
   (yeasts/build-yeasts :wlp351-bavarian-weizen-yeast {:min-temperature 18.89
                                                       :name            "WLP351 Bavarian Weizen Yeast"
@@ -404,6 +435,7 @@
                                                       :flocculation    "Low"
                                                       :form            "Liquid"
                                                       :product-id      "WLP351"}))
+
 
 (def wlp380-hefeweizen-iv-ale
   (yeasts/build-yeasts :wlp380-hefeweizen-iv-ale {:min-temperature 18.89
@@ -418,6 +450,7 @@
                                                   :form            "Liquid"
                                                   :product-id      "WLP380"}))
 
+
 (def wlp400-belgian-wit-ale
   (yeasts/build-yeasts :wlp400-belgian-wit-ale {:min-temperature 19.44
                                                 :name            "WLP400 Belgian Wit Ale"
@@ -430,6 +463,7 @@
                                                 :flocculation    "Low"
                                                 :form            "Liquid"
                                                 :product-id      "WLP400"}))
+
 
 (def wlp410-belgian-wit-ii
   (yeasts/build-yeasts :wlp410-belgian-wit-ii {:min-temperature 19.44
@@ -444,6 +478,7 @@
                                                :form            "Liquid"
                                                :product-id      "WLP410"}))
 
+
 (def wlp500-trappist-ale
   (yeasts/build-yeasts :wlp500-trappist-ale {:min-temperature 18.33
                                              :name            "WLP500 Trappist Ale"
@@ -456,6 +491,7 @@
                                              :flocculation    "Medium"
                                              :form            "Liquid"
                                              :product-id      "WLP500"}))
+
 
 (def wlp510-bastogne-belgian-ale
   (yeasts/build-yeasts :wlp510-bastogne-belgian-ale {:min-temperature 18.89
@@ -470,6 +506,7 @@
                                                      :form            "Liquid"
                                                      :product-id      "WLP510"}))
 
+
 (def wlp515-antwerp-ale-yeast
   (yeasts/build-yeasts :wlp515-antwerp-ale-yeast {:min-temperature 19.44
                                                   :name            "WLP515 Antwerp Ale Yeast"
@@ -482,6 +519,7 @@
                                                   :flocculation    "Medium"
                                                   :form            "Liquid"
                                                   :product-id      "WLP515"}))
+
 
 (def wlp530-abbey-ale
   (yeasts/build-yeasts :wlp530-abbey-ale {:min-temperature 18.89
@@ -496,6 +534,7 @@
                                           :form            "Liquid"
                                           :product-id      "WLP530"}))
 
+
 (def wlp540-abbey-iv-ale-yeast
   (yeasts/build-yeasts :wlp540-abbey-iv-ale-yeast {:min-temperature 18.89
                                                    :name            "WLP540 Abbey IV Ale Yeast"
@@ -508,6 +547,7 @@
                                                    :flocculation    "Medium"
                                                    :form            "Liquid"
                                                    :product-id      "WLP540"}))
+
 
 (def wlp545-belgian-strong-ale-yeast
   (yeasts/build-yeasts :wlp545-belgian-strong-ale-yeast {:min-temperature 18.33
@@ -522,6 +562,7 @@
                                                          :form            "Liquid"
                                                          :product-id      "WLP545"}))
 
+
 (def wlp550-belgian-ale
   (yeasts/build-yeasts :wlp550-belgian-ale {:min-temperature 20.0
                                             :name            "WLP550 Belgian Ale"
@@ -534,6 +575,7 @@
                                             :flocculation    "Medium"
                                             :form            "Liquid"
                                             :product-id      "WLP550"}))
+
 
 (def wlp565-belgian-saison-i-ale
   (yeasts/build-yeasts :wlp565-belgian-saison-i-ale {:min-temperature 20.0
@@ -548,6 +590,7 @@
                                                      :form            "Liquid"
                                                      :product-id      "WLP565"}))
 
+
 (def wlp566-belgian-saison-ii-yeast
   (yeasts/build-yeasts :wlp566-belgian-saison-ii-yeast {:min-temperature 20.0
                                                         :name            "WLP566 Belgian Saison II Yeast"
@@ -560,6 +603,7 @@
                                                         :flocculation    "Medium"
                                                         :form            "Liquid"
                                                         :product-id      "WLP566"}))
+
 
 (def wlp568-belgian-style-saison-ale-yeast-blend
   (yeasts/build-yeasts :wlp568-belgian-style-saison-ale-yeast-blend {:min-temperature 21.11
@@ -574,6 +618,7 @@
                                                                      :form            "Liquid"
                                                                      :product-id      "WLP568"}))
 
+
 (def wlp570-belgian-golden-ale
   (yeasts/build-yeasts :wlp570-belgian-golden-ale {:min-temperature 20.0
                                                    :name            "WLP570 Belgian Golden Ale"
@@ -586,6 +631,7 @@
                                                    :flocculation    "Low"
                                                    :form            "Liquid"
                                                    :product-id      "WLP570"}))
+
 
 (def wlp575-belgian-style-ale-yeast-blend
   (yeasts/build-yeasts :wlp575-belgian-style-ale-yeast-blend {:min-temperature 20.0
@@ -600,6 +646,7 @@
                                                               :form            "Liquid"
                                                               :product-id      "WLP575"}))
 
+
 (def wlp630-berliner-weisse-blend
   (yeasts/build-yeasts :wlp630-berliner-weisse-blend {:min-temperature 20.0
                                                       :name            "WLP630 Berliner Weisse Blend"
@@ -612,6 +659,7 @@
                                                       :flocculation    "Medium"
                                                       :form            "Liquid"
                                                       :product-id      "WLP630"}))
+
 
 (def wlp645-brettanomyces-claussenii
   (yeasts/build-yeasts :wlp645-brettanomyces-claussenii {:min-temperature 18.33
@@ -626,6 +674,7 @@
                                                          :form            "Liquid"
                                                          :product-id      "WLP645"}))
 
+
 (def wlp650-brettanomyces-bruxellensis
   (yeasts/build-yeasts :wlp650-brettanomyces-bruxellensis {:min-temperature 18.33
                                                            :name            "WLP650 Brettanomyces Bruxellensis"
@@ -638,6 +687,7 @@
                                                            :flocculation    "Medium"
                                                            :form            "Liquid"
                                                            :product-id      "WLP650"}))
+
 
 (def wlp653-brettanomyces-lambicus
   (yeasts/build-yeasts :wlp653-brettanomyces-lambicus {:min-temperature 18.33
@@ -652,6 +702,7 @@
                                                        :form            "Liquid"
                                                        :product-id      "WLP653"}))
 
+
 (def wlp655-belgian-sour-mix-1
   (yeasts/build-yeasts :wlp655-belgian-sour-mix-1 {:min-temperature 18.33
                                                    :name            "WLP655 Belgian Sour Mix 1"
@@ -664,6 +715,7 @@
                                                    :flocculation    "Medium"
                                                    :form            "Liquid"
                                                    :product-id      "WLP655"}))
+
 
 (def wlp670-american-farmhouse-blend
   (yeasts/build-yeasts :wlp670-american-farmhouse-blend {:min-temperature 20.0
@@ -678,6 +730,7 @@
                                                          :form            "Liquid"
                                                          :product-id      "WLP670"}))
 
+
 (def wlp675-malolactic-bacteria
   (yeasts/build-yeasts :wlp675-malolactic-bacteria {:min-temperature 18.33
                                                     :name            "WLP675 Malolactic Bacteria"
@@ -690,6 +743,7 @@
                                                     :flocculation    "Medium"
                                                     :form            "Liquid"
                                                     :product-id      "WLP675"}))
+
 
 (def wlp677-lactobacillus-bacteria
   (yeasts/build-yeasts :wlp677-lactobacillus-bacteria {:min-temperature 18.33
@@ -704,6 +758,7 @@
                                                        :form            "Liquid"
                                                        :product-id      "WLP677"}))
 
+
 (def wlp700-flor-sherry-yeast
   (yeasts/build-yeasts :wlp700-flor-sherry-yeast {:min-temperature 21.11
                                                   :name            "WLP700 Flor Sherry Yeast"
@@ -716,6 +771,7 @@
                                                   :flocculation    "Medium"
                                                   :form            "Liquid"
                                                   :product-id      "WLP700"}))
+
 
 (def wlp705-sake-yeast
   (yeasts/build-yeasts :wlp705-sake-yeast {:min-temperature 21.11
@@ -730,6 +786,7 @@
                                            :form            "Liquid"
                                            :product-id      "WLP705"}))
 
+
 (def wlp715-champagne-yeast
   (yeasts/build-yeasts :wlp715-champagne-yeast {:min-temperature 21.11
                                                 :name            "WLP715 Champagne Yeast"
@@ -742,6 +799,7 @@
                                                 :flocculation    "Low"
                                                 :form            "Liquid"
                                                 :product-id      "WLP715"}))
+
 
 (def wlp718-avize-wine-yeast
   (yeasts/build-yeasts :wlp718-avize-wine-yeast {:min-temperature 15.56
@@ -756,6 +814,7 @@
                                                  :form            "Liquid"
                                                  :product-id      "WLP718"}))
 
+
 (def wlp720-sweet-mead-wine
   (yeasts/build-yeasts :wlp720-sweet-mead-wine {:min-temperature 21.11
                                                 :name            "WLP720 Sweet Mead/Wine"
@@ -768,6 +827,7 @@
                                                 :flocculation    "Low"
                                                 :form            "Liquid"
                                                 :product-id      "WLP720"}))
+
 
 (def wlp727-steinberg-geisenheim-wine
   (yeasts/build-yeasts :wlp727-steinberg-geisenheim-wine {:min-temperature 10.0
@@ -782,6 +842,7 @@
                                                           :form            "Liquid"
                                                           :product-id      "WLP727"}))
 
+
 (def wlp730-chardonnay-white-wine-yeast
   (yeasts/build-yeasts :wlp730-chardonnay-white-wine-yeast {:min-temperature 10.0
                                                             :name            "WLP730 Chardonnay White Wine Yeast"
@@ -794,6 +855,7 @@
                                                             :flocculation    "Low"
                                                             :form            "Liquid"
                                                             :product-id      "WLP730"}))
+
 
 (def wlp735-french-white-wine-yeast
   (yeasts/build-yeasts :wlp735-french-white-wine-yeast {:min-temperature 15.56
@@ -808,6 +870,7 @@
                                                         :form            "Liquid"
                                                         :product-id      "WLP735"}))
 
+
 (def wlp740-merlot-red-wine-yeast
   (yeasts/build-yeasts :wlp740-merlot-red-wine-yeast {:min-temperature 15.56
                                                       :name            "WLP740 Merlot Red Wine Yeast"
@@ -820,6 +883,7 @@
                                                       :flocculation    "Low"
                                                       :form            "Liquid"
                                                       :product-id      "WLP740"}))
+
 
 (def wlp749-assmanshausen-wine-yeast
   (yeasts/build-yeasts :wlp749-assmanshausen-wine-yeast {:min-temperature 10.0
@@ -834,6 +898,7 @@
                                                          :form            "Liquid"
                                                          :product-id      "WLP749"}))
 
+
 (def wlp750-french-red-wine-yeast
   (yeasts/build-yeasts :wlp750-french-red-wine-yeast {:min-temperature 15.56
                                                       :name            "WLP750 French Red Wine Yeast"
@@ -846,6 +911,7 @@
                                                       :flocculation    "Low"
                                                       :form            "Liquid"
                                                       :product-id      "WLP750"}))
+
 
 (def wlp760-cabernet-red-wine-yeast
   (yeasts/build-yeasts :wlp760-cabernet-red-wine-yeast {:min-temperature 15.56
@@ -860,6 +926,7 @@
                                                         :form            "Liquid"
                                                         :product-id      "WLP760"}))
 
+
 (def wlp770-suremain-burgundy-wine-yeast
   (yeasts/build-yeasts :wlp770-suremain-burgundy-wine-yeast {:min-temperature 15.56
                                                              :name            "WLP770 Suremain Burgundy Wine Yeast"
@@ -872,6 +939,7 @@
                                                              :flocculation    "Low"
                                                              :form            "Liquid"
                                                              :product-id      "WLP770"}))
+
 
 (def wlp775-english-cider-yeast
   (yeasts/build-yeasts :wlp775-english-cider-yeast {:min-temperature 20.0
@@ -886,6 +954,7 @@
                                                     :form            "Liquid"
                                                     :product-id      "WLP775"}))
 
+
 (def wlp800-pilsner-lager
   (yeasts/build-yeasts :wlp800-pilsner-lager {:min-temperature 10.0
                                               :name            "WLP800 Pilsner Lager"
@@ -898,6 +967,7 @@
                                               :flocculation    "High"
                                               :form            "Liquid"
                                               :product-id      "WLP800"}))
+
 
 (def wlp802-czech-budejovice-lager
   (yeasts/build-yeasts :wlp802-czech-budejovice-lager {:min-temperature 10.0
@@ -912,6 +982,7 @@
                                                        :form            "Liquid"
                                                        :product-id      "WLP802"}))
 
+
 (def wlp810-san-francisco-lager
   (yeasts/build-yeasts :wlp810-san-francisco-lager {:min-temperature 14.44
                                                     :name            "WLP810 San Francisco Lager"
@@ -924,6 +995,7 @@
                                                     :flocculation    "High"
                                                     :form            "Liquid"
                                                     :product-id      "WLP810"}))
+
 
 (def wlp815-belgian-lager-yeast
   (yeasts/build-yeasts :wlp815-belgian-lager-yeast {:min-temperature 10.0
@@ -938,6 +1010,7 @@
                                                     :form            "Liquid"
                                                     :product-id      "WLP815"}))
 
+
 (def wlp820-octoberfest-marzen-lager
   (yeasts/build-yeasts :wlp820-octoberfest-marzen-lager {:min-temperature 11.11
                                                          :name            "WLP820 Octoberfest/Marzen Lager"
@@ -950,6 +1023,7 @@
                                                          :flocculation    "Medium"
                                                          :form            "Liquid"
                                                          :product-id      "WLP820"}))
+
 
 (def wlp830-german-lager
   (yeasts/build-yeasts :wlp830-german-lager {:min-temperature 10.0
@@ -964,6 +1038,7 @@
                                              :form            "Liquid"
                                              :product-id      "WLP830"}))
 
+
 (def wlp833-german-bock-lager
   (yeasts/build-yeasts :wlp833-german-bock-lager {:min-temperature 8.89
                                                   :name            "WLP833 German Bock Lager"
@@ -976,6 +1051,7 @@
                                                   :flocculation    "Medium"
                                                   :form            "Liquid"
                                                   :product-id      "WLP833"}))
+
 
 (def wlp838-southern-german-lager
   (yeasts/build-yeasts :wlp838-southern-german-lager {:min-temperature 10.0
@@ -990,6 +1066,7 @@
                                                       :form            "Liquid"
                                                       :product-id      "WLP838"}))
 
+
 (def wlp840-american-lager-yeast
   (yeasts/build-yeasts :wlp840-american-lager-yeast {:min-temperature 10.0
                                                      :name            "WLP840 American Lager Yeast"
@@ -1002,6 +1079,7 @@
                                                      :flocculation    "Medium"
                                                      :form            "Liquid"
                                                      :product-id      "WLP840"}))
+
 
 (def wlp860-munich-helles
   (yeasts/build-yeasts :wlp860-munich-helles {:min-temperature 8.89
@@ -1016,6 +1094,7 @@
                                               :form            "Liquid"
                                               :product-id      "WLP860"}))
 
+
 (def wlp862-cry-havoc
   (yeasts/build-yeasts :wlp862-cry-havoc {:min-temperature 20.0
                                           :name            "WLP862 Cry Havoc"
@@ -1028,6 +1107,7 @@
                                           :flocculation    "Medium"
                                           :form            "Liquid"
                                           :product-id      "WLP862"}))
+
 
 (def wlp885-zurich-lager
   (yeasts/build-yeasts :wlp885-zurich-lager {:min-temperature 10.0
@@ -1042,6 +1122,7 @@
                                              :form            "Liquid"
                                              :product-id      "WLP885"}))
 
+
 (def wlp920-old-bavarian-lager
   (yeasts/build-yeasts :wlp920-old-bavarian-lager {:min-temperature 10.0
                                                    :name            "WLP920 Old Bavarian Lager"
@@ -1055,6 +1136,7 @@
                                                    :form            "Liquid"
                                                    :product-id      "WLP920"}))
 
+
 (def wlp940-mexican-lager
   (yeasts/build-yeasts :wlp940-mexican-lager {:min-temperature 10.0
                                               :name            "WLP940 Mexican Lager"
@@ -1067,6 +1149,7 @@
                                               :flocculation    "Medium"
                                               :form            "Liquid"
                                               :product-id      "WLP940"}))
+
 
 (def white-labs
   (merge wlp001-california-ale wlp002-english-ale wlp003-german-ale-ii wlp004-irish-ale-yeast wlp005-british-ale wlp006-bedford-british-ale wlp007-dry-english-ale
