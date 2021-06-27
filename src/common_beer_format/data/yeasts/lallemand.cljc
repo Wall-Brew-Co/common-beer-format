@@ -2,6 +2,7 @@
   "Data for yeasts cultivated by Lallemand"
   (:require [common-beer-format.data.yeasts.yeasts :as yeasts]))
 
+
 (def lalvin-71b-1122
   (yeasts/build-yeasts :lalvin-71b-1122 {:min-temperature 15.0
                                          :name            "71B-1122 Lalvin"
@@ -14,6 +15,7 @@
                                          :flocculation    "High"
                                          :form            "Dry"
                                          :product-id      "71B-1122"}))
+
 
 (def lalvin-d-47
   (yeasts/build-yeasts :lalvin-d-47 {:min-temperature 10.0
@@ -28,6 +30,7 @@
                                      :form            "Dry"
                                      :product-id      "D-47"}))
 
+
 (def lalvin-ec-1118
   (yeasts/build-yeasts :lalvin-ec-1118 {:min-temperature 7.22
                                         :name            "EC-1118 Lalvin"
@@ -40,6 +43,7 @@
                                         :flocculation    "High"
                                         :form            "Dry"
                                         :product-id      "EC-1118"}))
+
 
 (def lalvin-k1v-1116
   (yeasts/build-yeasts :lalvin-k1v-1116 {:min-temperature 15.0
@@ -54,6 +58,7 @@
                                          :form            "Dry"
                                          :product-id      "K1V-1116"}))
 
+
 (def lalvin-rc-212
   (yeasts/build-yeasts :lalvin-rc-212 {:min-temperature 15.0
                                        :name            "RC-212 Lalvin"
@@ -66,6 +71,7 @@
                                        :flocculation    "Medium"
                                        :form            "Dry"
                                        :product-id      "RC-212"}))
+
 
 (def lallemand
   (merge lalvin-71b-1122 lalvin-d-47 lalvin-ec-1118 lalvin-k1v-1116 lalvin-rc-212))

@@ -4,11 +4,16 @@ about: Let us know about equipment, ingredients, and styles to add
 
 ---
 
-**Describe the addition**
+# Data Request
+
+## Describe the Addition
+
 A clear and concise description of what you'd like added.
 
-**Datasource**
+## Datasource
+
 A link to the manufacturer's technical specifications, or another authoritative source
 
-**Additional context**
+## Additional Context
+
 Add any other context about the data addition here.

@@ -5,10 +5,12 @@
             [common-beer-format.util :as cbf]
             [spec-tools.core :as st]))
 
+
 (defn conform
   "Conform `data` to a given `spec` while eliminating non-conforming keys and values"
   [spec data]
   (st/conform spec data cbf/strict-transformer))
+
 
 (defn parse-and-coerce-xml
   "Parse the string `xml-doc` and decode it as an instance of `cbf-spec`"
@@ -16,17 +18,20 @@
   (let [parsed-xml (cbf-xml/parse-beer-xml xml-doc)]
     (conform cbf-spec parsed-xml)))
 
+
 (defn parse-and-coerce-json
   "Parse the string `json-blob` and decode it as an instance of `cbf-spec`"
   [json-blob cbf-spec]
   (let [parsed-json (cbf-json/parse-beer-json json-blob)]
     (conform cbf-spec parsed-json)))
 
+
 (defn emit-xml
   "Encode `cbf-data` as an instance of `cbf-spec` and return the equivalent XML"
   [cbf-data cbf-spec]
   (let [encoded-data (conform cbf-spec cbf-data)]
     (cbf-xml/emit-beer-xml encoded-data)))
+
 
 (defn emit-json
   "Encode `cbf-data` as an instance of `cbf-spec` and return the equivalent json"

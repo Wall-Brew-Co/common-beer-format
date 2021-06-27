@@ -2,6 +2,7 @@
   "Data for bitter hops"
   (:require [common-beer-format.data.hops.hops :as hops]))
 
+
 (def summit
   (hops/build-hop :summit {:beta          0.06
                            :name          "Summit"
@@ -14,6 +15,7 @@
                            :caryophyllene 0.13
                            :alpha         0.18
                            :substitutes   "Columbus, Simcoe, Apollo"}))
+
 
 (def chelan
   (hops/build-hop :chelan {:beta          0.098
@@ -28,6 +30,7 @@
                            :alpha         0.15
                            :substitutes   "Galena, Nugget"}))
 
+
 (def cluster
   (hops/build-hop :cluster {:beta          0.055
                             :name          "Cluster"
@@ -40,6 +43,7 @@
                             :caryophyllene 0.08
                             :alpha         0.085
                             :substitutes   "Galena, Eroica"}))
+
 
 (def eroica
   (hops/build-hop :eroica {:beta          0.045
@@ -54,6 +58,7 @@
                            :alpha         0.12
                            :substitutes   "Galena, Cluster, Brewer's Gold"}))
 
+
 (def tillicum
   (hops/build-hop :tillicum {:beta          0.11
                              :name          "Tillicum"
@@ -66,6 +71,7 @@
                              :caryophyllene 0.07
                              :alpha         0.15
                              :substitutes   "Galena, Chelan"}))
+
 
 (def brewers-gold-us
   (hops/build-hop :brewers-gold-us {:beta          0.045
@@ -80,6 +86,7 @@
                                     :alpha         0.1
                                     :substitutes   "Cascade, Galena"}))
 
+
 (def nugget
   (hops/build-hop :nugget {:beta          0.06
                            :name          "Nugget"
@@ -92,6 +99,7 @@
                            :caryophyllene 0.08
                            :alpha         0.14
                            :substitutes   "Galena"}))
+
 
 (def bravo
   (hops/build-hop :bravo {:beta          0.05
@@ -106,6 +114,7 @@
                           :alpha         0.18
                           :substitutes   "Columbus, CTZ, Nugget"}))
 
+
 (def magnum-us
   (hops/build-hop :magnum-us {:beta          0.06
                               :name          "Magnum US"
@@ -118,6 +127,7 @@
                               :caryophyllene 0.1
                               :alpha         0.14
                               :substitutes   "Hallertau, Columbus, Nugget"}))
+
 
 (def apollo
   (hops/build-hop :apollo {:beta          0.08
@@ -132,6 +142,7 @@
                            :alpha         0.2
                            :substitutes   "Nugget, Columbus, CTZ"}))
 
+
 (def ctz
   (hops/build-hop :ctz {:beta          0.05
                         :name          "CTZ"
@@ -144,6 +155,7 @@
                         :caryophyllene 0.07
                         :alpha         0.17
                         :substitutes   "Columbus, Apollo"}))
+
 
 (def super-galena
   (hops/build-hop :super-galena {:beta          0.1
@@ -158,6 +170,7 @@
                                  :alpha         0.16
                                  :substitutes   "Galena, Columbus, CTZ, Eroica"}))
 
+
 (def warrior
   (hops/build-hop :warrior {:beta          0.055
                             :name          "Warrior"
@@ -170,6 +183,7 @@
                             :caryophyllene 0.1
                             :alpha         0.18
                             :substitutes   "Nugget, Columbus"}))
+
 
 (def millennium
   (hops/build-hop :millennium {:beta          0.053
@@ -184,6 +198,7 @@
                                :alpha         0.165
                                :substitutes   "CTZ, Nugget"}))
 
+
 (def chinook
   (hops/build-hop :chinook {:beta          0.04
                             :name          "Chinook"
@@ -196,6 +211,7 @@
                             :caryophyllene 0.1
                             :alpha         0.14
                             :substitutes   "Galena, Eroica, Nugget"}))
+
 
 (def newport
   (hops/build-hop :newport {:beta          0.09
@@ -210,6 +226,7 @@
                             :alpha         0.17
                             :substitutes   "Galena, Nugget"}))
 
+
 (def galena
   (hops/build-hop :galena {:beta          0.09
                            :name          "Galena"
@@ -223,6 +240,7 @@
                            :alpha         0.135
                            :substitutes   "Galena, Columbus, CTZ, Eroica"}))
 
+
 (def bullion
   (hops/build-hop :bullion {:beta          0.06
                             :name          "Bullion"
@@ -235,6 +253,7 @@
                             :caryophyllene 0.1
                             :alpha         0.08
                             :substitutes   "Columbus, Chinook, Galena"}))
+
 
 (def bittering
   (merge summit chelan cluster eroica tillicum brewers-gold-us nugget bravo magnum-us apollo ctz super-galena warrior chinook millennium newport galena bullion))

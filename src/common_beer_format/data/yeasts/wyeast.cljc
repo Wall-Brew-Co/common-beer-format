@@ -2,6 +2,7 @@
   "Data for yeasts cultivated by Wyeast"
   (:require [common-beer-format.data.yeasts.yeasts :as yeasts]))
 
+
 (def german-ale-1007
   (yeasts/build-yeasts :german-ale-1007 {:min-temperature 12.78
                                          :name            "1007 German Ale"
@@ -14,6 +15,7 @@
                                          :flocculation    "Low"
                                          :form            "Liquid"
                                          :product-id      "1007"}))
+
 
 (def american-wheat-ale-1010
   (yeasts/build-yeasts :american-wheat-ale-1010 {:min-temperature 14.44
@@ -28,6 +30,7 @@
                                                  :form            "Liquid"
                                                  :product-id      "1010"}))
 
+
 (def british-cask-ale-1026
   (yeasts/build-yeasts :british-cask-ale-1026 {:min-temperature 17.22
                                                :name            "1026 British Cask Ale"
@@ -40,6 +43,7 @@
                                                :flocculation    "Medium"
                                                :form            "Liquid"
                                                :product-id      "1026"}))
+
 
 (def london-ale-yeast-1028
   (yeasts/build-yeasts :london-ale-yeast-1028 {:min-temperature 15.56
@@ -54,6 +58,7 @@
                                                :form            "Liquid"
                                                :product-id      "1028"}))
 
+
 (def american-ale-1056
   (yeasts/build-yeasts :american-ale-1056 {:min-temperature 15.56
                                            :name            "1056 American Ale"
@@ -66,6 +71,7 @@
                                            :flocculation    "Medium"
                                            :form            "Liquid"
                                            :product-id      "1056"}))
+
 
 (def irish-ale-1084
   (yeasts/build-yeasts :irish-ale-1084 {:min-temperature 16.67
@@ -80,6 +86,7 @@
                                         :form            "Liquid"
                                         :product-id      "1084"}))
 
+
 (def wyeast-ale-blend-1087
   (yeasts/build-yeasts :wyeast-ale-blend-1087 {:min-temperature 17.78
                                                :name            "1087 Wyeast Ale Blend"
@@ -92,6 +99,7 @@
                                                :flocculation    "Medium"
                                                :form            "Liquid"
                                                :product-id      "1087"}))
+
 
 (def british-ale-yeast-1098
   (yeasts/build-yeasts :british-ale-yeast-1098 {:min-temperature 17.78
@@ -106,6 +114,7 @@
                                                 :form            "Liquid"
                                                 :product-id      "1098"}))
 
+
 (def whitbread-ale-1099
   (yeasts/build-yeasts :whitbread-ale-1099 {:min-temperature 17.78
                                             :name            "1099 Whitbread Ale"
@@ -118,6 +127,7 @@
                                             :flocculation    "High"
                                             :form            "Liquid"
                                             :product-id      "1099"}))
+
 
 (def ringwood-ale-1187
   (yeasts/build-yeasts :ringwood-ale-1187 {:min-temperature 17.78
@@ -132,6 +142,7 @@
                                            :form            "Liquid"
                                            :product-id      "1187"}))
 
+
 (def belgian-ale-yeast-1214
   (yeasts/build-yeasts :belgian-ale-yeast-1214 {:min-temperature 14.44
                                                 :name            "1214 Belgian Ale Yeast"
@@ -144,6 +155,7 @@
                                                 :flocculation    "Medium"
                                                 :form            "Liquid"
                                                 :product-id      "1214"}))
+
 
 (def american-ale-ii-1272
   (yeasts/build-yeasts :american-ale-ii-1272 {:min-temperature 15.56
@@ -158,6 +170,7 @@
                                               :form            "Liquid"
                                               :product-id      "1272"}))
 
+
 (def gf-all-american-ale-1272
   (yeasts/build-yeasts :gf-all-american-ale-1272 {:min-temperature 15.56
                                                   :name            "1272 GF All American Ale"
@@ -170,6 +183,7 @@
                                                   :flocculation    "High"
                                                   :form            "Liquid"
                                                   :product-id      "1272"}))
+
 
 (def thames-valley-ale-1275
   (yeasts/build-yeasts :thames-valley-ale-1275 {:min-temperature 16.67
@@ -184,6 +198,7 @@
                                                 :form            "Liquid"
                                                 :product-id      "1275"}))
 
+
 (def london-ale-iii-1318
   (yeasts/build-yeasts :london-ale-iii-1318 {:min-temperature 17.78
                                              :name            "1318 London Ale III"
@@ -196,6 +211,7 @@
                                              :flocculation    "High"
                                              :form            "Liquid"
                                              :product-id      "1318"}))
+
 
 (def northwest-ale-1332
   (yeasts/build-yeasts :northwest-ale-1332 {:min-temperature 18.33
@@ -210,6 +226,7 @@
                                             :form            "Liquid"
                                             :product-id      "1332"}))
 
+
 (def british-ale-ii-1335
   (yeasts/build-yeasts :british-ale-ii-1335 {:min-temperature 17.22
                                              :name            "1335 British Ale II"
@@ -222,6 +239,7 @@
                                              :flocculation    "High"
                                              :form            "Liquid"
                                              :product-id      "1335"}))
+
 
 (def european-ale-yeast-1338
   (yeasts/build-yeasts :european-ale-yeast-1338 {:min-temperature 16.67
@@ -236,6 +254,7 @@
                                                  :form            "Liquid"
                                                  :product-id      "1338"}))
 
+
 (def belgian-strong-ale-1388
   (yeasts/build-yeasts :belgian-strong-ale-1388 {:min-temperature 18.33
                                                  :name            "1388 Belgian Strong Ale"
@@ -248,6 +267,7 @@
                                                  :flocculation    "Low"
                                                  :form            "Liquid"
                                                  :product-id      "1388"}))
+
 
 (def denny-s-favorite-50-1450
   (yeasts/build-yeasts :denny-s-favorite-50-1450 {:min-temperature 15.56
@@ -262,6 +282,7 @@
                                                   :form            "Liquid"
                                                   :product-id      "1450"}))
 
+
 (def scottish-ale-1728
   (yeasts/build-yeasts :scottish-ale-1728 {:min-temperature 12.78
                                            :name            "1728 Scottish Ale"
@@ -274,6 +295,7 @@
                                            :flocculation    "High"
                                            :form            "Liquid"
                                            :product-id      "1728"}))
+
 
 (def belgian-abbey-ii-1762
   (yeasts/build-yeasts :belgian-abbey-ii-1762 {:min-temperature 18.33
@@ -288,6 +310,7 @@
                                                :form            "Liquid"
                                                :product-id      "1762"}))
 
+
 (def london-esb-ale-1968
   (yeasts/build-yeasts :london-esb-ale-1968 {:min-temperature 17.78
                                              :name            "1968 London ESB Ale"
@@ -300,6 +323,7 @@
                                              :flocculation    "High"
                                              :form            "Liquid"
                                              :product-id      "1968"}))
+
 
 (def budvar-lager-2000
   (yeasts/build-yeasts :budvar-lager-2000 {:min-temperature 7.78
@@ -314,6 +338,7 @@
                                            :form            "Liquid"
                                            :product-id      "2000"}))
 
+
 (def urquell-lager-2001
   (yeasts/build-yeasts :urquell-lager-2001 {:min-temperature 8.89
                                             :name            "2001 Urquell Lager"
@@ -326,6 +351,7 @@
                                             :flocculation    "Medium"
                                             :form            "Liquid"
                                             :product-id      "2001"}))
+
 
 (def pilsen-lager-2007
   (yeasts/build-yeasts :pilsen-lager-2007 {:min-temperature 8.89
@@ -340,6 +366,7 @@
                                            :form            "Liquid"
                                            :product-id      "2007"}))
 
+
 (def american-lager-2035
   (yeasts/build-yeasts :american-lager-2035 {:min-temperature 8.89
                                              :name            "2035 American Lager"
@@ -352,6 +379,7 @@
                                              :flocculation    "Medium"
                                              :form            "Liquid"
                                              :product-id      "2035"}))
+
 
 (def danish-lager-2042
   (yeasts/build-yeasts :danish-lager-2042 {:min-temperature 7.78
@@ -366,6 +394,7 @@
                                            :form            "Liquid"
                                            :product-id      "2042"}))
 
+
 (def california-lager-2112
   (yeasts/build-yeasts :california-lager-2112 {:min-temperature 14.44
                                                :name            "2112 California Lager"
@@ -378,6 +407,7 @@
                                                :flocculation    "High"
                                                :form            "Liquid"
                                                :product-id      "2112"}))
+
 
 (def bohemian-lager-2124
   (yeasts/build-yeasts :bohemian-lager-2124 {:min-temperature 8.89
@@ -392,6 +422,7 @@
                                              :form            "Liquid"
                                              :product-id      "2124"}))
 
+
 (def wyeast-lager-blend-2178
   (yeasts/build-yeasts :wyeast-lager-blend-2178 {:min-temperature 8.89
                                                  :name            "2178 Wyeast Lager Blend"
@@ -404,6 +435,7 @@
                                                  :flocculation    "Medium"
                                                  :form            "Liquid"
                                                  :product-id      "2178"}))
+
 
 (def bavarian-lager-2206
   (yeasts/build-yeasts :bavarian-lager-2206 {:min-temperature 7.78
@@ -418,6 +450,7 @@
                                              :form            "Liquid"
                                              :product-id      "2206"}))
 
+
 (def european-lager-ii-2247
   (yeasts/build-yeasts :european-lager-ii-2247 {:min-temperature 7.78
                                                 :name            "2247 European Lager II"
@@ -430,6 +463,7 @@
                                                 :flocculation    "Low"
                                                 :form            "Liquid"
                                                 :product-id      "2247"}))
+
 
 (def north-american-lager-2272
   (yeasts/build-yeasts :north-american-lager-2272 {:min-temperature 8.89
@@ -444,6 +478,7 @@
                                                    :form            "Liquid"
                                                    :product-id      "2272"}))
 
+
 (def czech-pilsner-lager-2278
   (yeasts/build-yeasts :czech-pilsner-lager-2278 {:min-temperature 10.0
                                                   :name            "2278 Czech Pilsner Lager"
@@ -456,6 +491,7 @@
                                                   :flocculation    "Medium"
                                                   :form            "Liquid"
                                                   :product-id      "2278"}))
+
 
 (def munich-lager-2308
   (yeasts/build-yeasts :munich-lager-2308 {:min-temperature 8.89
@@ -470,6 +506,7 @@
                                            :form            "Liquid"
                                            :product-id      "2308"}))
 
+
 (def kolsch-yeast-2565
   (yeasts/build-yeasts :kolsch-yeast-2565 {:min-temperature 13.33
                                            :name            "2565 Kolsch Yeast"
@@ -482,6 +519,7 @@
                                            :flocculation    "Low"
                                            :form            "Liquid"
                                            :product-id      "2565"}))
+
 
 (def octoberfest-lager-blend-2633
   (yeasts/build-yeasts :octoberfest-lager-blend-2633 {:min-temperature 8.89
@@ -496,6 +534,7 @@
                                                       :form            "Liquid"
                                                       :product-id      "2633"}))
 
+
 (def bavarian-wheat-yeast-3056
   (yeasts/build-yeasts :bavarian-wheat-yeast-3056 {:min-temperature 17.78
                                                    :name            "3056 Bavarian Wheat Yeast"
@@ -508,6 +547,7 @@
                                                    :flocculation    "Medium"
                                                    :form            "Liquid"
                                                    :product-id      "3056"}))
+
 
 (def weihenstephan-weizen-3068
   (yeasts/build-yeasts :weihenstephan-weizen-3068 {:min-temperature 17.78
@@ -522,6 +562,7 @@
                                                    :form            "Liquid"
                                                    :product-id      "3068"}))
 
+
 (def brettanomyces-bruxellensis-3112
   (yeasts/build-yeasts :brettanomyces-bruxellensis-3112 {:min-temperature 15.56
                                                          :name            "3112 Brettanomyces Bruxellensis"
@@ -534,6 +575,7 @@
                                                          :flocculation    "Medium"
                                                          :form            "Liquid"
                                                          :product-id      "3112"}))
+
 
 (def belgian-lambic-blend-3278
   (yeasts/build-yeasts :belgian-lambic-blend-3278 {:min-temperature 17.22
@@ -548,6 +590,7 @@
                                                    :form            "Liquid"
                                                    :product-id      "3278"}))
 
+
 (def german-wheat-3333
   (yeasts/build-yeasts :german-wheat-3333 {:min-temperature 17.22
                                            :name            "3333 German Wheat"
@@ -560,6 +603,7 @@
                                            :flocculation    "High"
                                            :form            "Liquid"
                                            :product-id      "3333"}))
+
 
 (def forbidden-fruit-3463
   (yeasts/build-yeasts :forbidden-fruit-3463 {:min-temperature 17.22
@@ -574,6 +618,7 @@
                                               :form            "Liquid"
                                               :product-id      "3463"}))
 
+
 (def belgian-ardennes-3522
   (yeasts/build-yeasts :belgian-ardennes-3522 {:min-temperature 18.33
                                                :name            "3522 Belgian Ardennes"
@@ -586,6 +631,7 @@
                                                :flocculation    "High"
                                                :form            "Liquid"
                                                :product-id      "3522"}))
+
 
 (def bavarian-wheat-3638
   (yeasts/build-yeasts :bavarian-wheat-3638 {:min-temperature 17.78
@@ -600,6 +646,7 @@
                                              :form            "Liquid"
                                              :product-id      "3638"}))
 
+
 (def french-saison-3711
   (yeasts/build-yeasts :french-saison-3711 {:min-temperature 18.33
                                             :name            "3711 French Saison"
@@ -612,6 +659,7 @@
                                             :flocculation    "Medium"
                                             :form            "Liquid"
                                             :product-id      "3711"}))
+
 
 (def belgian-saison-3724
   (yeasts/build-yeasts :belgian-saison-3724 {:min-temperature 21.11
@@ -626,6 +674,7 @@
                                              :form            "Liquid"
                                              :product-id      "3724"}))
 
+
 (def roselare-belgian-blend-3763
   (yeasts/build-yeasts :roselare-belgian-blend-3763 {:min-temperature 12.78
                                                      :name            "3763 Roselare Belgian Blend"
@@ -638,6 +687,7 @@
                                                      :flocculation    "Medium"
                                                      :form            "Liquid"
                                                      :product-id      "3763"}))
+
 
 (def trappist-high-gravity-3787
   (yeasts/build-yeasts :trappist-high-gravity-3787 {:min-temperature 17.78
@@ -652,6 +702,7 @@
                                                     :form            "Liquid"
                                                     :product-id      "3787"}))
 
+
 (def belgian-wheat-yeast-3942
   (yeasts/build-yeasts :belgian-wheat-yeast-3942 {:min-temperature 17.78
                                                   :name            "3942 Belgian Wheat Yeast"
@@ -664,6 +715,7 @@
                                                   :flocculation    "Medium"
                                                   :form            "Liquid"
                                                   :product-id      "3942"}))
+
 
 (def belgian-witbier-3944
   (yeasts/build-yeasts :belgian-witbier-3944 {:min-temperature 16.67
@@ -678,6 +730,7 @@
                                               :form            "Liquid"
                                               :product-id      "3944"}))
 
+
 (def lactobacillus-delbrueckii-4335
   (yeasts/build-yeasts :lactobacillus-delbrueckii-4335 {:min-temperature 15.56
                                                         :name            "4335 Lactobacillus Delbrueckii"
@@ -690,6 +743,7 @@
                                                         :flocculation    "Medium"
                                                         :form            "Liquid"
                                                         :product-id      "4335"}))
+
 
 (def pediococcus-cerevisiae-4733
   (yeasts/build-yeasts :pediococcus-cerevisiae-4733 {:min-temperature 15.56
@@ -704,6 +758,7 @@
                                                      :form            "Liquid"
                                                      :product-id      "4733"}))
 
+
 (def brettanomyces-bruxellensis-5112
   (yeasts/build-yeasts :brettanomyces-bruxellensis-5112 {:min-temperature 15.56
                                                          :name            "5112 Brettanomyces Bruxellensis"
@@ -716,6 +771,7 @@
                                                          :flocculation    "Medium"
                                                          :form            "Liquid"
                                                          :product-id      "5112"}))
+
 
 (def lactobacillus-5335
   (yeasts/build-yeasts :lactobacillus-5335 {:min-temperature 15.56
@@ -730,6 +786,7 @@
                                             :form            "Liquid"
                                             :product-id      "5335"}))
 
+
 (def brettanomyces-lambucus-5526
   (yeasts/build-yeasts :brettanomyces-lambucus-5526 {:min-temperature 15.56
                                                      :name            "5526 Brettanomyces Lambucus"
@@ -743,6 +800,7 @@
                                                      :form            "Liquid"
                                                      :product-id      "5526"}))
 
+
 (def pediococcus-5733
   (yeasts/build-yeasts :pediococcus-5733 {:min-temperature 18.33
                                           :name            "5733 Pediococcus"
@@ -755,6 +813,7 @@
                                           :flocculation    "Medium"
                                           :form            "Liquid"
                                           :product-id      "5733"}))
+
 
 (def wyeast
   (merge german-ale-1007 american-wheat-ale-1010 british-cask-ale-1026 london-ale-yeast-1028 american-ale-1056 irish-ale-1084 wyeast-ale-blend-1087

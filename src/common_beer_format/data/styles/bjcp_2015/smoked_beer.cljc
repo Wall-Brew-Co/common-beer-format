@@ -2,7 +2,8 @@
   "2015 BJCP guidelines on Smoked Beers"
   (:require [common-beer-format.data.styles.bjcp-2015.styles :as styles]))
 
-(def classic-style-smoked-beer 
+
+(def classic-style-smoked-beer
   (styles/build-style :classic-style-smoked-beer {:category        "Smoked Beer"
                                                   :carb-min        1.5
                                                   :fg-max          1.02
@@ -25,7 +26,8 @@
                                                   :profile         "Aroma: The aroma should be a pleasant balance between the expected aroma of the base beer and the smokiness imparted by the use of smoked malts. The intensity and character of the smoke and base beer style can vary, with either being prominent in the balance. Smokiness may vary from low to assertive; however, balance in the overall presentation is the key to well-made examples. The quality and secondary characteristics of the smoke are reflective of the source of the smoke (e.g., alder, oak, beechwood). Sharp, phenolic, harsh, rubbery, or burnt smoke-derived aromatics are inappropriate. Appearance: Variable. The appearance should reflect the base beer style, although the color of the beer is often a bit darker than the plain base style. Flavor: As with aroma, there should be a balance between smokiness and the expected flavor characteristics of the base beer style. Smokiness may vary from low to assertive. Smoky flavors may range from woody to somewhat bacon-like depending on the type of malts used. The balance of underlying beer characteristics and smoke can vary, although the resulting blend should be somewhat balanced and enjoyable. Smoke can add some dryness to the finish. Harsh, bitter, burnt, charred, rubbery, sulfury, medicinal, or phenolic smoky characteristics are generally inappropriate (although some of these characteristics may be present in some base styles; however, the smoked malt shouldn't contribute these flavors). Mouthfeel: Varies with the base beer style. Significant astringent, phenolic smoke-derived harshness is inappropriate."
                                                   :ibu-min         7}))
 
-(def specialty-smoked-beer 
+
+(def specialty-smoked-beer
   (styles/build-style :specialty-smoked-beer {:category        "Smoked Beer"
                                               :carb-min        1.5
                                               :fg-max          1.02
@@ -47,6 +49,7 @@
                                               :color-max       22.0
                                               :profile         "Aroma: The aroma should be a pleasant balance between the expected aroma of the base beer, the smokiness imparted by the use of smoked malts, and any additional ingredients. The intensity and character of the smoke, base beer style, and additional ingredients can vary, with any being more prominent in the balance. Smokiness may vary from low to assertive; however, balance in the overall presentation is the key to well-made examples. The quality and secondary characteristics of the smoke are reflective of the source of the smoke (e.g., alder, oak, beechwood). Sharp, phenolic, harsh, rubbery, or burnt smoke-derived aromatics are inappropriate. Appearance: Variable. The appearance should reflect the base beer style, although the color of the beer is often a bit darker than the plain base style. The use of certain fruits and spices may affect the color and hue of the beer as well. Flavor: As with aroma, there should be a balance between smokiness, the expected flavor characteristics of the base beer style, and the additional ingredients. Smokiness may vary from low to assertive. Smoky flavors may range from woody to somewhat bacon-like depending on the type of malts used. The balance of underlying beer characteristics and smoke can vary, although the resulting blend should be somewhat balanced and enjoyable. Smoke can add some dryness to the finish. Harsh, bitter, burnt, charred, rubbery, sulfury, medicinal, or phenolic smoky characteristics are generally inappropriate (although some of these characteristics may be present in some base styles; however, the smoked malt shouldn't contribute these flavors). Mouthfeel: Varies with the base beer style. Significant astringent, phenolic smoke-derived harshness is inappropriate."
                                               :ibu-min         7}))
+
 
 (def smoked-beer
   (merge classic-style-smoked-beer specialty-smoked-beer))

@@ -2,6 +2,7 @@
   "2015 BJCP guidelines on Amber Bitter European Beers"
   (:require [common-beer-format.data.styles.bjcp-2015.styles :as styles]))
 
+
 (def vienna-lager
   (styles/build-style :vienna-lager {:category        "Amber Bitter European Beer"
                                      :carb-min        1.5
@@ -25,7 +26,8 @@
                                      :profile         "Aroma: Moderately-intense malt aroma, with toasty and malty-rich aromatics. Clean lager character. Floral, spicy hop aroma may be low to none. A significant caramel or roasted aroma is inappropriate. Appearance: Light reddish amber to copper color. Bright clarity. Large, off-white, persistent head. Flavor: Soft, elegant malt complexity is in the forefront, with a firm enough hop bitterness to provide a balanced finish. The malt flavor tends towards a rich, toasty character, without significant caramel or roast flavors. Fairly dry, crisp finish, with both rich malt and hop bitterness present in the aftertaste. Floral, spicy hop flavor may be low to none. Clean lager fermentation character. Mouthfeel: Medium-light to medium body, with a gentle creaminess. Moderate carbonation. Smooth."
                                      :ibu-min         18}))
 
-(def altbier 
+
+(def altbier
   (styles/build-style :altbier {:category        "Amber Bitter European Beer"
                                 :carb-min        1.5
                                 :fg-max          1.014
@@ -48,7 +50,8 @@
                                 :profile         "Aroma: Clean yet robust and complex aroma of grainy-rich malt and spicy hops with restrained (low to medium-low) fruity esters. The malt character reflects German base malt varieties, with rich baked bread and nutty-toasty bread crust notes. The hop aroma may vary from moderate to low, and can have a peppery, spicy, floral, herbal or perfumy character associated with Saazer-type hops. Appearance: The color ranges from light amber to deep copper color, stopping short of brown; bronze-orange is most common. Brilliant clarity. Thick, creamy, long-lasting off-white head. Flavor: Assertive hop bitterness well balanced by a sturdy yet clean and crisp malt character. The malt presence is moderated by medium-high to high attenuation, but considerable rich, complex, and somewhat grainy malt flavors can remain. Some fruity esters (especially cherry-like) may survive the lagering period. A long-lasting, medium-dry to dry, bittersweet or nutty finish reflects both the hop bitterness and malt complexity. Spicy, peppery or floral hop flavor can be moderate to low. No roasted malt flavors or harshness. The apparent bitterness level is sometimes masked by the malt character; the bitterness can seem as low as moderate if the finish is not very dry. Light sulfury or minerally character optional. Mouthfeel: Medium-bodied. Smooth. Medium to medium-high carbonation, although can be lower when served from the cask. Astringency low to none. Despite being very full of flavor, is light-bodied enough to be consumed as a gravity-fed session beer in its home brewpubs in Düsseldorf."
                                 :ibu-min         25}))
 
-(def kellerbier 
+
+(def kellerbier
   (styles/build-style :kellerbier {:category        "Amber Bitter European Beer"
                                    :carb-min        1.5
                                    :fg-max          1.016
@@ -70,6 +73,7 @@
                                    :color-max       17.0
                                    :profile         "Aroma: Moderate intensity of German malt, typically rich, bready, somewhat toasty, with light bread crust notes. Moderately-low to moderate spicy peppery hop aroma. Very low to low diacetyl, occasionally low to moderately-low sulfur and very low green apple or other yeast-derived notes. Caramel, biscuity, or roasted malt aroma is inappropriate. Appearance: Moderately cloudy to clear depending on age, but never extremely cloudy or murky. Gold to deep reddish-amber color. Off-white, creamy head. When served on cask, can have low carbonation and very low head. Flavor: Initial malt flavor may suggest sweetness, but finish is moderately dry to dry, and slightly bitter. Distinctive and complex maltiness often includes a bready-toasty aspect. Hop bitterness is moderate to moderately high, and spicy or herbal hop flavor is low to moderately high. Balance can be either on the malt or hop side, but the finish is not sweet. Noticeable caramel or roasted malt flavors are inappropriate. Very low to low diacetyl. Possible very low green apple or other yeast-derived notes. Smooth, malty aftertaste. Mouthfeel: Medium body, with a creamy texture and medium carbonation. Fully fermented, without a sweet or cloying impression."
                                    :ibu-min         25}))
+
 
 (def amber-bitter-european-beer
   (merge vienna-lager altbier kellerbier))

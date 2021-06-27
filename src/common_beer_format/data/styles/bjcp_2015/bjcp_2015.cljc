@@ -35,6 +35,7 @@
             [common-beer-format.data.styles.bjcp-2015.trappist-ale :as trappist-ale]
             [common-beer-format.data.styles.bjcp-2015.wood-beer :as wood-beer]))
 
+
 (def all-styles
   (merge alternative-fermentables-beer/alternative-fermentables-beer
          amber-and-brown-american-beer/amber-and-brown-american-beer

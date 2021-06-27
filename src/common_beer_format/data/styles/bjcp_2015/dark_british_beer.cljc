@@ -2,7 +2,8 @@
   "2015 BJCP guidelines on Dark British Beers"
   (:require [common-beer-format.data.styles.bjcp-2015.styles :as styles]))
 
-(def sweet-stout 
+
+(def sweet-stout
   (styles/build-style :sweet-stout {:category        "Dark British Beer"
                                     :carb-min        1.5
                                     :fg-max          1.024
@@ -25,7 +26,8 @@
                                     :profile         "Aroma: Mild roasted grain aroma, sometimes with coffee and/or chocolate notes. An impression of cream-like sweetness often exists. Fruitiness can be low to moderately high. Diacetyl low to none. Hop aroma low to none, with floral or earthy notes. Appearance: Very dark brown to black in color. Can be opaque (if not, it should be clear). Creamy tan to brown head. Flavor: Dark roasted grain/malt impression with coffee and/or chocolate flavors dominate the palate. Hop bitterness is moderate. Medium to high sweetness provides a counterpoint to the roasted character and hop bitterness, and lasts into the finish. Low to moderate fruity esters. Diacetyl low to none. The balance between dark grains/malts and sweetness can vary, from quite sweet to moderately dry and somewhat roasty. Mouthfeel: Medium-full to full-bodied and creamy. Low to moderate carbonation. High residual sweetness from unfermented sugars enhances the full-tasting mouthfeel."
                                     :ibu-min         20}))
 
-(def oatmeal-stout 
+
+(def oatmeal-stout
   (styles/build-style :oatmeal-stout {:category        "Dark British Beer"
                                       :carb-min        1.5
                                       :fg-max          1.018
@@ -48,7 +50,8 @@
                                       :profile         "Aroma: Mild roasted grain aromas, generally with a coffee-like character. A light malty sweetness can suggest a coffee-and-cream impression. Fruitiness should be low to medium-high. Diacetyl medium-low to none. Hop aroma medium-low to none, earthy or floral. A light grainy-nutty oatmeal aroma is optional. Appearance: Medium brown to black in color. Thick, creamy, persistent tan- to brown-colored head. Can be opaque (if not, it should be clear). Flavor: Similar to the aroma, with a mild roasted coffee to coffee-and-cream flavor, and low to moderately-high fruitiness. Oats and dark roasted grains provide some flavor complexity; the oats can add a nutty, grainy or earthy flavor. Dark grains can combine with malt sweetness to give the impression of milk chocolate or coffee with cream. Medium hop bitterness with the balance toward malt. Medium-sweet to medium-dry finish. Diacetyl medium-low to none. Hop flavor medium-low to none, typically earthy or floral. Mouthfeel: Medium-full to full body, with a smooth, silky, velvety, sometimes an almost oily slickness from the oatmeal. Creamy. Medium to medium-high carbonation."
                                       :ibu-min         25}))
 
-(def tropical-stout 
+
+(def tropical-stout
   (styles/build-style :tropical-stout {:category        "Dark British Beer"
                                        :carb-min        1.5
                                        :fg-max          1.018
@@ -71,7 +74,8 @@
                                        :profile         "Aroma: Sweetness evident, moderate to high intensity. Roasted grain aromas moderate to high, and can have coffee or chocolate notes. Fruitiness medium to high. May have a molasses, licorice, dried fruit, and/or vinous aromatics. Stronger versions can have a subtle clean aroma of alcohol. Hop aroma low to none. Diacetyl low to none. Appearance: Very deep brown to black in color. Clarity usually obscured by deep color (if not opaque, should be clear). Large tan to brown head with good retention. Flavor: Quite sweet with a smooth dark grain flavors, and restrained bitterness. Roasted grain and malt character can be moderate to high with a smooth coffee or chocolate flavor, although the roast character is moderated in the balance by the sweet finish. Moderate to high fruity esters. Can have a sweet, dark rum-like quality. Little to no hop flavor. Medium-low to no diacetyl. Mouthfeel: Medium-full to full body, often with a smooth, creamy character. May give a warming (but never hot) impression from alcohol presence. Moderate to moderately-high carbonation."
                                        :ibu-min         30}))
 
-(def foreign-extra-stout 
+
+(def foreign-extra-stout
   (styles/build-style :foreign-extra-stout {:category        "Dark British Beer"
                                             :carb-min        1.5
                                             :fg-max          1.018
@@ -93,6 +97,7 @@
                                             :color-max       40.0
                                             :profile         "Aroma: Moderate to high roasted grain aromas, often with coffee, chocolate and/or lightly burnt notes. Low to medium fruitiness. May have a sweet aroma, or molasses, licorice, dried fruit, and/or vinous aromatics. Stronger versions can have a subtle, clean aroma of alcohol. Hop aroma moderately low to none, can be earthy, herbal or floral. Diacetyl low to none. Appearance: Very deep brown to black in color. Clarity usually obscured by deep color (if not opaque, should be clear). Large tan to brown head with good retention. Flavor: Moderate to high roasted grain and malt flavor with a coffee, chocolate, or lightly burnt grain character, although without a sharp bite. Moderately dry. Low to medium esters. Medium to high bitterness. Moderate to no hop flavor, can be earthy, herbal, or floral. Diacetyl medium-low to none. Mouthfeel: Medium-full to full body, often with a smooth, sometimes creamy character. May give a warming (but never hot) impression from alcohol presence. Moderate to moderately-high carbonation."
                                             :ibu-min         50}))
+
 
 (def dark-british-beer
   (merge sweet-stout oatmeal-stout tropical-stout foreign-extra-stout))

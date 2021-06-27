@@ -15,6 +15,7 @@
             [common-beer-format.data.yeasts.white-labs :as white-labs]
             [common-beer-format.data.yeasts.wyeast :as wyeast]))
 
+
 (defn select-fermentables
   [{:keys [include-adjuncts? include-dry-extracts? include-extracts? include-grains? include-sugars?]}]
   (cond-> {}
@@ -24,12 +25,14 @@
     include-grains?       (merge grains/grains)
     include-sugars?       (merge sugars/sugars)))
 
+
 (def all-fermentables
   (select-fermentables {:include-adjuncts?     true
                         :include-dry-extracts? true
                         :include-extracts?     true
                         :include-grains?       true
                         :include-sugars?       true}))
+
 
 (defn select-hops
   [{:keys [include-aroma? include-bittering? include-both?]}]
@@ -38,18 +41,22 @@
     include-bittering? (merge bittering/bittering)
     include-both?      (merge both/both)))
 
+
 (def all-hops
   (select-hops {:include-aroma?     true
                 :include-bittering? true
                 :include-both?      true}))
+
 
 (defn select-style-guides
   [{:keys [include-bjcp-2015?]}]
   (cond-> {}
     include-bjcp-2015? (merge bjcp-2015/all-styles)))
 
+
 (def all-style-guides
   (select-style-guides {:include-bjcp-2015? true}))
+
 
 (defn select-yeasts
   [{:keys [include-brewtek? include-dcl-fermentis? include-lallemand? include-white-labs? include-wyeast?]}]
@@ -59,6 +66,7 @@
     include-lallemand?     (merge lallemand/lallemand)
     include-white-labs?    (merge white-labs/white-labs)
     include-wyeast?        (merge wyeast/wyeast)))
+
 
 (def all-yeasts
   (select-yeasts {:include-brewtek?       true

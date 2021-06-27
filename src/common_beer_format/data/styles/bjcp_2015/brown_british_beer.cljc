@@ -2,6 +2,7 @@
   "2015 BJCP guidelines on Brown British Beers"
   (:require [common-beer-format.data.styles.bjcp-2015.styles :as styles]))
 
+
 (def dark-mild
   (styles/build-style :dark-mild {:category        "Brown British Beer"
                                   :carb-min        1.5
@@ -24,6 +25,7 @@
                                   :color-max       25.0
                                   :profile         "Aroma: Low to moderate malt aroma, and may have some fruitiness. The malt expression can take on a wide range of character, which can include caramel, toffee, grainy, toasted, nutty, chocolate, or lightly roasted. Little to no hop aroma, earthy or floral if present. Very low to no diacetyl. Appearance: Copper to dark brown or mahogany color. A few paler examples (medium amber to light brown) exist. Generally clear, although is traditionally unfiltered. Low to moderate off-white to tan head; retention may be poor. Flavor: Generally a malty beer, although may have a very wide range of malt- and yeast-based flavors (e.g., malty, sweet, caramel, toffee, toast, nutty, chocolate, coffee, roast, fruit, licorice, plum, raisin). Can finish sweet to dry. Versions with darker malts may have a dry, roasted finish. Low to moderate bitterness, enough to provide some balance but not enough to overpower the malt. Fruity esters moderate to none. Diacetyl and hop flavor low to none. Mouthfeel: Light to medium body. Generally low to medium-low carbonation. Roast-based versions may have a light astringency. Sweeter versions may seem to have a rather full mouthfeel for the gravity."
                                   :ibu-min         10}))
+
 
 (def british-brown-ale
   (styles/build-style :british-brown-ale {:category        "Brown British Beer"
@@ -48,6 +50,7 @@
                                           :profile         "Aroma: Light, sweet malt aroma with toffee, nutty, or light chocolate notes, and a light to heavy caramel quality. A light but appealing floral or earthy hop aroma may also be noticed. A light fruity aroma may be evident, but should not dominate. Appearance: Dark amber to dark reddish-brown color. Clear. Low to moderate off-white to light tan head. Flavor: Gentle to moderate malt sweetness, with a light to heavy caramel character and a medium to dry finish. Malt may also have a nutty, toasted, biscuity, toffee, or light chocolate character. Medium to medium-low bitterness. Malt-hop balance ranges from even to malt-focused; hop flavor low to none (floral or earthy qualities). Low to moderate fruity esters can be present. Mouthfeel: Medium-light to medium body. Medium to medium-high carbonation."
                                           :ibu-min         20}))
 
+
 (def english-porter
   (styles/build-style :english-porter {:category        "Brown British Beer"
                                        :carb-min        1.5
@@ -70,6 +73,7 @@
                                        :color-max       30.0
                                        :profile         "Aroma: Moderate to moderately low bready, biscuity, and toasty malt aroma with mild roastiness, and may have a chocolate quality. May also show some non-roasted malt character in support (caramelly, nutty, toffee-like and/or sweet). May have up to a moderate level of floral or earthy hops. Fruity esters moderate to none. Diacetyl low to none. Appearance: Light brown to dark brown in color, often with ruby highlights when held up to light. Good clarity, although may approach being opaque. Moderate off-white to light tan head with good to fair retention. Flavor: Moderate bready, biscuity, and toasty malt flavor includes a mild to moderate roastiness (frequently with a chocolate character) and often a significant caramel, nutty, and/or toffee character. May have other secondary flavors such as coffee, licorice, biscuits or toast in support. Should not have a significant burnt or harsh roasted flavor, although small amounts may contribute a bitter chocolate complexity. Earthy or floral hop flavor moderate to none. Medium-low to medium hop bitterness will vary the balance from slightly malty to slightly bitter. Usually fairly well-attenuated, although can be somewhat sweet. Diacetyl moderately-low to none. Moderate to low fruity esters. Mouthfeel: Medium-light to medium body. Moderately-low to moderately-high carbonation. Light to moderate creamy texture."
                                        :ibu-min         18}))
+
 
 (def brown-british-beer
   (merge dark-mild british-brown-ale english-porter))

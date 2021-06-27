@@ -2,6 +2,7 @@
   "2015 BJCP guidelines on British Bitter"
   (:require [common-beer-format.data.styles.bjcp-2015.styles :as styles]))
 
+
 (def ordinary-bitter
   (styles/build-style :ordinary-bitter {:category        "British Bitter"
                                         :carb-min        1.5
@@ -24,6 +25,7 @@
                                         :color-max       14.0
                                         :profile         "Aroma: Low to moderate malt aroma, often (but not always) with a light caramel quality. Bready, biscuity, or lightly toasty malt complexity is common. Mild to moderate fruitiness. Hop aroma can range from moderate to none, typically with a floral, earthy, resiny, and/or fruity character. Generally no diacetyl, although very low levels are allowed. Appearance: Pale amber to light copper color. Good to brilliant clarity. Low to moderate white to off-white head. May have very little head due to low carbonation. Flavor: Medium to moderately high bitterness. Moderately low to moderately high fruity esters. Moderate to low hop flavor, typically with an earthy, resiny, fruity, and/or floral character. Low to medium maltiness with a dry finish. The malt profile is typically bready, biscuity, or lightly toasty. Low to moderate caramel or toffee flavors are optional. Balance is often decidedly bitter, although the bitterness should not completely overpower the malt flavor, esters and hop flavor. Generally no diacetyl, although very low levels are allowed. Mouthfeel: Light to medium-light body. Low carbonation, although bottled examples can have moderate carbonation."
                                         :ibu-min         25}))
+
 
 (def best-bitter
   (styles/build-style :best-bitter {:category        "British Bitter"
@@ -48,6 +50,7 @@
                                     :profile         "Aroma: Low to moderate malt aroma, often (but not always) with a low to medium-low caramel quality. Bready, biscuit, or lightly toasty malt complexity is common. Mild to moderate fruitiness. Hop aroma can range from moderate to none, typically with a floral, earthy, resiny, and/or fruity character. Generally no diacetyl, although very low levels are allowed. Appearance: Pale amber to medium copper color. Good to brilliant clarity. Low to moderate white to off-white head. May have very little head due to low carbonation. Flavor: Medium to moderately high bitterness. Moderately low to moderately high fruity esters. Moderate to low hop flavor, typically with an earthy, resiny, fruity, and/or floral character. Low to medium maltiness with a dry finish. The malt profile is typically bready, biscuity, or lightly toasty. Low to moderate caramel or toffee flavors are optional. Balance is often decidedly bitter, although the bitterness should not completely overpower the malt flavor, esters and hop flavor. Generally no diacetyl, although very low levels are allowed. Mouthfeel: Medium-light to medium body. Low carbonation, although bottled examples can have moderate carbonation."
                                     :ibu-min         25}))
 
+
 (def strong-bitter
   (styles/build-style :strong-bitter {:category        "British Bitter"
                                       :carb-min        1.5
@@ -70,6 +73,7 @@
                                       :color-max       18.0
                                       :profile         "Aroma: Hop aroma moderately-high to moderately-low, typically with a floral, earthy, resiny, and/or fruity character. Medium to medium-high malt aroma, optionally with a low to moderate caramel component. Medium-low to medium-high fruity esters. Generally no diacetyl, although very low levels are allowed. Appearance: Light amber to deep copper color. Good to brilliant clarity. Low to moderate white to off-white head. A low head is acceptable when carbonation is also low. Flavor: Medium to medium-high bitterness with supporting malt flavors evident. The malt profile is typically bready, biscuity, nutty, or lightly toasty, and optionally has a moderately low to moderate caramel or toffee flavor. Hop flavor moderate to moderately high, typically with a floral, earthy, resiny, and/or fruity character. Hop bitterness and flavor should be noticeable, but should not totally dominate malt flavors. Moderately-low to high fruity esters. Optionally may have low amounts of alcohol. Medium-dry to dry finish. Generally no diacetyl, although very low levels are allowed. Mouthfeel: Medium-light to medium-full body. Low to moderate carbonation, although bottled versions will be higher. Stronger versions may have a slight alcohol warmth but this character should not be too high."
                                       :ibu-min         30}))
+
 
 (def british-bitter
   (merge ordinary-bitter best-bitter strong-bitter))

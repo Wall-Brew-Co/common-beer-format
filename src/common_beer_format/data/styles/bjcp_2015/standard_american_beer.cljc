@@ -2,6 +2,7 @@
   "2015 BJCP guidelines on Standard American Beers"
   (:require [common-beer-format.data.styles.bjcp-2015.styles :as styles]))
 
+
 (def american-light-lager
   (styles/build-style :american-light-lager {:category        "Standard American Beer"
                                              :carb-min        1.5
@@ -24,6 +25,7 @@
                                              :color-max       3
                                              :profile         "Aroma: Low to no malt aroma, although it can be perceived as grainy, sweet, or corn-like if present. Hop aroma is light to none, with a spicy or floral hop character if present. While a clean fermentation character is desirable, a light amount of yeast character (particularly a light apple fruitiness) is not a fault. Light DMS is not a fault. Appearance: Very pale straw to pale yellow color. White, frothy head seldom persists. Very clear. Flavor: Relatively neutral palate with a crisp and dry finish and a low to very low grainy or corn-like flavor that might be perceived as sweetness due to the low bitterness. Hop flavor ranges from none to low levels, and can have a floral, spicy, or herbal quality (although rarely strong enough to detect). Low to very low hop bitterness. Balance may vary from slightly malty to slightly bitter, but is relatively close to even. High levels of carbonation may accentuate the crispness of the dry finish. Clean lager fermentation character. Mouthfeel: Very light (sometimes watery) body. Very highly carbonated with slight carbonic bite on the tongue."
                                              :ibu-min         8}))
+
 
 (def american-lager
   (styles/build-style :american-lager {:category        "Standard American Beer"
@@ -48,6 +50,7 @@
                                        :profile         "Aroma: Low to no malt aroma, although it can be perceived as grainy, sweet or corn-like if present. Hop aroma may range from none to a light, spicy or floral hop presence. While a clean fermentation character is desirable, a light amount of yeast character (particularly a light apple character) is not a fault. Light DMS is also not a fault. Appearance: Very pale straw to medium yellow color. White, frothy head seldom persists. Very clear. Flavor: Relatively neutral palate with a crisp and dry finish and a moderately-low to low grainy or corn-like flavor that might be perceived as sweetness due to the low bitterness. Hop flavor ranges from none to moderately-low levels, and can have a floral, spicy, or herbal quality (although often not strong enough to distinguish). Hop bitterness at low to medium-low level. Balance may vary from slightly malty to slightly bitter, but is relatively close to even. High levels of carbonation may accentuate the crispness of the dry finish. Clean lager fermentation character. Mouthfeel: Low to medium-low body. Very highly carbonated with slight carbonic bite on the tongue."
                                        :ibu-min         8}))
 
+
 (def cream-ale
   (styles/build-style :cream-ale {:category        "Standard American Beer"
                                   :carb-min        1.5
@@ -71,6 +74,7 @@
                                   :profile         "Aroma: Medium-low to low malt notes, with a sweet, corn-like aroma. Low levels of DMS are allowable, but are not required. Hop aroma medium low to none, and can be of any variety although floral, spicy, or herbal notes are most common. Overall, a subtle aroma with neither hops nor malt dominating. Low fruity esters are optional. Appearance: Pale straw to moderate gold color, although usually on the pale side. Low to medium head with medium to high carbonation. Fair head retention. Brilliant, sparkling clarity. Flavor: Low to medium-low hop bitterness. Low to moderate maltiness and sweetness, varying with gravity and attenuation. Usually well-attenuated. Neither malt nor hops dominate the palate. A low to moderate corny flavor is commonly found, as is light DMS (optional). Finish can vary from somewhat dry to faintly sweet. Low fruity esters are optional. Low to medium-low hop flavor (any variety, but typically floral, spicy, or herbal). Mouthfeel: Generally light and crisp, although body can reach medium. Smooth mouthfeel with medium to high attenuation; higher attenuation levels can lend a \"thirst quenching\" quality. High carbonation."
                                   :ibu-min         8}))
 
+
 (def american-wheat-beer
   (styles/build-style :american-wheat-beer {:category        "Standard American Beer"
                                             :carb-min        1.5
@@ -93,6 +97,7 @@
                                             :color-max       6.0
                                             :profile         "Aroma: Low to moderate grainy, bready, or doughy wheat character. A light to moderate malty sweetness is acceptable. Esters can be moderate to none, although should reflect relatively neutral yeast strains; banana is inappropriate. Hop aroma may be low to moderate, and can have a citrusy, spicy, floral, or fruity character. No clove phenols. Appearance: Usually pale yellow to gold. Clarity may range from brilliant to hazy with yeast approximating the German weissbier style of beer. Big, long-lasting white head. Flavor: Light to moderately-strong bready, doughy, or grainy wheat flavor, which can linger into the finish. May have a moderate malty sweetness or finish quite dry. Low to moderate hop bitterness, which sometimes lasts into the finish. Balance is usually even, but may be slightly bitter. Low to moderate hop flavor (citrusy, spicy, floral, or fruity). Esters can be moderate to none, but should not include banana. No clove phenols. May have a slightly crisp finish. Mouthfeel: Medium-light to medium body. Medium-high to high carbonation. Slight creaminess is optional; wheat beers sometimes have a soft, ‘fluffy' impression."
                                             :ibu-min         15}))
+
 
 (def standard-american-beer
   (merge american-light-lager american-lager cream-ale american-wheat-beer))
