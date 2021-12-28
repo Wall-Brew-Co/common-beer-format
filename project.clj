@@ -6,7 +6,7 @@
   :dependencies [[metosin/spec-tools "0.10.5"]
                  [nnichols "1.0.0"]
                  [org.clojure/clojure "1.10.3"]
-                 [org.clojure/clojurescript "1.10.914" :scope "provided"]
+                 [org.clojure/clojurescript "1.11.4" :scope "provided"]
                  [org.clojure/data.json "2.4.0"]
                  [org.clojure/data.xml "0.2.0-alpha6"]
                  [org.clojure/test.check "1.1.1"]]
