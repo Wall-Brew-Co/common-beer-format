@@ -1,4 +1,4 @@
-(ns common-beer-format.parsers.json
+(ns ^:no-doc common-beer-format.parsers.json
   "Functions to translate between BeerJSON and common-beer-format"
   (:require [common-beer-format.util :as util]
             #?(:clj [clojure.data.json :as json])))
@@ -47,6 +47,7 @@
 
 
 #?(:clj
+   #_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
    (defn parse-beer-json-stream
      "Parse JSON streams into common-beer-format EDN for the JVM"
      [json-doc]
@@ -54,6 +55,7 @@
 
 
 #?(:clj
+   #_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
    (defn emit-beer-json-stream
      "Restructure common-beer-format EDN into standard JSON stream for the JVM."
      [edn]

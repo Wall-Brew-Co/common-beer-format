@@ -1,4 +1,4 @@
-(ns common-beer-format.parsers.xml
+(ns ^:no-doc common-beer-format.parsers.xml
   "Functions to translate between BeerXML and common-beer-format"
   (:require [clojure.data.xml :as xml]
             [common-beer-format.util :as util]
@@ -30,6 +30,7 @@
 
 
 #?(:clj
+   #_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
    (defn parse-beer-xml-resource
      "Clojurescripts's XML parsing implementation doesn't allow users to pass XML resource paths.
       When that implementation is added to the language, this should be modified."
