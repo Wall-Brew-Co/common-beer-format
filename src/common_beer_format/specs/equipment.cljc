@@ -10,7 +10,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/liter
-     :description         "A positive IEEE-754 floating point number representing the pre-boil volume for the equipment setup"
+     :description         "A non-negative IEEE-754 floating point number representing the pre-boil volume for the equipment setup"
      :json-schema/example "10.8"}))
 
 
@@ -18,7 +18,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/liter
-     :description         "A positive IEEE-754 floating point number representing the target volume of the batch at the start of fermentation"
+     :description         "A non-negative IEEE-754 floating point number representing the target volume of the batch at the start of fermentation"
      :json-schema/example "5.8"}))
 
 
@@ -26,7 +26,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/liter
-     :description         "A positive IEEE-754 floating point number representing the volume of the of the mash tun in liters"
+     :description         "A non-negative IEEE-754 floating point number representing the volume of the of the mash tun in liters"
      :json-schema/example "15.0"}))
 
 
@@ -34,15 +34,15 @@
   (st/spec
     {:type                :double
      :spec                ::prim/kilogram
-     :description         "A positive IEEE-754 floating point number representing the weight of the of the mash tun in kilograms"
+     :description         "A non-negative IEEE-754 floating point number representing the weight of the of the mash tun in kilograms"
      :json-schema/example "15.0"}))
 
 
 (s/def ::tun-specific-heat
   (st/spec
     {:type                :double
-     :spec                number?
-     :description         "A positive IEEE-754 floating point number representing the specific heat of the mashtun in Calories per gram-degree Celsius"
+     :spec                (s/and number? #(not (neg? %)))
+     :description         "A non-negative IEEE-754 floating point number representing the specific heat of the mashtun in Calories per gram-degree Celsius"
      :json-schema/example "0.2"}))
 
 
@@ -50,7 +50,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/liter
-     :description         "A positive IEEE-754 floating point number representing the volume of top-up water added before fermentation in liters"
+     :description         "A non-negative IEEE-754 floating point number representing the volume of top-up water added before fermentation in liters"
      :json-schema/example "2.1"}))
 
 
@@ -58,7 +58,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/liter
-     :description         "A positive IEEE-754 floating point number representing the volume of wort lost during transition from the boiler to primary fermentation vessel"
+     :description         "A non-negative IEEE-754 floating point number representing the volume of wort lost during transition from the boiler to primary fermentation vessel"
      :json-schema/example "0.1"}))
 
 
@@ -66,8 +66,15 @@
   (st/spec
     {:type                :double
      :spec                ::prim/percent
-     :description         "A positive IEEE-754 floating point number representing the percentage of wort lost to evaporation per hour of the boil"
+     :description         "A non-negative IEEE-754 floating point number representing the percentage of wort lost to evaporation per hour of the boil"
      :json-schema/example "1.2"}))
+
+(s/def ::boil-time
+  (st/spec
+   {:type                :double
+    :spec                ::prim/minute
+    :description         "A non-negative IEEE-754 floating point number representing the normal amount of time one boils for this equipment setup. This can be used with the evaporation rate to calculate the evaporation loss."
+    :json-schema/example "15"}))
 
 
 (s/def ::calc-boil-volume
@@ -85,7 +92,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/liter
-     :description         "A positive IEEE-754 floating point number representing the volume of wort lost to the lauter tun"
+     :description         "A non-negative IEEE-754 floating point number representing the volume of wort lost to the lauter tun"
      :json-schema/example "0.1"}))
 
 
@@ -93,7 +100,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/liter
-     :description         "A positive IEEE-754 floating point number representing the volume of top-up water added to the boil kettle before the boil begins"
+     :description         "A non-negative IEEE-754 floating point number representing the volume of top-up water added to the boil kettle before the boil begins"
      :json-schema/example "2.1"}))
 
 
@@ -101,7 +108,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/percent
-     :description         "A positive IEEE-754 floating point number representing the percentage of large batch hop utilization"
+     :description         "A non-negative IEEE-754 floating point number representing the percentage of large batch hop utilization"
      :json-schema/example "1.2"}))
 
 
