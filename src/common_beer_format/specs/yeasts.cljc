@@ -7,7 +7,7 @@
             [spec-tools.core :as st]))
 
 
-(def yeast-types
+(def ^:const yeast-types
   #{"ale" "lager" "wheat" "wine" "champagne"})
 
 
@@ -17,12 +17,13 @@
      :spec                (s/and string?
                                  #(not (cs/blank? %))
                                  #(contains? yeast-types (cs/lower-case %)))
+     :gen #(s/gen yeast-types)
      :description         "A case-insensitive string representing the type of yeast added to the beer.
                           Must be one of: 'Ale', 'Lager', 'Wheat', 'Wine', and 'Champagne'"
      :json-schema/example "Ale"}))
 
 
-(def yeast-forms
+(def ^:const yeast-forms
   #{"liquid" "dry" "slant" "culture"})
 
 
@@ -32,6 +33,7 @@
      :spec                (s/and string?
                                  #(not (cs/blank? %))
                                  #(contains? yeast-forms (cs/lower-case %)))
+     :gen #(s/gen yeast-forms)
      :description         "A case-insensitive string representing the form of the yeast added to the beer.
                           Must be one of: 'Liquid', 'Dry', 'Slant', and 'Culture'"
      :json-schema/example "Ale"}))
@@ -57,7 +59,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/degrees-celsius
-     :description         "A positive IEEE-754 floating point number representing the minimum recommended temperature of fermenation"
+     :description         "An IEEE-754 floating point number representing the minimum recommended temperature of fermenation"
      :json-schema/example "19.5"}))
 
 
@@ -65,11 +67,11 @@
   (st/spec
     {:type                :double
      :spec                ::prim/degrees-celsius
-     :description         "A positive IEEE-754 floating point number representing the maximum recommended temperature of fermenation"
+     :description         "An IEEE-754 floating point number representing the maximum recommended temperature of fermenation"
      :json-schema/example "23.9"}))
 
 
-(def yeast-flocculation-types
+(def ^:const yeast-flocculation-types
   #{"low" "medium" "high" "very high"})
 
 
@@ -79,6 +81,7 @@
      :spec                (s/and string?
                                  #(not (cs/blank? %))
                                  #(contains? yeast-flocculation-types (cs/lower-case %)))
+     :gen #(s/gen yeast-flocculation-types)
      :description         "A case-insensitive string representing how dense of a floc the yeast will form.
                           Must be one of: 'Low', 'Medium', 'High', and 'Very High'"
      :json-schema/example "High"}))
@@ -190,7 +193,7 @@
   (st/spec
     {:type          :vector
      :description   "A vector of valid ::yeast records"
-     :spec          (s/coll-of #(s/valid? ::yeast-wrapper %))
+     :spec          (s/coll-of ::yeast-wrapper)
      :decode/string #(util/decode-sequence %1 ::yeast-wrapper %2)
      :encode/string #(util/encode-sequence %1 ::yeast-wrapper %2)}))
 

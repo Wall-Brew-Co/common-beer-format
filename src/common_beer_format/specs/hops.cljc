@@ -11,30 +11,31 @@
   (st/spec
     {:type                :double
      :spec                ::prim/percent
-     :description         "A positive IEEE-754 floating point number representing the percent contents of alpha acid in the hop"
+     :description         "A non-negative IEEE-754 floating point number representing the percent contents of alpha acid in the hop"
      :json-schema/example "10.7"}))
 
 
-(def hop-uses
+(def ^:const hop-uses
   #{"boil" "dry hop" "mash" "first wort" "aroma"})
 
 
 (s/def ::use
   (st/spec
-    {:type                :string
-     :spec                (s/and string?
-                                 #(not (cs/blank? %))
-                                 #(contains? hop-uses (cs/lower-case %)))
-     :description         "A case-insensitive string representing the means by which the hop is added to the beer.
+   {:type                :string
+    :spec                (s/and string?
+                                #(not (cs/blank? %))
+                                #(contains? hop-uses (cs/lower-case %)))
+    :gen                 #(s/gen hop-uses)
+    :description         "A case-insensitive string representing the means by which the hop is added to the beer.
                           Must be one of: 'Boil', 'Dry Hop', 'Mash', 'First Wort', and 'Aroma'"
-     :json-schema/example "mash"}))
+    :json-schema/example "mash"}))
 
 
 (s/def ::time
   (st/spec
     {:type                :double
      :spec                ::prim/minute
-     :description         "A positive IEEE-754 floating point number representing the time in minutes the hop was added dependant on the :use field.
+     :description         "A non-negative IEEE-754 floating point number representing the time in minutes the hop was added dependant on the :use field.
                           For \"Boil\" this is the boil time.
                           For \"Mash\" this is the mash time.
                           For \"First Wort\" this is the boil time.
@@ -43,22 +44,23 @@
      :json-schema/example "15.0"}))
 
 
-(def hop-types
+(def ^:const hop-types
   #{"bittering" "aroma" "both"})
 
 
 (s/def ::type
   (st/spec
-    {:type                :string
-     :spec                (s/and string?
-                                 #(not (cs/blank? %))
-                                 #(contains? hop-types (cs/lower-case %)))
-     :description         "A case-insensitive string representing the means by which the hop is added to the beer.
+   {:type                :string
+    :spec                (s/and string?
+                                #(not (cs/blank? %))
+                                #(contains? hop-types (cs/lower-case %)))
+    :gen                 #(s/gen hop-types)
+    :description         "A case-insensitive string representing the means by which the hop is added to the beer.
                           Must be one of: 'Bittering', 'Aroma', and 'Both'"
-     :json-schema/example "bittering"}))
+    :json-schema/example "bittering"}))
 
 
-(def hop-forms
+(def ^:const hop-forms
   #{"pellet" "plug" "leaf"})
 
 
@@ -68,6 +70,7 @@
      :spec                (s/and string?
                                  #(not (cs/blank? %))
                                  #(contains? hop-forms (cs/lower-case %)))
+     :gen #(s/gen hop-forms)
      :description         "A case-insensitive string representing the from of the hop added to the beer.
                           Must be one of: 'Pellet', 'Plug' or 'Leaf'"
      :json-schema/example "leaf"}))
@@ -77,7 +80,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/percent
-     :description         "A positive IEEE-754 floating point number representing the percent contents of beta acid in the hop"
+     :description         "A non-negative IEEE-754 floating point number representing the percent contents of beta acid in the hop"
      :json-schema/example "10.7"}))
 
 
@@ -85,7 +88,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/percent
-     :description         "A positive IEEE-754 floating point number representing the Hop Stability Index, or percent decay of a hop's alpha acid over six months"
+     :description         "A non-negative IEEE-754 floating point number representing the Hop Stability Index, or percent decay of a hop's alpha acid over six months"
      :json-schema/example "2.2"}))
 
 
@@ -93,7 +96,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/percent
-     :description         "A positive IEEE-754 floating point number representing the percent contents of humulene in the hop"
+     :description         "A non-negative IEEE-754 floating point number representing the percent contents of humulene in the hop"
      :json-schema/example "10.7"}))
 
 
@@ -101,7 +104,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/percent
-     :description         "A positive IEEE-754 floating point number representing the percent contents of caryophyllene in the hop"
+     :description         "A non-negative IEEE-754 floating point number representing the percent contents of caryophyllene in the hop"
      :json-schema/example "10.7"}))
 
 
@@ -109,7 +112,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/percent
-     :description         "A positive IEEE-754 floating point number representing the percent contents of cohumulone in the hop"
+     :description         "A non-negative IEEE-754 floating point number representing the percent contents of cohumulone in the hop"
      :json-schema/example "10.7"}))
 
 
@@ -117,7 +120,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/percent
-     :description         "A positive IEEE-754 floating point number representing the percent contents of myrcene in the hop"
+     :description         "A non-negative IEEE-754 floating point number representing the percent contents of myrcene in the hop"
      :json-schema/example "10.7"}))
 
 
@@ -158,7 +161,7 @@
   (st/spec
     {:type          :vector
      :description   "A vector of valid ::hop records"
-     :spec          (s/coll-of #(s/valid? ::hop-wrapper %))
+     :spec          (s/coll-of ::hop-wrapper)
      :decode/string #(util/decode-sequence %1 ::hop-wrapper %2)
      :encode/string #(util/encode-sequence %1 ::hop-wrapper %2)}))
 

@@ -65,12 +65,12 @@
 
 (s/def ::boolean
   (st/spec
-   {:spec                np/boolean?
-    :description         "A boolean logic value of true or false"
-    :json-schema/example "false"
-    :gen                 #(s/gen boolean?)
-    :decode/string       util/decode-boolean
-    :encode/string       util/encode-boolean}))
+    {:spec                np/boolean?
+     :description         "A boolean logic value of true or false"
+     :json-schema/example "false"
+     :gen                 #(s/gen boolean?)
+     :decode/string       util/decode-boolean
+     :encode/string       util/encode-boolean}))
 
 
 (s/def ::text

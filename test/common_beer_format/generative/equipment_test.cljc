@@ -4,6 +4,7 @@
             #? (:clj  [clojure.test :refer [deftest is testing]])
             #? (:cljs [cljs.test    :refer-macros [deftest is testing]])))
 
+
 (deftest valid-generators-test
   (testing "Ensure all generators work out of the box"
     (is (gen/generatable? ::equipment/boil-size))

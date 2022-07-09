@@ -7,7 +7,7 @@
             [spec-tools.core :as st]))
 
 
-(def mash-step-types
+(def ^:const mash-step-types
   #{"infusion" "temperature" "decoction"})
 
 
@@ -17,6 +17,7 @@
      :spec                (s/and string?
                                  #(not (cs/blank? %))
                                  #(contains? mash-step-types (cs/lower-case %)))
+     :gen #(s/gen mash-step-types)
      :description         "A case-insensitive string representing the type of mash step.
                           Must be one of: 'Infusion', 'Temperature', and 'Decoction'"
      :json-schema/example "Temperature"}))
@@ -26,7 +27,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/liter
-     :description         "A positive IEEE-754 floating point number representing the volume of water in liters required for an infusion step."
+     :description         "A non-negative IEEE-754 floating point number representing the volume of water in liters required for an infusion step."
      :json-schema/example "5.8"}))
 
 
@@ -34,7 +35,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/degrees-celsius
-     :description         "A positive IEEE-754 floating point number representing the temperature of the mash step should be performed at in degrees Celsius"
+     :description         "A non-negative IEEE-754 floating point number representing the temperature of the mash step should be performed at in degrees Celsius"
      :json-schema/example "80"}))
 
 
@@ -42,7 +43,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/minute
-     :description         "A positive IEEE-754 floating point number representing the time in minutes to spend at this step"
+     :description         "A non-negative IEEE-754 floating point number representing the time in minutes to spend at this step"
      :json-schema/example "45.0"}))
 
 
@@ -50,7 +51,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/minute
-     :description         "A positive IEEE-754 floating point number representing the time in minutes to achieve the desired step temperature"
+     :description         "A non-negative IEEE-754 floating point number representing the time in minutes to achieve the desired step temperature"
      :json-schema/example "45.0"}))
 
 
@@ -58,7 +59,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/degrees-celsius
-     :description         "A positive IEEE-754 floating point number representing the temperature of the mash after the step has completed"
+     :description         "A non-negative IEEE-754 floating point number representing the temperature of the mash after the step has completed"
      :json-schema/example "80"}))
 
 
@@ -141,7 +142,7 @@
   (st/spec
     {:type          :vector
      :description   "A vector of valid ::mash-step records"
-     :spec          (s/coll-of #(s/valid? ::mash-step-wrapper %))
+     :spec          (s/coll-of ::mash-step-wrapper)
      :decode/string #(util/decode-sequence %1 ::mash-step-wrapper %2)
      :encode/string #(util/encode-sequence %1 ::mash-step-wrapper %2)}))
 
@@ -150,7 +151,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/degrees-celsius
-     :description         "A positive IEEE-754 floating point number representing the temperature of the grain before adding it to the mash in degrees Celsius"
+     :description         "A non-negative IEEE-754 floating point number representing the temperature of the grain before adding it to the mash in degrees Celsius"
      :json-schema/example "80"}))
 
 
@@ -158,7 +159,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/degrees-celsius
-     :description         "A positive IEEE-754 floating point number representing the temperature of the grain tun in degrees Celsius"
+     :description         "A non-negative IEEE-754 floating point number representing the temperature of the grain tun in degrees Celsius"
      :json-schema/example "80"}))
 
 
@@ -166,15 +167,15 @@
   (st/spec
     {:type                :double
      :spec                ::prim/degrees-celsius
-     :description         "A positive IEEE-754 floating point number representing the temperature of the sparge in degrees Celsius"
+     :description         "A non-negative IEEE-754 floating point number representing the temperature of the sparge in degrees Celsius"
      :json-schema/example "50"}))
 
 
 (s/def ::ph
   (st/spec
     {:type                :double
-     :spec                number?
-     :description         "A positive IEEE-754 floating point number representing the PH of the water"
+     :spec                (s/and number? #(not (neg? %)))
+     :description         "A non-negative IEEE-754 floating point number representing the PH of the water"
      :json-schema/example "2.5"}))
 
 
@@ -182,15 +183,15 @@
   (st/spec
     {:type                :double
      :spec                ::prim/kilogram
-     :description         "A positive IEEE-754 floating point number representing the weight of the of the mash tun in kilograms"
+     :description         "A non-negative IEEE-754 floating point number representing the weight of the of the mash tun in kilograms"
      :json-schema/example "15.0"}))
 
 
 (s/def ::tun-specific-heat
   (st/spec
     {:type                :double
-     :spec                number?
-     :description         "A positive IEEE-754 floating point number representing the specific heat of the mashtun in Calories per gram-degree Celsius"
+     :spec                (s/and number? #(not (neg? %)))
+     :description         "A non-negative IEEE-754 floating point number representing the specific heat of the mashtun in Calories per gram-degree Celsius"
      :json-schema/example "0.2"}))
 
 

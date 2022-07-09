@@ -69,12 +69,13 @@
      :description         "A non-negative IEEE-754 floating point number representing the percentage of wort lost to evaporation per hour of the boil"
      :json-schema/example "1.2"}))
 
+
 (s/def ::boil-time
   (st/spec
-   {:type                :double
-    :spec                ::prim/minute
-    :description         "A non-negative IEEE-754 floating point number representing the normal amount of time one boils for this equipment setup. This can be used with the evaporation rate to calculate the evaporation loss."
-    :json-schema/example "15"}))
+    {:type                :double
+     :spec                ::prim/minute
+     :description         "A non-negative IEEE-754 floating point number representing the normal amount of time one boils for this equipment setup. This can be used with the evaporation rate to calculate the evaporation loss."
+     :json-schema/example "15"}))
 
 
 (s/def ::calc-boil-volume

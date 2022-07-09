@@ -7,7 +7,7 @@
             [spec-tools.core :as st]))
 
 
-(def misc-types
+(def ^:const misc-types
   #{"spice" "fining" "water agent" "herb" "flavor" "other"})
 
 
@@ -17,12 +17,13 @@
      :spec                (s/and string?
                                  #(not (cs/blank? %))
                                  #(contains? misc-types (cs/lower-case %)))
+     :gen #(s/gen misc-types)
      :description         "A case-insensitive string representing the type of the miscellaneous item added to the beer.
                           Must be one of: 'Spice', 'Fining', 'Water Agent', 'Herb', 'Flavor', and 'Other'"
      :json-schema/example "Spice"}))
 
 
-(def misc-uses
+(def ^:const misc-uses
   #{"boil" "mash" "primary" "secondary" "bottling"})
 
 
@@ -32,6 +33,7 @@
      :spec                (s/and string?
                                  #(not (cs/blank? %))
                                  #(contains? misc-uses (cs/lower-case %)))
+     :gen                #(s/gen misc-uses)
      :description         "A case-insensitive string representing the point in the brewing cycle the miscellaneous ingredient is added to the beer.
                           Must be one of: 'Boil', 'Mash', 'Primary', 'Secondary', and 'Bottling'"
      :json-schema/example "Mash"}))
@@ -41,7 +43,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/minute
-     :description         "A positive IEEE-754 floating point number representing the time in minutes the ingredient was added dependant on the :use field.
+     :description         "A non-negative IEEE-754 floating point number representing the time in minutes the ingredient was added dependant on the :use field.
                           For \"Boil\" this is the boil time.
                           For \"Mash\" this is the mash time.
                           For \"Primary\", \"Secondary\", and \"Bottling\" this is the amount of time the ingredient spent in that state."
@@ -85,7 +87,7 @@
   (st/spec
     {:type          :vector
      :description   "A vector of valid ::misc records"
-     :spec          (s/coll-of #(s/valid? ::misc-wrapper %))
+     :spec          (s/coll-of ::misc-wrapper)
      :decode/string #(util/decode-sequence %1 ::misc-wrapper %2)
      :encode/string #(util/encode-sequence %1 ::misc-wrapper %2)}))
 
