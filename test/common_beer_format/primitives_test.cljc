@@ -73,7 +73,7 @@
   (testing "Ensure version spec validates data appropriately"
     (is (csa/valid? ::prim/version 1))
     (is (not (csa/valid? ::prim/version nil)))
-    (is (not (csa/valid? ::prim/version 1.0)))
+    #? (:clj (is (not (csa/valid? ::prim/version 1.0)))) ;; Javascript just has one number type
     (is (not (csa/valid? ::prim/version 0)))
     (is (not (csa/valid? ::prim/version false)))))
 
