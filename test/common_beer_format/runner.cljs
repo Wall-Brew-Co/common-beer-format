@@ -2,7 +2,7 @@
   (:require [doo.runner :refer-macros [doo-tests]]
             [common-beer-format.core-test]
             [common-beer-format.data-test]
-            [common-beer-format.generative.eqiupment-test]
+            [common-beer-format.generative.equipment-test]
             [common-beer-format.generative.fermentables-test]
             [common-beer-format.generative.hops-test]
             [common-beer-format.generative.mash-test]
@@ -17,7 +17,7 @@
 
 (doo-tests 'common-beer-format.core-test
            'common-beer-format.data-test
-           `common-beer-format.generative.eqiupment-test
+           `common-beer-format.generative.equipment-test
            `common-beer-format.generative.fermentables-test
            `common-beer-format.generative.hops-test
            `common-beer-format.generative.mash-test
