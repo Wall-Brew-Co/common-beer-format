@@ -10,16 +10,16 @@
 (s/def ::kilogram
   (st/spec
     {:type                :double
-     :spec                number?
-     :description         "A positive IEEE-754 floating point number representing weight in kilograms"
+     :spec                (s/and number? #(not (neg? %)))
+     :description         "A non-negative IEEE-754 floating point number representing weight in kilograms"
      :json-schema/example "10.7"}))
 
 
 (s/def ::liter
   (st/spec
     {:type                :double
-     :spec                number?
-     :description         "A positive IEEE-754 floating point number representing volume in liters"
+     :spec                (s/and number? #(not (neg? %)))
+     :description         "A non-negative IEEE-754 floating point number representing volume in liters"
      :json-schema/example "12.3"}))
 
 
@@ -34,15 +34,15 @@
 (s/def ::minute
   (st/spec
     {:type                :double
-     :spec                number?
-     :description         "A positive IEEE-754 floating point number representing time in minutes"
+     :spec                (s/and number? #(not (neg? %)))
+     :description         "A non-negative IEEE-754 floating point number representing time in minutes"
      :json-schema/example "45.0"}))
 
 
 (s/def ::specific-gravity
   (st/spec
     {:type                :double
-     :spec                number?
+     :spec                (s/and number? pos?)
      :description         "A positive IEEE-754 floating point number representing the specific gravity relative to the weight of the same size sample of water"
      :json-schema/example "1.045"}))
 
@@ -50,8 +50,8 @@
 (s/def ::kilopascal
   (st/spec
     {:type                :double
-     :spec                number?
-     :description         "A positive IEEE-754 floating point number representing pressure in kilopascals"
+     :spec                (s/and number? #(not (neg? %)))
+     :description         "A non-negative IEEE-754 floating point number representing pressure in kilopascals"
      :json-schema/example "101.325"}))
 
 
@@ -59,17 +59,18 @@
   (st/spec
     {:type                :double
      :spec                number?
-     :description         "A positive IEEE-754 floating point number representing a human-readable percentage - e.g 5.5"
+     :description         "An IEEE-754 floating point number representing a human-readable percentage - e.g 5.5"
      :json-schema/example "4.5"}))
 
 
 (s/def ::boolean
   (st/spec
-    {:spec                np/boolean?
-     :description         "A boolean logic value of true or false"
-     :json-schema/example "false"
-     :decode/string       util/decode-boolean
-     :encode/string       util/encode-boolean}))
+   {:spec                np/boolean?
+    :description         "A boolean logic value of true or false"
+    :json-schema/example "false"
+    :gen                 #(s/gen boolean?)
+    :decode/string       util/decode-boolean
+    :encode/string       util/encode-boolean}))
 
 
 (s/def ::text
@@ -84,6 +85,7 @@
   (st/spec
     {:type                :long
      :spec                #(= 1 %)
+     :gen                 #(s/gen #{1})
      :description         "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists"
      :json-schema/example "1"}))
 

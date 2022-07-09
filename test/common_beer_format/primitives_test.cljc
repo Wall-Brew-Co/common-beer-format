@@ -9,7 +9,10 @@
   (testing "Ensure kilogram spec validates data appropriately"
     (is (csa/valid? ::prim/kilogram 1.234))
     (is (csa/valid? ::prim/kilogram 1))
+    (is (csa/valid? ::prim/kilogram 0))
     (is (not (csa/valid? ::prim/kilogram nil)))
+    (is (not (csa/valid? ::prim/kilogram -1)))
+    (is (not (csa/valid? ::prim/kilogram -0.254)))
     (is (not (csa/valid? ::prim/kilogram false)))))
 
 
@@ -17,7 +20,10 @@
   (testing "Ensure liter spec validates data appropriately"
     (is (csa/valid? ::prim/liter 1.234))
     (is (csa/valid? ::prim/liter 1))
+    (is (csa/valid? ::prim/liter 0))
     (is (not (csa/valid? ::prim/liter nil)))
+    (is (not (csa/valid? ::prim/liter -1)))
+    (is (not (csa/valid? ::prim/liter -0.254)))
     (is (not (csa/valid? ::prim/liter false)))))
 
 
@@ -25,6 +31,7 @@
   (testing "Ensure degrees-celsius spec validates data appropriately"
     (is (csa/valid? ::prim/degrees-celsius 1.234))
     (is (csa/valid? ::prim/degrees-celsius 1))
+    (is (csa/valid? ::prim/degrees-celsius 0))
     (is (csa/valid? ::prim/degrees-celsius -1.234))
     (is (not (csa/valid? ::prim/degrees-celsius false)))))
 
@@ -33,7 +40,10 @@
   (testing "Ensure minute spec validates data appropriately"
     (is (csa/valid? ::prim/minute 1.234))
     (is (csa/valid? ::prim/minute 1))
+    (is (csa/valid? ::prim/minute 0))
     (is (not (csa/valid? ::prim/minute nil)))
+    (is (not (csa/valid? ::prim/minute -1)))
+    (is (not (csa/valid? ::prim/minute -0.254)))
     (is (not (csa/valid? ::prim/minute false)))))
 
 
@@ -42,6 +52,9 @@
     (is (csa/valid? ::prim/specific-gravity 1.234))
     (is (csa/valid? ::prim/specific-gravity 1))
     (is (not (csa/valid? ::prim/specific-gravity nil)))
+    (is (not (csa/valid? ::prim/specific-gravity 0)))
+    (is (not (csa/valid? ::prim/specific-gravity -1)))
+    (is (not (csa/valid? ::prim/specific-gravity -0.254)))
     (is (not (csa/valid? ::prim/specific-gravity false)))))
 
 
@@ -49,7 +62,10 @@
   (testing "Ensure kilopascal spec validates data appropriately"
     (is (csa/valid? ::prim/kilopascal 1.234))
     (is (csa/valid? ::prim/kilopascal 1))
+    (is (csa/valid? ::prim/kilopascal 0))
     (is (not (csa/valid? ::prim/kilopascal nil)))
+    (is (not (csa/valid? ::prim/kilopascal -1)))
+    (is (not (csa/valid? ::prim/kilopascal -0.254)))
     (is (not (csa/valid? ::prim/kilopascal false)))))
 
 
@@ -57,6 +73,8 @@
   (testing "Ensure version spec validates data appropriately"
     (is (csa/valid? ::prim/version 1))
     (is (not (csa/valid? ::prim/version nil)))
+    (is (not (csa/valid? ::prim/version 1.0)))
+    (is (not (csa/valid? ::prim/version 0)))
     (is (not (csa/valid? ::prim/version false)))))
 
 
@@ -72,7 +90,10 @@
   (testing "Ensure the amount spec wraps the kilogram spec appropriately"
     (is (csa/valid? ::prim/amount 12.34))
     (is (csa/valid? ::prim/amount 5))
+    (is (csa/valid? ::prim/amount 0))
     (is (not (csa/valid? ::prim/amount nil)))
+    (is (not (csa/valid? ::prim/amount -1)))
+    (is (not (csa/valid? ::prim/amount -0.254)))
     (is (not (csa/valid? ::prim/amount false)))))
 
 
