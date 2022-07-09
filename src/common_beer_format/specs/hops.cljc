@@ -21,14 +21,14 @@
 
 (s/def ::use
   (st/spec
-   {:type                :string
-    :spec                (s/and string?
-                                #(not (cs/blank? %))
-                                #(contains? hop-uses (cs/lower-case %)))
-    :gen                 #(s/gen hop-uses)
-    :description         "A case-insensitive string representing the means by which the hop is added to the beer.
+    {:type                :string
+     :spec                (s/and string?
+                                 #(not (cs/blank? %))
+                                 #(contains? hop-uses (cs/lower-case %)))
+     :gen                 #(s/gen hop-uses)
+     :description         "A case-insensitive string representing the means by which the hop is added to the beer.
                           Must be one of: 'Boil', 'Dry Hop', 'Mash', 'First Wort', and 'Aroma'"
-    :json-schema/example "mash"}))
+     :json-schema/example "mash"}))
 
 
 (s/def ::time
@@ -50,14 +50,14 @@
 
 (s/def ::type
   (st/spec
-   {:type                :string
-    :spec                (s/and string?
-                                #(not (cs/blank? %))
-                                #(contains? hop-types (cs/lower-case %)))
-    :gen                 #(s/gen hop-types)
-    :description         "A case-insensitive string representing the means by which the hop is added to the beer.
+    {:type                :string
+     :spec                (s/and string?
+                                 #(not (cs/blank? %))
+                                 #(contains? hop-types (cs/lower-case %)))
+     :gen                 #(s/gen hop-types)
+     :description         "A case-insensitive string representing the means by which the hop is added to the beer.
                           Must be one of: 'Bittering', 'Aroma', and 'Both'"
-    :json-schema/example "bittering"}))
+     :json-schema/example "bittering"}))
 
 
 (def ^:const hop-forms

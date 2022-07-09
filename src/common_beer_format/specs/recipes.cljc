@@ -174,12 +174,13 @@
      :description         "A non-negative IEEE-754 floating point number representing the number of days to bottle age the beer"
      :json-schema/example "12.0"}))
 
+
 (s/def ::age
   (st/spec
-   {:type                :double
-    :spec                ::prim/degrees-celsius
-    :description         "A non-negative IEEE-754 floating point number representing the number of days to bottle age the beer"
-    :json-schema/example "12.0"}))
+    {:type                :double
+     :spec                ::prim/degrees-celsius
+     :description         "A non-negative IEEE-754 floating point number representing the number of days to bottle age the beer"
+     :json-schema/example "12.0"}))
 
 
 (s/def ::age-temp
