@@ -1,6 +1,10 @@
-## v1.3.1 / 2020 Oct 10
+## v1.4.0 / 2022 Jul 09
 
-> Drop ^:const use to allow uberjarring and to fix some performance issues in js contexts
+> This release enables generative testing against all specs
+
+* **Add** - Add `coerce` function to perform type casting
+* **Fix** - Add missing `::common-beer-format.specs.equipment/boil-time` and `::common-beer-format.specs.equipment/age-temp` specs
+* **Update** - All specs now come with generators
 
 ## v1.3.0 / 2020 Jul 18
 
