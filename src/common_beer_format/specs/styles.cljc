@@ -40,7 +40,7 @@
      :json-schema/example "BJCP"}))
 
 
-(def style-types
+(def ^:const style-types
   #{"lager" "ale" "mead" "wheat" "mixed" "cider"})
 
 
@@ -50,6 +50,7 @@
      :spec                (s/and string?
                                  #(not (cs/blank? %))
                                  #(contains? style-types (cs/lower-case %)))
+     :gen #(s/gen style-types)
      :description         "A case-insensitive string representing the type of beverage the style dictates.
                           Must be one of: 'Lager', 'Ale', 'Mead', 'Wheat', 'Mixed', and 'Cider'"
      :json-schema/example "Lager"}))
@@ -59,7 +60,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/specific-gravity
-     :description         "A positive IEEE-754 floating point number representing the minimum pre-fermentation specific gravity for the style"
+     :description         "A non-negative IEEE-754 floating point number representing the minimum pre-fermentation specific gravity for the style"
      :json-schema/example "1.048"}))
 
 
@@ -67,7 +68,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/specific-gravity
-     :description         "A positive IEEE-754 floating point number representing the maximum pre-fermentation specific gravity for the style"
+     :description         "A non-negative IEEE-754 floating point number representing the maximum pre-fermentation specific gravity for the style"
      :json-schema/example "1.060"}))
 
 
@@ -75,7 +76,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/specific-gravity
-     :description         "A positive IEEE-754 floating point number representing the minimum post-fermentation specific gravity for the style"
+     :description         "A non-negative IEEE-754 floating point number representing the minimum post-fermentation specific gravity for the style"
      :json-schema/example "1.048"}))
 
 
@@ -83,7 +84,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/specific-gravity
-     :description         "A positive IEEE-754 floating point number representing the maximum post-fermentation specific gravity for the style"
+     :description         "A non-negative IEEE-754 floating point number representing the maximum post-fermentation specific gravity for the style"
      :json-schema/example "1.060"}))
 
 
@@ -91,7 +92,7 @@
   (st/spec
     {:type                :double
      :spec                number?
-     :description         "A positive IEEE-754 floating point number representing the minimum bitterness in IBUs for the style"
+     :description         "A non-negative IEEE-754 floating point number representing the minimum bitterness in IBUs for the style"
      :json-schema/example "32"}))
 
 
@@ -99,7 +100,7 @@
   (st/spec
     {:type                :double
      :spec                number?
-     :description         "A positive IEEE-754 floating point number representing the maximum bitterness in IBUs for the style"
+     :description         "A non-negative IEEE-754 floating point number representing the maximum bitterness in IBUs for the style"
      :json-schema/example "40"}))
 
 
@@ -107,7 +108,7 @@
   (st/spec
     {:type                :double
      :spec                number?
-     :description         "A positive IEEE-754 floating point number representing the lightest color in SRM for the style"
+     :description         "A non-negative IEEE-754 floating point number representing the lightest color in SRM for the style"
      :json-schema/example "32"}))
 
 
@@ -115,7 +116,7 @@
   (st/spec
     {:type                :double
      :spec                number?
-     :description         "A positive IEEE-754 floating point number representing the darkest color in SRM for the style"
+     :description         "A non-negative IEEE-754 floating point number representing the darkest color in SRM for the style"
      :json-schema/example "40"}))
 
 
@@ -123,7 +124,7 @@
   (st/spec
     {:type                :double
      :spec                number?
-     :description         "A positive IEEE-754 floating point number representing the minimum carbonation for this style in volumes of CO2"
+     :description         "A non-negative IEEE-754 floating point number representing the minimum carbonation for this style in volumes of CO2"
      :json-schema/example "1.5"}))
 
 
@@ -131,7 +132,7 @@
   (st/spec
     {:type                :double
      :spec                number?
-     :description         "A positive IEEE-754 floating point number representing the maximum carbonation for this style in volumes of CO2"
+     :description         "A non-negative IEEE-754 floating point number representing the maximum carbonation for this style in volumes of CO2"
      :json-schema/example "2.2"}))
 
 
@@ -139,7 +140,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/percent
-     :description         "A positive IEEE-754 floating point number representing the minimum recommended ABV percentage for the style"
+     :description         "A non-negative IEEE-754 floating point number representing the minimum recommended ABV percentage for the style"
      :json-schema/example "0.032"}))
 
 
@@ -147,7 +148,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/percent
-     :description         "A positive IEEE-754 floating point number representing the maximum recommended ABV percentage for the style"
+     :description         "A non-negative IEEE-754 floating point number representing the maximum recommended ABV percentage for the style"
      :json-schema/example "0.04"}))
 
 
@@ -323,7 +324,7 @@
   (st/spec
     {:type          :vector
      :description   "A vector of valid ::style records"
-     :spec          (s/coll-of #(s/valid? ::style-wrapper %))
+     :spec          (s/coll-of ::style-wrapper)
      :decode/string #(util/decode-sequence %1 ::style-wrapper %2)
      :encode/string #(util/encode-sequence %1 ::style-wrapper %2)}))
 

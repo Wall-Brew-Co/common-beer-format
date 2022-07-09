@@ -1,4 +1,4 @@
-(ns common-beer-format.util
+(ns ^:no-doc common-beer-format.util
   "Utility functions common to translation"
   (:require [clojure.string :as cs]
             [nnichols.parse :as n-parse]

@@ -91,7 +91,7 @@
   (st/spec
     {:type          :vector
      :description   "A vector of valid ::water records"
-     :spec          (s/coll-of #(s/valid? ::water-wrapper %))
+     :spec          (s/coll-of ::water-wrapper)
      :decode/string #(util/decode-sequence %1 ::water-wrapper %2)
      :encode/string #(util/encode-sequence %1 ::water-wrapper %2)}))
 

@@ -7,7 +7,7 @@
             [spec-tools.core :as st]))
 
 
-(def fermentable-types
+(def ^:const fermentable-types
   #{"grain" "sugar" "extract" "dry extract" "adjunct"})
 
 
@@ -17,6 +17,7 @@
      :spec                (s/and string?
                                  #(not (cs/blank? %))
                                  #(contains? fermentable-types (cs/lower-case %)))
+     :gen                 #(s/gen fermentable-types)
      :description         "A case-insensitive string representing the form of the fermentable.
                           Must be one of: 'Grain', 'Sugar', 'Extract', 'Dry Extract', and 'Adjunct'"
      :json-schema/example "grain"}))
@@ -26,7 +27,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/percent
-     :description         "A positive IEEE-754 floating point number representing the percent rendered sugar from the fermentable"
+     :description         "A non-negative IEEE-754 floating point number representing the percent rendered sugar from the fermentable"
      :json-schema/example "0.856"}))
 
 
@@ -34,7 +35,7 @@
   (st/spec
     {:type                :double
      :spec                number?
-     :description         "A positive IEEE-754 floating point number representing the color in Lovibond for the grain type, and SRM for all other types for the fermentable"
+     :description         "A non-negative IEEE-754 floating point number representing the color in Lovibond for the grain type, and SRM for all other types for the fermentable"
      :json-schema/example "32"}))
 
 
@@ -60,7 +61,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/percent
-     :description         "A positive IEEE-754 floating point number representing the percent difference between the coarse grain yield and fine grain yield.
+     :description         "A non-negative IEEE-754 floating point number representing the percent difference between the coarse grain yield and fine grain yield.
                           Only appropriate for the 'Grain' or 'Adjunct' types."
      :json-schema/example "0.856"}))
 
@@ -69,7 +70,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/percent
-     :description         "A positive IEEE-754 floating point number representing the percent moisture in the grain.
+     :description         "A non-negative IEEE-754 floating point number representing the percent moisture in the grain.
                           Only appropriate for the 'Grain' or 'Adjunct' types."
      :json-schema/example "0.45"}))
 
@@ -78,7 +79,7 @@
   (st/spec
     {:type                :double
      :spec                number?
-     :description         "A positive IEEE-754 floating point number representing the diastatic power of the grain in Lintner units.
+     :description         "A non-negative IEEE-754 floating point number representing the diastatic power of the grain in Lintner units.
                           Only appropriate for the 'Grain' or 'Adjunct' types."
      :json-schema/example "0.65"}))
 
@@ -87,7 +88,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/percent
-     :description         "A positive IEEE-754 floating point number representing the protein contents of the grain.
+     :description         "A non-negative IEEE-754 floating point number representing the protein contents of the grain.
                           Only appropriate for the 'Grain' or 'Adjunct' types."
      :json-schema/example "0.10"}))
 
@@ -96,7 +97,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/percent
-     :description         "A positive IEEE-754 floating point number representing the suggested maximum percent by weight of the fermentable with respect to all fermentables."
+     :description         "A non-negative IEEE-754 floating point number representing the suggested maximum percent by weight of the fermentable with respect to all fermentables."
      :json-schema/example "1.0"}))
 
 
@@ -115,7 +116,7 @@
   (st/spec
     {:type                :double
      :spec                number?
-     :description         "A positive IEEE-754 floating point number representing the IBUs per pound per gallon of water assuming a 60 minute boil.
+     :description         "A non-negative IEEE-754 floating point number representing the IBUs per pound per gallon of water assuming a 60 minute boil.
                           Only appropriate for the 'Extract' type."
      :json-schema/example "12.5"}))
 
@@ -124,7 +125,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/specific-gravity
-     :description         "A positive IEEE-754 floating point number representing the potential yield in specific gravity units of the ingredient"
+     :description         "A non-negative IEEE-754 floating point number representing the potential yield in specific gravity units of the ingredient"
      :json-schema/example "1.048"}))
 
 
@@ -174,7 +175,7 @@
   (st/spec
     {:type          :vector
      :description   "A vector of valid ::fermentable-wrapper records"
-     :spec          (s/coll-of #(s/valid? ::fermentable-wrapper %))
+     :spec          (s/coll-of ::fermentable-wrapper)
      :decode/string #(util/decode-sequence %1 ::fermentable-wrapper %2)
      :encode/string #(util/encode-sequence %1 ::fermentable-wrapper %2)}))
 
