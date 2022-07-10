@@ -1,0 +1,13 @@
+{:yeasts [{:yeast {:min-temperature "16.7"
+                   :amount          "0.250"
+                   :name            "Irish Ale"
+                   :max-temperature "22.2"
+                   :type            "Ale"
+                   :best-for        "Irish Dry Stouts"
+                   :laboratory      "Wyeast Labs"
+                   :attenuation     "73.0"
+                   :notes           "Dry, fruity flavor characteristic of stouts.  Full bodied, dry, clean flavor."
+                   :flocculation    "Medium"
+                   :form            "Liquid"
+                   :version         "1"
+                   :product-id      "1084"}}]}

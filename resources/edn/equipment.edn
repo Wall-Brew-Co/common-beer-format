@@ -1,0 +1,16 @@
+{:equipment {:lauter-deadspace  0.95
+             :calc-boil-volume  "TRUE"
+             :top-up-water      0.0
+             :hop-utilization   100.0
+             :name              "8 Gal pot with 5 gal Igloo Cooler"
+             :boil-size         22.71
+             :trub-chiller-loss 0.95
+             :boil-time         60.0
+             :notes             "Popular all grain setup.  5 Gallon Gott or Igloo cooler as mash tun with false bottom, and 7-9 gallon brewpot capable of boiling at least 6 gallons of wort.  Primarily used for single infusion mashes."
+             :tun-volume        18.93
+             :top-up-kettle     0.0
+             :tun-weight        2.0
+             :version           "1"
+             :tun-specific-heat 0.3
+             :batch-size        18.93
+             :evap-rate         9.0}}

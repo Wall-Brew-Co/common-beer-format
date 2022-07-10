@@ -1,3 +1,14 @@
+## v2.0.0 / 2022 Jul 10
+
+> **BREAKING:** This release bifurcates the three separate utilities this library was responsible into discrete libraries. 
+> `common-beer-format` is now exclusively intended for BeerXML specs.
+> [clj-xml](https://github.com/Wall-Brew-Co/clj-xml) is now used for simplifying `clojure.data/xml` interop
+> [common-beer-data](https://github.com/Wall-Brew-Co/common-beer-data) is now used for storing common ingredients, style guides, etc.
+
+* **Add** - Add `explain`, `explain-data`, `spec-description`, `valid?`, and `invalid?` to prevent consumers from needing to explicitly import transitive libraries
+* **Delete** - All static data for ingredients, styles, etc.
+* **Delete** - Specialty functionality for `clojure.data/xml` interop
+
 ## v1.4.0 / 2022 Jul 09
 
 > This release enables generative testing against all specs

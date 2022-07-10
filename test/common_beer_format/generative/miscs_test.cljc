@@ -1,6 +1,6 @@
 (ns common-beer-format.generative.miscs-test
   (:require [common-beer-format.generative.util :as gen]
-            [common-beer-format.specs.miscs :as miscs]
+            [common-beer-format.miscs :as miscs]
             #? (:clj  [clojure.test :refer [deftest is testing]])
             #? (:cljs [cljs.test    :refer-macros [deftest is testing]])))
 

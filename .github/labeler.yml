@@ -14,8 +14,3 @@ restricted:
 examples:
   - resources/**/*
 
-spec:
-  - src/common_beer_format/specs/*
-
-data:
-  - src/common_beer_format/data/*

@@ -1,4 +1,4 @@
-(defproject com.wallbrew/common-beer-format "1.4.0"
+(defproject com.wallbrew/common-beer-format "2.0.0"
   :description "An implementation of the BeerXML spec in multiple formats"
   :url "https://github.com/Wall-Brew-Co/common-beer-format"
   :license {:name "MIT"
@@ -9,10 +9,14 @@
                  [org.clojure/clojurescript "1.11.60" :scope "provided"]
                  [org.clojure/data.json "2.4.0"]
                  [org.clojure/data.xml "0.2.0-alpha6"]
+                 [org.clojure/spec.alpha "0.3.218"]
                  [org.clojure/test.check "1.1.1"]]
   :plugins [[lein-cljsbuild "1.1.8"]]
   :profiles {:uberjar {:aot :all}
-             :dev     {:dependencies [[doo "0.1.11"]]
+             :dev     {:dependencies [[com.wallbrew/clj-xml "1.7.1"]
+                                      [doo "0.1.11"]
+                                      [org.clojure/data.json "2.4.0"]
+                                      [org.clojure/data.xml "0.2.0-alpha6"]]
                        :plugins      [[lein-doo "0.1.11"]]}}
 
   :min-lein-version "2.5.3"
