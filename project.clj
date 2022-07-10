@@ -12,7 +12,10 @@
                  [org.clojure/test.check "1.1.1"]]
   :plugins [[lein-cljsbuild "1.1.8"]]
   :profiles {:uberjar {:aot :all}
-             :dev     {:dependencies [[doo "0.1.11"]]
+             :dev     {:dependencies [[com.wallbrew/clj-xml "1.7.1"]
+                                      [doo "0.1.11"]
+                                      [org.clojure/data.json "2.4.0"]
+                                      [org.clojure/data.xml "0.2.0-alpha6"]]
                        :plugins      [[lein-doo "0.1.11"]]}}
 
   :min-lein-version "2.5.3"

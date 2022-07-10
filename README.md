@@ -3,8 +3,8 @@
 [![Clojars Project](https://img.shields.io/clojars/v/com.wallbrew/common-beer-format.svg)](https://clojars.org/com.wallbrew/common-beer-format)
 ![GitHub Runner](https://github.com/Wall-Brew-Co/common-beer-format/workflows/Clojurescript%20CI/badge.svg)
 
-A Clojure(Script) implementation of the BeerXML 1.0 schema with cross-format support using Metosin's [spec-tools.](https://github.com/metosin/spec-tools)
-The library endeavors to support the data specification across JSON, XML, and EDN, and includes all optional fields in the core BeerXML spec.
+A Clojure(Script) implementation of the [BeerXML 1.0 schema](http://www.beerxml.com/) with cross-format support using Metosin's [spec-tools.](https://github.com/metosin/spec-tools)
+The library endeavors to support the data specification as a [clojure spec](https://clojure.org/about/spec) and includes all optional fields in the core BeerXML spec.
 
 ## Installation
 
@@ -18,18 +18,23 @@ Alternatively, you may clone or fork the repository to work with it directly.
 
 ## Usage
 
-Once the library has been added as a dependency to your project, you can begin utilizing the specs and parsers.
+Once the library has been added as a dependency to your project, you can begin utilizing the specs.
 
 To see how the application works, try opening a REPL.
 
 ```clj
-(:require [common-beer-format.core :as cbf]
-          [common-beer-format.specs.fermentables :as cbf-fermentables])
+(:require [clojure.data.xml :as xml]
+          [clj-xml.core :as clj-xml]
+          [common-beer-format.core :as cbf]
+          [common-beer-format.fermentables :as cbf-fermentables])
 
 (def fermentables-file
-  (slurp "resources/xml/fermentables.xml"))
+  (-> "resources/xml/fermentables.xml"
+      slurp
+      xml/parse-str
+      clj-xml/xml->edn))
 
-(cbf/parse-and-coerce-xml fermentables-file ::cbf-fermentables/fermentables-wrapper)
+(cbf/coerce fermentables-file ::cbf-fermentables/fermentables-wrapper)
 ```
 
 Once the file is read and parsed, the code above will return something like this:
@@ -83,19 +88,33 @@ Once the file is read and parsed, the code above will return something like this
 ```
 
 This library takes data structured to the [BeerXML](http://www.beerxml.com/beerxml.htm) specification and provides a layer of conformance and coercion.
-This data may be represented as XML, JSON, or EDN and similar helper functions exist for each format.
 
 Specs for the following data types have been provided, as well as several wrappers for container objects:
 
-* Equipment
-* Fermentables
-* Hops
-* Mash
-* Miscs
-* Recipes
-* Styles
-* Waters
-* Yeasts
+* [Equipment](/src/common_beer_format/equipment.cljc)
+* [Fermentables](/src/common_beer_format/fermentables.cljc)
+* [Hops](/src/common_beer_format/hops.cljc)
+* [Mash](/src/common_beer_format/mash.cljc)
+* [Miscs](/src/common_beer_format/miscs.cljc)
+* [Recipes](/src/common_beer_format/recipes.cljc)
+* [Styles](/src/common_beer_format/styles.cljc)
+* [Waters](/src/common_beer_format/waters.cljc)
+* [Yeasts](/src/common_beer_format/yeasts.cljc)
+
+### Core Data Functions
+
+In the core namespace, several utility functions have been provided to allow users of common-beer-format to inherit the utilities in `spec-tools`.
+That ssers may use any function from `spec-tools` or `clojure.spec`, with the specs in this library.
+
+Surfaced functions include:
+
+* `conform`
+* `coerce`
+* `explain`
+* `explain-data`
+* `spec-description`
+
+## Additional Notes
 
 ### Wrappers
 
@@ -130,27 +149,14 @@ Therefore, specs named like `::fermentable` and `::fermentables` are used to des
 To coerce and conform the data containing those elements, one would use `::fermentable-wrapper` and `::fermentables-wrapper`.
 That allows the clean interop between the internal data structure of `clojure.data.xml`, which defines the data samples above, and the utilities provided by `spec-tools`.
 
-### Encoders/Decoders & Parsers/Emitters
+### Pre-Packaged Data
 
-By default, this library uses the tools provided by `org.clojure/data.json` and `org.clojure/data.xml`.
-This was chosen intentionally for two reasons:
+common-beer-format formerly came pre-packaged with many of the most common brewing ingredients used.
+While this was convenient, it severly bloated this library and its published version.
+This information is still avaiable; however, it must now be loaded as a separate dependency as of `common-beer-format v2.0.0`.
+You can find that data in the [common-beer-data](https://github.com/Wall-Brew-Co/common-beer-data) repository.
 
-1) To maximize the interoperability between Clojure and Clojurescript
-2) To minimize dependency conflicts with common data utility libraries, such as [Cheshire](https://github.com/dakrone/cheshire)
-
-For Clojure-only use cases, several streaming functions have been created in the respective namespaces.
-
-## Pre-Packaged Data
-
-common-beer-format also comes pre-packaged with many of the most common brewing ingredients used.
-These can safely be used by consumers of the library for computational brewing; however, several assumptions were necessary in the encoding of data.
-In general, the ingredient quantities and stock amounts have been hard-coded to 0 - so be sure to update these fields with the amounts you'd like to brew with or keep on hand.
-Other assumptions, such as the physical form of the ingredient, may also need to be updated based on your brewing case.
-The assumptions are called out in the functions named `build-adjunct`, `build-hop`, etc in their respective namespaces.
-Finally, each canonical ingredient is intended to exist exactly once within the library, but alternative names may be found in the ingredient's `::notes`.
-For example, CTZ hops may also be called Zeus hops.
-
-If we've missed an ingredient you'd like to see in common-beer-format, you can fork the repository and open a pull request or [suggest it here.](https://github.com/Wall-Brew-Co/common-beer-format/issues/new?template=data_request.md)
+If we've missed an ingredient you'd like to see in common-beer-data, you can fork that repository and open a pull request or [suggest it here.](https://github.com/Wall-Brew-Co/common-beer-data/issues/new?template=data_request.md)
 
 ## License
 

@@ -1,8 +1,6 @@
 (ns common-beer-format.core
   "A collection of handy functions to utilize the specs in this library"
-  (:require [common-beer-format.parsers.json :as cbf-json]
-            [common-beer-format.parsers.xml :as cbf-xml]
-            [common-beer-format.util :as cbf]
+  (:require [common-beer-format.util :as cbf]
             [spec-tools.core :as st]))
 
 
@@ -11,8 +9,8 @@
 
 (defn conform
   "Conform `data` to a given `spec` while eliminating non-conforming keys and values"
-  {:added "1.0"
-   :see-also ["coerce"]}
+  {:added    "1.0"
+   :see-also ["coerce" "spec-tools.core/conform"]}
   [spec data]
   (st/conform spec data cbf/strict-transformer))
 
@@ -22,8 +20,8 @@
 
 (defn coerce
   "Coerce `data` to a given `spec` while eliminating non-conforming keys and values"
-  {:added "1.4"
-   :see-also ["conform"]}
+  {:added    "1.4"
+   :see-also ["conform" "spec-tools.core/coerce"]}
   [spec data]
   (st/coerce spec data cbf/strict-transformer))
 
@@ -31,42 +29,30 @@
 #_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
 
 
-(defn parse-and-coerce-xml
-  "Parse the string `xml-doc` and decode it as an instance of `cbf-spec`"
-  {:added "1.0"}
-  [xml-doc cbf-spec]
-  (let [parsed-xml (cbf-xml/parse-beer-xml xml-doc)]
-    (coerce cbf-spec parsed-xml)))
+(defn explain
+  "Explain why `data` does not conform to `spec` as a human readable string"
+  {:added    "2.0"
+   :see-also ["spec-tools.core/explain"]}
+  [spec data]
+  (st/explain spec data))
 
 
 #_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
 
 
-(defn parse-and-coerce-json
-  "Parse the string `json-blob` and decode it as an instance of `cbf-spec`"
-  {:added "1.0"}
-  [json-blob cbf-spec]
-  (let [parsed-json (cbf-json/parse-beer-json json-blob)]
-    (coerce cbf-spec parsed-json)))
-
-
-#_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
-
-
-(defn emit-xml
-  "Encode `cbf-data` as an instance of `cbf-spec` and return the equivalent XML"
-  {:added "1.0"}
-  [cbf-data cbf-spec]
-  (let [encoded-data (coerce cbf-spec cbf-data)]
-    (cbf-xml/emit-beer-xml encoded-data)))
-
+(defn explain-data
+  "Explain why `data` does not conform to `spec` with a map of information"
+  {:added    "2.0"
+   :see-also ["spec-tools.core/explain-data"]}
+  [spec data]
+  (st/explain-data spec data))
 
 #_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
 
 
-(defn emit-json
-  "Encode `cbf-data` as an instance of `cbf-spec` and return the equivalent json"
-  {:added "1.0"}
-  [cbf-data cbf-spec]
-  (let [encoded-data (coerce cbf-spec cbf-data)]
-    (cbf-json/emit-beer-json encoded-data)))
+(defn spec-description
+  "Describe a `spec`"
+  {:added    "2.0"
+   :see-also ["spec-tools.core/spec-description"]}
+  [spec]
+  (st/spec-description spec))

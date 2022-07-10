@@ -1,6 +1,6 @@
 (ns common-beer-format.generative.waters-test
   (:require [common-beer-format.generative.util :as gen]
-            [common-beer-format.specs.waters :as waters]
+            [common-beer-format.waters :as waters]
             #? (:clj  [clojure.test :refer [deftest is testing]])
             #? (:cljs [cljs.test    :refer-macros [deftest is testing]])))
 

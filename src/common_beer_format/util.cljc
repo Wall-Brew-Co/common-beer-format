@@ -9,12 +9,6 @@
   (st/type-transformer st/strip-extra-keys-transformer st/strip-extra-values-transformer st/string-transformer))
 
 
-(defn deformat
-  "Remove formatting specific to Windows (since we're ingesting XML) and double spacing"
-  [s]
-  (cs/replace (cs/replace s #"\r\n" "") #"\s\s+" ""))
-
-
 (defn decode-boolean
   "Decode an XML-like Boolean string to an actual boolean"
   [_spec value]
