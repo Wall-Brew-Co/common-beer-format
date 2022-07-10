@@ -5,7 +5,6 @@
 > [clj-xml](https://github.com/Wall-Brew-Co/clj-xml) is now used for simplifying `clojure.data/xml` interop
 > [common-beer-data](https://github.com/Wall-Brew-Co/common-beer-data) is now used for storing common ingredients, style guides, etc.
 
-* **Add** - Add `coerce` function to perform type casting
 * **Add** - Add `explain`, `explain-data`, `spec-description`, `valid?`, and `invalid?` to prevent consumers from needing to explicitly import transitive libraries
 * **Delete** - All static data for ingredients, styles, etc.
 * **Delete** - Specialty functionality for `clojure.data/xml` interop
