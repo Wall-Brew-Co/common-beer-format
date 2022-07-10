@@ -152,7 +152,7 @@ That allows the clean interop between the internal data structure of `clojure.da
 ### Pre-Packaged Data
 
 common-beer-format formerly came pre-packaged with many of the most common brewing ingredients used.
-While this was convenient, it severly bloated this library and its published version.
+While this was convenient, it severely bloated this library and its published version.
 This information is still available; however, it must now be loaded as a separate dependency as of `common-beer-format v2.0.0`.
 You can find that data in the [common-beer-data](https://github.com/Wall-Brew-Co/common-beer-data) repository.
 
