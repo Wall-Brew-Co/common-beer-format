@@ -78,7 +78,7 @@
                                                           :coarse-fine-diff "1.5"
                                                           :version          "1"
                                                           :max-in-batch     "100.0"
-                                                          :diastatic-power  "45.0"}} 
+                                                          :diastatic-power  "45.0"}}
                                            {:fermentable {:amount           "0.91"
                                                           :yield            "70.0"
                                                           :supplier         "Fussybrewer Malting"
@@ -93,7 +93,7 @@
                                                           :version          "1"
                                                           :max-in-batch     "20.0"
                                                           :recommend-mash   "TRUE"
-                                                          :diastatic-power  "0.0"}} 
+                                                          :diastatic-power  "0.0"}}
                                            {:fermentable {:amount           "0.45"
                                                           :yield            "78.0"
                                                           :supplier         "Fussybrewer Malting"

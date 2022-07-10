@@ -48,6 +48,7 @@
   [spec data]
   (st/explain-data spec data))
 
+
 #_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
 
 
@@ -58,6 +59,7 @@
   [spec]
   (st/spec-description spec))
 
+
 #_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
 
 
@@ -67,6 +69,7 @@
    :see-also ["clojure.spec.alpha/valid?" "invalid?"]}
   [spec data]
   (s/valid? spec data))
+
 
 #_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
 
