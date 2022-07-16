@@ -34,4 +34,3 @@ jobs:
         name: Test Checker
         path: target/coverage/junit.xml
         reporter: java-junit
-        token: ${{ secrets.WALL_BREW_BOT_PAT }}
