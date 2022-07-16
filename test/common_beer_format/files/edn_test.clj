@@ -19,10 +19,12 @@
   (let [edn (-> file-name slurp edn/read-string)]
     (cbf/coerce spec edn)))
 
+
 (defn valid?
   "A test helper to validate a parsed edn object against a spec"
   [file-name spec]
   (s/valid? spec (parse-beer-edn file-name spec)))
+
 
 (deftest edn-coercion-test
   (testing "Equipment records parsed from edn coerce into valid data"

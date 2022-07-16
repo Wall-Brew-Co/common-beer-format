@@ -34,6 +34,7 @@
   [file-name spec]
   (s/valid? spec (parse-beer-xml file-name spec)))
 
+
 (deftest xml-coercion-test
   (testing "Equipment records parsed from xml coerce into valid data"
     (is (valid? "resources/xml/equipment.xml" ::equipment/equipment-wrapper)))

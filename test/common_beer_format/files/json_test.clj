@@ -33,6 +33,7 @@
   [file-name spec]
   (s/valid? spec (parse-beer-json file-name spec)))
 
+
 (deftest json-coercion-test
   (testing "Equipment records parsed from json coerce into valid data"
     (is (valid? "resources/json/equipment.json" ::equipment/equipment-wrapper)))
