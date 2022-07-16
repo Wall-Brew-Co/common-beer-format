@@ -9,7 +9,7 @@
   (testing "Ensure kilogram spec validates data appropriately"
     (is (s/valid? ::prim/kilogram 1.234))
     (is (s/valid? ::prim/kilogram 1))
-    (is (s/valid? ::prim/kilogram 0))
+    (is (s/valid? ::prim/kilogram nil))
     (is (not (s/valid? ::prim/kilogram nil)))
     (is (not (s/valid? ::prim/kilogram -1)))
     (is (not (s/valid? ::prim/kilogram -0.254)))
