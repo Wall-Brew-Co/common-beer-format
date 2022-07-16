@@ -19,38 +19,27 @@
   (let [edn (-> file-name slurp edn/read-string)]
     (cbf/coerce spec edn)))
 
+(defn valid?
+  "A test helper to validate a parsed edn object against a spec"
+  [file-name spec]
+  (s/valid? spec (parse-beer-edn file-name spec)))
 
-(deftest equipment-test
-  (is (s/valid? ::equipment/equipment-wrapper (parse-beer-edn "resources/edn/equipment.edn" ::equipment/equipment-wrapper))))
-
-
-(deftest fermentables-test
-  (is (s/valid? ::fermentables/fermentables-wrapper (parse-beer-edn "resources/edn/fermentables.edn" ::fermentables/fermentables-wrapper))))
-
-
-(deftest hops-test
-  (is (s/valid? ::hops/hops-wrapper (parse-beer-edn "resources/edn/hops.edn" ::hops/hops-wrapper))))
-
-
-(deftest mash-test
-  (is (s/valid? ::mash/mash-wrapper (parse-beer-edn "resources/edn/mash.edn" ::mash/mash-wrapper))))
-
-
-(deftest miscs-test
-  (is (s/valid? ::miscs/miscs-wrapper (parse-beer-edn "resources/edn/miscs.edn" ::miscs/miscs-wrapper))))
-
-
-(deftest recipes-test
-  (is (s/valid? ::recipes/recipes-wrapper (parse-beer-edn "resources/edn/recipes.edn" ::recipes/recipes-wrapper))))
-
-
-(deftest styles-test
-  (is (s/valid? ::styles/style-wrapper (parse-beer-edn "resources/edn/style.edn" ::styles/style-wrapper))))
-
-
-(deftest waters-test
-  (is (s/valid? ::waters/waters-wrapper (parse-beer-edn "resources/edn/waters.edn" ::waters/waters-wrapper))))
-
-
-(deftest yeasts-test
-  (is (s/valid? ::yeasts/yeasts-wrapper (parse-beer-edn "resources/edn/yeasts.edn" ::yeasts/yeasts-wrapper))))
+(deftest edn-coercion-test
+  (testing "Equipment records parsed from edn coerce into valid data"
+    (is (valid? "resources/edn/equipment.edn" ::equipment/equipment-wrapper)))
+  (testing "Fermentable records parsed from edn coerce into valid data"
+    (is (valid? "resources/edn/fermentables.edn" ::fermentables/fermentables-wrapper)))
+  (testing "Hop records parsed from edn coerce into valid data"
+    (is (valid? "resources/edn/hops.edn" ::hops/hops-wrapper)))
+  (testing "Mash records parsed from edn coerce into valid data"
+    (is (valid? "resources/edn/mash.edn" ::mash/mash-wrapper)))
+  (testing "Misc records parsed from edn coerce into valid data"
+    (is (valid? "resources/edn/miscs.edn" ::miscs/miscs-wrapper)))
+  (testing "Recipe records parsed from edn coerce into valid data"
+    (is (valid? "resources/edn/recipes.edn" ::recipes/recipes-wrapper)))
+  (testing "Style records parsed from edn coerce into valid data"
+    (is (valid? "resources/edn/style.edn" ::styles/style-wrapper)))
+  (testing "Water records parsed from edn coerce into valid data"
+    (is (valid? "resources/edn/waters.edn" ::waters/waters-wrapper)))
+  (testing "Yeast records parsed from edn coerce into valid data"
+    (is (valid? "resources/edn/yeasts.edn" ::yeasts/yeasts-wrapper))))

@@ -17,7 +17,8 @@
                                       [doo "0.1.11"]
                                       [org.clojure/data.json "2.4.0"]
                                       [org.clojure/data.xml "0.2.0-alpha6"]]
-                       :plugins      [[lein-doo "0.1.11"]]}}
+                       :plugins      [[lein-cloverage "1.2.4"]
+                                      [lein-doo "0.1.11"]]}}
 
   :min-lein-version "2.5.3"
 

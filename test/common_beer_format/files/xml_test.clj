@@ -29,37 +29,27 @@
     (cbf/coerce spec edn)))
 
 
-(deftest equipment-test
-  (is (s/valid? ::equipment/equipment-wrapper (parse-beer-xml "resources/xml/equipment.xml" ::equipment/equipment-wrapper))))
+(defn valid?
+  "A test helper to validate a parsed xml object against a spec"
+  [file-name spec]
+  (s/valid? spec (parse-beer-xml file-name spec)))
 
-
-(deftest fermentables-test
-  (is (s/valid? ::fermentables/fermentables-wrapper (parse-beer-xml "resources/xml/fermentables.xml" ::fermentables/fermentables-wrapper))))
-
-
-(deftest hops-test
-  (is (s/valid? ::hops/hops-wrapper (parse-beer-xml "resources/xml/hops.xml" ::hops/hops-wrapper))))
-
-
-(deftest mash-test
-  (is (s/valid? ::mash/mash-wrapper (parse-beer-xml "resources/xml/mash.xml" ::mash/mash-wrapper))))
-
-
-(deftest miscs-test
-  (is (s/valid? ::miscs/miscs-wrapper (parse-beer-xml "resources/xml/miscs.xml" ::miscs/miscs-wrapper))))
-
-
-(deftest recipes-test
-  (is (s/valid? ::recipes/recipes-wrapper (parse-beer-xml "resources/xml/recipes.xml" ::recipes/recipes-wrapper))))
-
-
-(deftest styles-test
-  (is (s/valid? ::styles/style-wrapper (parse-beer-xml "resources/xml/style.xml" ::styles/style-wrapper))))
-
-
-(deftest waters-test
-  (is (s/valid? ::waters/waters-wrapper (parse-beer-xml "resources/xml/waters.xml" ::waters/waters-wrapper))))
-
-
-(deftest yeasts-test
-  (is (s/valid? ::yeasts/yeasts-wrapper (parse-beer-xml "resources/xml/yeasts.xml" ::yeasts/yeasts-wrapper))))
+(deftest xml-coercion-test
+  (testing "Equipment records parsed from xml coerce into valid data"
+    (is (valid? "resources/xml/equipment.xml" ::equipment/equipment-wrapper)))
+  (testing "Fermentable records parsed from xml coerce into valid data"
+    (is (valid? "resources/xml/fermentables.xml" ::fermentables/fermentables-wrapper)))
+  (testing "Hop records parsed from xml coerce into valid data"
+    (is (valid? "resources/xml/hops.xml" ::hops/hops-wrapper)))
+  (testing "Mash records parsed from xml coerce into valid data"
+    (is (valid? "resources/xml/mash.xml" ::mash/mash-wrapper)))
+  (testing "Misc records parsed from xml coerce into valid data"
+    (is (valid? "resources/xml/miscs.xml" ::miscs/miscs-wrapper)))
+  (testing "Recipe records parsed from xml coerce into valid data"
+    (is (valid? "resources/xml/recipes.xml" ::recipes/recipes-wrapper)))
+  (testing "Style records parsed from xml coerce into valid data"
+    (is (valid? "resources/xml/style.xml" ::styles/style-wrapper)))
+  (testing "Water records parsed from xml coerce into valid data"
+    (is (valid? "resources/xml/waters.xml" ::waters/waters-wrapper)))
+  (testing "Yeast records parsed from xml coerce into valid data"
+    (is (valid? "resources/xml/yeasts.xml" ::yeasts/yeasts-wrapper))))

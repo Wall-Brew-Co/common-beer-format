@@ -28,37 +28,27 @@
     (cbf/coerce spec edn)))
 
 
-(deftest equipment-test
-  (is (s/valid? ::equipment/equipment-wrapper (parse-beer-json "resources/json/equipment.json" ::equipment/equipment-wrapper))))
+(defn valid?
+  "A test helper to validate a parsed json object against a spec"
+  [file-name spec]
+  (s/valid? spec (parse-beer-json file-name spec)))
 
-
-(deftest fermentables-test
-  (is (s/valid? ::fermentables/fermentables-wrapper (parse-beer-json "resources/json/fermentables.json" ::fermentables/fermentables-wrapper))))
-
-
-(deftest hops-test
-  (is (s/valid? ::hops/hops-wrapper (parse-beer-json "resources/json/hops.json" ::hops/hops-wrapper))))
-
-
-(deftest mash-test
-  (is (s/valid? ::mash/mash-wrapper (parse-beer-json "resources/json/mash.json" ::mash/mash-wrapper))))
-
-
-(deftest miscs-test
-  (is (s/valid? ::miscs/miscs-wrapper (parse-beer-json "resources/json/miscs.json" ::miscs/miscs-wrapper))))
-
-
-(deftest recipes-test
-  (is (s/valid? ::recipes/recipes-wrapper (parse-beer-json "resources/json/recipes.json" ::recipes/recipes-wrapper))))
-
-
-(deftest styles-test
-  (is (s/valid? ::styles/style-wrapper (parse-beer-json "resources/json/style.json" ::styles/style-wrapper))))
-
-
-(deftest waters-test
-  (is (s/valid? ::waters/waters-wrapper (parse-beer-json "resources/json/waters.json" ::waters/waters-wrapper))))
-
-
-(deftest yeasts-test
-  (is (s/valid? ::yeasts/yeasts-wrapper (parse-beer-json "resources/json/yeasts.json" ::yeasts/yeasts-wrapper))))
+(deftest json-coercion-test
+  (testing "Equipment records parsed from json coerce into valid data"
+    (is (valid? "resources/json/equipment.json" ::equipment/equipment-wrapper)))
+  (testing "Fermentable records parsed from json coerce into valid data"
+    (is (valid? "resources/json/fermentables.json" ::fermentables/fermentables-wrapper)))
+  (testing "Hop records parsed from json coerce into valid data"
+    (is (valid? "resources/json/hops.json" ::hops/hops-wrapper)))
+  (testing "Mash records parsed from json coerce into valid data"
+    (is (valid? "resources/json/mash.json" ::mash/mash-wrapper)))
+  (testing "Misc records parsed from json coerce into valid data"
+    (is (valid? "resources/json/miscs.json" ::miscs/miscs-wrapper)))
+  (testing "Recipe records parsed from json coerce into valid data"
+    (is (valid? "resources/json/recipes.json" ::recipes/recipes-wrapper)))
+  (testing "Style records parsed from json coerce into valid data"
+    (is (valid? "resources/json/style.json" ::styles/style-wrapper)))
+  (testing "Water records parsed from json coerce into valid data"
+    (is (valid? "resources/json/waters.json" ::waters/waters-wrapper)))
+  (testing "Yeast records parsed from json coerce into valid data"
+    (is (valid? "resources/json/yeasts.json" ::yeasts/yeasts-wrapper))))
