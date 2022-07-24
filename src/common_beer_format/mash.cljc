@@ -1,7 +1,7 @@
 (ns common-beer-format.mash
   "The definition of mash steps and the mash profile records used in BeerXML"
   (:require [clojure.spec.alpha :as s]
-            [clojure.string :as cs]
+            [clojure.string :as str]
             [common-beer-format.primitives :as prim]
             [common-beer-format.util :as util]
             [spec-tools.core :as st]))
@@ -15,8 +15,8 @@
   (st/spec
     {:type                :string
      :spec                (s/and string?
-                                 #(not (cs/blank? %))
-                                 #(contains? mash-step-types (cs/lower-case %)))
+                                 #(not (str/blank? %))
+                                 #(contains? mash-step-types (str/lower-case %)))
      :gen #(s/gen mash-step-types)
      :description         "A case-insensitive string representing the type of mash step.
                           Must be one of: 'Infusion', 'Temperature', and 'Decoction'"

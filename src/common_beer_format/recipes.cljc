@@ -1,7 +1,8 @@
 (ns common-beer-format.recipes
   "The definition of a recipe record used in BeerXML"
   (:require [clojure.spec.alpha :as s]
-            [clojure.string :as cs]
+            [clojure.string :as str]
+            [clojure.test.check.generators :as gen]
             [common-beer-format.equipment :as cbf-equipment]
             [common-beer-format.fermentables :as cbf-fermentables]
             [common-beer-format.hops :as cbf-hops]
@@ -21,14 +22,14 @@
 
 (s/def ::type
   (st/spec
-    {:type                :string
-     :spec                (s/and string?
-                                 #(not (cs/blank? %))
-                                 #(contains? recipe-types (cs/lower-case %)))
-     :gen #(s/gen recipe-types)
-     :description         "A case-insensitive string representing the type of recipe.
-                          Must be one of: 'Extract', 'Partial Mash', and 'All Grain'"
-     :json-schema/example "All Grain"}))
+   {:type                :string
+    :spec                (s/and string?
+                                #(not (str/blank? %))
+                                #(contains? recipe-types (str/lower-case %)))
+    :gen                 #(s/gen recipe-types)
+    :description         (str "A case-insensitive string representing the type of recipe.\n"
+                              "Must be one of: 'Extract', 'Partial Mash', and 'All Grain'")
+    :json-schema/example "All Grain"}))
 
 
 (s/def ::brewer
@@ -89,10 +90,12 @@
 
 (s/def ::taste-rating
   (st/spec
-    {:type                :double
-     :spec                number?
-     :description         "An IEEE-754 floating point number representing the tasting score of the beer"
-     :json-schema/example "100.0"}))
+   {:type                :double
+    :spec                number?
+    :gen                 #(gen/double* {:infinite? false
+                                        :NaN?      false})
+    :description         "An IEEE-754 floating point number representing the tasting score of the beer"
+    :json-schema/example "100.0"}))
 
 
 (s/def ::og
@@ -123,6 +126,7 @@
   (st/spec
     {:type                :double
      :spec                (s/and number? pos?)
+     :gen                 #(gen/double* {:infinite? false :NaN? false :min 0})
      :description         "A positive IEEE-754 floating point number representing the number of days spent in primary fermentation"
      :json-schema/example "12.0"}))
 
@@ -138,7 +142,8 @@
 (s/def ::secondary-age
   (st/spec
     {:type                :double
-     :spec                number?
+     :spec                (s/and number? #(not (neg? %)))
+     :gen                 #(gen/double* {:infinite? false :NaN? false :min 0})
      :description         "A non-negative IEEE-754 floating point number representing the number of days spent in secondary fermentation"
      :json-schema/example "12.0"}))
 
@@ -155,6 +160,7 @@
   (st/spec
     {:type                :double
      :spec                (s/and number? #(not (neg? %)))
+     :gen                 #(gen/double* {:infinite? false :NaN? false :min 0})
      :description         "A non-negative IEEE-754 floating point number representing the number of days spent in tertiary fermentation"
      :json-schema/example "12.0"}))
 
@@ -171,6 +177,7 @@
   (st/spec
     {:type                :double
      :spec                (s/and number? #(not (neg? %)))
+     :gen                 #(gen/double* {:infinite? false :NaN? false :min 0})
      :description         "A non-negative IEEE-754 floating point number representing the number of days to bottle age the beer"
      :json-schema/example "12.0"}))
 
@@ -202,10 +209,12 @@
 
 (s/def ::carbonation
   (st/spec
-    {:type                :double
-     :spec                number?
-     :description         "An IEEE-754 floating point number representing the carbonation for this recipe in volumes of CO2"
-     :json-schema/example "1.5"}))
+   {:type                :double
+    :spec                number?
+    :gen                 #(gen/double* {:infinite? false
+                                        :NaN?      false})
+    :description         "An IEEE-754 floating point number representing the carbonation for this recipe in volumes of CO2"
+    :json-schema/example "1.5"}))
 
 
 (s/def ::forced-carbonation
@@ -236,18 +245,22 @@
 
 (s/def ::priming-sugar-equiv
   (st/spec
-    {:type                :double
-     :spec                number?
-     :description         "An IEEE-754 floating point number representing the conversion factor to an equivalent amount of corn sugar"
-     :json-schema/example "1.5"}))
+   {:type                :double
+    :spec                number?
+    :gen                 #(gen/double* {:infinite? false
+                                        :NaN?      false})
+    :description         "An IEEE-754 floating point number representing the conversion factor to an equivalent amount of corn sugar"
+    :json-schema/example "1.5"}))
 
 
 (s/def ::keg-priming-factor
   (st/spec
-    {:type                :double
-     :spec                number?
-     :description         "An IEEE-754 floating point number representing the conversion factor of sugar needed to prime carbonation in large containers."
-     :json-schema/example "1.5"}))
+   {:type                :double
+    :spec                number?
+    :gen                 #(gen/double* {:infinite? false
+                                        :NaN?      false})
+    :description         "An IEEE-754 floating point number representing the conversion factor of sugar needed to prime carbonation in large containers."
+    :json-schema/example "1.5"}))
 
 
 (s/def ::est-og
@@ -278,6 +291,7 @@
   (st/spec
     {:type                :double
      :spec                (s/and number? #(not (neg? %)))
+     :gen                 #(gen/double* {:infinite? false :NaN? false :min 0})
      :description         "A positive IEEE-754 floating point number representing the bitterness in IBUs for the recipe"
      :json-schema/example "40"}))
 
@@ -290,8 +304,8 @@
   (st/spec
     {:type                :string
      :spec                (s/and string?
-                                 #(not (cs/blank? %))
-                                 #(contains? ibu-method-types (cs/lower-case %)))
+                                 #(not (str/blank? %))
+                                 #(contains? ibu-method-types (str/lower-case %)))
      :gen #(s/gen ibu-method-types)
      :description         "A case-insensitive string representing the method of calculation used derive the IBUs.
                           Must be one of: 'Rager', 'Tinseth', and 'Garetz'"

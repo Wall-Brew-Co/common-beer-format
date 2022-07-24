@@ -1,16 +1,17 @@
 (ns common-beer-format.primitives
   "The basic definitions, units, etc. used in BeerXML"
   (:require [clojure.spec.alpha :as s]
+            [clojure.test.check.generators :as gen]
             [clojure.string :as cs]
             [common-beer-format.util :as util]
             [nnichols.predicate :as np]
             [spec-tools.core :as st]))
 
-
 (s/def ::kilogram
   (st/spec
     {:type                :double
      :spec                (s/and number? #(not (neg? %)))
+     :gen                 #(gen/double* {:infinite? false :NaN? false :min 0})
      :description         "A non-negative IEEE-754 floating point number representing weight in kilograms"
      :json-schema/example "10.7"}))
 
@@ -19,6 +20,7 @@
   (st/spec
     {:type                :double
      :spec                (s/and number? #(not (neg? %)))
+     :gen                 #(gen/double* {:infinite? false :NaN? false :min 0})
      :description         "A non-negative IEEE-754 floating point number representing volume in liters"
      :json-schema/example "12.3"}))
 
@@ -27,6 +29,7 @@
   (st/spec
     {:type                :double
      :spec                number?
+     :gen                 #(gen/double* {:infinite? false :NaN? false})
      :description         "An IEEE-754 floating point number representing degress in Celsius"
      :json-schema/example "-10.7"}))
 
@@ -35,6 +38,7 @@
   (st/spec
     {:type                :double
      :spec                (s/and number? #(not (neg? %)))
+     :gen                 #(gen/double* {:infinite? false :NaN? false :min 0})
      :description         "A non-negative IEEE-754 floating point number representing time in minutes"
      :json-schema/example "45.0"}))
 
@@ -43,6 +47,7 @@
   (st/spec
     {:type                :double
      :spec                (s/and number? pos?)
+     :gen                 #(gen/double* {:infinite? false :NaN? false :min 0})
      :description         "A positive IEEE-754 floating point number representing the specific gravity relative to the weight of the same size sample of water"
      :json-schema/example "1.045"}))
 
@@ -51,6 +56,7 @@
   (st/spec
     {:type                :double
      :spec                (s/and number? #(not (neg? %)))
+     :gen                 #(gen/double* {:infinite? false :NaN? false :min 0})
      :description         "A non-negative IEEE-754 floating point number representing pressure in kilopascals"
      :json-schema/example "101.325"}))
 
@@ -59,6 +65,7 @@
   (st/spec
     {:type                :double
      :spec                number?
+     :gen                 #(gen/double* {:infinite? false :NaN? false})
      :description         "An IEEE-754 floating point number representing a human-readable percentage - e.g 5.5"
      :json-schema/example "4.5"}))
 

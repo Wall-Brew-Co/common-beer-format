@@ -1,7 +1,7 @@
 (ns common-beer-format.hops
   "The definition of a hop record used in BeerXML"
   (:require [clojure.spec.alpha :as s]
-            [clojure.string :as cs]
+            [clojure.string :as str]
             [common-beer-format.primitives :as prim]
             [common-beer-format.util :as util]
             [spec-tools.core :as st]))
@@ -23,8 +23,8 @@
   (st/spec
     {:type                :string
      :spec                (s/and string?
-                                 #(not (cs/blank? %))
-                                 #(contains? hop-uses (cs/lower-case %)))
+                                 #(not (str/blank? %))
+                                 #(contains? hop-uses (str/lower-case %)))
      :gen                 #(s/gen hop-uses)
      :description         "A case-insensitive string representing the means by which the hop is added to the beer.
                           Must be one of: 'Boil', 'Dry Hop', 'Mash', 'First Wort', and 'Aroma'"
@@ -33,15 +33,16 @@
 
 (s/def ::time
   (st/spec
-    {:type                :double
-     :spec                ::prim/minute
-     :description         "A non-negative IEEE-754 floating point number representing the time in minutes the hop was added dependant on the :use field.
-                          For \"Boil\" this is the boil time.
-                          For \"Mash\" this is the mash time.
-                          For \"First Wort\" this is the boil time.
-                          For \"Aroma\" this is the steep time.
-                          For \"Dry Hop\" this is the amount of time to dry hop."
-     :json-schema/example "15.0"}))
+   {:type                :double
+    :spec                ::prim/minute
+    :description         (str/join "\n"
+                                   ["A non-negative IEEE-754 floating point number representing the time in minutes the hop was added dependant on the :use field."
+                                    "For \"Boil\" this is the boil time."
+                                    "For \"Mash\" this is the mash time."
+                                    "For \"First Wort\" this is the boil time."
+                                    "For \"Aroma\" this is the steep time."
+                                    "For \"Dry Hop\" this is the amount of time to dry hop."])
+    :json-schema/example "15.0"}))
 
 
 (def ^:const hop-types
@@ -52,8 +53,8 @@
   (st/spec
     {:type                :string
      :spec                (s/and string?
-                                 #(not (cs/blank? %))
-                                 #(contains? hop-types (cs/lower-case %)))
+                                 #(not (str/blank? %))
+                                 #(contains? hop-types (str/lower-case %)))
      :gen                 #(s/gen hop-types)
      :description         "A case-insensitive string representing the means by which the hop is added to the beer.
                           Must be one of: 'Bittering', 'Aroma', and 'Both'"
@@ -68,8 +69,8 @@
   (st/spec
     {:type                :string
      :spec                (s/and string?
-                                 #(not (cs/blank? %))
-                                 #(contains? hop-forms (cs/lower-case %)))
+                                 #(not (str/blank? %))
+                                 #(contains? hop-forms (str/lower-case %)))
      :gen #(s/gen hop-forms)
      :description         "A case-insensitive string representing the from of the hop added to the beer.
                           Must be one of: 'Pellet', 'Plug' or 'Leaf'"

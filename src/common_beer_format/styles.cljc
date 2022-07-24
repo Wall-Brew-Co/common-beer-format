@@ -1,7 +1,8 @@
 (ns common-beer-format.styles
   "The definition of a style record used in BeerXML"
   (:require [clojure.spec.alpha :as s]
-            [clojure.string :as cs]
+            [clojure.string :as str]
+            [clojure.test.check.generators :as gen]
             [common-beer-format.primitives :as prim]
             [common-beer-format.util :as util]
             [spec-tools.core :as st]))
@@ -48,8 +49,8 @@
   (st/spec
     {:type                :string
      :spec                (s/and string?
-                                 #(not (cs/blank? %))
-                                 #(contains? style-types (cs/lower-case %)))
+                                 #(not (str/blank? %))
+                                 #(contains? style-types (str/lower-case %)))
      :gen #(s/gen style-types)
      :description         "A case-insensitive string representing the type of beverage the style dictates.
                           Must be one of: 'Lager', 'Ale', 'Mead', 'Wheat', 'Mixed', and 'Cider'"
@@ -90,24 +91,30 @@
 
 (s/def ::ibu-min
   (st/spec
-    {:type                :double
-     :spec                number?
-     :description         "A non-negative IEEE-754 floating point number representing the minimum bitterness in IBUs for the style"
-     :json-schema/example "32"}))
+   {:type                :double
+    :spec                number?
+    :gen                 #(gen/double* {:infinite? false
+                                        :NaN?      false})
+    :description         "A non-negative IEEE-754 floating point number representing the minimum bitterness in IBUs for the style"
+    :json-schema/example "32"}))
 
 
 (s/def ::ibu-max
   (st/spec
-    {:type                :double
-     :spec                number?
-     :description         "A non-negative IEEE-754 floating point number representing the maximum bitterness in IBUs for the style"
-     :json-schema/example "40"}))
+   {:type                :double
+    :spec                number?
+    :gen                 #(gen/double* {:infinite? false
+                                        :NaN?      false})
+    :description         "A non-negative IEEE-754 floating point number representing the maximum bitterness in IBUs for the style"
+    :json-schema/example "40"}))
 
 
 (s/def ::color-min
   (st/spec
     {:type                :double
      :spec                number?
+     :gen                 #(gen/double* {:infinite? false
+                                         :NaN?      false})
      :description         "A non-negative IEEE-754 floating point number representing the lightest color in SRM for the style"
      :json-schema/example "32"}))
 
@@ -116,6 +123,8 @@
   (st/spec
     {:type                :double
      :spec                number?
+     :gen                 #(gen/double* {:infinite? false
+                                         :NaN?      false})
      :description         "A non-negative IEEE-754 floating point number representing the darkest color in SRM for the style"
      :json-schema/example "40"}))
 
@@ -124,6 +133,8 @@
   (st/spec
     {:type                :double
      :spec                number?
+     :gen                 #(gen/double* {:infinite? false
+                                         :NaN?      false})
      :description         "A non-negative IEEE-754 floating point number representing the minimum carbonation for this style in volumes of CO2"
      :json-schema/example "1.5"}))
 
@@ -132,6 +143,8 @@
   (st/spec
     {:type                :double
      :spec                number?
+     :gen                 #(gen/double* {:infinite? false
+                                         :NaN?      false})
      :description         "A non-negative IEEE-754 floating point number representing the maximum carbonation for this style in volumes of CO2"
      :json-schema/example "2.2"}))
 

@@ -1,6 +1,7 @@
 (ns common-beer-format.equipment
   "The definition of an equipment record used in BeerXML"
   (:require [clojure.spec.alpha :as s]
+            [clojure.test.check.generators :as gen]
             [common-beer-format.primitives :as prim]
             [common-beer-format.util :as util]
             [spec-tools.core :as st]))
@@ -42,6 +43,7 @@
   (st/spec
     {:type                :double
      :spec                (s/and number? #(not (neg? %)))
+     :gen                 #(gen/double* {:infinite? false :NaN? false :min 0})
      :description         "A non-negative IEEE-754 floating point number representing the specific heat of the mashtun in Calories per gram-degree Celsius"
      :json-schema/example "0.2"}))
 

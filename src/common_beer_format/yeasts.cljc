@@ -1,7 +1,7 @@
 (ns common-beer-format.yeasts
   "The definition of a yeast record used in BeerXML"
   (:require [clojure.spec.alpha :as s]
-            [clojure.string :as cs]
+            [clojure.string :as str]
             [common-beer-format.primitives :as prim]
             [common-beer-format.util :as util]
             [spec-tools.core :as st]))
@@ -15,8 +15,8 @@
   (st/spec
     {:type                :string
      :spec                (s/and string?
-                                 #(not (cs/blank? %))
-                                 #(contains? yeast-types (cs/lower-case %)))
+                                 #(not (str/blank? %))
+                                 #(contains? yeast-types (str/lower-case %)))
      :gen #(s/gen yeast-types)
      :description         "A case-insensitive string representing the type of yeast added to the beer.
                           Must be one of: 'Ale', 'Lager', 'Wheat', 'Wine', and 'Champagne'"
@@ -31,8 +31,8 @@
   (st/spec
     {:type                :string
      :spec                (s/and string?
-                                 #(not (cs/blank? %))
-                                 #(contains? yeast-forms (cs/lower-case %)))
+                                 #(not (str/blank? %))
+                                 #(contains? yeast-forms (str/lower-case %)))
      :gen #(s/gen yeast-forms)
      :description         "A case-insensitive string representing the form of the yeast added to the beer.
                           Must be one of: 'Liquid', 'Dry', 'Slant', and 'Culture'"
@@ -79,8 +79,8 @@
   (st/spec
     {:type                :string
      :spec                (s/and string?
-                                 #(not (cs/blank? %))
-                                 #(contains? yeast-flocculation-types (cs/lower-case %)))
+                                 #(not (str/blank? %))
+                                 #(contains? yeast-flocculation-types (str/lower-case %)))
      :gen #(s/gen yeast-flocculation-types)
      :description         "A case-insensitive string representing how dense of a floc the yeast will form.
                           Must be one of: 'Low', 'Medium', 'High', and 'Very High'"

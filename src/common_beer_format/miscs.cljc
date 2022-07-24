@@ -1,7 +1,7 @@
 (ns common-beer-format.miscs
   "The definition of a misc record used in BeerXML"
   (:require [clojure.spec.alpha :as s]
-            [clojure.string :as cs]
+            [clojure.string :as str]
             [common-beer-format.primitives :as prim]
             [common-beer-format.util :as util]
             [spec-tools.core :as st]))
@@ -15,8 +15,8 @@
   (st/spec
     {:type                :string
      :spec                (s/and string?
-                                 #(not (cs/blank? %))
-                                 #(contains? misc-types (cs/lower-case %)))
+                                 #(not (str/blank? %))
+                                 #(contains? misc-types (str/lower-case %)))
      :gen #(s/gen misc-types)
      :description         "A case-insensitive string representing the type of the miscellaneous item added to the beer.
                           Must be one of: 'Spice', 'Fining', 'Water Agent', 'Herb', 'Flavor', and 'Other'"
@@ -31,8 +31,8 @@
   (st/spec
     {:type                :string
      :spec                (s/and string?
-                                 #(not (cs/blank? %))
-                                 #(contains? misc-uses (cs/lower-case %)))
+                                 #(not (str/blank? %))
+                                 #(contains? misc-uses (str/lower-case %)))
      :gen                #(s/gen misc-uses)
      :description         "A case-insensitive string representing the point in the brewing cycle the miscellaneous ingredient is added to the beer.
                           Must be one of: 'Boil', 'Mash', 'Primary', 'Secondary', and 'Bottling'"
