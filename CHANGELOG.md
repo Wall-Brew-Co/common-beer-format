@@ -1,3 +1,9 @@
+## v2.1.0 / 2022 Jul 24
+
+> This release improves the generators for decimal types to restrict ##NaN and ##Inf from being created
+
+* **Update** - Improve generators for decimal typed fields
+
 ## v2.0.0 / 2022 Jul 10
 
 > **BREAKING:** This release bifurcates the three separate utilities this library was responsible into discrete libraries. 

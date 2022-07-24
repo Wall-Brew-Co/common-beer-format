@@ -1,7 +1,8 @@
 (ns common-beer-format.fermentables
   "The definition of a fermentable record used in BeerXML"
   (:require [clojure.spec.alpha :as s]
-            [clojure.string :as cs]
+            [clojure.string :as str]
+            [clojure.test.check.generators :as gen]
             [common-beer-format.primitives :as prim]
             [common-beer-format.util :as util]
             [spec-tools.core :as st]))
@@ -15,8 +16,8 @@
   (st/spec
     {:type                :string
      :spec                (s/and string?
-                                 #(not (cs/blank? %))
-                                 #(contains? fermentable-types (cs/lower-case %)))
+                                 #(not (str/blank? %))
+                                 #(contains? fermentable-types (str/lower-case %)))
      :gen                 #(s/gen fermentable-types)
      :description         "A case-insensitive string representing the form of the fermentable.
                           Must be one of: 'Grain', 'Sugar', 'Extract', 'Dry Extract', and 'Adjunct'"
@@ -35,6 +36,8 @@
   (st/spec
     {:type                :double
      :spec                number?
+     :gen                 #(gen/double* {:infinite? false
+                                         :NaN?      false})
      :description         "A non-negative IEEE-754 floating point number representing the color in Lovibond for the grain type, and SRM for all other types for the fermentable"
      :json-schema/example "32"}))
 
@@ -79,8 +82,10 @@
   (st/spec
     {:type                :double
      :spec                number?
-     :description         "A non-negative IEEE-754 floating point number representing the diastatic power of the grain in Lintner units.
-                          Only appropriate for the 'Grain' or 'Adjunct' types."
+     :gen                 #(gen/double* {:infinite? false
+                                         :NaN?      false})
+     :description         (str "A non-negative IEEE-754 floating point number representing the diastatic power of the grain in Lintner units.\n"
+                               "Only appropriate for the 'Grain' or 'Adjunct' types.")
      :json-schema/example "0.65"}))
 
 
@@ -88,8 +93,8 @@
   (st/spec
     {:type                :double
      :spec                ::prim/percent
-     :description         "A non-negative IEEE-754 floating point number representing the protein contents of the grain.
-                          Only appropriate for the 'Grain' or 'Adjunct' types."
+     :description         (str "A non-negative IEEE-754 floating point number representing the protein contents of the grain.\n"
+                               "Only appropriate for the 'Grain' or 'Adjunct' types.")
      :json-schema/example "0.10"}))
 
 
@@ -104,9 +109,9 @@
 (s/def ::recommend-mash
   (st/spec
     {:spec                ::prim/boolean
-     :description         "A boolean representing if the fermentable is recommended to be included in the mashing step.
-                          Only appropriate for the 'Grain' or 'Adjunct' types.
-                          When absent, assume false."
+     :description         (str "A boolean representing if the fermentable is recommended to be included in the mashing step.\n"
+                               "Only appropriate for the 'Grain' or 'Adjunct' types.\n"
+                               "When absent, assume false.")
      :json-schema/example "false"
      :decode/string       util/decode-boolean
      :encode/string       util/encode-boolean}))
@@ -116,8 +121,10 @@
   (st/spec
     {:type                :double
      :spec                number?
-     :description         "A non-negative IEEE-754 floating point number representing the IBUs per pound per gallon of water assuming a 60 minute boil.
-                          Only appropriate for the 'Extract' type."
+     :gen                 #(gen/double* {:infinite? false
+                                         :NaN?      false})
+     :description         (str "A non-negative IEEE-754 floating point number representing the IBUs per pound per gallon of water assuming a 60 minute boil.\n"
+                               "Only appropriate for the 'Extract' type.")
      :json-schema/example "12.5"}))
 
 

@@ -1,6 +1,6 @@
 (ns ^:no-doc common-beer-format.util
   "Utility functions common to translation"
-  (:require [clojure.string :as cs]
+  (:require [clojure.string :as str]
             [nnichols.parse :as n-parse]
             [spec-tools.core :as st]))
 
@@ -18,7 +18,7 @@
 (defn encode-boolean
   "Encode a boolean into an XML-like Boolean string"
   [_spec value]
-  (-> value str cs/upper-case))
+  (-> value str str/upper-case))
 
 
 (defn decode-sequence

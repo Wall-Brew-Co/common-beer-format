@@ -1,10 +1,10 @@
-(defproject com.wallbrew/common-beer-format "2.0.0"
+(defproject com.wallbrew/common-beer-format "2.1.0"
   :description "An implementation of the BeerXML spec in multiple formats"
   :url "https://github.com/Wall-Brew-Co/common-beer-format"
   :license {:name "MIT"
             :url  "https://opensource.org/licenses/MIT"}
   :dependencies [[metosin/spec-tools "0.10.5"]
-                 [nnichols "1.0.0"]
+                 [nnichols "1.1.0"]
                  [org.clojure/clojure "1.11.1"]
                  [org.clojure/clojurescript "1.11.60" :scope "provided"]
                  [org.clojure/data.json "2.4.0"]
