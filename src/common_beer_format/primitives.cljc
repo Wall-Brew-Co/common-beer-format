@@ -7,6 +7,7 @@
             [nnichols.predicate :as np]
             [spec-tools.core :as st]))
 
+
 (s/def ::kilogram
   (st/spec
     {:type                :double

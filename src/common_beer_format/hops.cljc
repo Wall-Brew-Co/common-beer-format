@@ -33,16 +33,16 @@
 
 (s/def ::time
   (st/spec
-   {:type                :double
-    :spec                ::prim/minute
-    :description         (str/join "\n"
-                                   ["A non-negative IEEE-754 floating point number representing the time in minutes the hop was added dependant on the :use field."
-                                    "For \"Boil\" this is the boil time."
-                                    "For \"Mash\" this is the mash time."
-                                    "For \"First Wort\" this is the boil time."
-                                    "For \"Aroma\" this is the steep time."
-                                    "For \"Dry Hop\" this is the amount of time to dry hop."])
-    :json-schema/example "15.0"}))
+    {:type                :double
+     :spec                ::prim/minute
+     :description         (str/join "\n"
+                                    ["A non-negative IEEE-754 floating point number representing the time in minutes the hop was added dependant on the :use field."
+                                     "For \"Boil\" this is the boil time."
+                                     "For \"Mash\" this is the mash time."
+                                     "For \"First Wort\" this is the boil time."
+                                     "For \"Aroma\" this is the steep time."
+                                     "For \"Dry Hop\" this is the amount of time to dry hop."])
+     :json-schema/example "15.0"}))
 
 
 (def ^:const hop-types

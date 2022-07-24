@@ -34,12 +34,12 @@
 
 (s/def ::color
   (st/spec
-   {:type                :double
-    :spec                number?
-    :gen                 #(gen/double* {:infinite? false
-                                        :NaN?      false})
-    :description         "A non-negative IEEE-754 floating point number representing the color in Lovibond for the grain type, and SRM for all other types for the fermentable"
-    :json-schema/example "32"}))
+    {:type                :double
+     :spec                number?
+     :gen                 #(gen/double* {:infinite? false
+                                         :NaN?      false})
+     :description         "A non-negative IEEE-754 floating point number representing the color in Lovibond for the grain type, and SRM for all other types for the fermentable"
+     :json-schema/example "32"}))
 
 
 (s/def ::add-after-boil
@@ -80,13 +80,13 @@
 
 (s/def ::diastatic-power
   (st/spec
-   {:type                :double
-    :spec                number?
-    :gen                 #(gen/double* {:infinite? false
-                                        :NaN?      false})
-    :description         (str "A non-negative IEEE-754 floating point number representing the diastatic power of the grain in Lintner units.\n"
-                              "Only appropriate for the 'Grain' or 'Adjunct' types.")
-    :json-schema/example "0.65"}))
+    {:type                :double
+     :spec                number?
+     :gen                 #(gen/double* {:infinite? false
+                                         :NaN?      false})
+     :description         (str "A non-negative IEEE-754 floating point number representing the diastatic power of the grain in Lintner units.\n"
+                               "Only appropriate for the 'Grain' or 'Adjunct' types.")
+     :json-schema/example "0.65"}))
 
 
 (s/def ::protein
@@ -94,7 +94,7 @@
     {:type                :double
      :spec                ::prim/percent
      :description         (str "A non-negative IEEE-754 floating point number representing the protein contents of the grain.\n"
-                          "Only appropriate for the 'Grain' or 'Adjunct' types.")
+                               "Only appropriate for the 'Grain' or 'Adjunct' types.")
      :json-schema/example "0.10"}))
 
 
@@ -108,24 +108,24 @@
 
 (s/def ::recommend-mash
   (st/spec
-   {:spec                ::prim/boolean
-    :description         (str "A boolean representing if the fermentable is recommended to be included in the mashing step.\n"
-                              "Only appropriate for the 'Grain' or 'Adjunct' types.\n"
-                              "When absent, assume false.")
-    :json-schema/example "false"
-    :decode/string       util/decode-boolean
-    :encode/string       util/encode-boolean}))
+    {:spec                ::prim/boolean
+     :description         (str "A boolean representing if the fermentable is recommended to be included in the mashing step.\n"
+                               "Only appropriate for the 'Grain' or 'Adjunct' types.\n"
+                               "When absent, assume false.")
+     :json-schema/example "false"
+     :decode/string       util/decode-boolean
+     :encode/string       util/encode-boolean}))
 
 
 (s/def ::ibu-gal-per-lb
   (st/spec
-   {:type                :double
-    :spec                number?
-    :gen                 #(gen/double* {:infinite? false
-                                        :NaN?      false})
-    :description         (str "A non-negative IEEE-754 floating point number representing the IBUs per pound per gallon of water assuming a 60 minute boil.\n"
-                              "Only appropriate for the 'Extract' type.")
-    :json-schema/example "12.5"}))
+    {:type                :double
+     :spec                number?
+     :gen                 #(gen/double* {:infinite? false
+                                         :NaN?      false})
+     :description         (str "A non-negative IEEE-754 floating point number representing the IBUs per pound per gallon of water assuming a 60 minute boil.\n"
+                               "Only appropriate for the 'Extract' type.")
+     :json-schema/example "12.5"}))
 
 
 (s/def ::potential

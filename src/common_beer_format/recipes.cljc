@@ -22,14 +22,14 @@
 
 (s/def ::type
   (st/spec
-   {:type                :string
-    :spec                (s/and string?
-                                #(not (str/blank? %))
-                                #(contains? recipe-types (str/lower-case %)))
-    :gen                 #(s/gen recipe-types)
-    :description         (str "A case-insensitive string representing the type of recipe.\n"
-                              "Must be one of: 'Extract', 'Partial Mash', and 'All Grain'")
-    :json-schema/example "All Grain"}))
+    {:type                :string
+     :spec                (s/and string?
+                                 #(not (str/blank? %))
+                                 #(contains? recipe-types (str/lower-case %)))
+     :gen                 #(s/gen recipe-types)
+     :description         (str "A case-insensitive string representing the type of recipe.\n"
+                               "Must be one of: 'Extract', 'Partial Mash', and 'All Grain'")
+     :json-schema/example "All Grain"}))
 
 
 (s/def ::brewer
@@ -90,12 +90,12 @@
 
 (s/def ::taste-rating
   (st/spec
-   {:type                :double
-    :spec                number?
-    :gen                 #(gen/double* {:infinite? false
-                                        :NaN?      false})
-    :description         "An IEEE-754 floating point number representing the tasting score of the beer"
-    :json-schema/example "100.0"}))
+    {:type                :double
+     :spec                number?
+     :gen                 #(gen/double* {:infinite? false
+                                         :NaN?      false})
+     :description         "An IEEE-754 floating point number representing the tasting score of the beer"
+     :json-schema/example "100.0"}))
 
 
 (s/def ::og
@@ -209,12 +209,12 @@
 
 (s/def ::carbonation
   (st/spec
-   {:type                :double
-    :spec                number?
-    :gen                 #(gen/double* {:infinite? false
-                                        :NaN?      false})
-    :description         "An IEEE-754 floating point number representing the carbonation for this recipe in volumes of CO2"
-    :json-schema/example "1.5"}))
+    {:type                :double
+     :spec                number?
+     :gen                 #(gen/double* {:infinite? false
+                                         :NaN?      false})
+     :description         "An IEEE-754 floating point number representing the carbonation for this recipe in volumes of CO2"
+     :json-schema/example "1.5"}))
 
 
 (s/def ::forced-carbonation
@@ -245,22 +245,22 @@
 
 (s/def ::priming-sugar-equiv
   (st/spec
-   {:type                :double
-    :spec                number?
-    :gen                 #(gen/double* {:infinite? false
-                                        :NaN?      false})
-    :description         "An IEEE-754 floating point number representing the conversion factor to an equivalent amount of corn sugar"
-    :json-schema/example "1.5"}))
+    {:type                :double
+     :spec                number?
+     :gen                 #(gen/double* {:infinite? false
+                                         :NaN?      false})
+     :description         "An IEEE-754 floating point number representing the conversion factor to an equivalent amount of corn sugar"
+     :json-schema/example "1.5"}))
 
 
 (s/def ::keg-priming-factor
   (st/spec
-   {:type                :double
-    :spec                number?
-    :gen                 #(gen/double* {:infinite? false
-                                        :NaN?      false})
-    :description         "An IEEE-754 floating point number representing the conversion factor of sugar needed to prime carbonation in large containers."
-    :json-schema/example "1.5"}))
+    {:type                :double
+     :spec                number?
+     :gen                 #(gen/double* {:infinite? false
+                                         :NaN?      false})
+     :description         "An IEEE-754 floating point number representing the conversion factor of sugar needed to prime carbonation in large containers."
+     :json-schema/example "1.5"}))
 
 
 (s/def ::est-og

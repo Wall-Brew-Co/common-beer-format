@@ -91,22 +91,22 @@
 
 (s/def ::ibu-min
   (st/spec
-   {:type                :double
-    :spec                number?
-    :gen                 #(gen/double* {:infinite? false
-                                        :NaN?      false})
-    :description         "A non-negative IEEE-754 floating point number representing the minimum bitterness in IBUs for the style"
-    :json-schema/example "32"}))
+    {:type                :double
+     :spec                number?
+     :gen                 #(gen/double* {:infinite? false
+                                         :NaN?      false})
+     :description         "A non-negative IEEE-754 floating point number representing the minimum bitterness in IBUs for the style"
+     :json-schema/example "32"}))
 
 
 (s/def ::ibu-max
   (st/spec
-   {:type                :double
-    :spec                number?
-    :gen                 #(gen/double* {:infinite? false
-                                        :NaN?      false})
-    :description         "A non-negative IEEE-754 floating point number representing the maximum bitterness in IBUs for the style"
-    :json-schema/example "40"}))
+    {:type                :double
+     :spec                number?
+     :gen                 #(gen/double* {:infinite? false
+                                         :NaN?      false})
+     :description         "A non-negative IEEE-754 floating point number representing the maximum bitterness in IBUs for the style"
+     :json-schema/example "40"}))
 
 
 (s/def ::color-min
