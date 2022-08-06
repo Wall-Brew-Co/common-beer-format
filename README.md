@@ -6,6 +6,8 @@
 A Clojure(Script) implementation of the [BeerXML 1.0 schema](http://www.beerxml.com/) with cross-format support using Metosin's [spec-tools.](https://github.com/metosin/spec-tools)
 The library endeavors to support the data specification as a [clojure spec](https://clojure.org/about/spec) and includes all optional fields in the core BeerXML spec.
 
+This repository follows the guidelines and standards of the [Wall Brew Open Source Policy.](https://github.com/Wall-Brew-Co/open-source "Our open source guidelines")
+
 ## Installation
 
 A deployed copy of the most recent version of [common-beer-format can be found on clojars.](https://clojars.org/com.wallbrew/common-beer-format)
