@@ -29,7 +29,6 @@ doo-index.html
 fermentables.csv
 figwheel_server.log
 hops.csv
-pom.xml
 pom.xml.asc
 sample.edn
 sample.json
