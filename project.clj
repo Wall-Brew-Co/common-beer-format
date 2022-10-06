@@ -14,6 +14,7 @@
   :plugins [[lein-cljsbuild "1.1.8"]]
   :profiles {:uberjar {:aot :all}
              :dev     {:dependencies [[com.wallbrew/clj-xml "1.7.1"]
+                                      [com.wallbrew/spoon "1.0.1"]
                                       [doo "0.1.11"]
                                       [org.clojure/data.json "2.4.0"]
                                       [org.clojure/data.xml "0.2.0-alpha8"]]

@@ -1,8 +1,7 @@
 (ns common-beer-format.generative.fermentables-test
-  (:require [common-beer-format.generative.util :as gen]
+  (:require [clojure.test :refer [deftest is testing]]
             [common-beer-format.fermentables :as fermentables]
-            #? (:clj  [clojure.test :refer [deftest is testing]])
-            #? (:cljs [cljs.test    :refer-macros [deftest is testing]])))
+            [common-beer-format.generative.util :as gen]))
 
 
 (deftest valid-generators-test
