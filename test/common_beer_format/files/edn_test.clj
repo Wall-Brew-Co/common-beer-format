@@ -1,7 +1,7 @@
 (ns common-beer-format.files.edn-test
   (:require [clojure.edn :as edn]
-            [clojure.spec.alpha :as s]
             [clojure.test :refer :all]
+            [com.wallbrew.spoon.spec :as spoon]
             [common-beer-format.core :as cbf]
             [common-beer-format.equipment :as equipment]
             [common-beer-format.fermentables :as fermentables]
@@ -15,42 +15,43 @@
 
 
 (defn parse-beer-edn
+  "Parse a beer EDN file as EDN"
   [file-name spec]
   (let [edn (-> file-name slurp edn/read-string)]
     (cbf/coerce spec edn)))
 
 
 (deftest equipment-test
-  (is (s/valid? ::equipment/equipment-wrapper (parse-beer-edn "resources/edn/equipment.edn" ::equipment/equipment-wrapper))))
+  (is (spoon/test-valid? ::equipment/equipment-wrapper (parse-beer-edn "resources/edn/equipment.edn" ::equipment/equipment-wrapper))))
 
 
 (deftest fermentables-test
-  (is (s/valid? ::fermentables/fermentables-wrapper (parse-beer-edn "resources/edn/fermentables.edn" ::fermentables/fermentables-wrapper))))
+  (is (spoon/test-valid? ::fermentables/fermentables-wrapper (parse-beer-edn "resources/edn/fermentables.edn" ::fermentables/fermentables-wrapper))))
 
 
 (deftest hops-test
-  (is (s/valid? ::hops/hops-wrapper (parse-beer-edn "resources/edn/hops.edn" ::hops/hops-wrapper))))
+  (is (spoon/test-valid? ::hops/hops-wrapper (parse-beer-edn "resources/edn/hops.edn" ::hops/hops-wrapper))))
 
 
 (deftest mash-test
-  (is (s/valid? ::mash/mash-wrapper (parse-beer-edn "resources/edn/mash.edn" ::mash/mash-wrapper))))
+  (is (spoon/test-valid? ::mash/mash-wrapper (parse-beer-edn "resources/edn/mash.edn" ::mash/mash-wrapper))))
 
 
 (deftest miscs-test
-  (is (s/valid? ::miscs/miscs-wrapper (parse-beer-edn "resources/edn/miscs.edn" ::miscs/miscs-wrapper))))
+  (is (spoon/test-valid? ::miscs/miscs-wrapper (parse-beer-edn "resources/edn/miscs.edn" ::miscs/miscs-wrapper))))
 
 
 (deftest recipes-test
-  (is (s/valid? ::recipes/recipes-wrapper (parse-beer-edn "resources/edn/recipes.edn" ::recipes/recipes-wrapper))))
+  (is (spoon/test-valid? ::recipes/recipes-wrapper (parse-beer-edn "resources/edn/recipes.edn" ::recipes/recipes-wrapper))))
 
 
 (deftest styles-test
-  (is (s/valid? ::styles/style-wrapper (parse-beer-edn "resources/edn/style.edn" ::styles/style-wrapper))))
+  (is (spoon/test-valid? ::styles/style-wrapper (parse-beer-edn "resources/edn/style.edn" ::styles/style-wrapper))))
 
 
 (deftest waters-test
-  (is (s/valid? ::waters/waters-wrapper (parse-beer-edn "resources/edn/waters.edn" ::waters/waters-wrapper))))
+  (is (spoon/test-valid? ::waters/waters-wrapper (parse-beer-edn "resources/edn/waters.edn" ::waters/waters-wrapper))))
 
 
 (deftest yeasts-test
-  (is (s/valid? ::yeasts/yeasts-wrapper (parse-beer-edn "resources/edn/yeasts.edn" ::yeasts/yeasts-wrapper))))
+  (is (spoon/test-valid? ::yeasts/yeasts-wrapper (parse-beer-edn "resources/edn/yeasts.edn" ::yeasts/yeasts-wrapper))))

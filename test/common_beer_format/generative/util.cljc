@@ -6,11 +6,12 @@
 
 (defn generatable?
   "Attempts to generate a value for spec and returns true if it succeeds."
-  {:added "1.3"}
+  {:added  "1.3"
+   :no-doc true}
   [spec]
   (try
     (every? #(s/valid? spec %) (gen/sample (s/gen spec)))
-    (catch Exception e
+    (catch #? (:clj Exception :cljs :default) e
       (println (str "Failed to generate a value for spec: " spec))
       (println e)
       false)))

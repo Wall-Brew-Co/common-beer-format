@@ -1,9 +1,9 @@
 (ns common-beer-format.files.xml-test
-  (:require [clojure.data.xml :as xml]
-            [clojure.spec.alpha :as s]
+  (:require [clj-xml.core :as clj-xml]
+            [clojure.data.xml :as xml]
             [clojure.string :as str]
             [clojure.test :refer :all]
-            [clj-xml.core :as clj-xml]
+            [com.wallbrew.spoon.spec :as spoon]
             [common-beer-format.core :as cbf]
             [common-beer-format.equipment :as equipment]
             [common-beer-format.fermentables :as fermentables]
@@ -23,6 +23,7 @@
 
 
 (defn parse-beer-xml
+  "Parse a beer XML file as EDN"
   [file-name spec]
   (let [xml (deformat (slurp file-name))
         edn (clj-xml/xml->edn (xml/parse-str xml))]
@@ -30,36 +31,36 @@
 
 
 (deftest equipment-test
-  (is (s/valid? ::equipment/equipment-wrapper (parse-beer-xml "resources/xml/equipment.xml" ::equipment/equipment-wrapper))))
+  (is (spoon/test-valid? ::equipment/equipment-wrapper (parse-beer-xml "resources/xml/equipment.xml" ::equipment/equipment-wrapper))))
 
 
 (deftest fermentables-test
-  (is (s/valid? ::fermentables/fermentables-wrapper (parse-beer-xml "resources/xml/fermentables.xml" ::fermentables/fermentables-wrapper))))
+  (is (spoon/test-valid? ::fermentables/fermentables-wrapper (parse-beer-xml "resources/xml/fermentables.xml" ::fermentables/fermentables-wrapper))))
 
 
 (deftest hops-test
-  (is (s/valid? ::hops/hops-wrapper (parse-beer-xml "resources/xml/hops.xml" ::hops/hops-wrapper))))
+  (is (spoon/test-valid? ::hops/hops-wrapper (parse-beer-xml "resources/xml/hops.xml" ::hops/hops-wrapper))))
 
 
 (deftest mash-test
-  (is (s/valid? ::mash/mash-wrapper (parse-beer-xml "resources/xml/mash.xml" ::mash/mash-wrapper))))
+  (is (spoon/test-valid? ::mash/mash-wrapper (parse-beer-xml "resources/xml/mash.xml" ::mash/mash-wrapper))))
 
 
 (deftest miscs-test
-  (is (s/valid? ::miscs/miscs-wrapper (parse-beer-xml "resources/xml/miscs.xml" ::miscs/miscs-wrapper))))
+  (is (spoon/test-valid? ::miscs/miscs-wrapper (parse-beer-xml "resources/xml/miscs.xml" ::miscs/miscs-wrapper))))
 
 
 (deftest recipes-test
-  (is (s/valid? ::recipes/recipes-wrapper (parse-beer-xml "resources/xml/recipes.xml" ::recipes/recipes-wrapper))))
+  (is (spoon/test-valid? ::recipes/recipes-wrapper (parse-beer-xml "resources/xml/recipes.xml" ::recipes/recipes-wrapper))))
 
 
 (deftest styles-test
-  (is (s/valid? ::styles/style-wrapper (parse-beer-xml "resources/xml/style.xml" ::styles/style-wrapper))))
+  (is (spoon/test-valid? ::styles/style-wrapper (parse-beer-xml "resources/xml/style.xml" ::styles/style-wrapper))))
 
 
 (deftest waters-test
-  (is (s/valid? ::waters/waters-wrapper (parse-beer-xml "resources/xml/waters.xml" ::waters/waters-wrapper))))
+  (is (spoon/test-valid? ::waters/waters-wrapper (parse-beer-xml "resources/xml/waters.xml" ::waters/waters-wrapper))))
 
 
 (deftest yeasts-test
-  (is (s/valid? ::yeasts/yeasts-wrapper (parse-beer-xml "resources/xml/yeasts.xml" ::yeasts/yeasts-wrapper))))
+  (is (spoon/test-valid? ::yeasts/yeasts-wrapper (parse-beer-xml "resources/xml/yeasts.xml" ::yeasts/yeasts-wrapper))))

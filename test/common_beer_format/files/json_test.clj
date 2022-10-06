@@ -1,8 +1,8 @@
 (ns common-beer-format.files.json-test
   (:require [clojure.data.json :as json]
-            [clojure.spec.alpha :as s]
             [clojure.string :as str]
             [clojure.test :refer :all]
+            [com.wallbrew.spoon.spec :as spoon]
             [common-beer-format.core :as cbf]
             [common-beer-format.equipment :as equipment]
             [common-beer-format.fermentables :as fermentables]
@@ -16,12 +16,13 @@
 
 
 (defn deformat
-  "Remove formatting specific to Windows (since we're ingesting XML) and double spacing"
+  "Remove formatting specific to Windows and double spacing"
   [s]
   (str/replace (str/replace s #"\r\n" "") #"\s\s+" ""))
 
 
 (defn parse-beer-json
+  "Parse a beer JSON file as EDN"
   [file-name spec]
   (let [json (deformat (slurp file-name))
         edn  (json/read-str json :key-fn keyword)]
@@ -29,36 +30,36 @@
 
 
 (deftest equipment-test
-  (is (s/valid? ::equipment/equipment-wrapper (parse-beer-json "resources/json/equipment.json" ::equipment/equipment-wrapper))))
+  (is (spoon/test-valid? ::equipment/equipment-wrapper (parse-beer-json "resources/json/equipment.json" ::equipment/equipment-wrapper))))
 
 
 (deftest fermentables-test
-  (is (s/valid? ::fermentables/fermentables-wrapper (parse-beer-json "resources/json/fermentables.json" ::fermentables/fermentables-wrapper))))
+  (is (spoon/test-valid? ::fermentables/fermentables-wrapper (parse-beer-json "resources/json/fermentables.json" ::fermentables/fermentables-wrapper))))
 
 
 (deftest hops-test
-  (is (s/valid? ::hops/hops-wrapper (parse-beer-json "resources/json/hops.json" ::hops/hops-wrapper))))
+  (is (spoon/test-valid? ::hops/hops-wrapper (parse-beer-json "resources/json/hops.json" ::hops/hops-wrapper))))
 
 
 (deftest mash-test
-  (is (s/valid? ::mash/mash-wrapper (parse-beer-json "resources/json/mash.json" ::mash/mash-wrapper))))
+  (is (spoon/test-valid? ::mash/mash-wrapper (parse-beer-json "resources/json/mash.json" ::mash/mash-wrapper))))
 
 
 (deftest miscs-test
-  (is (s/valid? ::miscs/miscs-wrapper (parse-beer-json "resources/json/miscs.json" ::miscs/miscs-wrapper))))
+  (is (spoon/test-valid? ::miscs/miscs-wrapper (parse-beer-json "resources/json/miscs.json" ::miscs/miscs-wrapper))))
 
 
 (deftest recipes-test
-  (is (s/valid? ::recipes/recipes-wrapper (parse-beer-json "resources/json/recipes.json" ::recipes/recipes-wrapper))))
+  (is (spoon/test-valid? ::recipes/recipes-wrapper (parse-beer-json "resources/json/recipes.json" ::recipes/recipes-wrapper))))
 
 
 (deftest styles-test
-  (is (s/valid? ::styles/style-wrapper (parse-beer-json "resources/json/style.json" ::styles/style-wrapper))))
+  (is (spoon/test-valid? ::styles/style-wrapper (parse-beer-json "resources/json/style.json" ::styles/style-wrapper))))
 
 
 (deftest waters-test
-  (is (s/valid? ::waters/waters-wrapper (parse-beer-json "resources/json/waters.json" ::waters/waters-wrapper))))
+  (is (spoon/test-valid? ::waters/waters-wrapper (parse-beer-json "resources/json/waters.json" ::waters/waters-wrapper))))
 
 
 (deftest yeasts-test
-  (is (s/valid? ::yeasts/yeasts-wrapper (parse-beer-json "resources/json/yeasts.json" ::yeasts/yeasts-wrapper))))
+  (is (spoon/test-valid? ::yeasts/yeasts-wrapper (parse-beer-json "resources/json/yeasts.json" ::yeasts/yeasts-wrapper))))

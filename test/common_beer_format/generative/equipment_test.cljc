@@ -1,8 +1,7 @@
 (ns common-beer-format.generative.equipment-test
-  (:require [common-beer-format.generative.util :as gen]
+  (:require [clojure.test :refer [deftest is testing]]
             [common-beer-format.equipment :as equipment]
-            #? (:clj  [clojure.test :refer [deftest is testing]])
-            #? (:cljs [cljs.test    :refer-macros [deftest is testing]])))
+            [common-beer-format.generative.util :as gen]))
 
 
 (deftest valid-generators-test
