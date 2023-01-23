@@ -1,9 +1,10 @@
 (ns common-beer-format.hops
   "The definition of a hop record used in BeerXML"
+  {:added "2.0"}
   (:require [clojure.spec.alpha :as s]
             [clojure.string :as str]
             [common-beer-format.primitives :as prim]
-            [common-beer-format.util :as util]
+            [common-beer-format.impl :as impl]
             [spec-tools.core :as st]))
 
 
@@ -163,8 +164,8 @@
     {:type          :vector
      :description   "A vector of valid ::hop records"
      :spec          (s/coll-of ::hop-wrapper)
-     :decode/string #(util/decode-sequence %1 ::hop-wrapper %2)
-     :encode/string #(util/encode-sequence %1 ::hop-wrapper %2)}))
+     :decode/string #(impl/decode-sequence %1 ::hop-wrapper %2)
+     :encode/string #(impl/encode-sequence %1 ::hop-wrapper %2)}))
 
 
 (s/def ::hops-wrapper

@@ -16,21 +16,25 @@
             [common-beer-format.yeasts :as yeasts]))
 
 
-(defn deformat
+(defn- deformat
   "Remove formatting specific to Windows (since we're ingesting XML) and double spacing"
+  {:no-doc true}
   [s]
   (str/replace (str/replace s #"\r\n" "") #"\s\s+" ""))
 
 
-(defn parse-beer-xml
+(defn- parse-beer-xml
   "Parse a beer XML file as EDN"
+  {:no-doc true}
   [file-name spec]
   (let [xml (deformat (slurp file-name))
         edn (clj-xml/xml->edn (xml/parse-str xml))]
     (cbf/coerce spec edn)))
 
-(defn round-trip-edn
-  "Round trip a beer SML file."
+
+(defn- round-trip-edn
+  "Round trip a beer XML file."
+  {:no-doc true}
   [file-name spec]
   (let [xml         (deformat (slurp file-name))
         edn          (clj-xml/xml->edn (xml/parse-str xml))

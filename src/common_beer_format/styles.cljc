@@ -1,10 +1,11 @@
 (ns common-beer-format.styles
   "The definition of a style record used in BeerXML"
+  {:added "2.0"}
   (:require [clojure.spec.alpha :as s]
             [clojure.string :as str]
             [clojure.test.check.generators :as gen]
             [common-beer-format.primitives :as prim]
-            [common-beer-format.util :as util]
+            [common-beer-format.impl :as impl]
             [spec-tools.core :as st]))
 
 
@@ -338,8 +339,8 @@
     {:type          :vector
      :description   "A vector of valid ::style records"
      :spec          (s/coll-of ::style-wrapper)
-     :decode/string #(util/decode-sequence %1 ::style-wrapper %2)
-     :encode/string #(util/encode-sequence %1 ::style-wrapper %2)}))
+     :decode/string #(impl/decode-sequence %1 ::style-wrapper %2)
+     :encode/string #(impl/encode-sequence %1 ::style-wrapper %2)}))
 
 
 (s/def ::styles-wrapper

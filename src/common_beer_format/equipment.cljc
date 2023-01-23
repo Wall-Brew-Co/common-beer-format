@@ -1,107 +1,133 @@
 (ns common-beer-format.equipment
   "The definition of an equipment record used in BeerXML"
+  {:added "2.0"}
   (:require [clojure.spec.alpha :as spec]
             [clojure.test.check.generators :as gen]
+            [common-beer-format.impl :as impl]
             [common-beer-format.primitives :as prim]
-            [common-beer-format.util :as util]
             [spec-tools.core :as st])
   (:refer-clojure :exclude [name]))
+
 
 (def ^:const equipment
   "A map representing the brewing equipment used during the mash."
   :equipment)
 
+
 (def ^:const name
   "The name of the equipment record."
   :name)
+
 
 (def ^:const version
   "The version of the BeerXML specification used to create the equipment record."
   :version)
 
+
 (def ^:const boil-size
   "The pre-boil volume for the equipment setup."
   :boil-size)
+
 
 (def ^:const batch-size
   "The target volume of the batch at the start of fermentation."
   :batch-size)
 
+
 (def ^:const tun-volume
   "The volume of the of the mash tun in liters."
   :tun-volume)
+
 
 (def ^:const tun-weight
   "The weight of the of the mash tun in kilograms."
   :tun-weight)
 
+
 (def ^:const tun-specific-heat
   "The specific heat of the mashtun in Calories per gram-degree Celsius."
   :tun-specific-heat)
+
 
 (def ^:const top-up-water
   "The volume of top-up water added before fermentation in liters."
   :top-up-water)
 
+
 (def ^:const trub-chiller-loss
   "The volume of wort lost during transition from the boiler to primary fermentation vessel."
   :trub-chiller-loss)
+
 
 (def ^:const evap-rate
   "The percentage of wort lost to evaporation per hour of the boil."
   :evap-rate)
 
+
 (def ^:const boil-time
   "The normal amount of time one boils for this equipment setup. This can be used with the evaporation rate to calculate the evaporation loss."
   :boil-time)
+
 
 (def ^:const calc-boil-volume
   "A boolean denoting whether or not programs reading this equipment record should calculate the boil size."
   :calc-boil-volume)
 
+
 (def ^:const lauter-deadspace
   "The volume of wort lost to deadspace in the mash tun."
   :lauter-deadspace)
+
 
 (def ^:const top-up-kettle
   "The volume of wort lost to deadspace in the kettle."
   :top-up-kettle)
 
+
 (def ^:const hop-utilization
   "The percentage of hops that are utilized in the boil."
   :hop-utilization)
+
 
 (def ^:const notes
   "A string containing notes about the equipment setup"
   :notes)
 
+
 (def ^:const display-boil-size
   "The pre-boil volume for the equipment setup in a human-readable format."
   :display-boil-size)
+
 
 (def ^:const display-batch-size
   "The target volume of the batch at the start of fermentation in a human-readable format."
   :display-batch-size)
 
+
 (def ^:const display-tun-volume
   "The volume of the of the mash tun in liters in a human-readable format."
   :display-tun-volume)
+
 
 (def ^:const display-tun-weight
   "The weight of the of the mash tun in kilograms in a human-readable format."
   :display-tun-weight)
 
+
 (def ^:const display-top-up-water
   "The volume of top-up water added before fermentation in liters in a human-readable format."
   :display-top-up-water)
+
 
 (def ^:const display-trub-chiller-loss
   "The volume of wort lost during transition from the boiler to primary fermentation vessel in a human-readable format."
   :display-trub-chiller-loss)
 
+
 (def ^:const display-lauter-deadspace
   "The volume of wort lost to deadspace in the mash tun in a human-readable format."
   :display-lauter-deadspace)
+
 
 (def ^:const display-top-up-kettle
   "The volume of wort lost to deadspace in the kettle in a human-readable format."
@@ -188,8 +214,8 @@
                           When absent, assume false.
                           When true, then boil-size = (batch-size – top-up-water – trub-chiller-loss) * (1 + boil-time * evap-rate)"
      :json-schema/example "true"
-     :decode/string       util/decode-boolean
-     :encode/string       util/encode-boolean}))
+     :decode/string       impl/decode-boolean
+     :encode/string       impl/encode-boolean}))
 
 
 (spec/def ::lauter-deadspace
@@ -214,8 +240,6 @@
      :spec                ::prim/percent
      :description         "A non-negative IEEE-754 floating point number representing the percentage of large batch hop utilization"
      :json-schema/example "1.2"}))
-
-
 
 
 (spec/def ::display-boil-size
@@ -317,5 +341,5 @@
     {:type          :map
      :description   "An ::equipment record wrapped in an ::equipment map"
      :spec          (spec/keys :req-un [::equipment])
-     :decode/string #(util/decode-wrapper %1 ::equipment %2)
-     :encode/string #(util/encode-wrapper %1 ::equipment %2)}))
+     :decode/string #(impl/decode-wrapper %1 ::equipment %2)
+     :encode/string #(impl/encode-wrapper %1 ::equipment %2)}))

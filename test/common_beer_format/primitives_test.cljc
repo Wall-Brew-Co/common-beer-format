@@ -20,7 +20,7 @@
     (is (not (spec/valid? ::prim/kilogram -0.254)))
     (is (not (spec/valid? ::prim/kilogram false)))
     (is (=  "nil - failed: number? spec: :common-beer-format.primitives/kilogram\n"
-           (cbf/explain ::prim/kilogram nil))))
+            (cbf/explain ::prim/kilogram nil))))
   (testing "Test transport-level encoding options"
     (is (= "1.234" (cbf/encode ::prim/kilogram 1.234)))
     (is (= 1.0 (cbf/coerce ::prim/kilogram "1.0")))))

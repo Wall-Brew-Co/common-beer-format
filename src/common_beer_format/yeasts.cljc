@@ -1,9 +1,10 @@
 (ns common-beer-format.yeasts
   "The definition of a yeast record used in BeerXML"
+  {:added "2.0"}
   (:require [clojure.spec.alpha :as s]
             [clojure.string :as str]
             [common-beer-format.primitives :as prim]
-            [common-beer-format.util :as util]
+            [common-beer-format.impl :as impl]
             [spec-tools.core :as st]))
 
 
@@ -126,8 +127,8 @@
      :description         "A boolean representing if this yeast was added for a secondary fermentation.
                           When absent, assume false."
      :json-schema/example "false"
-     :decode/string       util/decode-boolean
-     :encode/string       util/encode-boolean}))
+     :decode/string       impl/decode-boolean
+     :encode/string       impl/encode-boolean}))
 
 
 (s/def ::disp-min-temp
@@ -194,8 +195,8 @@
     {:type          :vector
      :description   "A vector of valid ::yeast records"
      :spec          (s/coll-of ::yeast-wrapper)
-     :decode/string #(util/decode-sequence %1 ::yeast-wrapper %2)
-     :encode/string #(util/encode-sequence %1 ::yeast-wrapper %2)}))
+     :decode/string #(impl/decode-sequence %1 ::yeast-wrapper %2)
+     :encode/string #(impl/encode-sequence %1 ::yeast-wrapper %2)}))
 
 
 (s/def ::yeasts-wrapper

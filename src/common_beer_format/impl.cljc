@@ -1,11 +1,12 @@
-(ns ^:no-doc common-beer-format.util
+(ns ^:no-doc common-beer-format.impl
   "Utility functions common to translation"
+  {:added "1.0"}
   (:require [clojure.string :as str]
             [nnichols.parse :as n-parse]
             [spec-tools.core :as st]))
 
 
-(def ^:const strict-transformer
+(def strict-transformer
   "A transformer that strips extra keys and values and converts strings to their appropriate types"
   (st/type-transformer st/strip-extra-keys-transformer st/strip-extra-values-transformer st/string-transformer))
 

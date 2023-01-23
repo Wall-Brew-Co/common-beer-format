@@ -1,32 +1,33 @@
 (ns common-beer-format.primitives
   "The basic definitions, units, etc. used in BeerXML"
-  (:require [clojure.spec.alpha :as s]
+  {:added "2.0"}
+  (:require [clojure.spec.alpha :as spec]
+            [clojure.string :as str]
             [clojure.test.check.generators :as gen]
-            [clojure.string :as cs]
-            [common-beer-format.util :as util]
+            [common-beer-format.impl :as impl]
             [nnichols.predicate :as np]
             [spec-tools.core :as st]))
 
 
-(s/def ::kilogram
+(spec/def ::kilogram
   (st/spec
     {:type                :double
-     :spec                (s/and number? #(not (neg? %)))
+     :spec                (spec/and number? #(not (neg? %)))
      :gen                 #(gen/double* {:infinite? false :NaN? false :min 0})
      :description         "A non-negative IEEE-754 floating point number representing weight in kilograms"
      :json-schema/example "10.7"}))
 
 
-(s/def ::liter
+(spec/def ::liter
   (st/spec
     {:type                :double
-     :spec                (s/and number? #(not (neg? %)))
+     :spec                (spec/and number? #(not (neg? %)))
      :gen                 #(gen/double* {:infinite? false :NaN? false :min 0})
      :description         "A non-negative IEEE-754 floating point number representing volume in liters"
      :json-schema/example "12.3"}))
 
 
-(s/def ::degrees-celsius
+(spec/def ::degrees-celsius
   (st/spec
     {:type                :double
      :spec                number?
@@ -35,34 +36,34 @@
      :json-schema/example "-10.7"}))
 
 
-(s/def ::minute
+(spec/def ::minute
   (st/spec
     {:type                :double
-     :spec                (s/and number? #(not (neg? %)))
+     :spec                (spec/and number? #(not (neg? %)))
      :gen                 #(gen/double* {:infinite? false :NaN? false :min 0})
      :description         "A non-negative IEEE-754 floating point number representing time in minutes"
      :json-schema/example "45.0"}))
 
 
-(s/def ::specific-gravity
+(spec/def ::specific-gravity
   (st/spec
     {:type                :double
-     :spec                (s/and number? pos?)
+     :spec                (spec/and number? pos?)
      :gen                 #(gen/double* {:infinite? false :NaN? false :min 0})
      :description         "A positive IEEE-754 floating point number representing the specific gravity relative to the weight of the same size sample of water"
      :json-schema/example "1.045"}))
 
 
-(s/def ::kilopascal
+(spec/def ::kilopascal
   (st/spec
     {:type                :double
-     :spec                (s/and number? #(not (neg? %)))
+     :spec                (spec/and number? #(not (neg? %)))
      :gen                 #(gen/double* {:infinite? false :NaN? false :min 0})
      :description         "A non-negative IEEE-754 floating point number representing pressure in kilopascals"
      :json-schema/example "101.325"}))
 
 
-(s/def ::percent
+(spec/def ::percent
   (st/spec
     {:type                :double
      :spec                number?
@@ -71,34 +72,34 @@
      :json-schema/example "4.5"}))
 
 
-(s/def ::boolean
+(spec/def ::boolean
   (st/spec
     {:spec                np/boolean?
      :description         "A boolean logic value of true or false"
      :json-schema/example "false"
-     :gen                 #(s/gen boolean?)
-     :decode/string       util/decode-boolean
-     :encode/string       util/encode-boolean}))
+     :gen                 #(spec/gen boolean?)
+     :decode/string       impl/decode-boolean
+     :encode/string       impl/encode-boolean}))
 
 
-(s/def ::text
+(spec/def ::text
   (st/spec
     {:type                :string
-     :spec                (s/and string? #(not (cs/blank? %)))
+     :spec                (spec/and string? #(not (str/blank? %)))
      :description         "A non-empty string"
      :json-schema/example "Used to impart a mild, zesty flavor"}))
 
 
-(s/def ::version
+(spec/def ::version
   (st/spec
     {:type                :long
      :spec                #(= 1 %)
-     :gen                 #(s/gen #{1})
+     :gen                 #(spec/gen #{1})
      :description         "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists"
      :json-schema/example "1"}))
 
 
-(s/def ::name
+(spec/def ::name
   (st/spec
     {:type                :string
      :spec                ::text
@@ -106,7 +107,7 @@
      :json-schema/example "Citra"}))
 
 
-(s/def ::amount
+(spec/def ::amount
   (st/spec
     {:type                :double
      :spec                ::kilogram
@@ -114,7 +115,7 @@
      :json-schema/example "12.5"}))
 
 
-(s/def ::notes
+(spec/def ::notes
   (st/spec
     {:type                :string
      :spec                ::text
@@ -122,7 +123,7 @@
      :json-schema/example "A wonderful, zesty aroma"}))
 
 
-(s/def ::origin
+(spec/def ::origin
   (st/spec
     {:type                :string
      :spec                ::text
@@ -130,7 +131,7 @@
      :json-schema/example "Nice, France"}))
 
 
-(s/def ::substitutes
+(spec/def ::substitutes
   (st/spec
     {:type                :string
      :spec                ::text
@@ -138,18 +139,18 @@
      :json-schema/example "Citra or Sorachi"}))
 
 
-(s/def ::amount-is-weight
+(spec/def ::amount-is-weight
   (st/spec
     {:type                :boolean
      :spec                ::boolean
      :description         "A boolean representing if the amount of the substance is measured in kilograms.
                           When absent, assume false and that the amount of substance is measured in liters."
      :json-schema/example "false"
-     :decode/string       util/decode-boolean
-     :encode/string       util/encode-boolean}))
+     :decode/string       impl/decode-boolean
+     :encode/string       impl/encode-boolean}))
 
 
-(s/def ::display-amount
+(spec/def ::display-amount
   (st/spec
     {:type                :string
      :spec                ::text
@@ -157,7 +158,7 @@
      :json-schema/example "100 g"}))
 
 
-(s/def ::inventory
+(spec/def ::inventory
   (st/spec
     {:type                :string
      :spec                ::text
@@ -165,7 +166,7 @@
      :json-schema/example "100 lbs"}))
 
 
-(s/def ::display-time
+(spec/def ::display-time
   (st/spec
     {:type                :string
      :spec                ::text

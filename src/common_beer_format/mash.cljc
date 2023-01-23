@@ -1,9 +1,10 @@
 (ns common-beer-format.mash
   "The definition of mash steps and the mash profile records used in BeerXML"
+  {:added "2.0"}
   (:require [clojure.spec.alpha :as s]
             [clojure.string :as str]
             [common-beer-format.primitives :as prim]
-            [common-beer-format.util :as util]
+            [common-beer-format.impl :as impl]
             [spec-tools.core :as st]))
 
 
@@ -143,8 +144,8 @@
     {:type          :vector
      :description   "A vector of valid ::mash-step records"
      :spec          (s/coll-of ::mash-step-wrapper)
-     :decode/string #(util/decode-sequence %1 ::mash-step-wrapper %2)
-     :encode/string #(util/encode-sequence %1 ::mash-step-wrapper %2)}))
+     :decode/string #(impl/decode-sequence %1 ::mash-step-wrapper %2)
+     :encode/string #(impl/encode-sequence %1 ::mash-step-wrapper %2)}))
 
 
 (s/def ::grain-temp
@@ -201,8 +202,8 @@
      :description         "A boolean denoting whether or not programs should account for the temperature effects of the equipment used.
                           When absent, assume false."
      :json-schema/example "true"
-     :decode/string       util/decode-boolean
-     :encode/string       util/encode-boolean}))
+     :decode/string       impl/decode-boolean
+     :encode/string       impl/encode-boolean}))
 
 
 (s/def ::display-grain-temp

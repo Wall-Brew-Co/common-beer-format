@@ -1,9 +1,10 @@
 (ns common-beer-format.waters
   "The definition of a water record used in BeerXML"
+  {:added "2.0"}
   (:require [clojure.spec.alpha :as s]
             [clojure.test.check.generators :as gen]
             [common-beer-format.primitives :as prim]
-            [common-beer-format.util :as util]
+            [common-beer-format.impl :as impl]
             [spec-tools.core :as st]))
 
 
@@ -114,8 +115,8 @@
     {:type          :vector
      :description   "A vector of valid ::water records"
      :spec          (s/coll-of ::water-wrapper)
-     :decode/string #(util/decode-sequence %1 ::water-wrapper %2)
-     :encode/string #(util/encode-sequence %1 ::water-wrapper %2)}))
+     :decode/string #(impl/decode-sequence %1 ::water-wrapper %2)
+     :encode/string #(impl/encode-sequence %1 ::water-wrapper %2)}))
 
 
 (s/def ::waters-wrapper

@@ -1,7 +1,8 @@
 (ns common-beer-format.core
   "A collection of handy functions to utilize the specs in this library"
+  {:added "1.0"}
   (:require [clojure.spec.alpha :as spec]
-            [common-beer-format.util :as cbf]
+            [common-beer-format.impl :as cbf]
             [spec-tools.core :as st]))
 
 
@@ -14,9 +15,6 @@
    :see-also ["coerce" "spec-tools.core/conform"]}
   [spec data]
   (st/conform spec data cbf/strict-transformer))
-
-
-#_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
 
 
 (defn coerce
@@ -36,6 +34,7 @@
    :see-also ["spec-tools.core/explain"]}
   [spec data]
   (with-out-str (st/explain spec data)))
+
 
 #_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
 
@@ -70,18 +69,12 @@
   (st/spec-description spec))
 
 
-#_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
-
-
 (defn valid?
   "Returns true when `data` conforms to `spec`, and false otherwise"
   {:added    "2.0"
    :see-also ["clojure.spec.alpha/valid?" "invalid?"]}
   [spec data]
   (spec/valid? spec data))
-
-
-#_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
 
 
 (defn invalid?

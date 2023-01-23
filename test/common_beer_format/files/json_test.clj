@@ -15,21 +15,25 @@
             [common-beer-format.yeasts :as yeasts]))
 
 
-(defn deformat
+(defn- deformat
   "Remove formatting specific to Windows and double spacing."
+  {:no-doc true}
   [s]
   (str/replace (str/replace s #"\r\n" "") #"\s\s+" ""))
 
 
-(defn parse-beer-json
+(defn- parse-beer-json
   "Parse a beer JSON file as EDN."
+  {:no-doc true}
   [file-name spec]
   (let [json (deformat (slurp file-name))
         edn  (json/read-str json :key-fn keyword)]
     (cbf/coerce spec edn)))
 
-(defn round-trip-json
+
+(defn- round-trip-json
   "Round trip a beer JSON file."
+  {:no-doc true}
   [file-name spec]
   (let [json         (deformat (slurp file-name))
         edn          (json/read-str json :key-fn keyword)

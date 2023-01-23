@@ -1,5 +1,6 @@
 (ns common-beer-format.recipes
   "The definition of a recipe record used in BeerXML"
+  {:added "2.0"}
   (:require [clojure.spec.alpha :as s]
             [clojure.string :as str]
             [clojure.test.check.generators :as gen]
@@ -12,7 +13,7 @@
             [common-beer-format.styles :as cbf-styles]
             [common-beer-format.waters :as cbf-waters]
             [common-beer-format.yeasts :as cbf-yeasts]
-            [common-beer-format.util :as util]
+            [common-beer-format.impl :as impl]
             [spec-tools.core :as st]))
 
 
@@ -223,8 +224,8 @@
      :description         "A boolean representing if this batch was force carbonated with CO2 pressure..
                           When absent, assume false."
      :json-schema/example "false"
-     :decode/string       util/decode-boolean
-     :encode/string       util/encode-boolean}))
+     :decode/string       impl/decode-boolean
+     :encode/string       impl/encode-boolean}))
 
 
 (s/def ::priming-sugar-name
@@ -499,8 +500,8 @@
     {:type          :vector
      :description   "A vector of valid ::recipe records"
      :spec          (s/coll-of ::recipe-wrapper)
-     :decode/string #(util/decode-sequence %1 ::recipe-wrapper %2)
-     :encode/string #(util/encode-sequence %1 ::recipe-wrapper %2)}))
+     :decode/string #(impl/decode-sequence %1 ::recipe-wrapper %2)
+     :encode/string #(impl/encode-sequence %1 ::recipe-wrapper %2)}))
 
 
 (s/def ::recipes-wrapper

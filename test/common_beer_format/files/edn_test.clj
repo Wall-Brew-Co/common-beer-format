@@ -14,14 +14,17 @@
             [common-beer-format.yeasts :as yeasts]))
 
 
-(defn parse-beer-edn
+(defn- parse-beer-edn
   "Parse a beer EDN file as EDN"
+  {:no-doc true}
   [file-name spec]
   (let [edn (-> file-name slurp edn/read-string)]
     (cbf/coerce spec edn)))
 
-(defn round-trip-edn
+
+(defn- round-trip-edn
   "Parse a beer EDN file as EDN, coerce it to a string, then parse it back to EDN"
+  {:no-doc true}
   [file-name spec]
   (let [edn          (-> file-name slurp edn/read-string)
         coerced-data (cbf/coerce spec edn)

@@ -6,6 +6,7 @@
             [common-beer-format.generative.util :as gen]
             [common-beer-format.primitives :as primitives]))
 
+
 (deftest data-requirement-test
   (testing "Object specs require data"
     (is (not (spec/valid? ::equipment/equipment nil)))
@@ -40,6 +41,7 @@
     (is (gen/generatable? ::equipment/equipment))
     (is (gen/generatable? ::equipment/equipment-wrapper))))
 
+
 (def ^:const sample-equipment
   "A hard-coded sample equipment for static unit tests"
   {:batch-size                19.9
@@ -72,12 +74,14 @@
   "A hard-coded sample equipment-wrapper for static unit tests"
   {:equipment sample-equipment})
 
+
 (deftest static-test-data-check
   (testing "Since this library assumes common-beer-format data is utilized, make sure static test data conforms"
     (is (spoon.spec/test-valid? ::equipment/equipment sample-equipment)
         "Static test data should conform to common-beer-format.equipment/equipment")
     (is (spoon.spec/test-valid? ::equipment/equipment-wrapper sample-equipment-wrapper)
         "Static test data should conform to common-beer-format.equipment/equipment-wrapper")))
+
 
 (deftest static-keys-test
   (testing "Ensure static keys exist within complete equipment records and point to valid data"
@@ -183,32 +187,32 @@
         "Equipment key should point to valid data"))
   (testing "Sample equipment only contains valid keys"
     (is (= {}
-           (dissoc sample-equipment 
-                   equipment/name 
-                   equipment/version 
-                   equipment/batch-size 
-                   equipment/boil-size 
-                   equipment/tun-volume 
-                   equipment/tun-weight 
+           (dissoc sample-equipment
+                   equipment/name
+                   equipment/version
+                   equipment/batch-size
+                   equipment/boil-size
+                   equipment/tun-volume
+                   equipment/tun-weight
                    equipment/tun-specific-heat
-                   equipment/top-up-water 
-                   equipment/trub-chiller-loss 
+                   equipment/top-up-water
+                   equipment/trub-chiller-loss
                    equipment/evap-rate
                    equipment/boil-time
-                   equipment/calc-boil-volume 
+                   equipment/calc-boil-volume
                    equipment/hop-utilization
-                   equipment/lauter-deadspace 
-                   equipment/top-up-kettle 
-                   equipment/notes 
-                   equipment/display-boil-size 
-                   equipment/display-batch-size 
-                   equipment/display-tun-volume 
-                   equipment/display-tun-weight 
-                   equipment/display-top-up-water 
-                   equipment/display-trub-chiller-loss 
-                   equipment/display-lauter-deadspace 
+                   equipment/lauter-deadspace
+                   equipment/top-up-kettle
+                   equipment/notes
+                   equipment/display-boil-size
+                   equipment/display-batch-size
+                   equipment/display-tun-volume
+                   equipment/display-tun-weight
+                   equipment/display-top-up-water
+                   equipment/display-trub-chiller-loss
+                   equipment/display-lauter-deadspace
                    equipment/display-top-up-kettle))))
   (testing "Sample equipment wrapper only contains valid keys"
     (is (= {}
-           (dissoc sample-equipment-wrapper 
+           (dissoc sample-equipment-wrapper
                    equipment/equipment)))))
