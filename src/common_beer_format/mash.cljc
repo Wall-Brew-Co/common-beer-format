@@ -6,11 +6,99 @@
             [common-beer-format.impl :as impl]
             [common-beer-format.primitives :as prim]
             [spec-tools.core :as st])
-  (:refer-clojure :exclude [name]))
+  (:refer-clojure :exclude [name type]))
+
+(def ^:const mash-step
+  "A record representing a mash-step"
+  :mash-step)
+
+(def ^:const name
+  "The name of the mash step or mash profile"
+  :name)
+
+(def ^:const version
+  "The version of the BeerXML specification used to create the mash step or mash profile."
+  :version)
+
+(def ^:const type
+  "The type of mash step.
+   
+   Currently, the following types are allowed:
+   
+   - `decoction` - A mash step where the fermentable ingredients are boiled and then returned to the mash tun.
+   - `infusion` - A mash step where fermentable ingredients steep in water at a specific temperature.
+   - `temperature` - A mash step where the temperature of the mash is held at a specific temperature for a specific time by an external source."
+  :type)
+
+(def ^:const infuse-amount
+  "The volume of water in liters required for an infusion step."
+  :infuse-amount)
+
+(def ^:const step-temp
+  "The temperature of the mash step should be performed at in degrees Celsius"
+  :step-temp)
+
+(def ^:const step-time
+  "The time in minutes to spend at this step"
+  :step-time)
+
+(def ^:const ramp-time
+  "The time in minutes to achieve the desired step temperature"
+  :ramp-time)
+
+(def ^:const end-temp
+  "The temperature of the mash after the step has completed"
+  :end-temp)
+
+(def ^:const description
+  "A human-readable description of the mash step"
+  :description)
+
+(def ^:const water-grain-ratio
+  "A display value for the water:grain ratio after infusion formatted for display in arbitrary units"
+  :water-grain-ratio)
+
+(def ^:const decoction-amt
+  "A display value for the calculated volume of mash to decoct formatted for display in arbitrary units"
+  :decoction-amt)
+
+(def ^:const infuse-temp
+  "A display value for the temperature of an infusion step formatted for display in arbitrary units"
+  :infuse-temp)
+
+(def ^:const display-step-temp
+  "A display value for the temperature of the mash step formatted for display in arbitrary units"
+  :display-step-temp)
+
+(def ^:const display-infuse-amt
+  "A display value for the volume of water in the mash step formatted for display in arbitrary units"
+  :display-infuse-amt)
+
+(def ^:const decoction
+  "A mash step where the fermentable ingredients are boiled and then returned to the mash tun."
+  "decoction")
+
+(def ^:const infusion
+  "A mash step where fermentable ingredients steep in water at a specific temperature."
+  "infusion")
+
+(def ^:const temperature
+  "A mash step where the temperature of the mash is held at a specific temperature for a specific time by an external source."
+  "temperature")
+  
 
 
 (def ^:const mash-step-types
-  #{"infusion" "temperature" "decoction"})
+  "A set of allowed mash types
+   
+   Currently, the following types are allowed:
+   
+   - `decoction` - A mash step where the fermentable ingredients are boiled and then returned to the mash tun.
+   - `infusion` - A mash step where fermentable ingredients steep in water at a specific temperature.
+   - `temperature` - A mash step where the temperature of the mash is held at a specific temperature for a specific time by an external source."
+  #{decoction
+    infusion
+    temperature})
 
 
 (spec/def ::type
@@ -118,19 +206,19 @@
     {:type        :map
      :description "A record representing a step within the mashing process."
      :spec        (spec/keys :req-un [::prim/name
-                                   ::prim/version
-                                   ::type
-                                   ::infuse-amount
-                                   ::step-temp
-                                   ::step-time]
-                          :opt-un [::ramp-time
-                                   ::end-temp
-                                   ::description
-                                   ::water-grain-ratio
-                                   ::decoction-amt
-                                   ::infuse-temp
-                                   ::display-step-temp
-                                   ::display-infuse-amt])}))
+                                      ::prim/version
+                                      ::type
+                                      ::infuse-amount
+                                      ::step-temp
+                                      ::step-time]
+                             :opt-un [::ramp-time
+                                      ::end-temp
+                                      ::description
+                                      ::water-grain-ratio
+                                      ::decoction-amt
+                                      ::infuse-temp
+                                      ::display-step-temp
+                                      ::display-infuse-amt])}))
 
 
 (spec/def ::mash-step-wrapper
@@ -147,6 +235,59 @@
      :spec          (spec/coll-of ::mash-step-wrapper :into [] :kind vector?)
      :decode/string #(impl/decode-sequence %1 ::mash-step-wrapper %2)
      :encode/string #(impl/encode-sequence %1 ::mash-step-wrapper %2)}))
+
+(def ^:const mash-steps
+  "A collection of mash-steps"
+  :mash-steps)
+
+(def ^:const grain-temp
+  "The temperature of the grain before adding it to the mash"
+  :grain-temp)
+
+(def ^:const notes
+  "Notes about the mash."
+  :notes)
+
+
+(def ^:const tun-temp
+  "The pre-mash temperature of the mash tun"
+  :tun-temp)
+
+(def ^:const sparge-temp
+  "The temperature of the sparge water."
+  :sparge-temp)
+
+(def ^:const ph
+  "The PH of the water."
+  :ph)
+
+(def ^:const tun-weight
+  "The weight of the mash tun."
+  :tun-weight)
+
+(def ^:const tun-specific-heat
+  "The specific heat of the mash tun in Calories per gram-degree Celsius."
+  :tun-specific-heat)
+
+(def ^:const equip-adjust
+  "Whether or not to account for the temperature effects of the equipment used."
+  :equip-adjust)
+
+(def ^:const display-grain-temp
+  "A display value for the temperature of the grain before adding it to the mash"
+  :display-grain-temp)
+
+(def ^:const display-tun-temp
+  "A display value for the temperature of the mash tun"
+  :display-tun-temp)
+
+(def ^:const display-sparge-temp
+  "A display value for the temperature of the sparge water"
+  :display-sparge-temp)
+
+(def ^:const display-tun-weight
+  "A display value for the weight of the mash tun"
+  :display-tun-weight)
 
 
 (spec/def ::grain-temp

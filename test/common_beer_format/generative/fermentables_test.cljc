@@ -88,11 +88,16 @@
 
 (deftest type-test
   (testing "Ensure type map contains all fermentable types"
-    (is (contains? fermentables/fermentable-types fermentables/adjunct))
-    (is (contains? fermentables/fermentable-types fermentables/dry-extract))
-    (is (contains? fermentables/fermentable-types fermentables/extract))
-    (is (contains? fermentables/fermentable-types fermentables/grain))
-    (is (contains? fermentables/fermentable-types fermentables/sugar)))
+    (is (contains? fermentables/fermentable-types fermentables/adjunct)
+        "Type map should contain adjuncts")
+    (is (contains? fermentables/fermentable-types fermentables/dry-extract)
+        "Type map should contain dry extract")
+    (is (contains? fermentables/fermentable-types fermentables/extract)
+        "Type map should contain extract")
+    (is (contains? fermentables/fermentable-types fermentables/grain)
+        "Type map should contain grain")
+    (is (contains? fermentables/fermentable-types fermentables/sugar)
+        "Type map should contain sugar"))
   (testing "Ensure type set only contains known fermentable types"
     (is (= #{} (disj fermentables/fermentable-types
                      fermentables/adjunct
