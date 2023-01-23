@@ -1,6 +1,6 @@
 (ns common-beer-format.core
   "A collection of handy functions to utilize the specs in this library"
-  (:require [clojure.spec.alpha :as s]
+  (:require [clojure.spec.alpha :as spec]
             [common-beer-format.util :as cbf]
             [spec-tools.core :as st]))
 
@@ -35,7 +35,17 @@
   {:added    "2.0"
    :see-also ["spec-tools.core/explain"]}
   [spec data]
-  (st/explain spec data))
+  (with-out-str (st/explain spec data)))
+
+#_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
+
+
+(defn encode
+  "Encode the `data` described by `spec` into a string"
+  {:added    "2.1"
+   :see-also ["spec-tools.core/encode"]}
+  [spec data]
+  (st/encode spec data cbf/strict-transformer))
 
 
 #_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
@@ -68,7 +78,7 @@
   {:added    "2.0"
    :see-also ["clojure.spec.alpha/valid?" "invalid?"]}
   [spec data]
-  (s/valid? spec data))
+  (spec/valid? spec data))
 
 
 #_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
@@ -79,4 +89,4 @@
   {:added    "2.0"
    :see-also ["clojure.spec.alpha/valid?" "valid?"]}
   [spec data]
-  (not (s/valid? spec data)))
+  (not (spec/valid? spec data)))

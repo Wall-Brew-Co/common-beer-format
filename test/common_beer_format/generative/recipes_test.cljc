@@ -1,5 +1,5 @@
 (ns common-beer-format.generative.recipes-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [clojure.test :refer :all]
             [common-beer-format.generative.util :as gen]
             [common-beer-format.recipes :as recipes]))
 
