@@ -1,39 +1,40 @@
 (ns common-beer-format.recipes
   "The definition of a recipe record used in BeerXML"
   {:added "2.0"}
-  (:require [clojure.spec.alpha :as s]
+  (:require [clojure.spec.alpha :as spec]
             [clojure.string :as str]
             [clojure.test.check.generators :as gen]
             [common-beer-format.equipment :as cbf-equipment]
             [common-beer-format.fermentables :as cbf-fermentables]
             [common-beer-format.hops :as cbf-hops]
+            [common-beer-format.impl :as impl]
             [common-beer-format.mash :as cbf-mash]
             [common-beer-format.miscs :as cbf-miscs]
             [common-beer-format.primitives :as prim]
             [common-beer-format.styles :as cbf-styles]
             [common-beer-format.waters :as cbf-waters]
             [common-beer-format.yeasts :as cbf-yeasts]
-            [common-beer-format.impl :as impl]
-            [spec-tools.core :as st]))
+            [spec-tools.core :as st])
+  (:refer-clojure :exclude [name type]))
 
 
 (def ^:const recipe-types
   #{"extract" "partial mash" "all grain"})
 
 
-(s/def ::type
+(spec/def ::type
   (st/spec
     {:type                :string
-     :spec                (s/and string?
+     :spec                (spec/and string?
                                  #(not (str/blank? %))
                                  #(contains? recipe-types (str/lower-case %)))
-     :gen                 #(s/gen recipe-types)
+     :gen                 #(spec/gen recipe-types)
      :description         (str "A case-insensitive string representing the type of recipe.\n"
                                "Must be one of: 'Extract', 'Partial Mash', and 'All Grain'")
      :json-schema/example "All Grain"}))
 
 
-(s/def ::brewer
+(spec/def ::brewer
   (st/spec
     {:type                :string
      :spec                ::prim/text
@@ -41,7 +42,7 @@
      :json-schema/example "Nick A. Nichols"}))
 
 
-(s/def ::batch-size
+(spec/def ::batch-size
   (st/spec
     {:type                :double
      :spec                ::prim/liter
@@ -49,7 +50,7 @@
      :json-schema/example "5.8"}))
 
 
-(s/def ::boil-size
+(spec/def ::boil-size
   (st/spec
     {:type                :double
      :spec                ::prim/liter
@@ -57,7 +58,7 @@
      :json-schema/example "7.5"}))
 
 
-(s/def ::boil-time
+(spec/def ::boil-time
   (st/spec
     {:type                :double
      :spec                ::prim/minute
@@ -65,7 +66,7 @@
      :json-schema/example "45.0"}))
 
 
-(s/def ::asst-brewer
+(spec/def ::asst-brewer
   (st/spec
     {:type                :string
      :spec                ::prim/text
@@ -73,7 +74,7 @@
      :json-schema/example "Dariusz R. Jakubowski"}))
 
 
-(s/def ::efficiency
+(spec/def ::efficiency
   (st/spec
     {:type                :double
      :spec                ::prim/percent
@@ -81,7 +82,7 @@
      :json-schema/example "85.6"}))
 
 
-(s/def ::taste-notes
+(spec/def ::taste-notes
   (st/spec
     {:type                :string
      :spec                ::prim/text
@@ -89,7 +90,7 @@
      :json-schema/example "A nice, full body and intense mouthfeel"}))
 
 
-(s/def ::taste-rating
+(spec/def ::taste-rating
   (st/spec
     {:type                :double
      :spec                number?
@@ -99,7 +100,7 @@
      :json-schema/example "100.0"}))
 
 
-(s/def ::og
+(spec/def ::og
   (st/spec
     {:type                :double
      :spec                ::prim/specific-gravity
@@ -107,7 +108,7 @@
      :json-schema/example "1.060"}))
 
 
-(s/def ::fg
+(spec/def ::fg
   (st/spec
     {:type                :double
      :spec                ::prim/specific-gravity
@@ -115,24 +116,26 @@
      :json-schema/example "1.048"}))
 
 
-(s/def ::fermentation-stages
+(spec/def ::fermentation-stages
   (st/spec
     {:type                :long
-     :spec                (s/and integer? pos?)
+     :spec                (spec/and integer? pos?)
      :description         "An integer representing the number of fermentation stages in the recipe"
      :json-schema/example "2"}))
 
 
-(s/def ::primary-age
+(spec/def ::primary-age
   (st/spec
-    {:type                :double
-     :spec                (s/and number? pos?)
-     :gen                 #(gen/double* {:infinite? false :NaN? false :min 0})
-     :description         "A positive IEEE-754 floating point number representing the number of days spent in primary fermentation"
-     :json-schema/example "12.0"}))
+   {:type                :double
+    :spec                (spec/and number? pos?)
+    :gen                 #(gen/double* {:infinite? false
+                                        :NaN?      false
+                                        :min       0})
+    :description         "A positive IEEE-754 floating point number representing the number of days spent in primary fermentation"
+    :json-schema/example "12.0"}))
 
 
-(s/def ::primary-temp
+(spec/def ::primary-temp
   (st/spec
     {:type                :double
      :spec                ::prim/degrees-celsius
@@ -140,16 +143,18 @@
      :json-schema/example "12.0"}))
 
 
-(s/def ::secondary-age
+(spec/def ::secondary-age
   (st/spec
-    {:type                :double
-     :spec                (s/and number? #(not (neg? %)))
-     :gen                 #(gen/double* {:infinite? false :NaN? false :min 0})
-     :description         "A non-negative IEEE-754 floating point number representing the number of days spent in secondary fermentation"
-     :json-schema/example "12.0"}))
+   {:type                :double
+    :spec                (spec/and number? #(not (neg? %)))
+    :gen                 #(gen/double* {:infinite? false
+                                        :NaN?      false
+                                        :min       0})
+    :description         "A non-negative IEEE-754 floating point number representing the number of days spent in secondary fermentation"
+    :json-schema/example "12.0"}))
 
 
-(s/def ::secondary-temp
+(spec/def ::secondary-temp
   (st/spec
     {:type                :double
      :spec                ::prim/degrees-celsius
@@ -157,16 +162,18 @@
      :json-schema/example "12.0"}))
 
 
-(s/def ::tertiary-age
+(spec/def ::tertiary-age
   (st/spec
-    {:type                :double
-     :spec                (s/and number? #(not (neg? %)))
-     :gen                 #(gen/double* {:infinite? false :NaN? false :min 0})
-     :description         "A non-negative IEEE-754 floating point number representing the number of days spent in tertiary fermentation"
-     :json-schema/example "12.0"}))
+   {:type                :double
+    :spec                (spec/and number? #(not (neg? %)))
+    :gen                 #(gen/double* {:infinite? false
+                                        :NaN?      false
+                                        :min       0})
+    :description         "A non-negative IEEE-754 floating point number representing the number of days spent in tertiary fermentation"
+    :json-schema/example "12.0"}))
 
 
-(s/def ::tertiary-temp
+(spec/def ::tertiary-temp
   (st/spec
     {:type                :double
      :spec                ::prim/degrees-celsius
@@ -174,16 +181,18 @@
      :json-schema/example "12.0"}))
 
 
-(s/def ::age
+(spec/def ::age
   (st/spec
-    {:type                :double
-     :spec                (s/and number? #(not (neg? %)))
-     :gen                 #(gen/double* {:infinite? false :NaN? false :min 0})
-     :description         "A non-negative IEEE-754 floating point number representing the number of days to bottle age the beer"
-     :json-schema/example "12.0"}))
+   {:type                :double
+    :spec                (spec/and number? #(not (neg? %)))
+    :gen                 #(gen/double* {:infinite? false
+                                        :NaN?      false
+                                        :min       0})
+    :description         "A non-negative IEEE-754 floating point number representing the number of days to bottle age the beer"
+    :json-schema/example "12.0"}))
 
 
-(s/def ::age
+(spec/def ::age
   (st/spec
     {:type                :double
      :spec                ::prim/degrees-celsius
@@ -191,7 +200,7 @@
      :json-schema/example "12.0"}))
 
 
-(s/def ::age-temp
+(spec/def ::age-temp
   (st/spec
     {:type                :double
      :spec                ::prim/degrees-celsius
@@ -199,7 +208,7 @@
      :json-schema/example "12.0"}))
 
 
-(s/def ::date
+(spec/def ::date
   ;; Intentionally implemented as a string type to match BeerXML spec
   (st/spec
     {:type                :string
@@ -208,7 +217,7 @@
      :json-schema/example "2020/05/06"}))
 
 
-(s/def ::carbonation
+(spec/def ::carbonation
   (st/spec
     {:type                :double
      :spec                number?
@@ -218,7 +227,7 @@
      :json-schema/example "1.5"}))
 
 
-(s/def ::forced-carbonation
+(spec/def ::forced-carbonation
   (st/spec
     {:spec                ::prim/boolean
      :description         "A boolean representing if this batch was force carbonated with CO2 pressure..
@@ -228,7 +237,7 @@
      :encode/string       impl/encode-boolean}))
 
 
-(s/def ::priming-sugar-name
+(spec/def ::priming-sugar-name
   (st/spec
     {:type                :string
      :spec                ::prim/text
@@ -236,7 +245,7 @@
      :json-schema/example "Corn Sugar"}))
 
 
-(s/def ::carbonation-temp
+(spec/def ::carbonation-temp
   (st/spec
     {:type                :double
      :spec                ::prim/degrees-celsius
@@ -244,7 +253,7 @@
      :json-schema/example "12.0"}))
 
 
-(s/def ::priming-sugar-equiv
+(spec/def ::priming-sugar-equiv
   (st/spec
     {:type                :double
      :spec                number?
@@ -254,7 +263,7 @@
      :json-schema/example "1.5"}))
 
 
-(s/def ::keg-priming-factor
+(spec/def ::keg-priming-factor
   (st/spec
     {:type                :double
      :spec                number?
@@ -264,7 +273,7 @@
      :json-schema/example "1.5"}))
 
 
-(s/def ::est-og
+(spec/def ::est-og
   (st/spec
     {:type                :string
      :spec                ::prim/text
@@ -272,7 +281,7 @@
      :json-schema/example "1.050sg"}))
 
 
-(s/def ::est-fg
+(spec/def ::est-fg
   (st/spec
     {:type                :string
      :spec                ::prim/text
@@ -280,7 +289,7 @@
      :json-schema/example "1.050sg"}))
 
 
-(s/def ::est-color
+(spec/def ::est-color
   (st/spec
     {:type                :string
      :spec                ::prim/text
@@ -288,32 +297,34 @@
      :json-schema/example "30SRM"}))
 
 
-(s/def ::ibu
+(spec/def ::ibu
   (st/spec
-    {:type                :double
-     :spec                (s/and number? #(not (neg? %)))
-     :gen                 #(gen/double* {:infinite? false :NaN? false :min 0})
-     :description         "A positive IEEE-754 floating point number representing the bitterness in IBUs for the recipe"
-     :json-schema/example "40"}))
+   {:type                :double
+    :spec                (spec/and number? #(not (neg? %)))
+    :gen                 #(gen/double* {:infinite? false
+                                        :NaN?      false
+                                        :min       0})
+    :description         "A positive IEEE-754 floating point number representing the bitterness in IBUs for the recipe"
+    :json-schema/example "40"}))
 
 
 (def ^:const ibu-method-types
   #{"rager" "tinseth" "garetz"})
 
 
-(s/def ::ibu-method
+(spec/def ::ibu-method
   (st/spec
-    {:type                :string
-     :spec                (s/and string?
-                                 #(not (str/blank? %))
-                                 #(contains? ibu-method-types (str/lower-case %)))
-     :gen #(s/gen ibu-method-types)
-     :description         "A case-insensitive string representing the method of calculation used derive the IBUs.
+   {:type                :string
+    :spec                (spec/and string?
+                                   #(not (str/blank? %))
+                                   #(contains? ibu-method-types (str/lower-case %)))
+    :gen                 #(spec/gen ibu-method-types)
+    :description         "A case-insensitive string representing the method of calculation used derive the IBUs.
                           Must be one of: 'Rager', 'Tinseth', and 'Garetz'"
-     :json-schema/example "Garetz"}))
+    :json-schema/example "Garetz"}))
 
 
-(s/def ::est-abv
+(spec/def ::est-abv
   (st/spec
     {:type                :double
      :spec                ::prim/percent
@@ -321,7 +332,7 @@
      :json-schema/example "40"}))
 
 
-(s/def ::abv
+(spec/def ::abv
   (st/spec
     {:type                :double
      :spec                ::prim/percent
@@ -329,7 +340,7 @@
      :json-schema/example "40"}))
 
 
-(s/def ::actual-efficiency
+(spec/def ::actual-efficiency
   (st/spec
     {:type                :double
      :spec                ::prim/percent
@@ -337,7 +348,7 @@
      :json-schema/example "40"}))
 
 
-(s/def ::calories
+(spec/def ::calories
   (st/spec
     {:type                :string
      :spec                ::prim/text
@@ -345,7 +356,7 @@
      :json-schema/example "180 Cal / pint"}))
 
 
-(s/def ::display-boil-size
+(spec/def ::display-boil-size
   (st/spec
     {:type                :string
      :spec                ::prim/text
@@ -353,7 +364,7 @@
      :json-schema/example "5.0 gallons"}))
 
 
-(s/def ::display-batch-size
+(spec/def ::display-batch-size
   (st/spec
     {:type                :string
      :spec                ::prim/text
@@ -361,7 +372,7 @@
      :json-schema/example "4.5 gallons"}))
 
 
-(s/def ::display-og
+(spec/def ::display-og
   (st/spec
     {:type                :string
      :spec                ::prim/text
@@ -369,7 +380,7 @@
      :json-schema/example "1.050sg"}))
 
 
-(s/def ::display-fg
+(spec/def ::display-fg
   (st/spec
     {:type                :string
      :spec                ::prim/text
@@ -377,7 +388,7 @@
      :json-schema/example "1.050sg"}))
 
 
-(s/def ::display-primary-temp
+(spec/def ::display-primary-temp
   (st/spec
     {:type                :string
      :spec                ::prim/text
@@ -385,7 +396,7 @@
      :json-schema/example "68F"}))
 
 
-(s/def ::display-secondary-temp
+(spec/def ::display-secondary-temp
   (st/spec
     {:type                :string
      :spec                ::prim/text
@@ -393,7 +404,7 @@
      :json-schema/example "68F"}))
 
 
-(s/def ::display-tertiary-temp
+(spec/def ::display-tertiary-temp
   (st/spec
     {:type                :string
      :spec                ::prim/text
@@ -401,7 +412,7 @@
      :json-schema/example "68F"}))
 
 
-(s/def ::display-age-temp
+(spec/def ::display-age-temp
   (st/spec
     {:type                :string
      :spec                ::prim/text
@@ -409,7 +420,7 @@
      :json-schema/example "68F"}))
 
 
-(s/def ::carbonation-used
+(spec/def ::carbonation-used
   (st/spec
     {:type                :string
      :spec                ::prim/text
@@ -417,7 +428,7 @@
      :json-schema/example "Kegged at 1.36 atmospheres"}))
 
 
-(s/def ::display-carb-temp
+(spec/def ::display-carb-temp
   (st/spec
     {:type                :string
      :spec                ::prim/text
@@ -425,87 +436,87 @@
      :json-schema/example "68F"}))
 
 
-(s/def ::recipe
+(spec/def ::recipe
   (st/spec
     {:type        :map
      :description "A record representing a beer recipe"
-     :spec        (s/keys :req-un [::prim/name
-                                   ::prim/version
-                                   ::type
-                                   ::cbf-styles/style
-                                   ::brewer
-                                   ::batch-size
-                                   ::boil-size
-                                   ::boil-time
-                                   ::cbf-hops/hops
-                                   ::cbf-fermentables/fermentables
-                                   ::cbf-miscs/miscs
-                                   ::cbf-yeasts/yeasts
-                                   ::cbf-waters/waters
-                                   ::cbf-mash/mash]
-                          :opt-un [::cbf-equipment/equipment
-                                   ::asst-brewer
-                                   ::efficiency
-                                   ::prim/notes
-                                   ::taste-notes
-                                   ::taste-rating
-                                   ::og
-                                   ::fg
-                                   ::fermentation-stages
-                                   ::primary-age
-                                   ::primary-temp
-                                   ::secondary-age
-                                   ::secondary-temp
-                                   ::tertiary-age
-                                   ::tertiary-temp
-                                   ::age
-                                   ::age-temp
-                                   ::date
-                                   ::carbonation
-                                   ::forced-carbonation
-                                   ::priming-sugar-name
-                                   ::carbonation-temp
-                                   ::priming-sugar-equiv
-                                   ::keg-priming-factor
-                                   ::est-og
-                                   ::est-fg
-                                   ::est-color
-                                   ::ibu
-                                   ::ibu-method
-                                   ::est-abv
-                                   ::abv
-                                   ::actual-efficiency
-                                   ::calories
-                                   ::display-batch-size
-                                   ::display-boil-size
-                                   ::display-og
-                                   ::display-fg
-                                   ::display-primary-temp
-                                   ::display-secondary-temp
-                                   ::display-tertiary-temp
-                                   ::display-age-temp
-                                   ::carbonation-used
-                                   ::display-carb-temp])}))
+     :spec        (spec/keys :req-un [::prim/name
+                                      ::prim/version
+                                      ::type
+                                      ::cbf-styles/style
+                                      ::brewer
+                                      ::batch-size
+                                      ::boil-size
+                                      ::boil-time
+                                      ::cbf-hops/hops
+                                      ::cbf-fermentables/fermentables
+                                      ::cbf-miscs/miscs
+                                      ::cbf-yeasts/yeasts
+                                      ::cbf-waters/waters
+                                      ::cbf-mash/mash]
+                             :opt-un [::cbf-equipment/equipment
+                                      ::asst-brewer
+                                      ::efficiency
+                                      ::prim/notes
+                                      ::taste-notes
+                                      ::taste-rating
+                                      ::og
+                                      ::fg
+                                      ::fermentation-stages
+                                      ::primary-age
+                                      ::primary-temp
+                                      ::secondary-age
+                                      ::secondary-temp
+                                      ::tertiary-age
+                                      ::tertiary-temp
+                                      ::age
+                                      ::age-temp
+                                      ::date
+                                      ::carbonation
+                                      ::forced-carbonation
+                                      ::priming-sugar-name
+                                      ::carbonation-temp
+                                      ::priming-sugar-equiv
+                                      ::keg-priming-factor
+                                      ::est-og
+                                      ::est-fg
+                                      ::est-color
+                                      ::ibu
+                                      ::ibu-method
+                                      ::est-abv
+                                      ::abv
+                                      ::actual-efficiency
+                                      ::calories
+                                      ::display-batch-size
+                                      ::display-boil-size
+                                      ::display-og
+                                      ::display-fg
+                                      ::display-primary-temp
+                                      ::display-secondary-temp
+                                      ::display-tertiary-temp
+                                      ::display-age-temp
+                                      ::carbonation-used
+                                      ::display-carb-temp])}))
 
 
-(s/def ::recipe-wrapper
+(spec/def ::recipe-wrapper
   (st/spec
     {:type        :map
      :description "A ::recipe record wrapped in a ::recipes map"
-     :spec        (s/keys :req-un [::recipe])}))
+     :spec        (spec/keys :req-un [::recipe])}))
 
 
-(s/def ::recipes
+(spec/def ::recipes
   (st/spec
     {:type          :vector
      :description   "A vector of valid ::recipe records"
-     :spec          (s/coll-of ::recipe-wrapper)
+     :spec          (spec/coll-of ::recipe-wrapper :into [] :kind vector?)
      :decode/string #(impl/decode-sequence %1 ::recipe-wrapper %2)
      :encode/string #(impl/encode-sequence %1 ::recipe-wrapper %2)}))
 
 
-(s/def ::recipes-wrapper
+(spec/def ::recipes-wrapper
   (st/spec
     {:type        :map
      :description "A ::recipes-wrapper record"
-     :spec        (s/keys :req-un [::recipes])}))
+     :spec        (spec/keys :req-un [::recipes])}))

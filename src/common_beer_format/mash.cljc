@@ -1,30 +1,31 @@
 (ns common-beer-format.mash
   "The definition of mash steps and the mash profile records used in BeerXML"
   {:added "2.0"}
-  (:require [clojure.spec.alpha :as s]
+  (:require [clojure.spec.alpha :as spec]
             [clojure.string :as str]
-            [common-beer-format.primitives :as prim]
             [common-beer-format.impl :as impl]
-            [spec-tools.core :as st]))
+            [common-beer-format.primitives :as prim]
+            [spec-tools.core :as st])
+  (:refer-clojure :exclude [name]))
 
 
 (def ^:const mash-step-types
   #{"infusion" "temperature" "decoction"})
 
 
-(s/def ::type
+(spec/def ::type
   (st/spec
-    {:type                :string
-     :spec                (s/and string?
-                                 #(not (str/blank? %))
-                                 #(contains? mash-step-types (str/lower-case %)))
-     :gen #(s/gen mash-step-types)
-     :description         "A case-insensitive string representing the type of mash step.
+   {:type                :string
+    :spec                (spec/and string?
+                                   #(not (str/blank? %))
+                                   #(contains? mash-step-types (str/lower-case %)))
+    :gen                 #(spec/gen mash-step-types)
+    :description         "A case-insensitive string representing the type of mash step.
                           Must be one of: 'Infusion', 'Temperature', and 'Decoction'"
-     :json-schema/example "Temperature"}))
+    :json-schema/example "Temperature"}))
 
 
-(s/def ::infuse-amount
+(spec/def ::infuse-amount
   (st/spec
     {:type                :double
      :spec                ::prim/liter
@@ -32,7 +33,7 @@
      :json-schema/example "5.8"}))
 
 
-(s/def ::step-temp
+(spec/def ::step-temp
   (st/spec
     {:type                :double
      :spec                ::prim/degrees-celsius
@@ -40,7 +41,7 @@
      :json-schema/example "80"}))
 
 
-(s/def ::step-time
+(spec/def ::step-time
   (st/spec
     {:type                :double
      :spec                ::prim/minute
@@ -48,7 +49,7 @@
      :json-schema/example "45.0"}))
 
 
-(s/def ::ramp-time
+(spec/def ::ramp-time
   (st/spec
     {:type                :double
      :spec                ::prim/minute
@@ -56,7 +57,7 @@
      :json-schema/example "45.0"}))
 
 
-(s/def ::end-temp
+(spec/def ::end-temp
   (st/spec
     {:type                :double
      :spec                ::prim/degrees-celsius
@@ -64,7 +65,7 @@
      :json-schema/example "80"}))
 
 
-(s/def ::description
+(spec/def ::description
   (st/spec
     {:type                :string
      :spec                ::prim/text
@@ -72,7 +73,7 @@
      :json-schema/example "Stir your grain bag carefully at 140F"}))
 
 
-(s/def ::water-grain-ratio
+(spec/def ::water-grain-ratio
   (st/spec
     {:type                :string
      :spec                ::prim/text
@@ -80,7 +81,7 @@
      :json-schema/example "1.5qt/lb"}))
 
 
-(s/def ::decoction-amt
+(spec/def ::decoction-amt
   (st/spec
     {:type                :string
      :spec                ::prim/text
@@ -88,7 +89,7 @@
      :json-schema/example "7.5 liters"}))
 
 
-(s/def ::infuse-temp
+(spec/def ::infuse-temp
   (st/spec
     {:type                :string
      :spec                ::prim/text
@@ -96,7 +97,7 @@
      :json-schema/example "150F"}))
 
 
-(s/def ::display-step-temp
+(spec/def ::display-step-temp
   (st/spec
     {:type                :string
      :spec                ::prim/text
@@ -104,7 +105,7 @@
      :json-schema/example "150F"}))
 
 
-(s/def ::display-infuse-amt
+(spec/def ::display-infuse-amt
   (st/spec
     {:type                :string
      :spec                ::prim/text
@@ -112,11 +113,11 @@
      :json-schema/example "2.2L"}))
 
 
-(s/def ::mash-step
+(spec/def ::mash-step
   (st/spec
     {:type        :map
      :description "A record representing a step within the mashing process."
-     :spec        (s/keys :req-un [::prim/name
+     :spec        (spec/keys :req-un [::prim/name
                                    ::prim/version
                                    ::type
                                    ::infuse-amount
@@ -132,23 +133,23 @@
                                    ::display-infuse-amt])}))
 
 
-(s/def ::mash-step-wrapper
+(spec/def ::mash-step-wrapper
   (st/spec
     {:type        :map
      :description "A ::mash record wrapped in a ::mash map"
-     :spec        (s/keys :req-un [::mash-step])}))
+     :spec        (spec/keys :req-un [::mash-step])}))
 
 
-(s/def ::mash-steps
+(spec/def ::mash-steps
   (st/spec
     {:type          :vector
      :description   "A vector of valid ::mash-step records"
-     :spec          (s/coll-of ::mash-step-wrapper)
+     :spec          (spec/coll-of ::mash-step-wrapper :into [] :kind vector?)
      :decode/string #(impl/decode-sequence %1 ::mash-step-wrapper %2)
      :encode/string #(impl/encode-sequence %1 ::mash-step-wrapper %2)}))
 
 
-(s/def ::grain-temp
+(spec/def ::grain-temp
   (st/spec
     {:type                :double
      :spec                ::prim/degrees-celsius
@@ -156,7 +157,7 @@
      :json-schema/example "80"}))
 
 
-(s/def ::tun-temp
+(spec/def ::tun-temp
   (st/spec
     {:type                :double
      :spec                ::prim/degrees-celsius
@@ -164,7 +165,7 @@
      :json-schema/example "80"}))
 
 
-(s/def ::sparge-temp
+(spec/def ::sparge-temp
   (st/spec
     {:type                :double
      :spec                ::prim/degrees-celsius
@@ -172,15 +173,15 @@
      :json-schema/example "50"}))
 
 
-(s/def ::ph
+(spec/def ::ph
   (st/spec
     {:type                :double
-     :spec                (s/and number? #(not (neg? %)))
+     :spec                (spec/and number? #(not (neg? %)))
      :description         "A non-negative IEEE-754 floating point number representing the PH of the water"
      :json-schema/example "2.5"}))
 
 
-(s/def ::tun-weight
+(spec/def ::tun-weight
   (st/spec
     {:type                :double
      :spec                ::prim/kilogram
@@ -188,15 +189,15 @@
      :json-schema/example "15.0"}))
 
 
-(s/def ::tun-specific-heat
+(spec/def ::tun-specific-heat
   (st/spec
     {:type                :double
-     :spec                (s/and number? #(not (neg? %)))
+     :spec                (spec/and number? #(not (neg? %)))
      :description         "A non-negative IEEE-754 floating point number representing the specific heat of the mashtun in Calories per gram-degree Celsius"
      :json-schema/example "0.2"}))
 
 
-(s/def ::equip-adjust
+(spec/def ::equip-adjust
   (st/spec
     {:spec                ::prim/boolean
      :description         "A boolean denoting whether or not programs should account for the temperature effects of the equipment used.
@@ -206,7 +207,7 @@
      :encode/string       impl/encode-boolean}))
 
 
-(s/def ::display-grain-temp
+(spec/def ::display-grain-temp
   (st/spec
     {:type                :string
      :spec                ::prim/text
@@ -214,7 +215,7 @@
      :json-schema/example "72F"}))
 
 
-(s/def ::display-tun-temp
+(spec/def ::display-tun-temp
   (st/spec
     {:type                :string
      :spec                ::prim/text
@@ -222,7 +223,7 @@
      :json-schema/example "72F"}))
 
 
-(s/def ::display-sparge-temp
+(spec/def ::display-sparge-temp
   (st/spec
     {:type                :string
      :spec                ::prim/text
@@ -230,7 +231,7 @@
      :json-schema/example "172F"}))
 
 
-(s/def ::display-tun-weight
+(spec/def ::display-tun-weight
   (st/spec
     {:type                :string
      :spec                ::prim/text
@@ -238,29 +239,29 @@
      :json-schema/example "72lbs"}))
 
 
-(s/def ::mash
+(spec/def ::mash
   (st/spec
     {:type        :map
      :description "A record representing the mashing process."
-     :spec        (s/keys :req-un [::prim/name
-                                   ::prim/version
-                                   ::grain-temp
-                                   ::mash-steps]
-                          :opt-un [::prim/notes
-                                   ::tun-temp
-                                   ::sparge-temp
-                                   ::ph
-                                   ::tun-weight
-                                   ::tun-specific-heat
-                                   ::equip-adjust
-                                   ::display-grain-temp
-                                   ::display-tun-temp
-                                   ::display-sparge-temp
-                                   ::display-tun-weight])}))
+     :spec        (spec/keys :req-un [::prim/name
+                                      ::prim/version
+                                      ::grain-temp
+                                      ::mash-steps]
+                             :opt-un [::prim/notes
+                                      ::tun-temp
+                                      ::sparge-temp
+                                      ::ph
+                                      ::tun-weight
+                                      ::tun-specific-heat
+                                      ::equip-adjust
+                                      ::display-grain-temp
+                                      ::display-tun-temp
+                                      ::display-sparge-temp
+                                      ::display-tun-weight])}))
 
 
-(s/def ::mash-wrapper
+(spec/def ::mash-wrapper
   (st/spec
     {:type        :map
      :description "A ::mash-wrapper record"
-     :spec        (s/keys :req-un [::mash])}))
+     :spec        (spec/keys :req-un [::mash])}))

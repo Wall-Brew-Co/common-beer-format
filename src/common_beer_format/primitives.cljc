@@ -11,65 +11,77 @@
 
 (spec/def ::kilogram
   (st/spec
-    {:type                :double
-     :spec                (spec/and number? #(not (neg? %)))
-     :gen                 #(gen/double* {:infinite? false :NaN? false :min 0})
-     :description         "A non-negative IEEE-754 floating point number representing weight in kilograms"
-     :json-schema/example "10.7"}))
+   {:type                :double
+    :spec                (spec/and number? #(not (neg? %)))
+    :gen                 #(gen/double* {:infinite? false
+                                        :NaN?      false
+                                        :min       0})
+    :description         "A non-negative IEEE-754 floating point number representing weight in kilograms"
+    :json-schema/example "10.7"}))
 
 
 (spec/def ::liter
   (st/spec
-    {:type                :double
-     :spec                (spec/and number? #(not (neg? %)))
-     :gen                 #(gen/double* {:infinite? false :NaN? false :min 0})
-     :description         "A non-negative IEEE-754 floating point number representing volume in liters"
-     :json-schema/example "12.3"}))
+   {:type                :double
+    :spec                (spec/and number? #(not (neg? %)))
+    :gen                 #(gen/double* {:infinite? false
+                                        :NaN?      false
+                                        :min       0})
+    :description         "A non-negative IEEE-754 floating point number representing volume in liters"
+    :json-schema/example "12.3"}))
 
 
 (spec/def ::degrees-celsius
   (st/spec
-    {:type                :double
-     :spec                number?
-     :gen                 #(gen/double* {:infinite? false :NaN? false})
-     :description         "An IEEE-754 floating point number representing degress in Celsius"
-     :json-schema/example "-10.7"}))
+   {:type                :double
+    :spec                number?
+    :gen                 #(gen/double* {:infinite? false
+                                        :NaN?      false})
+    :description         "An IEEE-754 floating point number representing degress in Celsius"
+    :json-schema/example "-10.7"}))
 
 
 (spec/def ::minute
   (st/spec
-    {:type                :double
-     :spec                (spec/and number? #(not (neg? %)))
-     :gen                 #(gen/double* {:infinite? false :NaN? false :min 0})
-     :description         "A non-negative IEEE-754 floating point number representing time in minutes"
-     :json-schema/example "45.0"}))
+   {:type                :double
+    :spec                (spec/and number? #(not (neg? %)))
+    :gen                 #(gen/double* {:infinite? false
+                                        :NaN?      false
+                                        :min       0})
+    :description         "A non-negative IEEE-754 floating point number representing time in minutes"
+    :json-schema/example "45.0"}))
 
 
 (spec/def ::specific-gravity
   (st/spec
-    {:type                :double
-     :spec                (spec/and number? pos?)
-     :gen                 #(gen/double* {:infinite? false :NaN? false :min 0})
-     :description         "A positive IEEE-754 floating point number representing the specific gravity relative to the weight of the same size sample of water"
-     :json-schema/example "1.045"}))
+   {:type                :double
+    :spec                (spec/and number? pos?)
+    :gen                 #(gen/double* {:infinite? false
+                                        :NaN?      false
+                                        :min       0})
+    :description         "A positive IEEE-754 floating point number representing the specific gravity relative to the weight of the same size sample of water"
+    :json-schema/example "1.045"}))
 
 
 (spec/def ::kilopascal
   (st/spec
-    {:type                :double
-     :spec                (spec/and number? #(not (neg? %)))
-     :gen                 #(gen/double* {:infinite? false :NaN? false :min 0})
-     :description         "A non-negative IEEE-754 floating point number representing pressure in kilopascals"
-     :json-schema/example "101.325"}))
+   {:type                :double
+    :spec                (spec/and number? #(not (neg? %)))
+    :gen                 #(gen/double* {:infinite? false
+                                        :NaN?      false
+                                        :min       0})
+    :description         "A non-negative IEEE-754 floating point number representing pressure in kilopascals"
+    :json-schema/example "101.325"}))
 
 
 (spec/def ::percent
   (st/spec
-    {:type                :double
-     :spec                number?
-     :gen                 #(gen/double* {:infinite? false :NaN? false})
-     :description         "An IEEE-754 floating point number representing a human-readable percentage - e.g 5.5"
-     :json-schema/example "4.5"}))
+   {:type                :double
+    :spec                number?
+    :gen                 #(gen/double* {:infinite? false
+                                        :NaN?      false})
+    :description         "An IEEE-754 floating point number representing a human-readable percentage - e.g 5.5"
+    :json-schema/example "4.5"}))
 
 
 (spec/def ::boolean

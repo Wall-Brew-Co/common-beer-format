@@ -1,46 +1,47 @@
 (ns common-beer-format.miscs
   "The definition of a misc record used in BeerXML"
   {:added "2.0"}
-  (:require [clojure.spec.alpha :as s]
+  (:require [clojure.spec.alpha :as spec]
             [clojure.string :as str]
-            [common-beer-format.primitives :as prim]
             [common-beer-format.impl :as impl]
-            [spec-tools.core :as st]))
+            [common-beer-format.primitives :as prim]
+            [spec-tools.core :as st])
+  (:refer-clojure :exclude [name type]))
 
 
 (def ^:const misc-types
   #{"spice" "fining" "water agent" "herb" "flavor" "other"})
 
 
-(s/def ::type
+(spec/def ::type
   (st/spec
-    {:type                :string
-     :spec                (s/and string?
-                                 #(not (str/blank? %))
-                                 #(contains? misc-types (str/lower-case %)))
-     :gen #(s/gen misc-types)
-     :description         "A case-insensitive string representing the type of the miscellaneous item added to the beer.
+   {:type                :string
+    :spec                (spec/and string?
+                                   #(not (str/blank? %))
+                                   #(contains? misc-types (str/lower-case %)))
+    :gen                 #(spec/gen misc-types)
+    :description         "A case-insensitive string representing the type of the miscellaneous item added to the beer.
                           Must be one of: 'Spice', 'Fining', 'Water Agent', 'Herb', 'Flavor', and 'Other'"
-     :json-schema/example "Spice"}))
+    :json-schema/example "Spice"}))
 
 
 (def ^:const misc-uses
   #{"boil" "mash" "primary" "secondary" "bottling"})
 
 
-(s/def ::use
+(spec/def ::use
   (st/spec
-    {:type                :string
-     :spec                (s/and string?
-                                 #(not (str/blank? %))
-                                 #(contains? misc-uses (str/lower-case %)))
-     :gen                #(s/gen misc-uses)
-     :description         "A case-insensitive string representing the point in the brewing cycle the miscellaneous ingredient is added to the beer.
+   {:type                :string
+    :spec                (spec/and string?
+                                   #(not (str/blank? %))
+                                   #(contains? misc-uses (str/lower-case %)))
+    :gen                 #(spec/gen misc-uses)
+    :description         "A case-insensitive string representing the point in the brewing cycle the miscellaneous ingredient is added to the beer.
                           Must be one of: 'Boil', 'Mash', 'Primary', 'Secondary', and 'Bottling'"
-     :json-schema/example "Mash"}))
+    :json-schema/example "Mash"}))
 
 
-(s/def ::time
+(spec/def ::time
   (st/spec
     {:type                :double
      :spec                ::prim/minute
@@ -51,7 +52,7 @@
      :json-schema/example "15.0"}))
 
 
-(s/def ::use-for
+(spec/def ::use-for
   (st/spec
     {:type                :string
      :spec                ::prim/text
@@ -59,42 +60,42 @@
      :json-schema/example "Used to impart a mild, zesty flavor"}))
 
 
-(s/def ::misc
+(spec/def ::misc
   (st/spec
     {:type        :map
      :description "A record representing a miscellaneous ingredient in a beer recipe."
-     :spec        (s/keys :req-un [::prim/name
-                                   ::prim/version
-                                   ::type
-                                   ::use
-                                   ::time
-                                   ::prim/amount]
-                          :opt-un [::prim/amount-is-weight
-                                   ::use-for
-                                   ::prim/notes
-                                   ::prim/display-amount
-                                   ::prim/inventory
-                                   ::prim/display-time])}))
+     :spec        (spec/keys :req-un [::prim/name
+                                      ::prim/version
+                                      ::type
+                                      ::use
+                                      ::time
+                                      ::prim/amount]
+                             :opt-un [::prim/amount-is-weight
+                                      ::use-for
+                                      ::prim/notes
+                                      ::prim/display-amount
+                                      ::prim/inventory
+                                      ::prim/display-time])}))
 
 
-(s/def ::misc-wrapper
+(spec/def ::misc-wrapper
   (st/spec
     {:type        :map
      :description "A ::misc record wrapped in a :misc map"
-     :spec        (s/keys :req-un [::misc])}))
+     :spec        (spec/keys :req-un [::misc])}))
 
 
-(s/def ::miscs
+(spec/def ::miscs
   (st/spec
     {:type          :vector
      :description   "A vector of valid ::misc records"
-     :spec          (s/coll-of ::misc-wrapper)
+     :spec          (spec/coll-of ::misc-wrapper :into [] :kind vector?)
      :decode/string #(impl/decode-sequence %1 ::misc-wrapper %2)
      :encode/string #(impl/encode-sequence %1 ::misc-wrapper %2)}))
 
 
-(s/def ::miscs-wrapper
+(spec/def ::miscs-wrapper
   (st/spec
     {:type        :map
      :description "A ::miscs record"
-     :spec        (s/keys :req-un [::miscs])}))
+     :spec        (spec/keys :req-un [::miscs])}))

@@ -176,14 +176,14 @@
 
 (spec/def ::type
   (st/spec
-    {:type                :string
-     :spec                (spec/and string?
-                                    #(not (str/blank? %))
-                                    #(contains? fermentable-types (str/lower-case %)))
-     :gen                 #(spec/gen fermentable-types)
-     :description         "A case-insensitive string representing the form of the fermentable.
+   {:type                :string
+    :spec                (spec/and string?
+                                   #(not (str/blank? %))
+                                   #(contains? fermentable-types (str/lower-case %)))
+    :gen                 #(spec/gen fermentable-types)
+    :description         "A case-insensitive string representing the form of the fermentable.
                           Must be one of: 'Grain', 'Sugar', 'Extract', 'Dry Extract', and 'Adjunct'"
-     :json-schema/example "grain"}))
+    :json-schema/example "grain"}))
 
 
 (spec/def ::yield

@@ -232,9 +232,5 @@
                    fermentables/type
                    fermentables/version
                    fermentables/yield)))
-    (is (= {}
-           (dissoc sample-fermentable-wrapper
-                   fermentables/fermentable)))
-    (is (= {}
-           (dissoc sample-fermentables-wrapper
-                   fermentables/fermentables)))))
+    (is (= {} (dissoc sample-fermentable-wrapper fermentables/fermentable)))
+    (is (= {} (dissoc sample-fermentables-wrapper fermentables/fermentables)))))

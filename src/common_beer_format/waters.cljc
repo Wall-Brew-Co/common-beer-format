@@ -1,17 +1,18 @@
 (ns common-beer-format.waters
   "The definition of a water record used in BeerXML"
   {:added "2.0"}
-  (:require [clojure.spec.alpha :as s]
+  (:require [clojure.spec.alpha :as spec]
             [clojure.test.check.generators :as gen]
-            [common-beer-format.primitives :as prim]
             [common-beer-format.impl :as impl]
-            [spec-tools.core :as st]))
+            [common-beer-format.primitives :as prim]
+            [spec-tools.core :as st])
+  (:refer-clojure :exclude [name]))
 
 
-(s/def ::calcium
+(spec/def ::calcium
   (st/spec
     {:type                :double
-     :spec                (s/and number? pos?)
+     :spec                (spec/and number? pos?)
      :gen                 #(gen/double* {:infinite? false
                                          :NaN?      false
                                          :min       0})
@@ -19,10 +20,10 @@
      :json-schema/example "2.5"}))
 
 
-(s/def ::bicarbonate
+(spec/def ::bicarbonate
   (st/spec
     {:type                :double
-     :spec                (s/and number? pos?)
+     :spec                (spec/and number? pos?)
      :gen                 #(gen/double* {:infinite? false
                                          :NaN?      false
                                          :min       0})
@@ -30,10 +31,10 @@
      :json-schema/example "2.5"}))
 
 
-(s/def ::sulfate
+(spec/def ::sulfate
   (st/spec
     {:type                :double
-     :spec                (s/and number? pos?)
+     :spec                (spec/and number? pos?)
      :gen                 #(gen/double* {:infinite? false
                                          :NaN?      false
                                          :min       0})
@@ -41,10 +42,10 @@
      :json-schema/example "2.5"}))
 
 
-(s/def ::chloride
+(spec/def ::chloride
   (st/spec
     {:type                :double
-     :spec                (s/and number? pos?)
+     :spec                (spec/and number? pos?)
      :gen                 #(gen/double* {:infinite? false
                                          :NaN?      false
                                          :min       0})
@@ -52,10 +53,10 @@
      :json-schema/example "2.5"}))
 
 
-(s/def ::sodium
+(spec/def ::sodium
   (st/spec
     {:type                :double
-     :spec                (s/and number? pos?)
+     :spec                (spec/and number? pos?)
      :gen                 #(gen/double* {:infinite? false
                                          :NaN?      false
                                          :min       0})
@@ -63,10 +64,10 @@
      :json-schema/example "2.5"}))
 
 
-(s/def ::magnesium
+(spec/def ::magnesium
   (st/spec
     {:type                :double
-     :spec                (s/and number? pos?)
+     :spec                (spec/and number? pos?)
      :gen                 #(gen/double* {:infinite? false
                                          :NaN?      false
                                          :min       0})
@@ -74,10 +75,10 @@
      :json-schema/example "2.5"}))
 
 
-(s/def ::ph
+(spec/def ::ph
   (st/spec
     {:type                :double
-     :spec                (s/and number? pos?)
+     :spec                (spec/and number? pos?)
      :gen                 #(gen/double* {:infinite? false
                                          :NaN?      false
                                          :min       0})
@@ -85,42 +86,42 @@
      :json-schema/example "2.5"}))
 
 
-(s/def ::water
+(spec/def ::water
   (st/spec
     {:type        :map
      :description "A record representing the water in a beer recipe."
-     :spec        (s/keys :req-un [::prim/name
-                                   ::prim/version
-                                   ::prim/amount
-                                   ::calcium
-                                   ::bicarbonate
-                                   ::sulfate
-                                   ::chloride
-                                   ::sodium
-                                   ::magnesium]
-                          :opt-un [::ph
-                                   ::prim/notes
-                                   ::prim/display-amount])}))
+     :spec        (spec/keys :req-un [::prim/name
+                                      ::prim/version
+                                      ::prim/amount
+                                      ::calcium
+                                      ::bicarbonate
+                                      ::sulfate
+                                      ::chloride
+                                      ::sodium
+                                      ::magnesium]
+                             :opt-un [::ph
+                                      ::prim/notes
+                                      ::prim/display-amount])}))
 
 
-(s/def ::water-wrapper
+(spec/def ::water-wrapper
   (st/spec
     {:type        :map
      :description "A ::water record wrapped in a ::water map"
-     :spec        (s/keys :req-un [::water])}))
+     :spec        (spec/keys :req-un [::water])}))
 
 
-(s/def ::waters
+(spec/def ::waters
   (st/spec
     {:type          :vector
      :description   "A vector of valid ::water records"
-     :spec          (s/coll-of ::water-wrapper)
+     :spec          (spec/coll-of ::water-wrapper :into [] :kind vector?)
      :decode/string #(impl/decode-sequence %1 ::water-wrapper %2)
      :encode/string #(impl/encode-sequence %1 ::water-wrapper %2)}))
 
 
-(s/def ::waters-wrapper
+(spec/def ::waters-wrapper
   (st/spec
     {:type        :map
      :description "A ::waterss-wrapper record"
-     :spec        (s/keys :req-un [::waters])}))
+     :spec        (spec/keys :req-un [::waters])}))

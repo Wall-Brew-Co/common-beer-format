@@ -1,175 +1,332 @@
 (ns common-beer-format.hops
   "The definition of a hop record used in BeerXML"
   {:added "2.0"}
-  (:require [clojure.spec.alpha :as s]
+  (:require [clojure.spec.alpha :as spec]
             [clojure.string :as str]
-            [common-beer-format.primitives :as prim]
             [common-beer-format.impl :as impl]
-            [spec-tools.core :as st]))
+            [common-beer-format.primitives :as prim]
+            [spec-tools.core :as st])
+  (:refer-clojure :exclude [name type time use]))
 
+(def ^:const hop
+  "A map representing a hop."
+  :hop)
 
-(s/def ::alpha
+(def ^:const hops
+  "A vector of hops."
+  :hops)
+
+(def ^:const name
+  "The name of the hop."
+  :name)
+
+(def ^:const version
+  "The version of the BeerXML specification used to create the hop record."
+  :version)
+
+(def ^:const alpha
+  "The percent contents of alpha acid in the hop."
+  :alpha)
+
+(def ^:const amount
+  "The amount of the hop in the recipe."
+  :amount)
+
+(def ^:const use
+  "The means by which the hop is added to the beer.
+
+   Currently, the following uses are allowed:
+
+   - `boil` - Hops added to the boil.
+   - `dry hop` - Hops added to the fermentation vessel after pitching yeast.
+   - `mash` - Hops added to the mash prior to the boil.
+   - `first wort` - Hops added to the first wort.
+   - `aroma` - Hops added to the beer for aroma."
+  :use)
+
+(def ^:const time
+  "The time in minutes the hop was added dependant on the `:use` field."
+  :time)
+
+(def ^:const notes
+  "Notes about the hop."
+  :notes)
+
+(def ^:const type
+  "The type of hop added to the beer, based on its intended purpose.
+
+   Currently, the following types are allowed:
+
+   - `bittering` - Hops added solely for their bittering properties.
+   - `aroma` - Hops added solely for their aromatic properties and flavor.
+   - `both` - Hops which may be added for both their bittering and aromatic properties."
+  :type)
+
+(def ^:const form
+  "The form of the hop added to the beer.
+
+   Currently, the following forms are allowed:
+
+   - `pellet` - Hops in pellet form.
+   - `plug` - Hops in plug form.
+   - `leaf` - Hops in leaf form."
+  :form)
+
+(def ^:const beta
+  "The percent contents of beta acid in the hop."
+  :beta)
+
+(def ^:const hsi
+  "The Hop Stability Index, or percent decay of a hop's alpha acid over six months."
+  :hsi)
+
+(def ^:const origin
+  "The origin of the hop."
+  :origin)
+
+(def ^:const substitutes
+  "A string containing suitable alternative hop names to use as a replcaement for the hop."
+  :substitutes)
+
+(def ^:const humulene
+  "The percent contents of humulene in the hop, which contributes to the unique aroma of hops."
+  :humulene)
+
+(def ^:const caryophyllene
+  "The percent contents of caryophyllene in the hop, which contributes to the peppery characteristics of hop aroma."
+  :caryophyllene)
+
+(def ^:const cohumulone
+  "The percent contents of cohumulone in the hop, which contributes to the sour characteristics of hop aroma."
+  :cohumulone)
+
+(def ^:const myrcene
+  "The percent contents of myrcene in the hop, which contributes to the earthy characteristics of hop aroma."
+  :myrcene)
+
+(def ^:const display-amount
+  "The amount of the hop in the recipe, formatted for display."
+  :display-amount)
+
+(def ^:const display-time
+  "The time in minutes the hop was added dependant on the `:use` field, formatted for display."
+  :display-time)
+
+(def ^:const inventory
+  "The amount of the hop in inventory."
+  :inventory)
+
+(spec/def ::alpha
   (st/spec
-    {:type                :double
-     :spec                ::prim/percent
-     :description         "A non-negative IEEE-754 floating point number representing the percent contents of alpha acid in the hop"
-     :json-schema/example "10.7"}))
+   {:type                :double
+    :spec                ::prim/percent
+    :description         "A non-negative IEEE-754 floating point number representing the percent contents of alpha acid in the hop"
+    :json-schema/example "10.7"}))
+
+(def ^:const boil
+  "Hops added to the boil."
+  "boil")
+
+(def ^:const dry-hop
+  "Hops added to the fermentation vessel after pitching yeast."
+  "dry hop")
+
+(def ^:const mash
+  "Hops added to the mash prior to the boil."
+  "mash")
+
+(def ^:const first-wort
+  "Hops added to the first wort."
+  "first wort")
+
+(def ^:const aroma
+  "Hops added to the beer for aroma."
+  "aroma")
 
 
 (def ^:const hop-uses
-  #{"boil" "dry hop" "mash" "first wort" "aroma"})
+  "The allowed values for the means by which the hop is added to the beer."
+  #{aroma 
+    boil 
+    dry-hop
+    first-wort
+    mash})
 
 
-(s/def ::use
+(spec/def ::use
   (st/spec
-    {:type                :string
-     :spec                (s/and string?
-                                 #(not (str/blank? %))
-                                 #(contains? hop-uses (str/lower-case %)))
-     :gen                 #(s/gen hop-uses)
-     :description         "A case-insensitive string representing the means by which the hop is added to the beer.
+   {:type                :string
+    :spec                (spec/and string?
+                                   #(not (str/blank? %))
+                                   #(contains? hop-uses (str/lower-case %)))
+    :gen                 #(spec/gen hop-uses)
+    :description         "A case-insensitive string representing the means by which the hop is added to the beer.
                           Must be one of: 'Boil', 'Dry Hop', 'Mash', 'First Wort', and 'Aroma'"
-     :json-schema/example "mash"}))
+    :json-schema/example "mash"}))
 
 
-(s/def ::time
+(spec/def ::time
   (st/spec
-    {:type                :double
-     :spec                ::prim/minute
-     :description         (str/join "\n"
-                                    ["A non-negative IEEE-754 floating point number representing the time in minutes the hop was added dependant on the :use field."
-                                     "For \"Boil\" this is the boil time."
-                                     "For \"Mash\" this is the mash time."
-                                     "For \"First Wort\" this is the boil time."
-                                     "For \"Aroma\" this is the steep time."
-                                     "For \"Dry Hop\" this is the amount of time to dry hop."])
-     :json-schema/example "15.0"}))
+   {:type                :double
+    :spec                ::prim/minute
+    :description         (str/join "\n"
+                                   ["A non-negative IEEE-754 floating point number representing the time in minutes the hop was added dependant on the :use field."
+                                    "For \"Boil\" this is the boil time."
+                                    "For \"Mash\" this is the mash time."
+                                    "For \"First Wort\" this is the boil time."
+                                    "For \"Aroma\" this is the steep time."
+                                    "For \"Dry Hop\" this is the amount of time to dry hop."])
+    :json-schema/example "15.0"}))
 
+(def ^:const bittering
+  "Hops added to the boil for bittering."
+  "bittering")
+
+(def ^:const both
+  "Hops added to the boil for both bittering and aroma."
+  "both")
 
 (def ^:const hop-types
-  #{"bittering" "aroma" "both"})
+  "The allowed values for the type of hop."
+  #{bittering
+    aroma
+    both})
 
 
-(s/def ::type
+(spec/def ::type
   (st/spec
-    {:type                :string
-     :spec                (s/and string?
-                                 #(not (str/blank? %))
-                                 #(contains? hop-types (str/lower-case %)))
-     :gen                 #(s/gen hop-types)
-     :description         "A case-insensitive string representing the means by which the hop is added to the beer.
+   {:type                :string
+    :spec                (spec/and string?
+                                   #(not (str/blank? %))
+                                   #(contains? hop-types (str/lower-case %)))
+    :gen                 #(spec/gen hop-types)
+    :description         "A case-insensitive string representing the means by which the hop is added to the beer.
                           Must be one of: 'Bittering', 'Aroma', and 'Both'"
-     :json-schema/example "bittering"}))
+    :json-schema/example "bittering"}))
 
+(def ^:const pellet
+  "Hops added to the boil in pellet form."
+  "pellet")
+
+(def ^:const plug
+  "Hops added to the boil in plug form."
+  "plug")
+
+(def ^:const leaf
+  "Hops added to the boil in whole leaf form."
+  "leaf")
 
 (def ^:const hop-forms
-  #{"pellet" "plug" "leaf"})
+  "The allowed values for the physical form of the hop."
+  #{pellet
+    plug
+    leaf})
 
 
-(s/def ::form
+(spec/def ::form
   (st/spec
-    {:type                :string
-     :spec                (s/and string?
-                                 #(not (str/blank? %))
-                                 #(contains? hop-forms (str/lower-case %)))
-     :gen #(s/gen hop-forms)
-     :description         "A case-insensitive string representing the from of the hop added to the beer.
+   {:type                :string
+    :spec                (spec/and string?
+                                   #(not (str/blank? %))
+                                   #(contains? hop-forms (str/lower-case %)))
+    :gen                 #(spec/gen hop-forms)
+    :description         "A case-insensitive string representing the from of the hop added to the beer.
                           Must be one of: 'Pellet', 'Plug' or 'Leaf'"
-     :json-schema/example "leaf"}))
+    :json-schema/example "leaf"}))
 
 
-(s/def ::beta
+(spec/def ::beta
   (st/spec
-    {:type                :double
-     :spec                ::prim/percent
-     :description         "A non-negative IEEE-754 floating point number representing the percent contents of beta acid in the hop"
-     :json-schema/example "10.7"}))
+   {:type                :double
+    :spec                ::prim/percent
+    :description         "A non-negative IEEE-754 floating point number representing the percent contents of beta acid in the hop"
+    :json-schema/example "10.7"}))
 
 
-(s/def ::hsi
+(spec/def ::hsi
   (st/spec
-    {:type                :double
-     :spec                ::prim/percent
-     :description         "A non-negative IEEE-754 floating point number representing the Hop Stability Index, or percent decay of a hop's alpha acid over six months"
-     :json-schema/example "2.2"}))
+   {:type                :double
+    :spec                ::prim/percent
+    :description         "A non-negative IEEE-754 floating point number representing the Hop Stability Index, or percent decay of a hop's alpha acid over six months"
+    :json-schema/example "2.2"}))
 
 
-(s/def ::humulene
+(spec/def ::humulene
   (st/spec
-    {:type                :double
-     :spec                ::prim/percent
-     :description         "A non-negative IEEE-754 floating point number representing the percent contents of humulene in the hop"
-     :json-schema/example "10.7"}))
+   {:type                :double
+    :spec                ::prim/percent
+    :description         "A non-negative IEEE-754 floating point number representing the percent contents of humulene in the hop"
+    :json-schema/example "10.7"}))
 
 
-(s/def ::caryophyllene
+(spec/def ::caryophyllene
   (st/spec
-    {:type                :double
-     :spec                ::prim/percent
-     :description         "A non-negative IEEE-754 floating point number representing the percent contents of caryophyllene in the hop"
-     :json-schema/example "10.7"}))
+   {:type                :double
+    :spec                ::prim/percent
+    :description         "A non-negative IEEE-754 floating point number representing the percent contents of caryophyllene in the hop"
+    :json-schema/example "10.7"}))
 
 
-(s/def ::cohumulone
+(spec/def ::cohumulone
   (st/spec
-    {:type                :double
-     :spec                ::prim/percent
-     :description         "A non-negative IEEE-754 floating point number representing the percent contents of cohumulone in the hop"
-     :json-schema/example "10.7"}))
+   {:type                :double
+    :spec                ::prim/percent
+    :description         "A non-negative IEEE-754 floating point number representing the percent contents of cohumulone in the hop"
+    :json-schema/example "10.7"}))
 
 
-(s/def ::myrcene
+(spec/def ::myrcene
   (st/spec
-    {:type                :double
-     :spec                ::prim/percent
-     :description         "A non-negative IEEE-754 floating point number representing the percent contents of myrcene in the hop"
-     :json-schema/example "10.7"}))
+   {:type                :double
+    :spec                ::prim/percent
+    :description         "A non-negative IEEE-754 floating point number representing the percent contents of myrcene in the hop"
+    :json-schema/example "10.7"}))
 
 
-(s/def ::hop
+(spec/def ::hop
   (st/spec
-    {:type        :map
-     :description "A record representing a hop in a beer recipe."
-     :spec        (s/keys :req-un [::prim/name
-                                   ::prim/version
-                                   ::alpha
-                                   ::prim/amount
-                                   ::use
-                                   ::time]
-                          :opt-un [::prim/notes
-                                   ::type
-                                   ::form
-                                   ::beta
-                                   ::hsi
-                                   ::prim/origin
-                                   ::prim/substitutes
-                                   ::humulene
-                                   ::caryophyllene
-                                   ::cohumulone
-                                   ::myrcene
-                                   ::prim/display-amount
-                                   ::prim/inventory
-                                   ::prim/display-time])}))
+   {:type        :map
+    :description "A record representing a hop in a beer recipe."
+    :spec        (spec/keys :req-un [::prim/name
+                                     ::prim/version
+                                     ::alpha
+                                     ::prim/amount
+                                     ::use
+                                     ::time]
+                            :opt-un [::prim/notes
+                                     ::type
+                                     ::form
+                                     ::beta
+                                     ::hsi
+                                     ::prim/origin
+                                     ::prim/substitutes
+                                     ::humulene
+                                     ::caryophyllene
+                                     ::cohumulone
+                                     ::myrcene
+                                     ::prim/display-amount
+                                     ::prim/inventory
+                                     ::prim/display-time])}))
 
 
-(s/def ::hop-wrapper
+(spec/def ::hop-wrapper
   (st/spec
-    {:type        :map
-     :description "A ::hop record wrapped in a ::hop map"
-     :spec        (s/keys :req-un [::hop])}))
+   {:type        :map
+    :description "A ::hop record wrapped in a ::hop map"
+    :spec        (spec/keys :req-un [::hop])}))
 
 
-(s/def ::hops
+(spec/def ::hops
   (st/spec
-    {:type          :vector
-     :description   "A vector of valid ::hop records"
-     :spec          (s/coll-of ::hop-wrapper)
-     :decode/string #(impl/decode-sequence %1 ::hop-wrapper %2)
-     :encode/string #(impl/encode-sequence %1 ::hop-wrapper %2)}))
+   {:type          :vector
+    :description   "A vector of valid ::hop records"
+    :spec          (spec/coll-of ::hop-wrapper :into [] :kind vector?)
+    :decode/string #(impl/decode-sequence %1 ::hop-wrapper %2)
+    :encode/string #(impl/encode-sequence %1 ::hop-wrapper %2)}))
 
 
-(s/def ::hops-wrapper
+(spec/def ::hops-wrapper
   (st/spec
-    {:type        :map
-     :description "A ::hops-wrapper record"
-     :spec        (s/keys :req-un [::hops])}))
+   {:type        :map
+    :description "A ::hops-wrapper record"
+    :spec        (spec/keys :req-un [::hops])}))
