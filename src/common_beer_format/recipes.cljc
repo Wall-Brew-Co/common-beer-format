@@ -17,6 +17,36 @@
             [spec-tools.core :as st])
   (:refer-clojure :exclude [name type]))
 
+(def ^:const recipe
+  "A map representing a recipe in BeerXML."
+  :recipe)
+
+(def ^:const recipes
+  "A vector of maps representing recipes in BeerXML."
+  :recipes)
+
+(def ^:const name
+  "A string representing the name of the recipe."
+  :name)
+
+(def ^:const version
+  "A string representing the BeerXML version the recipe was defined with."
+  :version)
+
+(def ^:const type
+  "A string representing the type of recipe.
+   
+   Currenltly, BeerXML support the following types:
+   
+   - `all-grain`: A recipe that uses only malted grains.
+   - `partial-mash`: A recipe that uses a combination of malted grains and malt extract.
+   - `extract`: A recipe that uses only malt extract."
+  :type)
+
+(def ^:const hops
+  "A vector of maps representing hops used in the recipe."
+  cbf-hops/hops)
+
 
 (def ^:const recipe-types
   #{"extract" "partial mash" "all grain"})
@@ -26,8 +56,8 @@
   (st/spec
     {:type                :string
      :spec                (spec/and string?
-                                 #(not (str/blank? %))
-                                 #(contains? recipe-types (str/lower-case %)))
+                                    #(not (str/blank? %))
+                                    #(contains? recipe-types (str/lower-case %)))
      :gen                 #(spec/gen recipe-types)
      :description         (str "A case-insensitive string representing the type of recipe.\n"
                                "Must be one of: 'Extract', 'Partial Mash', and 'All Grain'")
@@ -126,13 +156,13 @@
 
 (spec/def ::primary-age
   (st/spec
-   {:type                :double
-    :spec                (spec/and number? pos?)
-    :gen                 #(gen/double* {:infinite? false
-                                        :NaN?      false
-                                        :min       0})
-    :description         "A positive IEEE-754 floating point number representing the number of days spent in primary fermentation"
-    :json-schema/example "12.0"}))
+    {:type                :double
+     :spec                (spec/and number? pos?)
+     :gen                 #(gen/double* {:infinite? false
+                                         :NaN?      false
+                                         :min       0})
+     :description         "A positive IEEE-754 floating point number representing the number of days spent in primary fermentation"
+     :json-schema/example "12.0"}))
 
 
 (spec/def ::primary-temp
@@ -145,13 +175,13 @@
 
 (spec/def ::secondary-age
   (st/spec
-   {:type                :double
-    :spec                (spec/and number? #(not (neg? %)))
-    :gen                 #(gen/double* {:infinite? false
-                                        :NaN?      false
-                                        :min       0})
-    :description         "A non-negative IEEE-754 floating point number representing the number of days spent in secondary fermentation"
-    :json-schema/example "12.0"}))
+    {:type                :double
+     :spec                (spec/and number? #(not (neg? %)))
+     :gen                 #(gen/double* {:infinite? false
+                                         :NaN?      false
+                                         :min       0})
+     :description         "A non-negative IEEE-754 floating point number representing the number of days spent in secondary fermentation"
+     :json-schema/example "12.0"}))
 
 
 (spec/def ::secondary-temp
@@ -164,13 +194,13 @@
 
 (spec/def ::tertiary-age
   (st/spec
-   {:type                :double
-    :spec                (spec/and number? #(not (neg? %)))
-    :gen                 #(gen/double* {:infinite? false
-                                        :NaN?      false
-                                        :min       0})
-    :description         "A non-negative IEEE-754 floating point number representing the number of days spent in tertiary fermentation"
-    :json-schema/example "12.0"}))
+    {:type                :double
+     :spec                (spec/and number? #(not (neg? %)))
+     :gen                 #(gen/double* {:infinite? false
+                                         :NaN?      false
+                                         :min       0})
+     :description         "A non-negative IEEE-754 floating point number representing the number of days spent in tertiary fermentation"
+     :json-schema/example "12.0"}))
 
 
 (spec/def ::tertiary-temp
@@ -183,13 +213,13 @@
 
 (spec/def ::age
   (st/spec
-   {:type                :double
-    :spec                (spec/and number? #(not (neg? %)))
-    :gen                 #(gen/double* {:infinite? false
-                                        :NaN?      false
-                                        :min       0})
-    :description         "A non-negative IEEE-754 floating point number representing the number of days to bottle age the beer"
-    :json-schema/example "12.0"}))
+    {:type                :double
+     :spec                (spec/and number? #(not (neg? %)))
+     :gen                 #(gen/double* {:infinite? false
+                                         :NaN?      false
+                                         :min       0})
+     :description         "A non-negative IEEE-754 floating point number representing the number of days to bottle age the beer"
+     :json-schema/example "12.0"}))
 
 
 (spec/def ::age
@@ -299,13 +329,13 @@
 
 (spec/def ::ibu
   (st/spec
-   {:type                :double
-    :spec                (spec/and number? #(not (neg? %)))
-    :gen                 #(gen/double* {:infinite? false
-                                        :NaN?      false
-                                        :min       0})
-    :description         "A positive IEEE-754 floating point number representing the bitterness in IBUs for the recipe"
-    :json-schema/example "40"}))
+    {:type                :double
+     :spec                (spec/and number? #(not (neg? %)))
+     :gen                 #(gen/double* {:infinite? false
+                                         :NaN?      false
+                                         :min       0})
+     :description         "A positive IEEE-754 floating point number representing the bitterness in IBUs for the recipe"
+     :json-schema/example "40"}))
 
 
 (def ^:const ibu-method-types
@@ -314,14 +344,14 @@
 
 (spec/def ::ibu-method
   (st/spec
-   {:type                :string
-    :spec                (spec/and string?
-                                   #(not (str/blank? %))
-                                   #(contains? ibu-method-types (str/lower-case %)))
-    :gen                 #(spec/gen ibu-method-types)
-    :description         "A case-insensitive string representing the method of calculation used derive the IBUs.
+    {:type                :string
+     :spec                (spec/and string?
+                                    #(not (str/blank? %))
+                                    #(contains? ibu-method-types (str/lower-case %)))
+     :gen                 #(spec/gen ibu-method-types)
+     :description         "A case-insensitive string representing the method of calculation used derive the IBUs.
                           Must be one of: 'Rager', 'Tinseth', and 'Garetz'"
-    :json-schema/example "Garetz"}))
+     :json-schema/example "Garetz"}))
 
 
 (spec/def ::est-abv

@@ -49,14 +49,14 @@
 
 (spec/def ::type
   (st/spec
-   {:type                :string
-    :spec                (spec/and string?
-                                   #(not (str/blank? %))
-                                   #(contains? style-types (str/lower-case %)))
-    :gen                 #(spec/gen style-types)
-    :description         "A case-insensitive string representing the type of beverage the style dictates.
+    {:type                :string
+     :spec                (spec/and string?
+                                    #(not (str/blank? %))
+                                    #(contains? style-types (str/lower-case %)))
+     :gen                 #(spec/gen style-types)
+     :description         "A case-insensitive string representing the type of beverage the style dictates.
                           Must be one of: 'Lager', 'Ale', 'Mead', 'Wheat', 'Mixed', and 'Cider'"
-    :json-schema/example "Lager"}))
+     :json-schema/example "Lager"}))
 
 
 (spec/def ::og-min

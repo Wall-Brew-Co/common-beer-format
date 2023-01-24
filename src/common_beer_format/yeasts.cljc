@@ -15,14 +15,14 @@
 
 (spec/def ::type
   (st/spec
-   {:type                :string
-    :spec                (spec/and string?
-                                   #(not (str/blank? %))
-                                   #(contains? yeast-types (str/lower-case %)))
-    :gen                 #(spec/gen yeast-types)
-    :description         "A case-insensitive string representing the type of yeast added to the beer.
+    {:type                :string
+     :spec                (spec/and string?
+                                    #(not (str/blank? %))
+                                    #(contains? yeast-types (str/lower-case %)))
+     :gen                 #(spec/gen yeast-types)
+     :description         "A case-insensitive string representing the type of yeast added to the beer.
                           Must be one of: 'Ale', 'Lager', 'Wheat', 'Wine', and 'Champagne'"
-    :json-schema/example "Ale"}))
+     :json-schema/example "Ale"}))
 
 
 (def ^:const yeast-forms
@@ -33,8 +33,8 @@
   (st/spec
     {:type                :string
      :spec                (spec/and string?
-                                 #(not (str/blank? %))
-                                 #(contains? yeast-forms (str/lower-case %)))
+                                    #(not (str/blank? %))
+                                    #(contains? yeast-forms (str/lower-case %)))
      :gen #(spec/gen yeast-forms)
      :description         "A case-insensitive string representing the form of the yeast added to the beer.
                           Must be one of: 'Liquid', 'Dry', 'Slant', and 'Culture'"
@@ -81,8 +81,8 @@
   (st/spec
     {:type                :string
      :spec                (spec/and string?
-                                 #(not (str/blank? %))
-                                 #(contains? yeast-flocculation-types (str/lower-case %)))
+                                    #(not (str/blank? %))
+                                    #(contains? yeast-flocculation-types (str/lower-case %)))
      :gen #(spec/gen yeast-flocculation-types)
      :description         "A case-insensitive string representing how dense of a floc the yeast will form.
                           Must be one of: 'Low', 'Medium', 'High', and 'Very High'"

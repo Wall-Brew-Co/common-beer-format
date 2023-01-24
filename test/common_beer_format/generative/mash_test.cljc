@@ -6,6 +6,7 @@
             [common-beer-format.mash :as mash]
             [common-beer-format.primitives :as primitives]))
 
+
 (deftest data-requirements-test
   (testing "Objects specs require data"
     (is (not (spec/valid? ::mash/mash-step nil)))
@@ -21,6 +22,7 @@
     (is (not (spec/valid? ::mash/mash-steps nil)))
     (is (spoon.spec/test-valid? ::mash/mash-steps []))
     (is (not (spec/valid? ::mash/mash-steps {})))))
+
 
 (deftest valid-generators-test
   (testing "Ensure all generators work out of the box"
@@ -52,6 +54,7 @@
     (is (gen/generatable? ::mash/display-tun-temp))
     (is (gen/generatable? ::mash/tun-weight))
     (is (gen/generatable? ::mash/water-grain-ratio))))
+
 
 (def ^:const sample-mash-step
   "A hard-coded sample mash step for static unit tests"
@@ -109,16 +112,18 @@
   "A hard-coded sample mash-wrapper for static unit tests"
   {:mash sample-mash})
 
+
 (deftest mash-step-type-test
   (testing "Ensure type map contains all mash step types"
     (is (contains? mash/mash-step-types mash/infusion))
     (is (contains? mash/mash-step-types mash/decoction))
     (is (contains? mash/mash-step-types mash/temperature)))
   (testing "Ensure type map contains only known mash step types"
-    (is (= #{} (disj mash/mash-step-types 
+    (is (= #{} (disj mash/mash-step-types
                      mash/infusion
-                     mash/decoction 
+                     mash/decoction
                      mash/temperature)))))
+
 
 (deftest static-test-data-check
   (testing "Since this library assumes common-beer-format data is utilized, make sure static test data conforms"
@@ -132,6 +137,7 @@
         "Static test data should conform to common-beer-format.hop/mash")
     (is (spoon.spec/test-valid? ::mash/mash-wrapper sample-mash-wrapper)
         "Static test data should conform to common-beer-format.hop/mash-wrapper")))
+
 
 (deftest static-keys-test
   (testing "Ensure static keys exist within complete records"

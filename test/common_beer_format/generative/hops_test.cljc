@@ -6,6 +6,7 @@
             [common-beer-format.hops :as hops]
             [common-beer-format.primitives :as primitives]))
 
+
 (deftest data-requirement-test
   (testing "Object specs require data"
     (is (not (spec/valid? ::hops/hop nil)))
@@ -21,6 +22,7 @@
     (is (not (spec/valid? ::hops/hops nil)))
     (is (spoon.spec/test-valid? ::hops/hops []))
     (is (not (spec/valid? ::hops/hops {})))))
+
 
 (deftest valid-generators-test
   (testing "Ensure all generators work out of the box"
@@ -39,6 +41,7 @@
     (is (gen/generatable? ::hops/type))
     (is (gen/generatable? ::hops/hop))
     (is (gen/generatable? ::hops/alpha))))
+
 
 (def ^:const sample-hop
   "A hard-coded sample hop for static unit tests"
@@ -63,6 +66,7 @@
    :use            "Boil"
    :version        1})
 
+
 (def ^:const sample-hop-wrapper
   "A hard-coded sample hop-wrapper for static unit tests"
   {:hop sample-hop})
@@ -77,6 +81,7 @@
   "A hard-coded sample hops-wrapper for static unit tests"
   {:hops sample-hops})
 
+
 (deftest type-test
   (testing "Ensure type map contains all hop types"
     (is (contains? hops/hop-types hops/aroma))
@@ -88,6 +93,7 @@
                      hops/bittering
                      hops/both)))))
 
+
 (deftest use-test
   (testing "Ensure type map contains all hop usages"
     (is (contains? hops/hop-uses hops/boil))
@@ -97,11 +103,12 @@
     (is (contains? hops/hop-uses hops/aroma)))
   (testing "Ensure type set only contains known hop usages"
     (is (= #{} (disj hops/hop-uses
-                     hops/aroma 
-                     hops/boil 
+                     hops/aroma
+                     hops/boil
                      hops/dry-hop
                      hops/first-wort
                      hops/mash)))))
+
 
 (deftest form-test
   (testing "Ensure type map contains all hop forms"
@@ -113,6 +120,7 @@
                      hops/pellet
                      hops/plug
                      hops/leaf)))))
+
 
 (deftest static-keys-test
   (testing "Ensure all static keys are present"

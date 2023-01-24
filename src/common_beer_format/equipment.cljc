@@ -136,45 +136,45 @@
 
 (spec/def ::boil-size
   (st/spec
-   {:type                :double
-    :spec                ::prim/liter
-    :description         "A non-negative IEEE-754 floating point number representing the pre-boil volume for the equipment setup"
-    :json-schema/example "10.8"}))
+    {:type                :double
+     :spec                ::prim/liter
+     :description         "A non-negative IEEE-754 floating point number representing the pre-boil volume for the equipment setup"
+     :json-schema/example "10.8"}))
 
 
 (spec/def ::batch-size
   (st/spec
-   {:type                :double
-    :spec                ::prim/liter
-    :description         "A non-negative IEEE-754 floating point number representing the target volume of the batch at the start of fermentation"
-    :json-schema/example "5.8"}))
+    {:type                :double
+     :spec                ::prim/liter
+     :description         "A non-negative IEEE-754 floating point number representing the target volume of the batch at the start of fermentation"
+     :json-schema/example "5.8"}))
 
 
 (spec/def ::tun-volume
   (st/spec
-   {:type                :double
-    :spec                ::prim/liter
-    :description         "A non-negative IEEE-754 floating point number representing the volume of the of the mash tun in liters"
-    :json-schema/example "15.0"}))
+    {:type                :double
+     :spec                ::prim/liter
+     :description         "A non-negative IEEE-754 floating point number representing the volume of the of the mash tun in liters"
+     :json-schema/example "15.0"}))
 
 
 (spec/def ::tun-weight
   (st/spec
-   {:type                :double
-    :spec                ::prim/kilogram
-    :description         "A non-negative IEEE-754 floating point number representing the weight of the of the mash tun in kilograms"
-    :json-schema/example "15.0"}))
+    {:type                :double
+     :spec                ::prim/kilogram
+     :description         "A non-negative IEEE-754 floating point number representing the weight of the of the mash tun in kilograms"
+     :json-schema/example "15.0"}))
 
 
 (spec/def ::tun-specific-heat
   (st/spec
-   {:type                :double
-    :spec                (spec/and number? #(not (neg? %)))
-    :gen                 #(gen/double* {:infinite? false
-                                        :NaN?      false
-                                        :min       0})
-    :description         "A non-negative IEEE-754 floating point number representing the specific heat of the mashtun in Calories per gram-degree Celsius"
-    :json-schema/example "0.2"}))
+    {:type                :double
+     :spec                (spec/and number? #(not (neg? %)))
+     :gen                 #(gen/double* {:infinite? false
+                                         :NaN?      false
+                                         :min       0})
+     :description         "A non-negative IEEE-754 floating point number representing the specific heat of the mashtun in Calories per gram-degree Celsius"
+     :json-schema/example "0.2"}))
 
 
 (spec/def ::top-up-water
