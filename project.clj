@@ -1,8 +1,12 @@
 (defproject com.wallbrew/common-beer-format "2.1.0"
   :description "An implementation of the BeerXML spec in multiple formats"
   :url "https://github.com/Wall-Brew-Co/common-beer-format"
-  :license {:name "MIT"
-            :url  "https://opensource.org/licenses/MIT"}
+  :license {:name         "MIT"
+            :url          "https://opensource.org/licenses/MIT"
+            :distribution :repo
+            :comments     "Same-as all Wall-Brew projects"}
+  :scm {:name "git"
+        :url  "https://github.com/Wall-Brew-Co/common-beer-format"}
   :dependencies [[metosin/spec-tools "0.10.5"]
                  [nnichols "1.1.0"]
                  [org.clojure/clojure "1.11.1"]
@@ -23,6 +27,7 @@
                                       [org.clojure/data.json "2.4.0"]
                                       [org.clojure/data.xml "0.2.0-alpha8"]]
                        :plugins      [[lein-doo "0.1.11"]]}}
+  :deploy-branches ["master"]
   :deploy-repositories [["clojars" {:url           "https://clojars.org/repo"
                                     :username      :env/clojars_user
                                     :password      :env/clojars_pass
