@@ -1,0 +1,11 @@
+{:version      {:major 0
+                :minor 0
+                :patch 0}
+ :version-type :semver3
+ :changes      {:added      ["Repository initialized."]
+                :changed    []
+                :deprecated []
+                :removed    []
+                :fixed      []
+                :security   []}
+ :timestamp    "2020-03-17T22:55:12.524594800Z"}

@@ -1,0 +1,11 @@
+{:version      {:major 1
+                :minor 2
+                :patch 1}
+ :version-type :semver3
+ :changes      {:added      []
+                :changed    []
+                :deprecated []
+                :removed    []
+                :fixed      ["Selection functions for yeasts to include DCL samples"]
+                :security   []}
+ :timestamp    "2020-07-18T23:00:25.723733400Z"}

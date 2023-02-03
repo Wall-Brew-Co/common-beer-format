@@ -1,0 +1,12 @@
+{:version      {:major 2
+                :minor 0
+                :patch 0}
+ :version-type :semver3
+ :changes      {:added      ["`explain`, `explain-data`, `spec-description`, `valid?`, and `invalid?` to prevent consumers from needing to explicitly import transitive libraries"]
+                :changed    []
+                :deprecated []
+                :removed    ["BREAKING: Removed XML parser and migrated functionality into [clj-xml.](https://github.com/Wall-Brew-Co/clj-xml)"
+                             "BREAKING: Removed static data and migrated functionality into [common-beer-data.](https://github.com/Wall-Brew-Co/common-beer-data)"]
+                :fixed      []
+                :security   []}
+ :timestamp    "2022-07-20T23:03:35.197857500Z"}

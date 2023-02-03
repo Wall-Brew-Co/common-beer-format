@@ -1,0 +1,15 @@
+{:version      {:major 1
+                :minor 2
+                :patch 0}
+ :version-type :semver3
+ :changes      {:added      ["Create `/data` subdirectory for sample static data."
+                             "Import sample fermentable data"
+                             "Import sample hop data"
+                             "Import BJCP style guides"
+                             "Import sample yeast data"]
+                :changed    []
+                :deprecated []
+                :removed    []
+                :fixed      []
+                :security   []}
+ :timestamp    "2020-07-15T22:58:57.742683800Z"}

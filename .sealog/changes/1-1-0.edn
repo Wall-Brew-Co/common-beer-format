@@ -1,0 +1,11 @@
+{:version      {:major 1
+                :minor 1
+                :patch 0}
+ :version-type :semver3
+ :changes      {:added      ["Extend all specifications to include optional BeerXML attributes"]
+                :changed    []
+                :deprecated []
+                :removed    []
+                :fixed      []
+                :security   []}
+ :timestamp    "2020-05-08T22:57:56.423649Z"}

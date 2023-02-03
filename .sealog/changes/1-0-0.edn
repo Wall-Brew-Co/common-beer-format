@@ -1,0 +1,19 @@
+{:version      {:major 1
+                :minor 0
+                :patch 0}
+ :version-type :semver3
+ :changes      {:added      ["Create base specification for BeerXML equipment records."
+                             "Create base specification for BeerXML fermentable records."
+                             "Create base specification for BeerXML hop records."
+                             "Create base specification for BeerXML mash records."
+                             "Create base specification for BeerXML misc records."
+                             "Create base specification for BeerXML recipe records."
+                             "Create base specification for BeerXML style records."
+                             "Create base specification for BeerXML water records."
+                             "Create base specification for BeerXML yeast records."]
+                :changed    []
+                :deprecated []
+                :removed    []
+                :fixed      []
+                :security   []}
+ :timestamp    "2020-05-05T22:55:12.524594800Z"}
