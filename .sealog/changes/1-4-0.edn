@@ -1,0 +1,13 @@
+{:version      {:major 1
+                :minor 4
+                :patch 0}
+ :version-type :semver3
+ :changes      {:added      ["Data generators for all specifications"
+                             "`coerce` function to perform type casting on ingested data"]
+                :changed    []
+                :deprecated []
+                :removed    []
+                :fixed      ["Added missing `::common-beer-format.specs.equipment/boil-time` spec"
+                             "Added missing `::common-beer-format.specs.equipment/age-temp` spec"]
+                :security   []}
+ :timestamp    "2022-07-19T23:02:03.388965100Z"}

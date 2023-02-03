@@ -1,0 +1,11 @@
+{:version      {:major 1
+                :minor 3
+                :patch 0}
+ :version-type :semver3
+ :changes      {:added      ["`conform` function so downstream users aren't required to install spec-tools"]
+                :changed    []
+                :deprecated []
+                :removed    []
+                :fixed      []
+                :security   []}
+ :timestamp    "2020-07-18T23:01:15.058607300Z"}

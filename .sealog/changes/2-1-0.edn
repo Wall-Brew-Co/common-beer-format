@@ -1,0 +1,11 @@
+{:version      {:major 2
+                :minor 1
+                :patch 0}
+ :version-type :semver3
+ :changes      {:added      ["Improved data generators for decimal values to restrict `NaN` and `Inf`"]
+                :changed    []
+                :deprecated []
+                :removed    []
+                :fixed      []
+                :security   []}
+ :timestamp    "2022-07-24T23:06:38.445014400Z"}

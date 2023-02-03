@@ -11,8 +11,11 @@
                  [org.clojure/data.xml "0.2.0-alpha8"]
                  [org.clojure/spec.alpha "0.3.218"]
                  [org.clojure/test.check "1.1.1"]]
-  :plugins [[lein-cljsbuild "1.1.8"]
-            [lein-project-version "0.1.0"]]
+  :plugins [[com.github.clj-kondo/lein-clj-kondo "0.2.4"]
+            [com.wallbrew/lein-sealog "1.0.2"]
+            [lein-cljsbuild "1.1.8"]
+            [lein-project-version "0.1.0"]
+            [mvxcvi/cljstyle "0.15.0"]]
   :profiles {:uberjar {:aot :all}
              :dev     {:dependencies [[com.wallbrew/clj-xml "1.7.2"]
                                       [com.wallbrew/spoon "1.1.0"]
