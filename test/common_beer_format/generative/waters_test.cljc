@@ -1,7 +1,8 @@
 (ns common-beer-format.generative.waters-test
-  (:require [clojure.test :refer :all]
-            [common-beer-format.generative.util :as gen]
-            [common-beer-format.waters :as waters]))
+  (:require [common-beer-format.generative.util :as gen]
+            [common-beer-format.waters :as waters]
+            #? (:clj  [clojure.test :refer [deftest is testing]])
+            #? (:cljs [cljs.test    :refer-macros [deftest is testing]])))
 
 
 (deftest valid-generators-test

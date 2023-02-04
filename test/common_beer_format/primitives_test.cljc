@@ -1,9 +1,10 @@
 (ns common-beer-format.primitives-test
   (:require [clojure.spec.alpha :as spec]
-            [clojure.test :refer :all]
             [com.wallbrew.spoon.spec :as spoon]
             [common-beer-format.core :as cbf]
-            [common-beer-format.primitives :as prim]))
+            [common-beer-format.primitives :as prim]
+            #? (:clj  [clojure.test :refer [deftest is testing]])
+            #? (:cljs [cljs.test    :refer-macros [deftest is testing]])))
 
 
 (deftest kilograms-spec-test
