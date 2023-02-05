@@ -26,8 +26,7 @@
   "Parse a beer EDN file as EDN, coerce it to a string, then parse it back to EDN"
   {:no-doc true}
   [file-name spec]
-  (let [edn          (-> file-name slurp edn/read-string)
-        coerced-data (cbf/coerce spec edn)
+  (let [coerced-data (parse-beer-edn file-name spec)
         string       (cbf/encode spec coerced-data)]
     (cbf/coerce spec string)))
 

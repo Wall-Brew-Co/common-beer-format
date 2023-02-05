@@ -17,21 +17,26 @@
             [spec-tools.core :as st])
   (:refer-clojure :exclude [name type]))
 
+
 (def ^:const recipe
   "A map representing a recipe in BeerXML."
   :recipe)
+
 
 (def ^:const recipes
   "A vector of maps representing recipes in BeerXML."
   :recipes)
 
+
 (def ^:const name
   "A string representing the name of the recipe."
   :name)
 
+
 (def ^:const version
   "A string representing the BeerXML version the recipe was defined with."
   :version)
+
 
 (def ^:const type
   "A string representing the type of recipe.
@@ -42,6 +47,7 @@
    - `partial-mash`: A recipe that uses a combination of malted grains and malt extract.
    - `extract`: A recipe that uses only malt extract."
   :type)
+
 
 (def ^:const hops
   "A vector of maps representing hops used in the recipe."

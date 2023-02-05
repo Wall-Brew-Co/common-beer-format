@@ -7,6 +7,12 @@
             #? (:cljs [cljs.test    :refer-macros [deftest is testing]])))
 
 
+(defn ->description
+  "Convert a spec to a description"
+  [spec]
+  (-> spec cbf/get-spec cbf/spec-description))
+
+
 (deftest kilograms-spec-test
   (testing "Ensure kilogram spec validates data appropriately"
     (is (spoon/test-valid? ::prim/kilogram 1.234))
@@ -24,7 +30,9 @@
             (cbf/explain ::prim/kilogram nil))))
   (testing "Test transport-level encoding options"
     (is (= "1.234" (cbf/encode ::prim/kilogram 1.234)))
-    (is (= 1.0 (cbf/coerce ::prim/kilogram "1.0")))))
+    (is (= 1.0 (cbf/coerce ::prim/kilogram "1.0"))))
+  (testing "Ensure spec has a description"
+    (is (string? (->description ::prim/kilogram)))))
 
 
 (deftest liter-spec-test
@@ -44,7 +52,9 @@
             (cbf/explain ::prim/liter nil))))
   (testing "Test transport-level encoding options"
     (is (= "1.234" (cbf/encode ::prim/liter 1.234)))
-    (is (= 1.0 (cbf/coerce ::prim/liter "1.0")))))
+    (is (= 1.0 (cbf/coerce ::prim/liter "1.0"))))
+  (testing "Ensure spec has a description"
+    (is (string? (->description ::prim/liter)))))
 
 
 (deftest degrees-celsiuss-spec-test
@@ -62,7 +72,9 @@
             (cbf/explain ::prim/degrees-celsius nil))))
   (testing "Test transport-level encoding options"
     (is (= "1.234" (cbf/encode ::prim/degrees-celsius 1.234)))
-    (is (= 1.0 (cbf/coerce ::prim/degrees-celsius "1.0")))))
+    (is (= 1.0 (cbf/coerce ::prim/degrees-celsius "1.0"))))
+  (testing "Ensure spec has a description"
+    (is (string? (->description ::prim/degrees-celsius)))))
 
 
 (deftest minutes-spec-test
@@ -82,7 +94,9 @@
             (cbf/explain ::prim/minute nil))))
   (testing "Test transport-level encoding options"
     (is (= "1.234" (cbf/encode ::prim/minute 1.234)))
-    (is (= 1.0 (cbf/coerce ::prim/minute "1.0")))))
+    (is (= 1.0 (cbf/coerce ::prim/minute "1.0"))))
+  (testing "Ensure spec has a description"
+    (is (string? (->description ::prim/minute)))))
 
 
 (deftest specific-gravity-spec-test
@@ -102,7 +116,9 @@
             (cbf/explain ::prim/specific-gravity nil))))
   (testing "Test transport-level encoding options"
     (is (= "1.234" (cbf/encode ::prim/specific-gravity 1.234)))
-    (is (= 1.0 (cbf/coerce ::prim/specific-gravity "1.0")))))
+    (is (= 1.0 (cbf/coerce ::prim/specific-gravity "1.0"))))
+  (testing "Ensure spec has a description"
+    (is (string? (->description ::prim/specific-gravity)))))
 
 
 (deftest kilopascals-spec-test
@@ -122,7 +138,9 @@
             (cbf/explain ::prim/kilopascal nil))))
   (testing "Test transport-level encoding options"
     (is (= "1.234" (cbf/encode ::prim/kilopascal 1.234)))
-    (is (= 1.0 (cbf/coerce ::prim/kilopascal "1.0")))))
+    (is (= 1.0 (cbf/coerce ::prim/kilopascal "1.0"))))
+  (testing "Ensure spec has a description"
+    (is (string? (->description ::prim/kilopascal)))))
 
 
 (deftest version-spec-test
@@ -140,7 +158,9 @@
             (cbf/explain ::prim/version nil))))
   (testing "Test transport-level encoding options"
     (is (= "1" (cbf/encode ::prim/version 1)))
-    (is (= 1 (cbf/coerce ::prim/version "1")))))
+    (is (= 1 (cbf/coerce ::prim/version "1"))))
+  (testing "Ensure spec has a description"
+    (is (string? (->description ::prim/version)))))
 
 
 (deftest name-spec-test
@@ -157,7 +177,9 @@
             (cbf/explain ::prim/name nil))))
   (testing "Test transport-level encoding options"
     (is (= "Crystal Malt - 40L" (cbf/encode ::prim/name "Crystal Malt - 40L")))
-    (is (= "Crystal Malt - 40L" (cbf/coerce ::prim/name "Crystal Malt - 40L")))))
+    (is (= "Crystal Malt - 40L" (cbf/coerce ::prim/name "Crystal Malt - 40L"))))
+  (testing "Ensure spec has a description"
+    (is (string? (->description ::prim/name)))))
 
 
 (deftest amount-spec-test
@@ -168,7 +190,9 @@
     (is (not (spec/valid? ::prim/amount nil)))
     (is (not (spec/valid? ::prim/amount -1)))
     (is (not (spec/valid? ::prim/amount -0.254)))
-    (is (not (spec/valid? ::prim/amount false)))))
+    (is (not (spec/valid? ::prim/amount false))))
+  (testing "Ensure spec has a description"
+    (is (string? (->description ::prim/amount)))))
 
 
 (deftest boolean-spec-test
@@ -182,7 +206,9 @@
     (is (= true (cbf/coerce ::prim/boolean "true"))))
   (testing "Test transport-level encoding options - false"
     (is (= "FALSE" (cbf/encode ::prim/boolean false)))
-    (is (= false (cbf/coerce ::prim/boolean "false")))))
+    (is (= false (cbf/coerce ::prim/boolean "false"))))
+  (testing "Ensure spec has a description"
+    (is (string? (->description ::prim/boolean)))))
 
 
 (deftest amount-is-weight-test
@@ -190,7 +216,9 @@
     (is (spoon/test-valid? ::prim/amount-is-weight true))
     (is (spoon/test-valid? ::prim/amount-is-weight false))
     (is (not (spec/valid? ::prim/amount-is-weight nil)))
-    (is (not (spec/valid? ::prim/amount-is-weight "false")))))
+    (is (not (spec/valid? ::prim/amount-is-weight "false"))))
+  (testing "Ensure spec has a description"
+    (is (string? (->description ::prim/amount-is-weight)))))
 
 
 (deftest text-test
@@ -198,4 +226,6 @@
     (is (spoon/test-valid? ::prim/text "Text goes here"))
     (is (not (spec/valid? ::prim/text "")))
     (is (not (spec/valid? ::prim/text nil)))
-    (is (not (spec/valid? ::prim/text "  ")))))
+    (is (not (spec/valid? ::prim/text "  "))))
+  (testing "Ensure spec has a description"
+    (is (string? (->description ::prim/text)))))

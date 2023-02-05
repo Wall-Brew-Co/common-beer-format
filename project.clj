@@ -18,6 +18,7 @@
   :plugins [[com.github.clj-kondo/lein-clj-kondo "0.2.4"]
             [com.wallbrew/lein-sealog "1.0.2"]
             [lein-cljsbuild "1.1.8"]
+            [lein-cloverage "1.2.2"]
             [lein-project-version "0.1.0"]
             [mvxcvi/cljstyle "0.15.0"]]
   :profiles {:uberjar {:aot :all}

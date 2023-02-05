@@ -211,13 +211,13 @@
 
 (spec/def ::calc-boil-volume
   (st/spec
-    {:spec                ::prim/boolean
-     :description         "A boolean denoting whether or not programs reading this equipment record should calculate the boil size.
-                          When absent, assume false.
-                          When true, then boil-size = (batch-size – top-up-water – trub-chiller-loss) * (1 + boil-time * evap-rate)"
-     :json-schema/example "true"
-     :decode/string       impl/decode-boolean
-     :encode/string       impl/encode-boolean}))
+   {:spec                ::prim/boolean
+    :description         (impl/multiline "A boolean denoting whether or not programs reading this equipment record should calculate the boil size."
+                                         "When absent, assume false."
+                                         "When true, then boil-size = (batch-size - top-up-water - trub-chiller-loss) * (1 + boil-time * evap-rate)")
+    :json-schema/example "true"
+    :decode/string       impl/decode-boolean
+    :encode/string       impl/encode-boolean}))
 
 
 (spec/def ::lauter-deadspace

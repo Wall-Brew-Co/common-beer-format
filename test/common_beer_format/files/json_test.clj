@@ -35,9 +35,7 @@
   "Round trip a beer JSON file."
   {:no-doc true}
   [file-name spec]
-  (let [json         (deformat (slurp file-name))
-        edn          (json/read-str json :key-fn keyword)
-        coerced-data (cbf/coerce spec edn)
+  (let [coerced-data (parse-beer-json file-name spec)
         string       (cbf/encode spec coerced-data)]
     (cbf/coerce spec string)))
 

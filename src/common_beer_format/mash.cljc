@@ -120,14 +120,14 @@
 
 (spec/def ::type
   (st/spec
-    {:type                :string
-     :spec                (spec/and string?
-                                    #(not (str/blank? %))
-                                    #(contains? mash-step-types (str/lower-case %)))
-     :gen                 #(spec/gen mash-step-types)
-     :description         "A case-insensitive string representing the type of mash step.
-                          Must be one of: 'Infusion', 'Temperature', and 'Decoction'"
-     :json-schema/example "Temperature"}))
+   {:type                :string
+    :spec                (spec/and string?
+                                   #(not (str/blank? %))
+                                   #(contains? mash-step-types (str/lower-case %)))
+    :gen                 #(spec/gen mash-step-types)
+    :description         (impl/multiline "A case-insensitive string representing the type of mash step."
+                                         (impl/set->description mash-step-types))
+    :json-schema/example "Temperature"}))
 
 
 (spec/def ::infuse-amount
@@ -369,12 +369,12 @@
 
 (spec/def ::equip-adjust
   (st/spec
-    {:spec                ::prim/boolean
-     :description         "A boolean denoting whether or not programs should account for the temperature effects of the equipment used.
-                          When absent, assume false."
-     :json-schema/example "true"
-     :decode/string       impl/decode-boolean
-     :encode/string       impl/encode-boolean}))
+   {:spec                ::prim/boolean
+    :description         (impl/multiline "A boolean denoting whether or not programs should account for the temperature effects of the equipment used."
+                                         "When absent, assume false.")
+    :json-schema/example "true"
+    :decode/string       impl/decode-boolean
+    :encode/string       impl/encode-boolean}))
 
 
 (spec/def ::display-grain-temp

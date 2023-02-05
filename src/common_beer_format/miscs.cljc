@@ -151,14 +151,14 @@
 
 (spec/def ::type
   (st/spec
-    {:type                :string
-     :spec                (spec/and string?
-                                    #(not (str/blank? %))
-                                    #(contains? misc-types (str/lower-case %)))
-     :gen                 #(spec/gen misc-types)
-     :description         "A case-insensitive string representing the type of the miscellaneous item added to the beer.
-                          Must be one of: 'Spice', 'Fining', 'Water Agent', 'Herb', 'Flavor', and 'Other'"
-     :json-schema/example "Spice"}))
+   {:type                :string
+    :spec                (spec/and string?
+                                   #(not (str/blank? %))
+                                   #(contains? misc-types (str/lower-case %)))
+    :gen                 #(spec/gen misc-types)
+    :description         (impl/multiline "A case-insensitive string representing the type of the miscellaneous item added to the beer."
+                                         (impl/set->description misc-types))
+    :json-schema/example "Spice"}))
 
 
 (def ^:const boil
@@ -205,25 +205,26 @@
 
 (spec/def ::use
   (st/spec
-    {:type                :string
-     :spec                (spec/and string?
-                                    #(not (str/blank? %))
-                                    #(contains? misc-uses (str/lower-case %)))
-     :gen                 #(spec/gen misc-uses)
-     :description         "A case-insensitive string representing the point in the brewing cycle the miscellaneous ingredient is added to the beer.
-                          Must be one of: 'Boil', 'Mash', 'Primary', 'Secondary', and 'Bottling'"
-     :json-schema/example "Mash"}))
+   {:type                :string
+    :spec                (spec/and string?
+                                   #(not (str/blank? %))
+                                   #(contains? misc-uses (str/lower-case %)))
+    :gen                 #(spec/gen misc-uses)
+    :description         (impl/multiline 
+                          "A case-insensitive string representing the point in the brewing cycle the miscellaneous ingredient is added to the beer."
+                          (impl/set->description misc-uses))
+    :json-schema/example "Mash"}))
 
 
 (spec/def ::time
   (st/spec
-    {:type                :double
-     :spec                ::prim/minute
-     :description         "A non-negative IEEE-754 floating point number representing the time in minutes the ingredient was added dependant on the :use field.
-                          For \"Boil\" this is the boil time.
-                          For \"Mash\" this is the mash time.
-                          For \"Primary\", \"Secondary\", and \"Bottling\" this is the amount of time the ingredient spent in that state."
-     :json-schema/example "15.0"}))
+   {:type                :double
+    :spec                ::prim/minute
+    :description         (impl/multiline "A non-negative IEEE-754 floating point number representing the time in minutes the ingredient was added dependant on the :use field."
+                                         "For \"Boil\" this is the boil time."
+                                         "For \"Mash\" this is the mash time."
+                                         "For \"Primary\", \"Secondary\", and \"Bottling\" this is the amount of time the ingredient spent in that state.")
+    :json-schema/example "15.0"}))
 
 
 (spec/def ::use-for

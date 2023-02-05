@@ -155,8 +155,9 @@
   (st/spec
     {:type                :boolean
      :spec                ::boolean
-     :description         "A boolean representing if the amount of the substance is measured in kilograms.
-                          When absent, assume false and that the amount of substance is measured in liters."
+     :description         (impl/multiline 
+                           "A boolean representing if the amount of the substance is measured in kilograms."
+                           "When absent, assume false and that the amount of substance is measured in liters.")
      :json-schema/example "false"
      :decode/string       impl/decode-boolean
      :encode/string       impl/encode-boolean}))

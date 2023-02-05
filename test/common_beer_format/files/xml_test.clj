@@ -36,9 +36,7 @@
   "Round trip a beer XML file."
   {:no-doc true}
   [file-name spec]
-  (let [xml         (deformat (slurp file-name))
-        edn          (clj-xml/xml->edn (xml/parse-str xml))
-        coerced-data (cbf/coerce spec edn)
+  (let [coerced-data (parse-beer-xml file-name spec)
         string       (cbf/encode spec coerced-data)]
     (cbf/coerce spec string)))
 

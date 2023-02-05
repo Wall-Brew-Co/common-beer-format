@@ -6,9 +6,6 @@
             [spec-tools.core :as st]))
 
 
-#_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
-
-
 (defn conform
   "Conform `data` to a given `spec` while eliminating non-conforming keys and values."
   {:added    "1.0"
@@ -25,18 +22,12 @@
   (st/coerce spec data cbf/strict-transformer))
 
 
-#_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
-
-
 (defn explain
   "Explain why `data` does not conform to `spec` as a human readable string."
   {:added    "2.0"
    :see-also ["spec-tools.core/explain"]}
   [spec data]
   (with-out-str (st/explain spec data)))
-
-
-#_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
 
 
 (defn encode
@@ -47,9 +38,6 @@
   (st/encode spec data cbf/strict-transformer))
 
 
-#_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
-
-
 (defn explain-data
   "Explain why `data` does not conform to `spec` with a map of information."
   {:added    "2.0"
@@ -58,7 +46,12 @@
   (st/explain-data spec data))
 
 
-#_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
+(defn get-spec
+  "Returns spec registered for keyword/symbol/var k, or nil."
+  {:added    "2.2"
+   :see-also ["clojure.spec.alpha/get-spec"]}
+  [k]
+  (spec/get-spec k))
 
 
 (defn spec-description

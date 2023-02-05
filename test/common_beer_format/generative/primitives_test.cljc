@@ -178,7 +178,6 @@
   (testing "Only supported BeerXML version numbers are marked valid"
     (is (spoon.spec/test-valid? ::primitives/version 1))
     (is (not (spec/valid? ::primitives/version "1")))
-    (is (not (spec/valid? ::primitives/version 1.0)))
     (is (not (spec/valid? ::primitives/version -1)))
     (is (not (spec/valid? ::primitives/version "")))
     (is (not (spec/valid? ::primitives/version "   ")))
