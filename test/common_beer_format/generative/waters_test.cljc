@@ -51,6 +51,7 @@
   "A hard-coded sample waters-wrapper for static unit tests"
   {:waters sample-waters})
 
+
 (deftest static-keys-test
   (testing "Ensure all static keys can be used to access data"
     (is (contains? sample-water waters/name)

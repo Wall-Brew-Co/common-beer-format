@@ -57,7 +57,8 @@
    :no-doc   true
    :see-also ["encode-wrapper"]}
   [_parent-spec child-spec value]
-  (letfn [(reducing-fn [m k v]
+  (letfn [(reducing-fn
+            [m k v]
             (assoc m k (st/decode child-spec v strict-transformer)))]
     (reduce-kv reducing-fn {} value)))
 
@@ -68,9 +69,11 @@
    :no-doc   true
    :see-also ["decode-wrapper"]}
   [_parent-spec child-spec value]
-  (letfn [(reducing-fn [m k v]
+  (letfn [(reducing-fn
+            [m k v]
             (assoc m k (st/encode child-spec v strict-transformer)))]
     (reduce-kv reducing-fn {} value)))
+
 
 (defn set->description
   "Convert a set of allowed value strings, and transform them into a description string."
@@ -82,6 +85,7 @@
        (map #(str "\"" % "\""))
        (str/join ", ")
        (str "Must be one of: ")))
+
 
 (defn multiline
   "Concatenate all strings together, with a new line between each.

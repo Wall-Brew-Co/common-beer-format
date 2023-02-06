@@ -10,6 +10,200 @@
   (:refer-clojure :exclude [name type]))
 
 
+(def ^:const style
+  "A record defining a style of beer"
+  :style)
+
+
+(def ^:const styles
+  "A collection of style records"
+  :styles)
+
+
+(def ^:const name
+  "The name of the style record"
+  :name)
+
+
+(def ^:const version
+  "The version of the style record"
+  :version)
+
+
+(def ^:const category
+  "A non-empty string denoting the category this style belongs to."
+  :category)
+
+
+(def ^:const category-number
+  "A non-empty string denoting the category number of this style."
+  :category-number)
+
+
+(def ^:const style-letter
+  "A non-empty string denoting the letter used to denote the style or sub-style."
+  :style-letter)
+
+
+(def ^:const style-guide
+  "A non-empty string denoting the name of the style guide the style/category belongs to."
+  :style-guide)
+
+
+(def ^:const type
+  "A case-insensitive string representing the type of beverage the style dictates.
+   
+   Currently, the following values are supported:
+   
+   - \"Ale\" - A top-fermented beer with a fruity, hoppy taste and a dry finish.
+   - \"Lager\" - A light, bottom-fermented beer with a clean, crisp taste and a smooth finish.
+   - \"Mead\" - A fermented beverage made from honey and water.
+   - \"Wheat\" - A beer made with a large proportion of wheat malt.
+   - \"Mixed\" - A beer style that blends two or more styles.
+   - \"Cider\" - A fermented beverage made from fruit and water."
+  :type)
+
+
+(def ^:const og-min
+  "A non-negative IEEE-754 floating point number representing the minimum pre-fermentation specific gravity for the style."
+  :og-min)
+
+
+(def ^:const og-max
+  "A non-negative IEEE-754 floating point number representing the maximum pre-fermentation specific gravity for the style."
+  :og-max)
+
+
+(def ^:const fg-min
+  "A non-negative IEEE-754 floating point number representing the minimum post-fermentation specific gravity for the style."
+  :fg-min)
+
+
+(def ^:const fg-max
+  "A non-negative IEEE-754 floating point number representing the maximum post-fermentation specific gravity for the style."
+  :fg-max)
+
+
+(def ^:const ibu-min
+  "A non-negative IEEE-754 floating point number representing the minimum bitterness in IBUs for the style."
+  :ibu-min)
+
+
+(def ^:const ibu-max
+  "A non-negative IEEE-754 floating point number representing the maximum bitterness in IBUs for the style."
+  :ibu-max)
+
+
+(def ^:const color-min
+  "A non-negative IEEE-754 floating point number representing the minimum color in SRM for the style."
+  :color-min)
+
+
+(def ^:const color-max
+  "A non-negative IEEE-754 floating point number representing the maximum color in SRM for the style."
+  :color-max)
+
+
+(def ^:const carb-min
+  "A non-negative IEEE-754 floating point number representing the minimum carbonation in volumes for the style."
+  :carb-min)
+
+
+(def ^:const carb-max
+  "A non-negative IEEE-754 floating point number representing the maximum carbonation in volumes for the style."
+  :carb-max)
+
+
+(def ^:const abv-min
+  "A non-negative IEEE-754 floating point number representing the minimum alcohol by volume for the style."
+  :abv-min)
+
+
+(def ^:const abv-max
+  "A non-negative IEEE-754 floating point number representing the maximum alcohol by volume for the style."
+  :abv-max)
+
+
+(def ^:const notes
+  "A string containing notes about the style."
+  :notes)
+
+
+(def ^:const profile
+  "A string containing a profile of the style."
+  :profile)
+
+
+(def ^:const ingredients
+  "A string containing a description of the ingredients commonly used in the style."
+  :ingredients)
+
+
+(def ^:const examples
+  "A string containing commercial or well-known examples of the style."
+  :examples)
+
+
+(def ^:const display-og-min
+  "A human-readable represention of the minimum pre-fermentation specific gravity for the style."
+  :display-og-min)
+
+
+(def ^:const display-og-max
+  "A human-readable represention of the maximum pre-fermentation specific gravity for the style."
+  :display-og-max)
+
+
+(def ^:const display-fg-min
+  "A human-readable represention of the minimum post-fermentation specific gravity for the style."
+  :display-fg-min)
+
+
+(def ^:const display-fg-max
+  "A human-readable represention of the maximum post-fermentation specific gravity for the style."
+  :display-fg-max)
+
+
+(def ^:const display-color-min
+  "A human-readable represention of the minimum color for the style."
+  :display-color-min)
+
+
+(def ^:const display-color-max
+  "A human-readable represention of the maximum color for the style."
+  :display-color-max)
+
+
+(def ^:const og-range
+  "A string containing the range of pre-fermentation specific gravities for the style."
+  :og-range)
+
+
+(def ^:const fg-range
+  "A string containing the range of post-fermentation specific gravities for the style."
+  :fg-range)
+
+
+(def ^:const ibu-range
+  "A string containing the range of bitterness for the style."
+  :ibu-range)
+
+
+(def ^:const color-range
+  "A string containing the range of color for the style."
+  :color-range)
+
+
+(def ^:const carb-range
+  "A string containing the range of carbonation for the style."
+  :carb-range)
+
+
+(def ^:const abv-range
+  "A string containing the range of alcohol by volume for the style."
+  :abv-range)
+
+
 (spec/def ::category
   (st/spec
     {:type                :string
@@ -19,11 +213,11 @@
 
 
 (spec/def ::category-number
-  ;; Intentionally implemented as a string type to match BeerXML spec
   (st/spec
     {:type                :string
      :spec                ::prim/text
-     :description         "A non-empty string denoting the category number of this style"
+     :description         (impl/multiline "A non-empty string denoting the category number of this style."
+                                          "The category number is a string because it can be a letter followed by a number, e.g. 'A1' on some guides.")
      :json-schema/example "1"}))
 
 
@@ -43,8 +237,44 @@
      :json-schema/example "BJCP"}))
 
 
+(def ^:const lager
+  "A light, bottom-fermented beer with a clean, crisp taste and a smooth finish."
+  "lager")
+
+
+(def ^:const ale
+  "A top-fermented beer with a fruity, hoppy taste and a dry finish."
+  "ale")
+
+
+(def ^:const mead
+  "A fermented beverage made from honey and water."
+  "mead")
+
+
+(def ^:const wheat
+  "A beer made with a large proportion of wheat malt."
+  "wheat")
+
+
+(def ^:const mixed
+  "A beer style that blends two or more styles."
+  "mixed")
+
+
+(def ^:const cider
+  "A fermented beverage made from fruit and water."
+  "cider")
+
+
 (def ^:const style-types
-  #{"lager" "ale" "mead" "wheat" "mixed" "cider"})
+  "A set of strings representing the types of beverages that can be described by a style."
+  #{ale
+    cider
+    lager
+    mead
+    mixed
+    wheat})
 
 
 (spec/def ::type
@@ -54,8 +284,8 @@
                                     #(not (str/blank? %))
                                     #(contains? style-types (str/lower-case %)))
      :gen                 #(spec/gen style-types)
-     :description         "A case-insensitive string representing the type of beverage the style dictates.
-                          Must be one of: 'Lager', 'Ale', 'Mead', 'Wheat', 'Mixed', and 'Cider'"
+     :description         (impl/multiline "A case-insensitive string representing the type of beverage the style dictates."
+                                          (impl/set->description style-types))
      :json-schema/example "Lager"}))
 
 

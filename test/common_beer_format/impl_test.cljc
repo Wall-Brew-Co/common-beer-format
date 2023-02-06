@@ -15,10 +15,12 @@
     (is (= "TRUE" (sut/encode-boolean :somearg true)))
     (is (= "FALSE" (sut/encode-boolean :somearg false)))))
 
+
 (deftest set->description-test
   (testing "A set of strings is converted to a description"
     (is (= "Must be one of: \"A description\""
            (sut/set->description #{"a description"})))))
+
 
 (deftest multiline-test
   (testing "No arguments returns an empty string"

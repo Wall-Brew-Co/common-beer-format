@@ -8,9 +8,11 @@
             [spec-tools.core :as st])
   (:refer-clojure :exclude [name type]))
 
+
 (def ^:const yeast
   "A map representing the yeast used during the mash and for top-up."
   :yeast)
+
 
 (def ^:const yeasts
   "A vector of yeast records."
@@ -21,14 +23,17 @@
   "The name of the yeast record."
   :name)
 
+
 (def ^:const version
   "The version of the BeerXML specification used to create the yeast record."
   :version)
+
 
 (def ^:const amount
   "The amount of yeast in liters or kilograms.
    Depends upon `:amount-is-weight`."
   :amount)
+
 
 (def ^:const type
   "The type of yeast, usually categorized by the intended beverage or style.
@@ -42,31 +47,36 @@
    - `champagne` - Yeast traditionally used in champagne making, offering a dry taste."
   :type)
 
+
 (def ^:const ale
   "Yeast that ferments at higher temperatures and produces a more fruity, estery, and alcohol-forward beer."
   "ale")
+
 
 (def ^:const lager
   "Yeast that ferments at lower temperatures and produces a crisp, clean, and alcohol-restrained beer."
   "lager")
 
+
 (def ^:const wheat
   "Yeast that ferments at higher temperatures and produces a fruity and phenol-forward beer."
   "wheat")
+
 
 (def ^:const wine
   "Yeast traditionally used in wine making."
   "wine")
 
+
 (def ^:const champagne
   "Yeast traditionally used in champagne making, offering a dry taste."
   "champagne")
-  
 
 
 (def ^:const yeast-types
   "The allowed values for the `:type` of yeast used to ferment the beer."
   #{ale lager wheat wine champagne})
+
 
 (def ^:const form
   "The form of the yeast added to the beer.
@@ -79,34 +89,37 @@
    - `culture` - Yeast clutivated from previous fermentations."
   :form)
 
+
 (def ^:const liquid
   "A liquid slurry of yeast, usually with a source of nutrietns or sugars."
   "liquid")
+
 
 (def ^:const dry
   "Dry yeast sold in a dehydrated state to extend shelf life."
   "dry")
 
+
 (def ^:const slant
   "Yeast cultivated on a solid growth medium."
   "slant")
 
+
 (def ^:const culture
   "Yeast clutivated from previous fermentations."
   "culture")
-  
 
 
 (spec/def ::type
   (st/spec
-   {:type                :string
-    :spec                (spec/and string?
-                                   #(not (str/blank? %))
-                                   #(contains? yeast-types (str/lower-case %)))
-    :gen                 #(spec/gen yeast-types)
-    :description         (impl/multiline "A case-insensitive string representing the type of yeast added to the beer."
-                                         (impl/set->description yeast-types))
-    :json-schema/example "Ale"}))
+    {:type                :string
+     :spec                (spec/and string?
+                                    #(not (str/blank? %))
+                                    #(contains? yeast-types (str/lower-case %)))
+     :gen                 #(spec/gen yeast-types)
+     :description         (impl/multiline "A case-insensitive string representing the type of yeast added to the beer."
+                                          (impl/set->description yeast-types))
+     :json-schema/example "Ale"}))
 
 
 (def ^:const yeast-forms
@@ -116,25 +129,31 @@
     slant
     culture})
 
+
 (def ^:const amount-is-weight
   "A boolean value indicating whether the `:amount` is in kilograms or liters."
   :amount-is-weight)
+
 
 (def ^:const laboratory
   "The laboratory that cultivated the yeast."
   :laboratory)
 
+
 (def ^:const product-id
   "The product label or id number that identifies the strain of yeast."
   :product-id)
+
 
 (def ^:const min-temperature
   "The minimum recommended temperature of fermenation."
   :min-temperature)
 
+
 (def ^:const max-temperature
   "The maximum recommended temperature of fermenation."
   :max-temperature)
+
 
 (def ^:const flocculation
   "The rate at which the yeast settles out of suspension.
@@ -147,76 +166,92 @@
    - `very-high` - The yeast settles out of suspension very quickly."
   :flocculation)
 
+
 (def ^:const low
   "The yeast settles out of suspension slowly."
   "low")
+
 
 (def ^:const medium
   "The yeast settles out of suspension at a moderate rate."
   "medium")
 
+
 (def ^:const high
   "The yeast settles out of suspension quickly."
   "high")
+
 
 (def ^:const very-high
   "The yeast settles out of suspension very quickly."
   "very-high")
 
+
 (def ^:const attenuation
   "The percentage of sugars that are typically converted to alcohol during fermentation."
   :attenuation)
+
 
 (def ^:const notes
   "A free-form text field for recording any additional information about the yeast."
   :notes)
 
+
 (def ^:const best-for
   "A free-form text field for denoting styles the yeast is best suited for."
   :best-for)
+
 
 (def ^:const times-cultured
   "The number of times the yeast has been cultured."
   :times-cultured)
 
+
 (def ^:const max-reuse
   "A suggestion of the maximum number of times the yeast can be cultured."
   :max-reuse)
+
 
 (def ^:const add-to-secondary
   "A boolean value indicating whether the yeast should be added to the secondary fermentation."
   :add-to-secondary)
 
+
 (def ^:const display-amount
   "A human-readable string representing the amount of yeast added to the beer."
   :display-amount)
+
 
 (def ^:const disp-min-temp
   "A human-readable string representing the minimum recommended temperature of fermenation."
   :disp-min-temp)
 
+
 (def ^:const disp-max-temp
   "A human-readable string representing the maximum recommended temperature of fermenation."
   :disp-max-temp)
+
 
 (def ^:const inventory
   "A map containing information about the yeast on hand in inventory."
   :inventory)
 
+
 (def ^:const culture-date
   "A non-empty string denoting a display value for the date the yeast sample was last cultured formatted for display in arbitrary structure"
   :culture-date)
 
+
 (spec/def ::form
   (st/spec
-   {:type                :string
-    :spec                (spec/and string?
-                                   #(not (str/blank? %))
-                                   #(contains? yeast-forms (str/lower-case %)))
-    :gen                 #(spec/gen yeast-forms)
-    :description         (impl/multiline "A case-insensitive string representing the form of the yeast added to the beer."
-                                         (impl/set->description yeast-forms))
-    :json-schema/example "Ale"}))
+    {:type                :string
+     :spec                (spec/and string?
+                                    #(not (str/blank? %))
+                                    #(contains? yeast-forms (str/lower-case %)))
+     :gen                 #(spec/gen yeast-forms)
+     :description         (impl/multiline "A case-insensitive string representing the form of the yeast added to the beer."
+                                          (impl/set->description yeast-forms))
+     :json-schema/example "Ale"}))
 
 
 (spec/def ::laboratory
@@ -261,14 +296,14 @@
 
 (spec/def ::flocculation
   (st/spec
-   {:type                :string
-    :spec                (spec/and string?
-                                   #(not (str/blank? %))
-                                   #(contains? yeast-flocculation-types (str/lower-case %)))
-    :gen                 #(spec/gen yeast-flocculation-types)
-    :description         (impl/multiline "A case-insensitive string representing how dense of a floc the yeast will form."
-                                         (impl/set->description yeast-flocculation-types))
-    :json-schema/example "High"}))
+    {:type                :string
+     :spec                (spec/and string?
+                                    #(not (str/blank? %))
+                                    #(contains? yeast-flocculation-types (str/lower-case %)))
+     :gen                 #(spec/gen yeast-flocculation-types)
+     :description         (impl/multiline "A case-insensitive string representing how dense of a floc the yeast will form."
+                                          (impl/set->description yeast-flocculation-types))
+     :json-schema/example "High"}))
 
 
 (spec/def ::attenuation
@@ -289,12 +324,12 @@
 
 (spec/def ::times-cultured
   (st/spec
-   {:type                :long
-    :spec                (spec/and int? #(not (neg? %)))
-    :description         (impl/multiline
-                          "A non-negative integer representing the number of times this yeast has been harvested and re-used."
-                          "A value of zero assumes the yeast came directly from the manufacturer.")
-    :json-schema/example "1"}))
+    {:type                :long
+     :spec                (spec/and int? #(not (neg? %)))
+     :description         (impl/multiline
+                            "A non-negative integer representing the number of times this yeast has been harvested and re-used."
+                            "A value of zero assumes the yeast came directly from the manufacturer.")
+     :json-schema/example "1"}))
 
 
 (spec/def ::max-reuse
@@ -307,13 +342,13 @@
 
 (spec/def ::add-to-secondary
   (st/spec
-   {:spec                ::prim/boolean
-    :description         (impl/multiline 
-                          "A boolean representing if this yeast was added for a secondary fermentation."
-                          "When absent, assume false.")
-    :json-schema/example "false"
-    :decode/string       impl/decode-boolean
-    :encode/string       impl/encode-boolean}))
+    {:spec                ::prim/boolean
+     :description         (impl/multiline
+                            "A boolean representing if this yeast was added for a secondary fermentation."
+                            "When absent, assume false.")
+     :json-schema/example "false"
+     :decode/string       impl/decode-boolean
+     :encode/string       impl/encode-boolean}))
 
 
 (spec/def ::disp-min-temp

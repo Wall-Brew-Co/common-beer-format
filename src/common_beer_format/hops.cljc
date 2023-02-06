@@ -183,28 +183,28 @@
 
 (spec/def ::use
   (st/spec
-   {:type                :string
-    :spec                (spec/and string?
-                                   #(not (str/blank? %))
-                                   #(contains? hop-uses (str/lower-case %)))
-    :gen                 #(spec/gen hop-uses)
-    :description         (impl/multiline "A case-insensitive string representing the means by which the hop is added to the beer."
-                                         (impl/set->description hop-uses))
-    :json-schema/example "mash"}))
+    {:type                :string
+     :spec                (spec/and string?
+                                    #(not (str/blank? %))
+                                    #(contains? hop-uses (str/lower-case %)))
+     :gen                 #(spec/gen hop-uses)
+     :description         (impl/multiline "A case-insensitive string representing the means by which the hop is added to the beer."
+                                          (impl/set->description hop-uses))
+     :json-schema/example "mash"}))
 
 
 (spec/def ::time
   (st/spec
-   {:type                :double
-    :spec                ::prim/minute
-    :description         (impl/multiline
-                          "A non-negative IEEE-754 floating point number representing the time in minutes the hop was added dependant on the :use field."
-                          "For \"Boil\" this is the boil time."
-                          "For \"Mash\" this is the mash time."
-                          "For \"First Wort\" this is the boil time."
-                          "For \"Aroma\" this is the steep time."
-                          "For \"Dry Hop\" this is the amount of time to dry hop.")
-    :json-schema/example "15.0"}))
+    {:type                :double
+     :spec                ::prim/minute
+     :description         (impl/multiline
+                            "A non-negative IEEE-754 floating point number representing the time in minutes the hop was added dependant on the :use field."
+                            "For \"Boil\" this is the boil time."
+                            "For \"Mash\" this is the mash time."
+                            "For \"First Wort\" this is the boil time."
+                            "For \"Aroma\" this is the steep time."
+                            "For \"Dry Hop\" this is the amount of time to dry hop.")
+     :json-schema/example "15.0"}))
 
 
 (def ^:const bittering
@@ -226,14 +226,14 @@
 
 (spec/def ::type
   (st/spec
-   {:type                :string
-    :spec                (spec/and string?
-                                   #(not (str/blank? %))
-                                   #(contains? hop-types (str/lower-case %)))
-    :gen                 #(spec/gen hop-types)
-    :description         (impl/multiline "A case-insensitive string representing the means by which the hop is added to the beer."
-                                         (impl/set->description hop-types))
-    :json-schema/example "bittering"}))
+    {:type                :string
+     :spec                (spec/and string?
+                                    #(not (str/blank? %))
+                                    #(contains? hop-types (str/lower-case %)))
+     :gen                 #(spec/gen hop-types)
+     :description         (impl/multiline "A case-insensitive string representing the means by which the hop is added to the beer."
+                                          (impl/set->description hop-types))
+     :json-schema/example "bittering"}))
 
 
 (def ^:const pellet
@@ -260,14 +260,14 @@
 
 (spec/def ::form
   (st/spec
-   {:type                :string
-    :spec                (spec/and string?
-                                   #(not (str/blank? %))
-                                   #(contains? hop-forms (str/lower-case %)))
-    :gen                 #(spec/gen hop-forms)
-    :description         (impl/multiline "A case-insensitive string representing the physical form of the hop."
-                                         (impl/set->description hop-forms))
-    :json-schema/example "leaf"}))
+    {:type                :string
+     :spec                (spec/and string?
+                                    #(not (str/blank? %))
+                                    #(contains? hop-forms (str/lower-case %)))
+     :gen                 #(spec/gen hop-forms)
+     :description         (impl/multiline "A case-insensitive string representing the physical form of the hop."
+                                          (impl/set->description hop-forms))
+     :json-schema/example "leaf"}))
 
 
 (spec/def ::beta

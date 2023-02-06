@@ -28,6 +28,7 @@
     (is (gen/generatable? ::yeasts/best-for))
     (is (gen/generatable? ::yeasts/laboratory))))
 
+
 (def ^:const sample-yeast
   "A hard-coded sample yeast for static unit tests"
   {:add-to-secondary false
@@ -67,6 +68,7 @@
 (def ^:const sample-yeasts-wrapper
   "A hard-coded sample yeasts-wrapper for static unit tests"
   {:yeasts sample-yeasts})
+
 
 (deftest static-keys-test
   (testing "Ensure all static keys can be used to access data"

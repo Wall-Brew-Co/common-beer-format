@@ -8,9 +8,11 @@
             [spec-tools.core :as st])
   (:refer-clojure :exclude [name]))
 
+
 (def ^:const water
   "A map representing the water used during the mash and for top-up."
   :water)
+
 
 (def ^:const waters
   "A vector of water records."
@@ -21,49 +23,61 @@
   "The name of the water record."
   :name)
 
+
 (def ^:const version
   "The version of the BeerXML specification used to create the water record."
   :version)
+
 
 (def ^:const amount
   "The amount of water in liters."
   :amount)
 
+
 (def ^:const calcium
   "The amount of calcium in parts per million."
   :calcium)
+
 
 (def ^:const bicarbonate
   "The amount of bicarbonate in parts per million."
   :bicarbonate)
 
+
 (def ^:const sulfate
   "The amount of sulfate in parts per million."
   :sulfate)
+
 
 (def ^:const chloride
   "The amount of chloride in parts per million."
   :chloride)
 
+
 (def ^:const sodium
   "The amount of sodium in parts per million."
   :sodium)
+
 
 (def ^:const magnesium
   "The amount of magnesium in parts per million."
   :magnesium)
 
+
 (def ^:const ph
   "The pH of the water."
   :ph)
+
 
 (def ^:const notes
   "Notes about the water profile."
   :notes)
 
+
 (def ^:const display-amount
   "The amount of water in a human-readable formate."
   :display-amount)
+
 
 (spec/def ::calcium
   (st/spec

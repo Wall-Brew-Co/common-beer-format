@@ -176,14 +176,14 @@
 
 (spec/def ::type
   (st/spec
-   {:type                :string
-    :spec                (spec/and string?
-                                   #(not (str/blank? %))
-                                   #(contains? fermentable-types (str/lower-case %)))
-    :gen                 #(spec/gen fermentable-types)
-    :description         (impl/multiline "A case-insensitive string representing the form of the fermentable."
-                                         (impl/set->description fermentable-types))
-    :json-schema/example "grain"}))
+    {:type                :string
+     :spec                (spec/and string?
+                                    #(not (str/blank? %))
+                                    #(contains? fermentable-types (str/lower-case %)))
+     :gen                 #(spec/gen fermentable-types)
+     :description         (impl/multiline "A case-insensitive string representing the form of the fermentable."
+                                          (impl/set->description fermentable-types))
+     :json-schema/example "grain"}))
 
 
 (spec/def ::yield
@@ -206,12 +206,12 @@
 
 (spec/def ::add-after-boil
   (st/spec
-   {:spec                ::prim/boolean
-    :description         (impl/multiline "A boolean representing if the fermentable was added after the boil."
-                                         "When absent, assume false.")
-    :json-schema/example "false"
-    :decode/string       impl/decode-boolean
-    :encode/string       impl/encode-boolean}))
+    {:spec                ::prim/boolean
+     :description         (impl/multiline "A boolean representing if the fermentable was added after the boil."
+                                          "When absent, assume false.")
+     :json-schema/example "false"
+     :decode/string       impl/decode-boolean
+     :encode/string       impl/encode-boolean}))
 
 
 (spec/def ::supplier
@@ -224,40 +224,40 @@
 
 (spec/def ::coarse-fine-diff
   (st/spec
-   {:type                :double
-    :spec                ::prim/percent
-    :description         (impl/multiline "A non-negative IEEE-754 floating point number representing the percent difference between the coarse grain yield and fine grain yield."
-                                         "Only appropriate for the 'Grain' or 'Adjunct' types.")
-    :json-schema/example "0.856"}))
+    {:type                :double
+     :spec                ::prim/percent
+     :description         (impl/multiline "A non-negative IEEE-754 floating point number representing the percent difference between the coarse grain yield and fine grain yield."
+                                          "Only appropriate for the 'Grain' or 'Adjunct' types.")
+     :json-schema/example "0.856"}))
 
 
 (spec/def ::moisture
   (st/spec
-   {:type                :double
-    :spec                ::prim/percent
-    :description         (impl/multiline "A non-negative IEEE-754 floating point number representing the percent moisture in the grain."
-                                         "Only appropriate for the 'Grain' or 'Adjunct' types.")
-    :json-schema/example "0.45"}))
+    {:type                :double
+     :spec                ::prim/percent
+     :description         (impl/multiline "A non-negative IEEE-754 floating point number representing the percent moisture in the grain."
+                                          "Only appropriate for the 'Grain' or 'Adjunct' types.")
+     :json-schema/example "0.45"}))
 
 
 (spec/def ::diastatic-power
   (st/spec
-   {:type                :double
-    :spec                number?
-    :gen                 #(gen/double* {:infinite? false
-                                        :NaN?      false})
-    :description         (impl/multiline "A non-negative IEEE-754 floating point number representing the diastatic power of the grain in Lintner units."
-                                         "Only appropriate for the 'Grain' or 'Adjunct' types.")
-    :json-schema/example "0.65"}))
+    {:type                :double
+     :spec                number?
+     :gen                 #(gen/double* {:infinite? false
+                                         :NaN?      false})
+     :description         (impl/multiline "A non-negative IEEE-754 floating point number representing the diastatic power of the grain in Lintner units."
+                                          "Only appropriate for the 'Grain' or 'Adjunct' types.")
+     :json-schema/example "0.65"}))
 
 
 (spec/def ::protein
   (st/spec
-   {:type                :double
-    :spec                ::prim/percent
-    :description         (impl/multiline "A non-negative IEEE-754 floating point number representing the protein contents of the grain."
-                                         "Only appropriate for the 'Grain' or 'Adjunct' types.")
-    :json-schema/example "0.10"}))
+    {:type                :double
+     :spec                ::prim/percent
+     :description         (impl/multiline "A non-negative IEEE-754 floating point number representing the protein contents of the grain."
+                                          "Only appropriate for the 'Grain' or 'Adjunct' types.")
+     :json-schema/example "0.10"}))
 
 
 (spec/def ::max-in-batch
@@ -270,24 +270,24 @@
 
 (spec/def ::recommend-mash
   (st/spec
-   {:spec                ::prim/boolean
-    :description         (impl/multiline "A boolean representing if the fermentable is recommended to be included in the mashing step."
-                                         "Only appropriate for the 'Grain' or 'Adjunct' types."
-                                         "When absent, assume false.")
-    :json-schema/example "false"
-    :decode/string       impl/decode-boolean
-    :encode/string       impl/encode-boolean}))
+    {:spec                ::prim/boolean
+     :description         (impl/multiline "A boolean representing if the fermentable is recommended to be included in the mashing step."
+                                          "Only appropriate for the 'Grain' or 'Adjunct' types."
+                                          "When absent, assume false.")
+     :json-schema/example "false"
+     :decode/string       impl/decode-boolean
+     :encode/string       impl/encode-boolean}))
 
 
 (spec/def ::ibu-gal-per-lb
   (st/spec
-   {:type                :double
-    :spec                number?
-    :gen                 #(gen/double* {:infinite? false
-                                        :NaN?      false})
-    :description         (impl/multiline "A non-negative IEEE-754 floating point number representing the IBUs per pound per gallon of water assuming a 60 minute boil."
-                                         "Only appropriate for the 'Extract' type.")
-    :json-schema/example "12.5"}))
+    {:type                :double
+     :spec                number?
+     :gen                 #(gen/double* {:infinite? false
+                                         :NaN?      false})
+     :description         (impl/multiline "A non-negative IEEE-754 floating point number representing the IBUs per pound per gallon of water assuming a 60 minute boil."
+                                          "Only appropriate for the 'Extract' type.")
+     :json-schema/example "12.5"}))
 
 
 (spec/def ::potential
