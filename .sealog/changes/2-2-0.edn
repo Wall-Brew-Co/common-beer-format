@@ -1,0 +1,20 @@
+{:version      {:major 2
+                :minor 2
+                :patch 0}
+ :version-type :semver3
+ :changes      {:added      ["Symbols for keywords in the equipment namespace"
+                             "Symbols for keywords in the fermentables namespace"
+                             "Symbols for keywords in the hops namespace"
+                             "Symbols for keywords in the mash namespace"
+                             "Symbols for keywords in the miscs namespace"
+                             "Symbols for keywords in the recipes namespace"
+                             "Symbols for keywords in the styles namespace"
+                             "Symbols for keywords in the waters namespace"
+                             "Symbols for keywords in the yeasts namespace"
+                             "A forwarding function for `get-spec`"]
+                :changed    ["The symbols not intended for public consumption are no accurately tagged with the `:no-doc` metadata"]
+                :deprecated []
+                :removed    []
+                :fixed      ["Fixed a bug where collection types would generate maps and sets in property tests."]
+                :security   []}
+ :timestamp    "2023-02-09T03:51:55.611415800Z"}

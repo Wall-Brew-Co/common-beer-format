@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## Table of Contents
 
+* [2.2.0 - 2023-02-09](#220---2023-02-09)
 * [2.1.0 - 2022-07-24](#210---2022-07-24)
 * [2.0.0 - 2022-07-20](#200---2022-07-20)
 * [1.4.0 - 2022-07-19](#140---2022-07-19)
@@ -15,6 +16,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 * [1.1.0 - 2020-05-08](#110---2020-05-08)
 * [1.0.0 - 2020-05-05](#100---2020-05-05)
 * [0.0.0 - 2020-03-17](#000---2020-03-17)
+
+## 2.2.0 - 2023-02-09
+
+* Added
+  * Symbols for keywords in the equipment namespace
+  * Symbols for keywords in the fermentables namespace
+  * Symbols for keywords in the hops namespace
+  * Symbols for keywords in the mash namespace
+  * Symbols for keywords in the miscs namespace
+  * Symbols for keywords in the recipes namespace
+  * Symbols for keywords in the styles namespace
+  * Symbols for keywords in the waters namespace
+  * Symbols for keywords in the yeasts namespace
+  * A forwarding function for `get-spec`
+* Changed
+  * The symbols not intended for public consumption are no accurately tagged with the `:no-doc` metadata
+* Fixed
+  * Fixed a bug where collection types would generate maps and sets in property tests.
 
 ## 2.1.0 - 2022-07-24
 

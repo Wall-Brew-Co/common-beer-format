@@ -1,4 +1,5 @@
 (ns common-beer-format.runner
+  "The namespace that drives `doo` to select tests to run in a ClojureScript environment."
   (:require [common-beer-format.core-test]
             [common-beer-format.generative.equipment-test]
             [common-beer-format.generative.fermentables-test]
@@ -10,6 +11,7 @@
             [common-beer-format.generative.styles-test]
             [common-beer-format.generative.waters-test]
             [common-beer-format.generative.yeasts-test]
+            [common-beer-format.impl-test]
             [common-beer-format.primitives-test]
             [doo.runner :refer-macros [doo-tests]]))
 
@@ -25,4 +27,5 @@
            'common-beer-format.generative.styles-test
            'common-beer-format.generative.waters-test
            'common-beer-format.generative.yeasts-test
+           'common-beer-format.impl-test
            'common-beer-format.primitives-test)

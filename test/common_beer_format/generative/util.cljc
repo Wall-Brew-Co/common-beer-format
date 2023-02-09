@@ -1,6 +1,6 @@
 (ns common-beer-format.generative.util
   "Utilities for generative tests"
-  (:require [clojure.spec.alpha :as s]
+  (:require [clojure.spec.alpha :as spec]
             [clojure.spec.gen.alpha :as gen]))
 
 
@@ -10,7 +10,7 @@
    :no-doc true}
   [spec]
   (try
-    (every? #(s/valid? spec %) (gen/sample (s/gen spec)))
+    (every? #(spec/valid? spec %) (gen/sample (spec/gen spec)))
     (catch #? (:clj Exception :cljs :default) e
       (println (str "Failed to generate a value for spec: " spec))
       (println e)
