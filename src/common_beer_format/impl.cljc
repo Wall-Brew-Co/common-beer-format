@@ -99,6 +99,7 @@
   ([s] s)
   ([s & more] (str s "\n" (apply multiline more))))
 
+
 (defn real-double-generator
   "A generator which produces any double.
    Excludes Not-a-number and infinite values"
@@ -106,6 +107,7 @@
   []
   (gen/double* {:infinite? false
                 :NaN?      false}))
+
 
 (defn real-positive-double-generator
   "A generator which produces any positive double.

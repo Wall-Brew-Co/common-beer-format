@@ -75,7 +75,11 @@
 
 (def yeast-types
   "The allowed values for the `:type` of yeast used to ferment the beer."
-  #{ale lager wheat wine champagne})
+  #{ale
+    lager
+    wheat
+    wine
+    champagne})
 
 
 (def form

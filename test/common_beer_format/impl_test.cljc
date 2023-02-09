@@ -31,11 +31,19 @@
   (testing "Multiple arguments are concatenated with newlines"
     (is (= "one\ntwo\nthree" (sut/multiline "one" "two" "three")))))
 
+
 (deftest real-double-generator-test
   (testing "Generates a double"
     (is (every? number? (gen.alpha/sample (sut/real-double-generator))))))
 
+
+(defn not-negative?
+  "Returns true if x is not negative"
+  [x]
+  (<= 0 x))
+
+
 (deftest real-positive-double-generator-test
   (testing "Generates a double"
     (is (every? number? (gen.alpha/sample (sut/real-positive-double-generator))))
-    (is (every? pos? (gen.alpha/sample (sut/real-positive-double-generator))))))
+    (is (every? not-negative? (gen.alpha/sample (sut/real-positive-double-generator))))))

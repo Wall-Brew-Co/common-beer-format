@@ -80,6 +80,51 @@
         "Static test data should conform to common-beer-format.misc/miscs-wrapper")))
 
 
+(deftest type-test
+  (testing "Ensure type map contains all misc types"
+    (is (contains? miscs/misc-types miscs/fining)
+        "Type map should contain fining agents")
+    (is (contains? miscs/misc-types miscs/flavor)
+        "Type map should contain dry flavoring")
+    (is (contains? miscs/misc-types miscs/herb)
+        "Type map should contain herbs")
+    (is (contains? miscs/misc-types miscs/other)
+        "Type map should contain other miscs")
+    (is (contains? miscs/misc-types miscs/spice)
+        "Type map should contain spices")
+    (is (contains? miscs/misc-types miscs/water-agent)
+        "Type map should contain water-agents"))
+  (testing "Ensure type set only contains known misc types"
+    (is (= #{} (disj miscs/misc-types
+                     miscs/fining
+                     miscs/flavor
+                     miscs/herb
+                     miscs/other
+                     miscs/spice
+                     miscs/water-agent)))))
+
+
+(deftest use-test
+  (testing "Ensure use map contains all misc uese"
+    (is (contains? miscs/misc-uses miscs/boil)
+        "Use map should contain in-boil ingredients")
+    (is (contains? miscs/misc-uses miscs/mash)
+        "Use map should contain mash-based additions")
+    (is (contains? miscs/misc-uses miscs/primary)
+        "Use map should contain primary fermentation ingredients")
+    (is (contains? miscs/misc-uses miscs/secondary)
+        "Use map should contain secondary fermentation ingredients")
+    (is (contains? miscs/misc-uses miscs/bottling)
+        "Use map should contain bottling reagents"))
+  (testing "Ensure use set only contains known misc uses"
+    (is (= #{} (disj miscs/misc-uses
+                     miscs/boil
+                     miscs/mash
+                     miscs/primary
+                     miscs/secondary
+                     miscs/bottling)))))
+
+
 (deftest static-keys-test
   (testing "Ensure static keys exist within complete records"
     (is (contains? sample-misc :amount)

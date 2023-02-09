@@ -215,7 +215,7 @@
 
 (def priming-sugar-equiv
   "A double representing the conversion factor to priming sugar equivalent."
-  :priming-sugar-equivalent)
+  :priming-sugar-equiv)
 
 
 (def keg-priming-factor
