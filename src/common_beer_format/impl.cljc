@@ -103,7 +103,8 @@
 (defn real-double-generator
   "A generator which produces any double.
    Excludes Not-a-number and infinite values"
-  {:added "2.2"}
+  {:added  "2.2"
+   :no-doc true}
   []
   (gen/double* {:infinite? false
                 :NaN?      false}))
@@ -112,7 +113,8 @@
 (defn real-positive-double-generator
   "A generator which produces any positive double.
    Excludes Not-a-number and infinite values"
-  {:added "2.2"}
+  {:added  "2.2"
+   :no-doc true}
   []
   (gen/double* {:infinite? false
                 :NaN?      false
