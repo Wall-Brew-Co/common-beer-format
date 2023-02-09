@@ -1,5 +1,5 @@
 (ns common-beer-format.miscs
-  "The definition of a misc record used in BeerXML"
+  "The definition of a misc record used in BeerXML."
   {:added "2.0"}
   (:require [clojure.spec.alpha :as spec]
             [clojure.string :as str]
@@ -9,27 +9,27 @@
   (:refer-clojure :exclude [name time type use]))
 
 
-(def ^:const misc
+(def misc
   "A miscellaneous ingredient in a beer recipe."
   :misc)
 
 
-(def ^:const miscs
+(def miscs
   "A collection of miscellaneous ingredients in a beer recipe."
   :miscs)
 
 
-(def ^:const name
+(def name
   "The name of a miscellaneous ingredient which isn't a hop, yeast, or primarily fermentable sugar."
   :name)
 
 
-(def ^:const version
+(def version
   "The BeerXML version of the miscellaneous ingredient."
   :version)
 
 
-(def ^:const type
+(def type
   "The type of the miscellaneous ingredient.
    
    Currently, BeerXML Supports the following types:
@@ -43,7 +43,7 @@
   :type)
 
 
-(def ^:const use
+(def use
   "How the miscellaneous ingredient is used in the brewing process.
    
    Currently, BeerXML supports the following uses:
@@ -56,7 +56,7 @@
   :use)
 
 
-(def ^:const time
+(def time
   "The time in minutes the ingredient is added to the beer.
    
    For `boil` this is the boil time.
@@ -65,72 +65,72 @@
   :time)
 
 
-(def ^:const amount
+(def amount
   "The amount of the ingredient added to the beer."
   :amount)
 
 
-(def ^:const amount-is-weight
+(def amount-is-weight
   "Whether the amount is a weight or a volume."
   :amount-is-weight)
 
 
-(def ^:const use-for
+(def use-for
   "A description of what the ingredient is used for."
   :use-for)
 
 
-(def ^:const notes
+(def notes
   "Notes about the ingredient."
   :notes)
 
 
-(def ^:const display-amount
+(def display-amount
   "The amount of the ingredient to display."
   :display-amount)
 
 
-(def ^:const inventory
+(def inventory
   "The amount of the ingredient in inventory."
   :inventory)
 
 
-(def ^:const display-time
+(def display-time
   "A human-readable version of the time."
   :display-time)
 
 
-(def ^:const fining
+(def fining
   "A fining agent, such as isinglass."
   "fining")
 
 
-(def ^:const flavor
+(def flavor
   "A flavoring, such as orange peel or a flavor concentrate."
   "flavor")
 
 
-(def ^:const herb
+(def herb
   "An herb, such as mint."
   "herb")
 
 
-(def ^:const other
+(def other
   "Any other type of miscellaneous ingredient."
   "other")
 
 
-(def ^:const spice
+(def spice
   "A spice, such as cinnamon or ginger."
   "spice")
 
 
-(def ^:const water-agent
+(def water-agent
   "A water agent, such as campden tablet."
   "water agent")
 
 
-(def ^:const misc-types
+(def misc-types
   "A set of the miscellaneous ingredient types supported by BeerXML.
    
    Currently, BeerXML Supports the following types:
@@ -161,32 +161,32 @@
      :json-schema/example "Spice"}))
 
 
-(def ^:const boil
+(def boil
   "The ingredient is added to the boil."
   "boil")
 
 
-(def ^:const mash
+(def mash
   "The ingredient is added to the mash."
   "mash")
 
 
-(def ^:const primary
+(def primary
   "The ingredient is added to the primary fermentation."
   "primary")
 
 
-(def ^:const secondary
+(def secondary
   "The ingredient is added to the secondary fermentation."
   "secondary")
 
 
-(def ^:const bottling
+(def bottling
   "The ingredient is added to the bottling process."
   "bottling")
 
 
-(def ^:const misc-uses
+(def misc-uses
   "A set of the miscellaneous ingredient uses supported by BeerXML.
    
    Currently, BeerXML supports the following uses:
@@ -231,7 +231,7 @@
   (st/spec
     {:type                :string
      :spec                ::prim/text
-     :description         "A non-empty string denoting what the ingredient is used for"
+     :description         "A non-empty string denoting what the ingredient is used for."
      :json-schema/example "Used to impart a mild, zesty flavor"}))
 
 
@@ -256,14 +256,14 @@
 (spec/def ::misc-wrapper
   (st/spec
     {:type        :map
-     :description "A ::misc record wrapped in a :misc map"
+     :description "A ::misc record wrapped in a :misc map."
      :spec        (spec/keys :req-un [::misc])}))
 
 
 (spec/def ::miscs
   (st/spec
     {:type          :vector
-     :description   "A vector of valid ::misc records"
+     :description   "A vector of valid ::misc records."
      :spec          (spec/coll-of ::misc-wrapper :into [] :kind vector?)
      :decode/string #(impl/decode-sequence %1 ::misc-wrapper %2)
      :encode/string #(impl/encode-sequence %1 ::misc-wrapper %2)}))
@@ -272,5 +272,5 @@
 (spec/def ::miscs-wrapper
   (st/spec
     {:type        :map
-     :description "A ::miscs record"
+     :description "A ::miscs record."
      :spec        (spec/keys :req-un [::miscs])}))

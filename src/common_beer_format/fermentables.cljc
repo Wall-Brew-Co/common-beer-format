@@ -1,36 +1,35 @@
 (ns common-beer-format.fermentables
-  "The definition of a fermentable record used in BeerXML"
+  "The definition of a fermentable record used in BeerXML."
   {:added "2.0"}
   (:require [clojure.spec.alpha :as spec]
             [clojure.string :as str]
-            [clojure.test.check.generators :as gen]
             [common-beer-format.impl :as impl]
             [common-beer-format.primitives :as prim]
             [spec-tools.core :as st])
   (:refer-clojure :exclude [name type]))
 
 
-(def ^:const fermentable
+(def fermentable
   "A map representing an ingredient with fermentable sugars added during the mash."
   :fermentable)
 
 
-(def ^:const fermentables
+(def fermentables
   "A sequence of ingredients with fermentable sugars added during the mash."
   :fermentables)
 
 
-(def ^:const name
+(def name
   "The name of the fermentable record."
   :name)
 
 
-(def ^:const version
+(def version
   "The version of the BeerXML specification used to create the fermentable record."
   :version)
 
 
-(def ^:const type
+(def type
   "The type of the fermentable ingredient.
    
    Currently, the following types are allowed:
@@ -43,123 +42,123 @@
   :type)
 
 
-(def ^:const amount
+(def amount
   "The amount of the fermentable ingredient added to the mash."
   :amount)
 
 
-(def ^:const yield
+(def yield
   "The percent of fermentable sugars rendered from the fermentable ingredient during the mash."
   :yield)
 
 
-(def ^:const color
+(def color
   "The color of the fermentable ingredient in Lovibond for the grain type, and SRM for all other types."
   :color)
 
 
-(def ^:const add-after-boil
+(def add-after-boil
   "A boolean representing if the fermentable was added after the boil.
    When absent, assume false."
   :add-after-boil)
 
 
-(def ^:const origin
+(def origin
   "The origin of the fermentable ingredient."
   :origin)
 
 
-(def ^:const supplier
+(def supplier
   "The supplier of the fermentable ingredient."
   :supplier)
 
 
-(def ^:const notes
+(def notes
   "Notes about the fermentable ingredient."
   :notes)
 
 
-(def ^:const coarse-fine-diff
+(def coarse-fine-diff
   "The difference between extractable sugar content with a coarse and fine grind of the grain."
   :coarse-fine-diff)
 
 
-(def ^:const moisture
+(def moisture
   "The percent moisture content of the grain."
   :moisture)
 
 
-(def ^:const diastatic-power
+(def diastatic-power
   "The diastatic power of the grain- which is the ability of the grain to convert starches to sugars in degrees Lintner."
   :diastatic-power)
 
 
-(def ^:const protein
+(def protein
   "The percent protein content of the grain."
   :protein)
 
 
-(def ^:const max-in-batch
+(def max-in-batch
   "The maximum percentage of the fermentable ingredient that should be used in the mash."
   :max-in-batch)
 
 
-(def ^:const recommend-mash
+(def recommend-mash
   "A boolean representing if the fermentable ingredient is recommended for mash or to be added at the start of the boil."
   :recommend-mash)
 
 
-(def ^:const ibu-gal-per-lb
+(def ibu-gal-per-lb
   "The IBU contribution per gallon of wort per pound of the fermentable ingredient."
   :ibu-gal-per-lb)
 
 
-(def ^:const display-amount
+(def display-amount
   "The amount of the fermentable ingredient to display in the recipe in a human-readable format."
   :display-amount)
 
 
-(def ^:const potential
+(def potential
   "The potential gravity of the fermentable ingredient in SG if all fermentable sugars were extracted."
   :potential)
 
 
-(def ^:const inventory
+(def inventory
   "The amount of the fermentable ingredient available on-hand."
   :inventory)
 
 
-(def ^:const display-color
+(def display-color
   "The color of the fermentable ingredient to display in the recipe in a human-readable format."
   :display-color)
 
 
-(def ^:const adjunct
+(def adjunct
   "A non-grain and non-sugar ingredient that is added to the wort that contain fermentable sugars."
   "adjunct")
 
 
-(def ^:const dry-extract
+(def dry-extract
   "A concentrated form of fermentable sugars derived from malted barley."
   "dry extract")
 
 
-(def ^:const extract
+(def extract
   "A concentrated form of fermentable sugars derived from malted barley in liquid form."
   "extract")
 
 
-(def ^:const grain
+(def grain
   "Whole or milled barley, rye, wheat, or other grain."
   "grain")
 
 
-(def ^:const sugar
+(def sugar
   "Raw, candied, and other natural sources of sugar (e.g. Honey)."
   "sugar")
 
 
-(def ^:const fermentable-types
+(def fermentable-types
   "The types of fermentables that are allowed in BeerXML.
    
    - `adjunct` - Non-grain and non-sugar ingredients that are added to the wort that contain fermentable sugars. 
@@ -198,8 +197,7 @@
   (st/spec
     {:type                :double
      :spec                number?
-     :gen                 #(gen/double* {:infinite? false
-                                         :NaN?      false})
+     :gen                 impl/real-double-generator
      :description         "A non-negative IEEE-754 floating point number representing the color in Lovibond for the grain type, and SRM for all other types for the fermentable"
      :json-schema/example "32"}))
 
@@ -244,8 +242,7 @@
   (st/spec
     {:type                :double
      :spec                number?
-     :gen                 #(gen/double* {:infinite? false
-                                         :NaN?      false})
+     :gen                 impl/real-double-generator
      :description         (impl/multiline "A non-negative IEEE-754 floating point number representing the diastatic power of the grain in Lintner units."
                                           "Only appropriate for the 'Grain' or 'Adjunct' types.")
      :json-schema/example "0.65"}))
@@ -283,8 +280,7 @@
   (st/spec
     {:type                :double
      :spec                number?
-     :gen                 #(gen/double* {:infinite? false
-                                         :NaN?      false})
+     :gen                 impl/real-double-generator
      :description         (impl/multiline "A non-negative IEEE-754 floating point number representing the IBUs per pound per gallon of water assuming a 60 minute boil."
                                           "Only appropriate for the 'Extract' type.")
      :json-schema/example "12.5"}))

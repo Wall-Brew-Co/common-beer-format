@@ -45,7 +45,8 @@
     (is (gen/generatable? ::styles/carb-max))
     (is (gen/generatable? ::styles/ibu-max))))
 
-(def ^:const sample-style
+
+(def sample-style
   "A hard-coded sample style for static unit tests"
   {:abv-max           5.5
    :abv-min           3.2
@@ -84,19 +85,20 @@
    :carb-range        "1.6-2.1"})
 
 
-(def ^:const sample-style-wrapper
+(def sample-style-wrapper
   "A hard-coded sample style-wrapper for static unit tests"
   {:style sample-style})
 
 
-(def ^:const sample-styles
+(def sample-styles
   "A hard-coded sample styles for static unit tests"
   [sample-style-wrapper])
 
 
-(def ^:const sample-styles-wrapper
+(def sample-styles-wrapper
   "A hard-coded sample styles-wrapper for static unit tests"
   {:styles sample-styles})
+
 
 (deftest static-keys-test
   (testing "Ensure all static keys can be used to access data"

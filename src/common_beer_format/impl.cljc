@@ -4,6 +4,7 @@
    This namespace is not intended to be used directly."
   {:added "1.0"}
   (:require [clojure.string :as str]
+            [clojure.test.check.generators :as gen]
             [nnichols.parse :as n-parse]
             [spec-tools.core :as st]))
 
@@ -97,3 +98,20 @@
   ([] "")
   ([s] s)
   ([s & more] (str s "\n" (apply multiline more))))
+
+(defn real-double-generator
+  "A generator which produces any double.
+   Excludes Not-a-number and infinite values"
+  {:added "2.2"}
+  []
+  (gen/double* {:infinite? false
+                :NaN?      false}))
+
+(defn real-positive-double-generator
+  "A generator which produces any positive double.
+   Excludes Not-a-number and infinite values"
+  {:added "2.2"}
+  []
+  (gen/double* {:infinite? false
+                :NaN?      false
+                :min       0}))

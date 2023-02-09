@@ -57,7 +57,7 @@
     (is (gen/generatable? ::mash/water-grain-ratio))))
 
 
-(def ^:const sample-mash-step
+(def sample-mash-step
   "A hard-coded sample mash step for static unit tests"
   {:infuse-amount      10.0
    :name               "Conversion Step, 68C"
@@ -75,22 +75,22 @@
    :display-infuse-amt "10.0 qt"})
 
 
-(def ^:const sample-mash-step-wrapper
+(def sample-mash-step-wrapper
   "A hard-coded sample mash-step-wrapper for static unit tests"
   {:mash-step sample-mash-step})
 
 
-(def ^:const sample-mash-steps
+(def sample-mash-steps
   "A hard-coded sample mash-steps for static unit tests"
   [sample-mash-step-wrapper])
 
 
-(def ^:const sample-mash-steps-wrapper
+(def sample-mash-steps-wrapper
   "A hard-coded sample mash-steps-wrapper for static unit tests"
   {:mash-steps sample-mash-steps})
 
 
-(def ^:const sample-mash
+(def sample-mash
   "A hard-coded sample mash for static unit tests"
   (merge {:name                "Single Step Infusion, 68 C"
           :version             1
@@ -109,7 +109,7 @@
          sample-mash-steps-wrapper))
 
 
-(def ^:const sample-mash-wrapper
+(def sample-mash-wrapper
   "A hard-coded sample mash-wrapper for static unit tests"
   {:mash sample-mash})
 
@@ -202,7 +202,10 @@
       (is (contains? sample-mash mash/display-tun-weight)
           "mash should contain display-tun-weight")
       (is (contains? sample-mash mash/display-sparge-temp)
-          "mash should contain display-sparge-temp")))
+          "mash should contain display-sparge-temp"))
+    (testing "mash-wrapper"
+      (is (contains? sample-mash-wrapper mash/mash)
+          "mash-wrapper should contain mash")))
   (testing "sample data only contains valid keys"
     (testing "mash-steps"
       (is (= {} (dissoc sample-mash-step

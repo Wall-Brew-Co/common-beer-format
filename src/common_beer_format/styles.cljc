@@ -1,56 +1,55 @@
 (ns common-beer-format.styles
-  "The definition of a style record used in BeerXML"
+  "The definition of a style record used in BeerXML."
   {:added "2.0"}
   (:require [clojure.spec.alpha :as spec]
             [clojure.string :as str]
-            [clojure.test.check.generators :as gen]
             [common-beer-format.impl :as impl]
             [common-beer-format.primitives :as prim]
             [spec-tools.core :as st])
   (:refer-clojure :exclude [name type]))
 
 
-(def ^:const style
+(def style
   "A record defining a style of beer"
   :style)
 
 
-(def ^:const styles
+(def styles
   "A collection of style records"
   :styles)
 
 
-(def ^:const name
+(def name
   "The name of the style record"
   :name)
 
 
-(def ^:const version
+(def version
   "The version of the style record"
   :version)
 
 
-(def ^:const category
+(def category
   "A non-empty string denoting the category this style belongs to."
   :category)
 
 
-(def ^:const category-number
+(def category-number
   "A non-empty string denoting the category number of this style."
   :category-number)
 
 
-(def ^:const style-letter
+(def style-letter
   "A non-empty string denoting the letter used to denote the style or sub-style."
   :style-letter)
 
 
-(def ^:const style-guide
+(def style-guide
   "A non-empty string denoting the name of the style guide the style/category belongs to."
   :style-guide)
 
 
-(def ^:const type
+(def type
   "A case-insensitive string representing the type of beverage the style dictates.
    
    Currently, the following values are supported:
@@ -64,142 +63,142 @@
   :type)
 
 
-(def ^:const og-min
+(def og-min
   "A non-negative IEEE-754 floating point number representing the minimum pre-fermentation specific gravity for the style."
   :og-min)
 
 
-(def ^:const og-max
+(def og-max
   "A non-negative IEEE-754 floating point number representing the maximum pre-fermentation specific gravity for the style."
   :og-max)
 
 
-(def ^:const fg-min
+(def fg-min
   "A non-negative IEEE-754 floating point number representing the minimum post-fermentation specific gravity for the style."
   :fg-min)
 
 
-(def ^:const fg-max
+(def fg-max
   "A non-negative IEEE-754 floating point number representing the maximum post-fermentation specific gravity for the style."
   :fg-max)
 
 
-(def ^:const ibu-min
+(def ibu-min
   "A non-negative IEEE-754 floating point number representing the minimum bitterness in IBUs for the style."
   :ibu-min)
 
 
-(def ^:const ibu-max
+(def ibu-max
   "A non-negative IEEE-754 floating point number representing the maximum bitterness in IBUs for the style."
   :ibu-max)
 
 
-(def ^:const color-min
+(def color-min
   "A non-negative IEEE-754 floating point number representing the minimum color in SRM for the style."
   :color-min)
 
 
-(def ^:const color-max
+(def color-max
   "A non-negative IEEE-754 floating point number representing the maximum color in SRM for the style."
   :color-max)
 
 
-(def ^:const carb-min
+(def carb-min
   "A non-negative IEEE-754 floating point number representing the minimum carbonation in volumes for the style."
   :carb-min)
 
 
-(def ^:const carb-max
+(def carb-max
   "A non-negative IEEE-754 floating point number representing the maximum carbonation in volumes for the style."
   :carb-max)
 
 
-(def ^:const abv-min
+(def abv-min
   "A non-negative IEEE-754 floating point number representing the minimum alcohol by volume for the style."
   :abv-min)
 
 
-(def ^:const abv-max
+(def abv-max
   "A non-negative IEEE-754 floating point number representing the maximum alcohol by volume for the style."
   :abv-max)
 
 
-(def ^:const notes
+(def notes
   "A string containing notes about the style."
   :notes)
 
 
-(def ^:const profile
+(def profile
   "A string containing a profile of the style."
   :profile)
 
 
-(def ^:const ingredients
+(def ingredients
   "A string containing a description of the ingredients commonly used in the style."
   :ingredients)
 
 
-(def ^:const examples
+(def examples
   "A string containing commercial or well-known examples of the style."
   :examples)
 
 
-(def ^:const display-og-min
+(def display-og-min
   "A human-readable represention of the minimum pre-fermentation specific gravity for the style."
   :display-og-min)
 
 
-(def ^:const display-og-max
+(def display-og-max
   "A human-readable represention of the maximum pre-fermentation specific gravity for the style."
   :display-og-max)
 
 
-(def ^:const display-fg-min
+(def display-fg-min
   "A human-readable represention of the minimum post-fermentation specific gravity for the style."
   :display-fg-min)
 
 
-(def ^:const display-fg-max
+(def display-fg-max
   "A human-readable represention of the maximum post-fermentation specific gravity for the style."
   :display-fg-max)
 
 
-(def ^:const display-color-min
+(def display-color-min
   "A human-readable represention of the minimum color for the style."
   :display-color-min)
 
 
-(def ^:const display-color-max
+(def display-color-max
   "A human-readable represention of the maximum color for the style."
   :display-color-max)
 
 
-(def ^:const og-range
+(def og-range
   "A string containing the range of pre-fermentation specific gravities for the style."
   :og-range)
 
 
-(def ^:const fg-range
+(def fg-range
   "A string containing the range of post-fermentation specific gravities for the style."
   :fg-range)
 
 
-(def ^:const ibu-range
+(def ibu-range
   "A string containing the range of bitterness for the style."
   :ibu-range)
 
 
-(def ^:const color-range
+(def color-range
   "A string containing the range of color for the style."
   :color-range)
 
 
-(def ^:const carb-range
+(def carb-range
   "A string containing the range of carbonation for the style."
   :carb-range)
 
 
-(def ^:const abv-range
+(def abv-range
   "A string containing the range of alcohol by volume for the style."
   :abv-range)
 
@@ -237,37 +236,37 @@
      :json-schema/example "BJCP"}))
 
 
-(def ^:const lager
+(def lager
   "A light, bottom-fermented beer with a clean, crisp taste and a smooth finish."
   "lager")
 
 
-(def ^:const ale
+(def ale
   "A top-fermented beer with a fruity, hoppy taste and a dry finish."
   "ale")
 
 
-(def ^:const mead
+(def mead
   "A fermented beverage made from honey and water."
   "mead")
 
 
-(def ^:const wheat
+(def wheat
   "A beer made with a large proportion of wheat malt."
   "wheat")
 
 
-(def ^:const mixed
+(def mixed
   "A beer style that blends two or more styles."
   "mixed")
 
 
-(def ^:const cider
+(def cider
   "A fermented beverage made from fruit and water."
   "cider")
 
 
-(def ^:const style-types
+(def style-types
   "A set of strings representing the types of beverages that can be described by a style."
   #{ale
     cider
@@ -325,8 +324,7 @@
   (st/spec
     {:type                :double
      :spec                number?
-     :gen                 #(gen/double* {:infinite? false
-                                         :NaN?      false})
+     :gen                 impl/real-double-generator
      :description         "A non-negative IEEE-754 floating point number representing the minimum bitterness in IBUs for the style"
      :json-schema/example "32"}))
 
@@ -335,8 +333,7 @@
   (st/spec
     {:type                :double
      :spec                number?
-     :gen                 #(gen/double* {:infinite? false
-                                         :NaN?      false})
+     :gen                 impl/real-double-generator
      :description         "A non-negative IEEE-754 floating point number representing the maximum bitterness in IBUs for the style"
      :json-schema/example "40"}))
 
@@ -345,8 +342,7 @@
   (st/spec
     {:type                :double
      :spec                number?
-     :gen                 #(gen/double* {:infinite? false
-                                         :NaN?      false})
+     :gen                 impl/real-double-generator
      :description         "A non-negative IEEE-754 floating point number representing the lightest color in SRM for the style"
      :json-schema/example "32"}))
 
@@ -355,8 +351,7 @@
   (st/spec
     {:type                :double
      :spec                number?
-     :gen                 #(gen/double* {:infinite? false
-                                         :NaN?      false})
+     :gen                 impl/real-double-generator
      :description         "A non-negative IEEE-754 floating point number representing the darkest color in SRM for the style"
      :json-schema/example "40"}))
 
@@ -365,8 +360,7 @@
   (st/spec
     {:type                :double
      :spec                number?
-     :gen                 #(gen/double* {:infinite? false
-                                         :NaN?      false})
+     :gen                 impl/real-double-generator
      :description         "A non-negative IEEE-754 floating point number representing the minimum carbonation for this style in volumes of CO2"
      :json-schema/example "1.5"}))
 
@@ -375,8 +369,7 @@
   (st/spec
     {:type                :double
      :spec                number?
-     :gen                 #(gen/double* {:infinite? false
-                                         :NaN?      false})
+     :gen                 impl/real-double-generator
      :description         "A non-negative IEEE-754 floating point number representing the maximum carbonation for this style in volumes of CO2"
      :json-schema/example "2.2"}))
 

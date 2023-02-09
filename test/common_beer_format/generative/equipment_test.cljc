@@ -43,7 +43,7 @@
     (is (gen/generatable? ::equipment/equipment-wrapper))))
 
 
-(def ^:const sample-equipment
+(def sample-equipment
   "A hard-coded sample equipment for static unit tests"
   {:batch-size                19.9
    :display-batch-size        "19.9 liters"
@@ -71,7 +71,7 @@
    :version                   1})
 
 
-(def ^:const sample-equipment-wrapper
+(def sample-equipment-wrapper
   "A hard-coded sample equipment-wrapper for static unit tests"
   {:equipment sample-equipment})
 

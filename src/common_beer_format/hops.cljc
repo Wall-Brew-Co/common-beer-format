@@ -9,37 +9,37 @@
   (:refer-clojure :exclude [name type time use]))
 
 
-(def ^:const hop
+(def hop
   "A map representing a hop."
   :hop)
 
 
-(def ^:const hops
+(def hops
   "A vector of hops."
   :hops)
 
 
-(def ^:const name
+(def name
   "The name of the hop."
   :name)
 
 
-(def ^:const version
+(def version
   "The version of the BeerXML specification used to create the hop record."
   :version)
 
 
-(def ^:const alpha
+(def alpha
   "The percent contents of alpha acid in the hop."
   :alpha)
 
 
-(def ^:const amount
+(def amount
   "The amount of the hop in the recipe."
   :amount)
 
 
-(def ^:const use
+(def use
   "The means by which the hop is added to the beer.
 
    Currently, the following uses are allowed:
@@ -52,17 +52,17 @@
   :use)
 
 
-(def ^:const time
+(def time
   "The time in minutes the hop was added dependant on the `:use` field."
   :time)
 
 
-(def ^:const notes
+(def notes
   "Notes about the hop."
   :notes)
 
 
-(def ^:const type
+(def type
   "The type of hop added to the beer, based on its intended purpose.
 
    Currently, the following types are allowed:
@@ -73,7 +73,7 @@
   :type)
 
 
-(def ^:const form
+(def form
   "The form of the hop added to the beer.
 
    Currently, the following forms are allowed:
@@ -84,57 +84,57 @@
   :form)
 
 
-(def ^:const beta
+(def beta
   "The percent contents of beta acid in the hop."
   :beta)
 
 
-(def ^:const hsi
+(def hsi
   "The Hop Stability Index, or percent decay of a hop's alpha acid over six months."
   :hsi)
 
 
-(def ^:const origin
+(def origin
   "The origin of the hop."
   :origin)
 
 
-(def ^:const substitutes
+(def substitutes
   "A string containing suitable alternative hop names to use as a replcaement for the hop."
   :substitutes)
 
 
-(def ^:const humulene
+(def humulene
   "The percent contents of humulene in the hop, which contributes to the unique aroma of hops."
   :humulene)
 
 
-(def ^:const caryophyllene
+(def caryophyllene
   "The percent contents of caryophyllene in the hop, which contributes to the peppery characteristics of hop aroma."
   :caryophyllene)
 
 
-(def ^:const cohumulone
+(def cohumulone
   "The percent contents of cohumulone in the hop, which contributes to the sour characteristics of hop aroma."
   :cohumulone)
 
 
-(def ^:const myrcene
+(def myrcene
   "The percent contents of myrcene in the hop, which contributes to the earthy characteristics of hop aroma."
   :myrcene)
 
 
-(def ^:const display-amount
+(def display-amount
   "The amount of the hop in the recipe, formatted for display."
   :display-amount)
 
 
-(def ^:const display-time
+(def display-time
   "The time in minutes the hop was added dependant on the `:use` field, formatted for display."
   :display-time)
 
 
-(def ^:const inventory
+(def inventory
   "The amount of the hop in inventory."
   :inventory)
 
@@ -147,32 +147,32 @@
      :json-schema/example "10.7"}))
 
 
-(def ^:const boil
+(def boil
   "Hops added to the boil."
   "boil")
 
 
-(def ^:const dry-hop
+(def dry-hop
   "Hops added to the fermentation vessel after pitching yeast."
   "dry hop")
 
 
-(def ^:const mash
+(def mash
   "Hops added to the mash prior to the boil."
   "mash")
 
 
-(def ^:const first-wort
+(def first-wort
   "Hops added to the first wort."
   "first wort")
 
 
-(def ^:const aroma
+(def aroma
   "Hops added to the beer for aroma."
   "aroma")
 
 
-(def ^:const hop-uses
+(def hop-uses
   "The allowed values for the means by which the hop is added to the beer."
   #{aroma
     boil
@@ -207,17 +207,17 @@
      :json-schema/example "15.0"}))
 
 
-(def ^:const bittering
+(def bittering
   "Hops added to the boil for bittering."
   "bittering")
 
 
-(def ^:const both
+(def both
   "Hops added to the boil for both bittering and aroma."
   "both")
 
 
-(def ^:const hop-types
+(def hop-types
   "The allowed values for the type of hop."
   #{bittering
     aroma
@@ -236,22 +236,22 @@
      :json-schema/example "bittering"}))
 
 
-(def ^:const pellet
+(def pellet
   "Hops added to the boil in pellet form."
   "pellet")
 
 
-(def ^:const plug
+(def plug
   "Hops added to the boil in plug form."
   "plug")
 
 
-(def ^:const leaf
+(def leaf
   "Hops added to the boil in whole leaf form."
   "leaf")
 
 
-(def ^:const hop-forms
+(def hop-forms
   "The allowed values for the physical form of the hop."
   #{pellet
     plug

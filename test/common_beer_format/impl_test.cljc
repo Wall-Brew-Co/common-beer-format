@@ -1,5 +1,6 @@
 (ns common-beer-format.impl-test
-  (:require [common-beer-format.impl :as sut]
+  (:require [clojure.spec.gen.alpha :as gen.alpha]
+            [common-beer-format.impl :as sut]
             #? (:clj  [clojure.test :refer [deftest is testing]])
             #? (:cljs [cljs.test    :refer-macros [deftest is testing]])))
 
@@ -29,3 +30,12 @@
     (is (= "one" (sut/multiline "one"))))
   (testing "Multiple arguments are concatenated with newlines"
     (is (= "one\ntwo\nthree" (sut/multiline "one" "two" "three")))))
+
+(deftest real-double-generator-test
+  (testing "Generates a double"
+    (is (every? number? (gen.alpha/sample (sut/real-double-generator))))))
+
+(deftest real-positive-double-generator-test
+  (testing "Generates a double"
+    (is (every? number? (gen.alpha/sample (sut/real-positive-double-generator))))
+    (is (every? pos? (gen.alpha/sample (sut/real-positive-double-generator))))))

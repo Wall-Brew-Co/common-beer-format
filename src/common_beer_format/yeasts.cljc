@@ -1,5 +1,5 @@
 (ns common-beer-format.yeasts
-  "The definition of a yeast record used in BeerXML"
+  "The definition of a yeast record used in BeerXML."
   {:added "2.0"}
   (:require [clojure.spec.alpha :as spec]
             [clojure.string :as str]
@@ -9,33 +9,33 @@
   (:refer-clojure :exclude [name type]))
 
 
-(def ^:const yeast
+(def yeast
   "A map representing the yeast used during the mash and for top-up."
   :yeast)
 
 
-(def ^:const yeasts
+(def yeasts
   "A vector of yeast records."
   :yeasts)
 
 
-(def ^:const name
+(def name
   "The name of the yeast record."
   :name)
 
 
-(def ^:const version
+(def version
   "The version of the BeerXML specification used to create the yeast record."
   :version)
 
 
-(def ^:const amount
+(def amount
   "The amount of yeast in liters or kilograms.
    Depends upon `:amount-is-weight`."
   :amount)
 
 
-(def ^:const type
+(def type
   "The type of yeast, usually categorized by the intended beverage or style.
    
    Currently, the following types are supported:
@@ -48,37 +48,37 @@
   :type)
 
 
-(def ^:const ale
+(def ale
   "Yeast that ferments at higher temperatures and produces a more fruity, estery, and alcohol-forward beer."
   "ale")
 
 
-(def ^:const lager
+(def lager
   "Yeast that ferments at lower temperatures and produces a crisp, clean, and alcohol-restrained beer."
   "lager")
 
 
-(def ^:const wheat
+(def wheat
   "Yeast that ferments at higher temperatures and produces a fruity and phenol-forward beer."
   "wheat")
 
 
-(def ^:const wine
+(def wine
   "Yeast traditionally used in wine making."
   "wine")
 
 
-(def ^:const champagne
+(def champagne
   "Yeast traditionally used in champagne making, offering a dry taste."
   "champagne")
 
 
-(def ^:const yeast-types
+(def yeast-types
   "The allowed values for the `:type` of yeast used to ferment the beer."
   #{ale lager wheat wine champagne})
 
 
-(def ^:const form
+(def form
   "The form of the yeast added to the beer.
    
    Currently, the following forms are supported:
@@ -90,22 +90,22 @@
   :form)
 
 
-(def ^:const liquid
+(def liquid
   "A liquid slurry of yeast, usually with a source of nutrietns or sugars."
   "liquid")
 
 
-(def ^:const dry
+(def dry
   "Dry yeast sold in a dehydrated state to extend shelf life."
   "dry")
 
 
-(def ^:const slant
+(def slant
   "Yeast cultivated on a solid growth medium."
   "slant")
 
 
-(def ^:const culture
+(def culture
   "Yeast clutivated from previous fermentations."
   "culture")
 
@@ -122,7 +122,7 @@
      :json-schema/example "Ale"}))
 
 
-(def ^:const yeast-forms
+(def yeast-forms
   "The allowed values for the `:form` of yeast used to ferment the beer."
   #{liquid
     dry
@@ -130,32 +130,32 @@
     culture})
 
 
-(def ^:const amount-is-weight
+(def amount-is-weight
   "A boolean value indicating whether the `:amount` is in kilograms or liters."
   :amount-is-weight)
 
 
-(def ^:const laboratory
+(def laboratory
   "The laboratory that cultivated the yeast."
   :laboratory)
 
 
-(def ^:const product-id
+(def product-id
   "The product label or id number that identifies the strain of yeast."
   :product-id)
 
 
-(def ^:const min-temperature
+(def min-temperature
   "The minimum recommended temperature of fermenation."
   :min-temperature)
 
 
-(def ^:const max-temperature
+(def max-temperature
   "The maximum recommended temperature of fermenation."
   :max-temperature)
 
 
-(def ^:const flocculation
+(def flocculation
   "The rate at which the yeast settles out of suspension.
    
    Currently, the following flocculation types are supported:
@@ -167,77 +167,77 @@
   :flocculation)
 
 
-(def ^:const low
+(def low
   "The yeast settles out of suspension slowly."
   "low")
 
 
-(def ^:const medium
+(def medium
   "The yeast settles out of suspension at a moderate rate."
   "medium")
 
 
-(def ^:const high
+(def high
   "The yeast settles out of suspension quickly."
   "high")
 
 
-(def ^:const very-high
+(def very-high
   "The yeast settles out of suspension very quickly."
   "very-high")
 
 
-(def ^:const attenuation
+(def attenuation
   "The percentage of sugars that are typically converted to alcohol during fermentation."
   :attenuation)
 
 
-(def ^:const notes
+(def notes
   "A free-form text field for recording any additional information about the yeast."
   :notes)
 
 
-(def ^:const best-for
+(def best-for
   "A free-form text field for denoting styles the yeast is best suited for."
   :best-for)
 
 
-(def ^:const times-cultured
+(def times-cultured
   "The number of times the yeast has been cultured."
   :times-cultured)
 
 
-(def ^:const max-reuse
+(def max-reuse
   "A suggestion of the maximum number of times the yeast can be cultured."
   :max-reuse)
 
 
-(def ^:const add-to-secondary
+(def add-to-secondary
   "A boolean value indicating whether the yeast should be added to the secondary fermentation."
   :add-to-secondary)
 
 
-(def ^:const display-amount
+(def display-amount
   "A human-readable string representing the amount of yeast added to the beer."
   :display-amount)
 
 
-(def ^:const disp-min-temp
+(def disp-min-temp
   "A human-readable string representing the minimum recommended temperature of fermenation."
   :disp-min-temp)
 
 
-(def ^:const disp-max-temp
+(def disp-max-temp
   "A human-readable string representing the maximum recommended temperature of fermenation."
   :disp-max-temp)
 
 
-(def ^:const inventory
+(def inventory
   "A map containing information about the yeast on hand in inventory."
   :inventory)
 
 
-(def ^:const culture-date
+(def culture-date
   "A non-empty string denoting a display value for the date the yeast sample was last cultured formatted for display in arbitrary structure"
   :culture-date)
 
@@ -286,7 +286,7 @@
      :json-schema/example "23.9"}))
 
 
-(def ^:const yeast-flocculation-types
+(def yeast-flocculation-types
   "The allowed values for the `:flocculation` of yeast used to ferment the beer."
   #{low
     medium
@@ -406,14 +406,14 @@
 (spec/def ::yeast-wrapper
   (st/spec
     {:type        :map
-     :description "A ::yeast record wrapped in a ::yeast map"
+     :description "A ::yeast record wrapped in a ::yeast map."
      :spec        (spec/keys :req-un [::yeast])}))
 
 
 (spec/def ::yeasts
   (st/spec
     {:type          :vector
-     :description   "A vector of valid ::yeast records"
+     :description   "A vector of valid ::yeast records."
      :spec          (spec/coll-of ::yeast-wrapper :into [] :kind vector?)
      :decode/string #(impl/decode-sequence %1 ::yeast-wrapper %2)
      :encode/string #(impl/encode-sequence %1 ::yeast-wrapper %2)}))
@@ -422,5 +422,5 @@
 (spec/def ::yeasts-wrapper
   (st/spec
     {:type        :map
-     :description "A ::yeasts-wrapper record"
+     :description "A ::yeasts-wrapper record."
      :spec        (spec/keys :req-un [::yeasts])}))

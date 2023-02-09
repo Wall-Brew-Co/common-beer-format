@@ -37,7 +37,7 @@
     (is (gen/generatable? ::miscs/time))))
 
 
-(def ^:const sample-misc
+(def sample-misc
   "A hard-coded sample misc for static unit tests"
   {:amount           0.010
    :amount-is-weight false
@@ -53,17 +53,17 @@
    :version          1})
 
 
-(def ^:const sample-misc-wrapper
+(def sample-misc-wrapper
   "A hard-coded sample misc-wrapper for static unit tests"
   {miscs/misc sample-misc})
 
 
-(def ^:const sample-miscs
+(def sample-miscs
   "A hard-coded sample miscs for static unit tests"
   [sample-misc-wrapper])
 
 
-(def ^:const sample-miscs-wrapper
+(def sample-miscs-wrapper
   "A hard-coded sample miscs-wrapper for static unit tests"
   {miscs/miscs sample-miscs})
 

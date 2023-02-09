@@ -29,7 +29,7 @@
     (is (gen/generatable? ::yeasts/laboratory))))
 
 
-(def ^:const sample-yeast
+(def sample-yeast
   "A hard-coded sample yeast for static unit tests"
   {:add-to-secondary false
    :amount           0.250
@@ -55,17 +55,17 @@
    :version          1})
 
 
-(def ^:const sample-yeast-wrapper
+(def sample-yeast-wrapper
   "A hard-coded sample yeast-wrapper for static unit tests"
   {:yeast sample-yeast})
 
 
-(def ^:const sample-yeasts
+(def sample-yeasts
   "A hard-coded sample yeasts for static unit tests"
   [sample-yeast-wrapper])
 
 
-(def ^:const sample-yeasts-wrapper
+(def sample-yeasts-wrapper
   "A hard-coded sample yeasts-wrapper for static unit tests"
   {:yeasts sample-yeasts})
 

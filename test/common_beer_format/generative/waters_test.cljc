@@ -21,7 +21,7 @@
     (is (gen/generatable? ::waters/sulfate))))
 
 
-(def ^:const sample-water
+(def sample-water
   "A hard-coded sample water for static unit tests"
   {:amount         20.0
    :bicarbonate    300.0
@@ -37,17 +37,17 @@
    :version        1})
 
 
-(def ^:const sample-water-wrapper
+(def sample-water-wrapper
   "A hard-coded sample water-wrapper for static unit tests"
   {:water sample-water})
 
 
-(def ^:const sample-waters
+(def sample-waters
   "A hard-coded sample waters for static unit tests"
   [sample-water-wrapper])
 
 
-(def ^:const sample-waters-wrapper
+(def sample-waters-wrapper
   "A hard-coded sample waters-wrapper for static unit tests"
   {:waters sample-waters})
 

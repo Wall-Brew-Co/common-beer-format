@@ -44,7 +44,7 @@
     (is (gen/generatable? ::hops/alpha))))
 
 
-(def ^:const sample-hop
+(def sample-hop
   "A hard-coded sample hop for static unit tests"
   {:alpha          5.0
    :amount         0.0638
@@ -68,17 +68,17 @@
    :version        1})
 
 
-(def ^:const sample-hop-wrapper
+(def sample-hop-wrapper
   "A hard-coded sample hop-wrapper for static unit tests"
   {:hop sample-hop})
 
 
-(def ^:const sample-hops
+(def sample-hops
   "A hard-coded sample hops for static unit tests"
   [sample-hop-wrapper])
 
 
-(def ^:const sample-hops-wrapper
+(def sample-hops-wrapper
   "A hard-coded sample hops-wrapper for static unit tests"
   {:hops sample-hops})
 
