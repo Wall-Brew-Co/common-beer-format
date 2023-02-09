@@ -144,32 +144,32 @@
 
 
 (def display-og-min
-  "A human-readable represention of the minimum pre-fermentation specific gravity for the style."
+  "A human-readable  representation of the minimum pre-fermentation specific gravity for the style."
   :display-og-min)
 
 
 (def display-og-max
-  "A human-readable represention of the maximum pre-fermentation specific gravity for the style."
+  "A human-readable  representation of the maximum pre-fermentation specific gravity for the style."
   :display-og-max)
 
 
 (def display-fg-min
-  "A human-readable represention of the minimum post-fermentation specific gravity for the style."
+  "A human-readable  representation of the minimum post-fermentation specific gravity for the style."
   :display-fg-min)
 
 
 (def display-fg-max
-  "A human-readable represention of the maximum post-fermentation specific gravity for the style."
+  "A human-readable  representation of the maximum post-fermentation specific gravity for the style."
   :display-fg-max)
 
 
 (def display-color-min
-  "A human-readable represention of the minimum color for the style."
+  "A human-readable  representation of the minimum color for the style."
   :display-color-min)
 
 
 (def display-color-max
-  "A human-readable represention of the maximum color for the style."
+  "A human-readable  representation of the maximum color for the style."
   :display-color-max)
 
 
