@@ -4,23 +4,23 @@
   <groupId>com.wallbrew</groupId>
   <artifactId>common-beer-format</artifactId>
   <packaging>jar</packaging>
-  <version>2.2.0</version>
+  <version>2.2.1</version>
   <name>common-beer-format</name>
-  <description>An implementation of the BeerXML spec in multiple formats</description>
+  <description>An implementation of the BeerXML spec in multiple formats.</description>
   <url>https://github.com/Wall-Brew-Co/common-beer-format</url>
   <licenses>
     <license>
       <name>MIT</name>
       <url>https://opensource.org/licenses/MIT</url>
       <distribution>repo</distribution>
-      <comments>Same-as all Wall-Brew projects</comments>
+      <comments>Same-as all Wall-Brew projects.</comments>
     </license>
   </licenses>
   <scm>
     <url>https://github.com/Wall-Brew-Co/common-beer-format</url>
     <connection>scm:git:git://github.com/Wall-Brew-Co/common-beer-format.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/Wall-Brew-Co/common-beer-format.git</developerConnection>
-    <tag>f810d3c37e1dfcc67f20ae849c8e4016798eb5a0</tag>
+    <tag>e2641fe153256ec6f6336091e8bd4e1628112460</tag>
   </scm>
   <build>
     <sourceDirectory>src</sourceDirectory>

@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## Table of Contents
 
+* [2.2.1 - 2023-02-12](#221---2023-02-12)
 * [2.2.0 - 2023-02-09](#220---2023-02-09)
 * [2.1.0 - 2022-07-24](#210---2022-07-24)
 * [2.0.0 - 2022-07-20](#200---2022-07-20)
@@ -16,6 +17,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 * [1.1.0 - 2020-05-08](#110---2020-05-08)
 * [1.0.0 - 2020-05-05](#100---2020-05-05)
 * [0.0.0 - 2020-03-17](#000---2020-03-17)
+
+## 2.2.1 - 2023-02-12
+
+* Fixed
+  * Ensure all yeast flocculation values are valid.
 
 ## 2.2.0 - 2023-02-09
 

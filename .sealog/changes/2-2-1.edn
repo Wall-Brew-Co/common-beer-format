@@ -1,0 +1,11 @@
+{:version      {:major 2
+                :minor 2
+                :patch 1}
+ :version-type :semver3
+ :changes      {:added      []
+                :changed    []
+                :deprecated []
+                :removed    []
+                :fixed      ["Ensure all yeast flocculation values are valid."]
+                :security   []}
+ :timestamp    "2023-02-12T23:23:19.237559600Z"}
