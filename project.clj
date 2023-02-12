@@ -1,10 +1,10 @@
-(defproject com.wallbrew/common-beer-format "2.2.0"
-  :description "An implementation of the BeerXML spec in multiple formats"
+(defproject com.wallbrew/common-beer-format "2.2.1"
+  :description "An implementation of the BeerXML spec in multiple formats."
   :url "https://github.com/Wall-Brew-Co/common-beer-format"
   :license {:name         "MIT"
             :url          "https://opensource.org/licenses/MIT"
             :distribution :repo
-            :comments     "Same-as all Wall-Brew projects"}
+            :comments     "Same-as all Wall-Brew projects."}
   :scm {:name "git"
         :url  "https://github.com/Wall-Brew-Co/common-beer-format"}
   :dependencies [[metosin/spec-tools "0.10.5"]

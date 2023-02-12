@@ -40,7 +40,7 @@
    :disp-max-temp    "22.2 C"
    :disp-min-temp    "16.7 C"
    :display-amount   "250.0 ml"
-   :flocculation     "Medium"
+   :flocculation     "Very High"
    :form             "Liquid"
    :inventory        "None"
    :laboratory       "Wyeast Labs"
