@@ -167,7 +167,7 @@
    - `low` - The yeast settles out of suspension slowly.
    - `medium` - The yeast settles out of suspension at a moderate rate.
    - `high` - The yeast settles out of suspension quickly.
-   - `very-high` - The yeast settles out of suspension very quickly."
+   - `very high` - The yeast settles out of suspension very quickly."
   :flocculation)
 
 
@@ -188,7 +188,7 @@
 
 (def very-high
   "The yeast settles out of suspension very quickly."
-  "very-high")
+  "very high")
 
 
 (def attenuation
