@@ -22,7 +22,7 @@
             [lein-project-version "0.1.0"]
             [mvxcvi/cljstyle "0.15.0"]]
   :profiles {:uberjar {:aot :all}
-             :dev     {:dependencies [[com.wallbrew/clj-xml "1.7.2"]
+             :dev     {:dependencies [[com.wallbrew/clj-xml "1.8.0"]
                                       [com.wallbrew/spoon "1.1.0"]
                                       [doo "0.1.11"]
                                       [org.clojure/data.json "2.4.0"]
