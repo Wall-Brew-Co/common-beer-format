@@ -23,7 +23,7 @@
             [mvxcvi/cljstyle "0.15.0"]]
   :profiles {:uberjar {:aot :all}
              :dev     {:dependencies [[com.wallbrew/clj-xml "1.8.0"]
-                                      [com.wallbrew/spoon "1.1.0"]
+                                      [com.wallbrew/spoon "1.2.1"]
                                       [doo "0.1.11"]
                                       [org.clojure/data.json "2.4.0"]
                                       [org.clojure/data.xml "0.2.0-alpha8"]]
