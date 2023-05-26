@@ -20,7 +20,7 @@
     <url>https://github.com/Wall-Brew-Co/common-beer-format</url>
     <connection>scm:git:git://github.com/Wall-Brew-Co/common-beer-format.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/Wall-Brew-Co/common-beer-format.git</developerConnection>
-    <tag>e2641fe153256ec6f6336091e8bd4e1628112460</tag>
+    <tag>b3d9942948c75dc185f3d4db0fed0092e06db7e8</tag>
   </scm>
   <build>
     <sourceDirectory>src</sourceDirectory>
