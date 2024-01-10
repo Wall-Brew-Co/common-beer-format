@@ -20,7 +20,7 @@
             [lein-cljsbuild "1.1.8"]
             [lein-cloverage "1.2.4"]
             [lein-project-version "0.1.0"]
-            [mvxcvi/cljstyle "0.15.0"]]
+            [mvxcvi/cljstyle "0.16.630"]]
   :profiles {:uberjar {:aot :all}
              :dev     {:dependencies [[com.wallbrew/clj-xml "1.8.0"]
                                       [com.wallbrew/spoon "1.2.1"]
