@@ -10,7 +10,7 @@
   :dependencies [[metosin/spec-tools "0.10.6"]
                  [nnichols "1.1.0"]
                  [org.clojure/clojure "1.11.1"]
-                 [org.clojure/clojurescript "1.11.121" :scope "provided"]
+                 [org.clojure/clojurescript "1.11.132" :scope "provided"]
                  [org.clojure/data.json "2.4.0"]
                  [org.clojure/data.xml "0.2.0-alpha8"]
                  [org.clojure/spec.alpha "0.3.218"]
