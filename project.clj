@@ -12,7 +12,7 @@
                  [org.clojure/clojure "1.11.1"]
                  [org.clojure/clojurescript "1.11.132" :scope "provided"]
                  [org.clojure/data.json "2.4.0"]
-                 [org.clojure/data.xml "0.2.0-alpha8"]
+                 [org.clojure/data.xml "0.2.0-alpha9"]
                  [org.clojure/spec.alpha "0.4.233"]
                  [org.clojure/test.check "1.1.1"]]
   :plugins [[com.github.clj-kondo/lein-clj-kondo "2024.02.12"]
@@ -26,7 +26,7 @@
                                       [com.wallbrew/spoon "1.2.1"]
                                       [doo "0.1.11"]
                                       [org.clojure/data.json "2.4.0"]
-                                      [org.clojure/data.xml "0.2.0-alpha8"]]
+                                      [org.clojure/data.xml "0.2.0-alpha9"]]
                        :plugins      [[lein-doo "0.1.11"]]}}
   :deploy-branches ["master"]
   :deploy-repositories [["clojars" {:url           "https://clojars.org/repo"
