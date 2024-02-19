@@ -16,7 +16,7 @@
                  [org.clojure/spec.alpha "0.4.233"]
                  [org.clojure/test.check "1.1.1"]]
   :plugins [[com.github.clj-kondo/lein-clj-kondo "2023.12.15"]
-            [com.wallbrew/lein-sealog "1.0.2"]
+            [com.wallbrew/lein-sealog "1.1.0"]
             [lein-cljsbuild "1.1.8"]
             [lein-cloverage "1.2.4"]
             [lein-project-version "0.1.0"]
