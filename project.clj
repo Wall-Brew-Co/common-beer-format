@@ -11,7 +11,7 @@
                  [nnichols "1.1.0"]
                  [org.clojure/clojure "1.11.1"]
                  [org.clojure/clojurescript "1.11.132" :scope "provided"]
-                 [org.clojure/data.json "2.4.0"]
+                 [org.clojure/data.json "2.5.0"]
                  [org.clojure/data.xml "0.2.0-alpha9"]
                  [org.clojure/spec.alpha "0.4.233"]
                  [org.clojure/test.check "1.1.1"]]
@@ -25,7 +25,7 @@
              :dev     {:dependencies [[com.wallbrew/clj-xml "1.8.0"]
                                       [com.wallbrew/spoon "1.2.1"]
                                       [doo "0.1.11"]
-                                      [org.clojure/data.json "2.4.0"]
+                                      [org.clojure/data.json "2.5.0"]
                                       [org.clojure/data.xml "0.2.0-alpha9"]]
                        :plugins      [[lein-doo "0.1.11"]]}}
   :deploy-branches ["master"]
