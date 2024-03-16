@@ -1,0 +1,11 @@
+{:cljdoc.doc/tree [["Readme" {:file "README.md"}]
+                   ["Changelog" {:file "CHANGELOG.md"}]
+                   ["Community" {}
+                    ["Contributing" {:file "CONTRIBUTING.md"}]
+                    ["Code of Conduct" {:file "CODE_OF_CONDUCT.md"}]
+                    ["Security Policy" {:file "SECURITY.md"}]]
+                   ["Functionality" {}
+                    ["Specs" {}
+                     ["Equipment" {:file "doc/specs/equipment.md"}]]]
+                   ["Adopted Patterns" {}
+                    ["Symbolic Keywords" {:file "doc/patterns/symbolic_keywords.md"}]]]}
