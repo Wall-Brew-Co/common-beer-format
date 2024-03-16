@@ -83,9 +83,11 @@
   "A hard-coded sample equipment-wrapper for static unit tests"
   {equipment/equipment sample-equipment})
 
+
 (def sample-equipments
   "A hard-coded sample equipments for static unit tests"
   [sample-equipment-wrapper])
+
 
 (def sample-equipments-wrapper
   "A hard-coded sample equipments-wrapper for static unit tests"

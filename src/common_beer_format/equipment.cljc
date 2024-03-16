@@ -12,6 +12,7 @@
   "A map representing the brewing equipment used during the mash."
   :equipment)
 
+
 (def equipments
   "A vector of equipment records."
   :equipments)
@@ -349,6 +350,7 @@
      :decode/string        #(impl/decode-wrapper %1 ::equipment %2)
      :encode/string        #(impl/encode-wrapper %1 ::equipment %2)}))
 
+
 (spec/def ::equipments
   (st/spec
     {:type          :vector
@@ -356,6 +358,7 @@
      :spec          (spec/coll-of ::equipment-wrapper :into [] :kind vector?)
      :decode/string #(impl/decode-sequence %1 ::equipment-wrapper %2)
      :encode/string #(impl/encode-sequence %1 ::equipment-wrapper %2)}))
+
 
 (spec/def ::equipments-wrapper
   (st/spec
