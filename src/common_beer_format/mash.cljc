@@ -31,9 +31,9 @@
 
 (def type
   "The type of mash step.
-   
+
    Currently, the following types are allowed:
-   
+
    - `decoction` - A mash step where the fermentable ingredients are boiled and then returned to the mash tun.
    - `infusion` - A mash step where fermentable ingredients steep in water at a specific temperature.
    - `temperature` - A mash step where the temperature of the mash is held at a specific temperature for a specific time by an external source."
@@ -112,9 +112,9 @@
 
 (def mash-step-types
   "A set of allowed mash types
-   
+
    Currently, the following types are allowed:
-   
+
    - `decoction` - A mash step where the fermentable ingredients are boiled and then returned to the mash tun.
    - `infusion` - A mash step where fermentable ingredients steep in water at a specific temperature.
    - `temperature` - A mash step where the temperature of the mash is held at a specific temperature for a specific time by an external source."
@@ -368,7 +368,7 @@
   (st/spec
     {:type                :double
      :spec                (spec/and number? #(not (neg? %)))
-     :description         "A non-negative IEEE-754 floating point number representing the specific heat of the mashtun in Calories per gram-degree Celsius"
+     :description         "A non-negative IEEE-754 floating point number representing the specific heat of the mash tun in Calories per gram-degree Celsius"
      :json-schema/example "0.2"}))
 
 

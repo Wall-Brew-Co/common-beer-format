@@ -126,7 +126,7 @@
   (st/spec
     {:type                :string
      :spec                ::text
-     :description         "A non-empty string denoting the place of originfor a particular ingredient"
+     :description         "A non-empty string denoting the place of origin for a particular ingredient"
      :json-schema/example "Nice, France"}))
 
 
@@ -134,7 +134,7 @@
   (st/spec
     {:type                :string
      :spec                ::text
-     :description         "A non-empty string denoting ingredients with me bay used in place of those deonted in the reocrd"
+     :description         "A non-empty string denoting ingredients with me bay used in place of those denoted in the record"
      :json-schema/example "Citra or Sorachi"}))
 
 

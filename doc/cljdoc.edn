@@ -6,6 +6,8 @@
                     ["Security Policy" {:file "SECURITY.md"}]]
                    ["Functionality" {}
                     ["Specs" {}
-                     ["Equipment" {:file "doc/specs/equipment.md"}]]]
+                     ["Equipment" {:file "doc/specs/equipment.md"}]
+                     ["Fermentables" {:file "doc/specs/fermentables.md"}]
+                     ["Hops" {:file "doc/specs/hops.md"}]]]
                    ["Adopted Patterns" {}
                     ["Symbolic Keywords" {:file "doc/patterns/symbolic_keywords.md"}]]]}

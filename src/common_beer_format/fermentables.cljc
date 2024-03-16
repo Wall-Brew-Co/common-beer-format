@@ -31,10 +31,10 @@
 
 (def type
   "The type of the fermentable ingredient.
-   
+
    Currently, the following types are allowed:
 
-   - `adjunct` - Non-grain and non-sugar ingredients that are added to the wort that contain fermentable sugars. 
+   - `adjunct` - Non-grain and non-sugar ingredients that are added to the wort that contain fermentable sugars.
    - `dry-extract` - Dry extract is a concentrated form of fermentable sugars derived from malted barley.
    - `extract` - Extract is a concentrated form of fermentable sugars derived from malted barley in liquid form.
    - `grain` - Whole or milled barley, rye, wheat, or other grain.
@@ -160,8 +160,8 @@
 
 (def fermentable-types
   "The types of fermentables that are allowed in BeerXML.
-   
-   - `adjunct` - Non-grain and non-sugar ingredients that are added to the wort that contain fermentable sugars. 
+
+   - `adjunct` - Non-grain and non-sugar ingredients that are added to the wort that contain fermentable sugars.
    - `dry-extract` - Dry extract is a concentrated form of fermentable sugars derived from malted barley.
    - `extract` - Extract is a concentrated form of fermentable sugars derived from malted barley in liquid form.
    - `grain` - Whole or milled barley, rye, wheat, or other grain.
@@ -175,21 +175,27 @@
 
 (spec/def ::type
   (st/spec
-    {:type                :string
-     :spec                (spec/and string?
-                                    #(not (str/blank? %))
-                                    #(contains? fermentable-types (str/lower-case %)))
-     :gen                 #(spec/gen fermentable-types)
-     :description         (impl/multiline "A case-insensitive string representing the form of the fermentable."
-                                          (impl/set->description fermentable-types))
-     :json-schema/example "grain"}))
+   {:type                :string
+    :spec                (spec/and string?
+                                   #(not (str/blank? %))
+                                   #(contains? fermentable-types (str/lower-case %)))
+    :gen                 #(spec/gen fermentable-types)
+    :description         (impl/multiline "A case-insensitive string representing the form of the fermentable."
+                                         (impl/set->description fermentable-types)
+                                         ""
+                                         "- Adjunct: Non-grain and non-sugar ingredients that are added to the wort that contain fermentable sugars."
+                                         "- Dry Extract: Dry extract is a concentrated form of fermentable sugars derived from malted barley."
+                                         "- Extract: Extract is a concentrated form of fermentable sugars derived from malted barley in liquid form."
+                                         "- Grain: Whole or milled barley, rye, wheat, or other grain."
+                                         "- Sugar: Raw, candied, and other natural sources of sugar (e.g. Honey) .)")
+    :json-schema/example "grain"}))
 
 
 (spec/def ::yield
   (st/spec
     {:type                :double
      :spec                ::prim/percent
-     :description         "A non-negative IEEE-754 floating point number representing the percent rendered sugar from the fermentable"
+     :description         "A non-negative IEEE-754 floating point number representing the percent rendered sugar from the fermentable."
      :json-schema/example "0.856"}))
 
 
@@ -198,7 +204,7 @@
     {:type                :double
      :spec                number?
      :gen                 impl/real-double-generator
-     :description         "A non-negative IEEE-754 floating point number representing the color in Lovibond for the grain type, and SRM for all other types for the fermentable"
+     :description         "A non-negative IEEE-754 floating point number representing the color in Lovibond for the grain type, and SRM for all other types for the fermentable."
      :json-schema/example "32"}))
 
 
@@ -216,17 +222,18 @@
   (st/spec
     {:type                :string
      :spec                ::prim/text
-     :description         "A non-empty string denoting the supplier of the fermentable ingredient"
+     :description         "A non-empty string denoting the supplier of the fermentable ingredient."
      :json-schema/example "Gnome Brew"}))
 
 
 (spec/def ::coarse-fine-diff
   (st/spec
-    {:type                :double
-     :spec                ::prim/percent
-     :description         (impl/multiline "A non-negative IEEE-754 floating point number representing the percent difference between the coarse grain yield and fine grain yield."
-                                          "Only appropriate for the 'Grain' or 'Adjunct' types.")
-     :json-schema/example "0.856"}))
+    {:type                 :double
+     impl/display-name-key "Coarse Fine Difference"
+     :spec                 ::prim/percent
+     :description          (impl/multiline "A non-negative IEEE-754 floating point number representing the percent difference between the coarse grain yield and fine grain yield."
+                                           "Only appropriate for the 'Grain' or 'Adjunct' types.")
+     :json-schema/example  "0.856"}))
 
 
 (spec/def ::moisture
@@ -290,7 +297,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/specific-gravity
-     :description         "A non-negative IEEE-754 floating point number representing the potential yield in specific gravity units of the ingredient"
+     :description         "A non-negative IEEE-754 floating point number representing the potential yield in specific gravity units of the ingredient."
      :json-schema/example "1.048"}))
 
 
@@ -298,7 +305,7 @@
   (st/spec
     {:type                :string
      :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the color of the ingredient formatted for display in arbitrary units"
+     :description         "A non-empty string denoting a display value for the color of the ingredient formatted for display in arbitrary units."
      :json-schema/example "200 Lovibond"}))
 
 
@@ -331,15 +338,16 @@
 
 (spec/def ::fermentable-wrapper
   (st/spec
-    {:type        :map
-     :description "A ::fermentable record wrapped in a ::fermentable map"
-     :spec        (spec/keys :req-un [::fermentable])}))
+    {:type                 :map
+     impl/wrapper-spec-key true
+     :description          "A `::fermentable` record wrapped in a `::fermentable` map."
+     :spec                 (spec/keys :req-un [::fermentable])}))
 
 
 (spec/def ::fermentables
   (st/spec
     {:type          :vector
-     :description   "A vector of valid ::fermentable-wrapper records"
+     :description   "A vector of valid `::fermentable-wrapper` records."
      :spec          (spec/coll-of ::fermentable-wrapper :into [] :kind vector?)
      :decode/string #(impl/decode-sequence %1 ::fermentable-wrapper %2)
      :encode/string #(impl/encode-sequence %1 ::fermentable-wrapper %2)}))
@@ -347,6 +355,7 @@
 
 (spec/def ::fermentables-wrapper
   (st/spec
-    {:type        :map
-     :description "A ::fermentables-wrapper record"
-     :spec        (spec/keys :req-un [::fermentables])}))
+    {:type                 :map
+     impl/wrapper-spec-key true
+     :description          "A `::fermentables-wrapper` record."
+     :spec                 (spec/keys :req-un [::fermentables])}))

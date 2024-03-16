@@ -49,7 +49,7 @@
 
 
 (def tun-specific-heat
-  "The specific heat of the mashtun in Calories per gram-degree Celsius."
+  "The specific heat of the mash tun in Calories per gram-degree Celsius."
   :tun-specific-heat)
 
 
@@ -175,7 +175,7 @@
     {:type                :double
      :spec                (spec/and number? #(not (neg? %)))
      :gen                 impl/real-positive-double-generator
-     :description         "A non-negative IEEE-754 floating point number representing the specific heat of the mashtun in Calories per gram-degree Celsius."
+     :description         "A non-negative IEEE-754 floating point number representing the specific heat of the mash tun in Calories per gram-degree Celsius."
      :json-schema/example "0.2"}))
 
 
@@ -214,10 +214,10 @@
 (spec/def ::calc-boil-volume
   (st/spec
     {:spec                ::prim/boolean
-     impl/display-name-key "Calculate Boil Volume."
+     impl/display-name-key "Calculate Boil Volume"
      :description         (impl/multiline "A boolean denoting whether or not programs reading this equipment record should calculate the boil size."
                                           "When absent, assume false."
-                                          "When true, then boil-size = (batch-size - top-up-water - trub-chiller-loss) * (1 + boil-time * evap-rate)")
+                                          "When true, then boil-size = `(batch-size - top-up-water - trub-chiller-loss) * (1 + boil-time * evap-rate)`")
      :json-schema/example "true."
      :decode/string       impl/decode-boolean
      :encode/string       impl/encode-boolean}))
@@ -259,7 +259,7 @@
   (st/spec
     {:type                :string
      :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the pre-permentation volume formatted for display in arbitrary units."
+     :description         "A non-empty string denoting a display value for the pre-fermentation volume formatted for display in arbitrary units."
      :json-schema/example "4.5 gallons"}))
 
 

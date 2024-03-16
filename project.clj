@@ -23,9 +23,7 @@
                                       [doo "0.1.11"]
                                       [org.clojure/data.json "2.5.0"]]
                        :plugins      [[lein-doo "0.1.11"]]}
-             :export {:source-paths ["src" "dev"]
-                      :dependencies [[com.wallbrew/clj-xml "1.9.0"]
-                                     [org.clojure/data.json "2.5.0"]]}}
+             :export  {:source-paths ["src" "dev"]}}
   :deploy-branches ["master"]
   :deploy-repositories [["clojars" {:url           "https://clojars.org/repo"
                                     :username      :env/clojars_user
@@ -34,7 +32,8 @@
 
   :min-lein-version "2.5.3"
 
-  :aliases {"test-build" ["do" "clean" ["cljsbuild" "once" "test"] ["doo" "once"] ["test"]]}
+  :aliases {"test-build"   ["do" "clean" ["cljsbuild" "once" "test"] ["doo" "once"] ["test"]]
+            "export-specs" ["with-profile" "export" "run" "-m" "common-beer-format.spec-export/render-specs!"]}
 
   :cljsbuild {:builds [{:id           "test"
                         :source-paths ["src" "test"]

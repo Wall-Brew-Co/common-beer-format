@@ -39,9 +39,9 @@
 
 (def type
   "A string representing the type of recipe.
-   
+
    Currenltly, BeerXML support the following types:
-   
+
    - `all-grain`: A recipe that uses only malted grains.
    - `partial-mash`: A recipe that uses a combination of malted grains and malt extract.
    - `extract`: A recipe that uses only malt extract."
@@ -245,9 +245,9 @@
 
 (def ibu-method
   "A string representing the method used to calculate the bitterness of the beer.
-   
+
    Currently, the following methods are supported:
-   
+
    - Tinseth: Tinseth's method for calculating bitterness.
    - Rager: Rager's method for calculating bitterness.
    - Garetz: Garetz's method for calculating bitterness."
@@ -524,7 +524,7 @@
 
 
 (spec/def ::date
-  ;; 
+  ;;
   (st/spec
     {:type                :string
      :spec                ::prim/text
@@ -697,7 +697,7 @@
   (st/spec
     {:type                :string
      :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the pre-permentation volume formatted for display in arbitrary units."
+     :description         "A non-empty string denoting a display value for the pre-fermentation volume formatted for display in arbitrary units."
      :json-schema/example "4.5 gallons"}))
 
 
@@ -705,7 +705,7 @@
   (st/spec
     {:type                :string
      :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the pre-permentation gravity formatted for display in arbitrary units."
+     :description         "A non-empty string denoting a display value for the pre-fermentation gravity formatted for display in arbitrary units."
      :json-schema/example "1.050sg"}))
 
 

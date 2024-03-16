@@ -60,7 +60,7 @@ A record representing the brewing equipment used in brewing.
 
 ## Batch Size
 
-A non-negative IEEE-754 floating point number representing the target volume of the batch at the start of fermentation
+A non-negative IEEE-754 floating point number representing the target volume of the batch at the start of fermentation.
 
 - Key Name: `:batch-size`
 - Type: Double
@@ -68,7 +68,7 @@ A non-negative IEEE-754 floating point number representing the target volume of 
 
 ## Boil Size
 
-A non-negative IEEE-754 floating point number representing the pre-boil volume for the equipment setup
+A non-negative IEEE-754 floating point number representing the pre-boil volume for the equipment setup.
 
 - Key Name: `:boil-size`
 - Type: Double
@@ -86,7 +86,7 @@ A non-negative IEEE-754 floating point number representing the normal amount of 
 
 A boolean denoting whether or not programs reading this equipment record should calculate the boil size.
 When absent, assume false.
-When true, then boil-size = (batch-size - top-up-water - trub-chiller-loss) * (1 + boil-time * evap-rate)
+When true, then boil-size = `(batch-size - top-up-water - trub-chiller-loss) * (1 + boil-time * evap-rate)`
 
 - Key Name: `:calc-boil-volume`
 - Type: Spec
@@ -94,7 +94,7 @@ When true, then boil-size = (batch-size - top-up-water - trub-chiller-loss) * (1
 
 ## Display Batch Size
 
-A non-empty string denoting a display value for the pre-permentation volume formatted for display in arbitrary units
+A non-empty string denoting a display value for the pre-fermentation volume formatted for display in arbitrary units.
 
 - Key Name: `:display-batch-size`
 - Type: String
@@ -102,7 +102,7 @@ A non-empty string denoting a display value for the pre-permentation volume form
 
 ## Display Boil Size
 
-A non-empty string denoting a display value for the pre-boil volume formatted for display in arbitrary units
+A non-empty string denoting a display value for the pre-boil volume formatted for display in arbitrary units.
 
 - Key Name: `:display-boil-size`
 - Type: String
@@ -110,7 +110,7 @@ A non-empty string denoting a display value for the pre-boil volume formatted fo
 
 ## Display Lauter Deadspace
 
-A non-empty string denoting a display value for the volume of wort lost in the lauter vessel formatted for display in arbitrary units
+A non-empty string denoting a display value for the volume of wort lost in the lauter vessel formatted for display in arbitrary units.
 
 - Key Name: `:display-lauter-deadspace`
 - Type: String
@@ -118,7 +118,7 @@ A non-empty string denoting a display value for the volume of wort lost in the l
 
 ## Display Top Up Kettle
 
-A non-empty string denoting a display value for the top-up water added to the pre-boil stage of the kettle formatted for display in arbitrary units
+A non-empty string denoting a display value for the top-up water added to the pre-boil stage of the kettle formatted for display in arbitrary units.
 
 - Key Name: `:display-top-up-kettle`
 - Type: String
@@ -126,7 +126,7 @@ A non-empty string denoting a display value for the top-up water added to the pr
 
 ## Display Top Up Water
 
-A non-empty string denoting a display value for the volume of top-up water added before fermentation formatted for display in arbitrary units
+A non-empty string denoting a display value for the volume of top-up water added before fermentation formatted for display in arbitrary units.
 
 - Key Name: `:display-top-up-water`
 - Type: String
@@ -134,7 +134,7 @@ A non-empty string denoting a display value for the volume of top-up water added
 
 ## Display Trub Chiller Loss
 
-A non-empty string denoting a display value for the volume of wort lost in transition between boiler and fermentation vessel formatted for display in arbitrary units
+A non-empty string denoting a display value for the volume of wort lost in transition between boiler and fermentation vessel formatted for display in arbitrary units.
 
 - Key Name: `:display-trub-chiller-loss`
 - Type: String
@@ -142,7 +142,7 @@ A non-empty string denoting a display value for the volume of wort lost in trans
 
 ## Display Tun Volume
 
-A non-empty string denoting a display value for the volume capacity of the mash tun formatted for display in arbitrary units
+A non-empty string denoting a display value for the volume capacity of the mash tun formatted for display in arbitrary units.
 
 - Key Name: `:display-tun-volume`
 - Type: String
@@ -150,7 +150,7 @@ A non-empty string denoting a display value for the volume capacity of the mash 
 
 ## Display Tun Weight
 
-A non-empty string denoting a display value for the empty weight of the mash tun formatted for display in arbitrary units
+A non-empty string denoting a display value for the empty weight of the mash tun formatted for display in arbitrary units.
 
 - Key Name: `:display-tun-weight`
 - Type: String
@@ -158,7 +158,7 @@ A non-empty string denoting a display value for the empty weight of the mash tun
 
 ## Evap Rate
 
-A non-negative IEEE-754 floating point number representing the percentage of wort lost to evaporation per hour of the boil
+A non-negative IEEE-754 floating point number representing the percentage of wort lost to evaporation per hour of the boil.
 
 - Key Name: `:evap-rate`
 - Type: Double
@@ -166,7 +166,7 @@ A non-negative IEEE-754 floating point number representing the percentage of wor
 
 ## Hop Utilization
 
-A non-negative IEEE-754 floating point number representing the percentage of large batch hop utilization
+A non-negative IEEE-754 floating point number representing the percentage of large batch hop utilization.
 
 - Key Name: `:hop-utilization`
 - Type: Double
@@ -174,7 +174,7 @@ A non-negative IEEE-754 floating point number representing the percentage of lar
 
 ## Lauter Deadspace
 
-A non-negative IEEE-754 floating point number representing the volume of wort lost to the lauter tun
+A non-negative IEEE-754 floating point number representing the volume of wort lost to the lauter tun.
 
 - Key Name: `:lauter-deadspace`
 - Type: Double
@@ -198,7 +198,7 @@ A non-empty string representing any notes about the subject
 
 ## Top Up Kettle
 
-A non-negative IEEE-754 floating point number representing the volume of top-up water added to the boil kettle before the boil begins
+A non-negative IEEE-754 floating point number representing the volume of top-up water added to the boil kettle before the boil begins.
 
 - Key Name: `:top-up-kettle`
 - Type: Double
@@ -206,7 +206,7 @@ A non-negative IEEE-754 floating point number representing the volume of top-up 
 
 ## Top Up Water
 
-A non-negative IEEE-754 floating point number representing the volume of top-up water added before fermentation in liters
+A non-negative IEEE-754 floating point number representing the volume of top-up water added before fermentation in liters.
 
 - Key Name: `:top-up-water`
 - Type: Double
@@ -214,7 +214,7 @@ A non-negative IEEE-754 floating point number representing the volume of top-up 
 
 ## Trub Chiller Loss
 
-A non-negative IEEE-754 floating point number representing the volume of wort lost during transition from the boiler to primary fermentation vessel
+A non-negative IEEE-754 floating point number representing the volume of wort lost during transition from the boiler to primary fermentation vessel.
 
 - Key Name: `:trub-chiller-loss`
 - Type: Double
@@ -222,7 +222,7 @@ A non-negative IEEE-754 floating point number representing the volume of wort lo
 
 ## Tun Specific Heat
 
-A non-negative IEEE-754 floating point number representing the specific heat of the mashtun in Calories per gram-degree Celsius
+A non-negative IEEE-754 floating point number representing the specific heat of the mash tun in Calories per gram-degree Celsius.
 
 - Key Name: `:tun-specific-heat`
 - Type: Double
@@ -230,7 +230,7 @@ A non-negative IEEE-754 floating point number representing the specific heat of 
 
 ## Tun Volume
 
-A non-negative IEEE-754 floating point number representing the volume of the of the mash tun in liters
+A non-negative IEEE-754 floating point number representing the volume of the of the mash tun in liters.
 
 - Key Name: `:tun-volume`
 - Type: Double
@@ -238,7 +238,7 @@ A non-negative IEEE-754 floating point number representing the volume of the of 
 
 ## Tun Weight
 
-A non-negative IEEE-754 floating point number representing the weight of the of the mash tun in kilograms
+A non-negative IEEE-754 floating point number representing the weight of the of the mash tun in kilograms.
 
 - Key Name: `:tun-weight`
 - Type: Double

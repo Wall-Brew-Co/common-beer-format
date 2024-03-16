@@ -10,6 +10,8 @@
             [clojure.string :as str]
             [common-beer-format.core :as cbf]
             [common-beer-format.equipment :as equipment]
+            [common-beer-format.fermentables :as fermentables]
+            [common-beer-format.hops :as hops]
             [common-beer-format.impl :as impl]))
 
 
@@ -57,24 +59,23 @@
 
    This function generates the appropriate header so the map and sequence specs can link to it."
   [spec]
+  (println (str "Generating leaf spec markdown for " spec))
   (let [spec-definition  (cbf/get-spec spec)
         display-name     (spec->human-name spec)
         spec-type        (-> spec-definition :type spec->human-name)
         example-value    (coerce-example-value spec)
         spec-description (:description spec-definition)]
-
     (if (:leaf? spec-definition)
-      (str/join
-        "\n"
-        [(str "## " display-name)
-         ""
-         spec-description
-         ""
-         (str "- Key Name: `" (-> spec name keyword) "`")
-         (str "- Type: " spec-type)
-         (str "- Example: `" example-value "`")
-         "" ; Add a newline at the end
-         ""])
+      (impl/multiline
+       (str "## " display-name)
+       ""
+       spec-description
+       ""
+       (str "- Key Name: `" (-> spec name keyword) "`")
+       (str "- Type: " spec-type)
+       (str "- Example: `" example-value "`")
+       "" ; Add a newline at the end
+       "")
       (throw (ex-info "Spec is not a leaf spec." {:spec spec})))))
 
 
@@ -89,6 +90,7 @@
 (defn map-spec->markdown
   "Generates a markdown description of a map spec."
   [spec]
+  (println (str "Generating map spec markdown for " spec))
   (let [spec-definition       (cbf/get-spec spec)
         spec-description      (:description spec-definition)
         display-name          (spec->human-name spec)
@@ -101,27 +103,27 @@
         optional-key-markdown (apply str (map key-spec->markdown optional-specs))]
 
     (if (= :map (:type spec-definition))
-      (str/join
-        "\n"
-        [(str "## " display-name)
-         ""
-         spec-description
-         ""
-         "### Required Keys"
-         ""
-         required-key-markdown
-         ""
-         "### Optional Keys"
-         ""
-         optional-key-markdown
-         ""
-         ""])
+      (impl/multiline
+       (str "## " display-name)
+       ""
+       spec-description
+       ""
+       "### Required Keys"
+       ""
+       required-key-markdown
+       ""
+       "### Optional Keys"
+       ""
+       optional-key-markdown
+       ""
+       "")
       (throw (ex-info "Spec is not a map spec." {:spec spec})))))
 
 
 (defn wrapper-spec->markdown
   "Generates a markdown description of a wrapper spec."
   [spec]
+  (println (str "Generating wrapper spec markdown for " spec))
   (let [spec-definition       (cbf/get-spec spec)
         spec-description      (:description spec-definition)
         display-name          (spec->human-name spec)
@@ -130,56 +132,52 @@
         required-specs        (sort-by name (vals (select-keys key->spec-map required-keys)))
         required-key-markdown (apply str (map key-spec->markdown required-specs))]
     (if (impl/wrapper-spec? spec)
-      (str/join
-        "\n"
-        [(str "## " display-name)
-         ""
-         spec-description
-         ""
-         "### Wrapped Record"
-         ""
-         required-key-markdown
-         ""
-         ""])
+      (impl/multiline
+       (str "## " display-name)
+       ""
+       spec-description
+       ""
+       "### Wrapped Record"
+       ""
+       required-key-markdown
+       ""
+       "")
       (throw (ex-info "Spec is not a wrapper spec." {:spec spec})))))
 
 
 (defn sequence-spec->markdown
   "Generates a markdown description of a sequence spec."
   [spec]
+  (println (str "Generating sequence spec markdown for " spec))
   (let [spec-definition       (cbf/get-spec spec)
         spec-description      (:description spec-definition)
         display-name          (spec->human-name spec)
         sequence-spec         (-> spec-definition :spec-tools.parse/item :spec)
         required-key-markdown (key-spec->markdown sequence-spec)]
     (if (= :vector (:type spec-definition))
-      (str/join
-        "\n"
-        [(str "## " display-name)
-         ""
-         spec-description
-         ""
-         "### Collection Type"
-         ""
-         required-key-markdown
-         ""
-         ""])
+      (impl/multiline
+       (str "## " display-name)
+       ""
+       spec-description
+       ""
+       "### Collection Type"
+       ""
+       required-key-markdown
+       ""
+       "")
       (throw (ex-info "Spec is not a sequence spec." {:spec spec})))))
 
 
 (defn map-spec->leaf-spec-markdown
   "Generates a markdown description of a map spec that contains leaf specs."
   [spec]
+  (println (str "Generating leaf spec markdown for " spec))
   (let [spec-definition (cbf/get-spec spec)
         key->spec-map   (:spec-tools.parse/key->spec spec-definition)
         leaf-specs      (sort-by name (vals key->spec-map))
         leaf-markdown   (apply str (map leaf-spec->markdown leaf-specs))]
     (if (every? :leaf? (map cbf/get-spec leaf-specs))
-      (str/join
-        "\n"
-        [leaf-markdown
-         ""
-         ""])
+      (impl/multiline leaf-markdown "" "")
       (throw (ex-info "Spec is not a map spec." {:spec spec})))))
 
 
@@ -194,6 +192,7 @@
 (defn render-equipment-file!
   "Render the equipment specs to a markdown file."
   []
+  (println "Rendering equipment file")
   (io/make-parents "doc/specs/equipment.md")
   (spit "doc/specs/equipment.md"
         (deformat
@@ -204,8 +203,38 @@
                (map-spec->markdown ::equipment/equipment)
                (map-spec->leaf-spec-markdown ::equipment/equipment)))))
 
+(defn render-fermentables-file!
+  "Render the fermentable specs to a markdown file."
+  []
+  (println "Rendering fermentables file")
+  (io/make-parents "doc/specs/fermentables.md")
+  (spit "doc/specs/fermentables.md"
+        (deformat
+          (str "# Fermentable Records\n\n"
+               (wrapper-spec->markdown ::fermentables/fermentables-wrapper)
+               (sequence-spec->markdown ::fermentables/fermentables)
+               (wrapper-spec->markdown ::fermentables/fermentable-wrapper)
+               (map-spec->markdown ::fermentables/fermentable)
+               (map-spec->leaf-spec-markdown ::fermentables/fermentable)))))
 
+(defn render-hop-file!
+  "Render the hop specs to a markdown file."
+  []
+  (println "Rendering hop file")
+  (io/make-parents "doc/specs/hops.md")
+  (spit "doc/specs/hops.md"
+        (deformat
+          (str "# Hop Records\n\n"
+               (wrapper-spec->markdown ::hops/hops-wrapper)
+               (sequence-spec->markdown ::hops/hops)
+               (wrapper-spec->markdown ::hops/hop-wrapper)
+               (map-spec->markdown ::hops/hop)
+               (map-spec->leaf-spec-markdown ::hops/hop)))))
+
+#_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
 (defn render-specs!
   "Render all the specs to markdown files."
   []
-  (render-equipment-file!))
+  (render-equipment-file!)
+  (render-fermentables-file!)
+  (render-hop-file!))

@@ -7,9 +7,7 @@
   (:require [clojure.string :as str]
             [clojure.test.check.generators :as gen]
             [nnichols.parse :as n-parse]
-            [spec-tools.core :as st]
-            [clojure.spec.alpha :as spec]
-            [clojure.test :as t]))
+            [spec-tools.core :as st]))
 
 
 (def strict-transformer
