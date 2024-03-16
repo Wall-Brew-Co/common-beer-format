@@ -1,7 +1,9 @@
 # common-beer-format
 
 [![Clojars Project](https://img.shields.io/clojars/v/com.wallbrew/common-beer-format.svg)](https://clojars.org/com.wallbrew/common-beer-format)
-![GitHub Runner](https://github.com/Wall-Brew-Co/common-beer-format/workflows/Clojurescript%20CI/badge.svg)
+[![cljdoc badge](https://cljdoc.org/badge/com.wallbrew/common-beer-format)](https://cljdoc.org/d/com.wallbrew/common-beer-format/CURRENT)
+[![GitHub](https://img.shields.io/github/license/Wall-Brew-Co/common-beer-format)](https://github.com/Wall-Brew-Co/common-beer-format/blob/master/LICENSE)
+[![Twitter Follow](https://img.shields.io/twitter/follow/WallBrew?style=social)](https://twitter.com/WallBrew)
 
 A Clojure(Script) implementation of the [BeerXML 1.0 schema](http://www.beerxml.com/) with cross-format support using Metosin's [spec-tools.](https://github.com/metosin/spec-tools)
 The library endeavors to support the data specification as a [clojure spec](https://clojure.org/about/spec) and includes all optional fields in the core BeerXML spec.
@@ -162,6 +164,6 @@ If we've missed an ingredient you'd like to see in common-beer-data, you can for
 
 ## License
 
-Copyright © 2020-2022 - [Wall Brew Co](https://wallbrew.com/)
+Copyright © [Wall Brew Co](https://wallbrew.com/)
 
 This software is provided for free, public use as outlined in the [MIT License](https://github.com/Wall-Brew-Co/common-beer-format/blob/master/LICENSE)

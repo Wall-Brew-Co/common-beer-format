@@ -13,8 +13,8 @@
     "type": "git",
     "url": "git+https://github.com/Wall-Brew-Co/common-beer-format.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Wall Brew Co",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Wall-Brew-Co/common-beer-format/issues"
   },

@@ -1,8 +1,9 @@
-(ns ^:no-doc common-beer-format.impl
+(ns common-beer-format.impl
   "Utility functions common to translation.
-   
+
    This namespace is not intended to be used directly."
-  {:added "1.0"}
+  {:added  "1.0"
+   :no-doc true}
   (:require [clojure.string :as str]
             [clojure.test.check.generators :as gen]
             [nnichols.parse :as n-parse]
@@ -90,7 +91,7 @@
 
 (defn multiline
   "Concatenate all strings together, with a new line between each.
-   
+
    When no arguments are provided, returns an empty string.
    When only one argument is provided, returns that argument."
   {:added  "1.0"
