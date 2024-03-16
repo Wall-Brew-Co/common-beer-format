@@ -15,7 +15,15 @@
     (is (not (spec/valid? ::equipment/equipment {})))
     (is (not (spec/valid? ::equipment/equipment-wrapper nil)))
     (is (not (spec/valid? ::equipment/equipment-wrapper [])))
-    (is (not (spec/valid? ::equipment/equipment-wrapper {})))))
+    (is (not (spec/valid? ::equipment/equipment-wrapper {})))
+    (is (not (spec/valid? ::equipment/equipments nil)))
+    (is (not (spec/valid? ::equipment/equipments {})))
+    (is (not (spec/valid? ::equipment/equipments-wrapper nil)))
+    (is (not (spec/valid? ::equipment/equipments-wrapper [])))
+    (is (not (spec/valid? ::equipment/equipments-wrapper {}))))
+  (testing "Collection specs may be empty, but must be vectors"
+    (is (not (spec/valid? ::equipment/equipments nil)))
+    (is (spoon.spec/test-valid? ::equipment/equipments []))))
 
 
 (deftest valid-generators-test
@@ -73,7 +81,15 @@
 
 (def sample-equipment-wrapper
   "A hard-coded sample equipment-wrapper for static unit tests"
-  {:equipment sample-equipment})
+  {equipment/equipment sample-equipment})
+
+(def sample-equipments
+  "A hard-coded sample equipments for static unit tests"
+  [sample-equipment-wrapper])
+
+(def sample-equipments-wrapper
+  "A hard-coded sample equipments-wrapper for static unit tests"
+  {equipment/equipments sample-equipments})
 
 
 (deftest static-test-data-check
@@ -81,7 +97,11 @@
     (is (spoon.spec/test-valid? ::equipment/equipment sample-equipment)
         "Static test data should conform to common-beer-format.equipment/equipment")
     (is (spoon.spec/test-valid? ::equipment/equipment-wrapper sample-equipment-wrapper)
-        "Static test data should conform to common-beer-format.equipment/equipment-wrapper")))
+        "Static test data should conform to common-beer-format.equipment/equipment-wrapper")
+    (is (spoon.spec/test-valid? ::equipment/equipments sample-equipments)
+        "Static test data should conform to common-beer-format.equipment/equipments")
+    (is (spoon.spec/test-valid? ::equipment/equipments-wrapper sample-equipments-wrapper)
+        "Static test data should conform to common-beer-format.equipment/equipments-wrapper")))
 
 
 (deftest static-keys-test

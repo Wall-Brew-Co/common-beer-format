@@ -7,7 +7,9 @@
   (:require [clojure.string :as str]
             [clojure.test.check.generators :as gen]
             [nnichols.parse :as n-parse]
-            [spec-tools.core :as st]))
+            [spec-tools.core :as st]
+            [clojure.spec.alpha :as spec]
+            [clojure.test :as t]))
 
 
 (def strict-transformer
@@ -120,3 +122,25 @@
   (gen/double* {:infinite? false
                 :NaN?      false
                 :min       0}))
+
+(def wrapper-spec-key
+  "A keyword intended for use with spec-tools to indicate a spec for a wrapper type."
+  :common-beer-format/wrapper?)
+
+(def display-name-key
+  "A keyword intended for use with spec-tools to indicate a display name for a spec."
+  :common-beer-format/display-name)
+
+(defn wrapper-spec?
+  "Check if a spec is a wrapper spec."
+  {:added  "2.3"
+   :no-doc true}
+  [spec]
+  (-> spec st/get-spec (get wrapper-spec-key false)))
+
+(defn spec->display-name
+  "Get the display name of a spec."
+  {:added  "2.3"
+   :no-doc true}
+  [spec]
+  (-> spec st/get-spec (get display-name-key)))

@@ -354,7 +354,7 @@
 (spec/def ::hops
   (st/spec
     {:type          :vector
-     :description   "A vector of valid ::hop records"
+     :description   "A vector of valid ::hop-wrapper records"
      :spec          (spec/coll-of ::hop-wrapper :into [] :kind vector?)
      :decode/string #(impl/decode-sequence %1 ::hop-wrapper %2)
      :encode/string #(impl/encode-sequence %1 ::hop-wrapper %2)}))

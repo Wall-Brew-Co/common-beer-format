@@ -12,6 +12,10 @@
   "A map representing the brewing equipment used during the mash."
   :equipment)
 
+(def equipments
+  "A vector of equipment records."
+  :equipments)
+
 
 (def name
   "The name of the equipment record."
@@ -89,7 +93,7 @@
 
 
 (def notes
-  "A string containing notes about the equipment setup"
+  "A string containing notes about the equipment setup."
   :notes)
 
 
@@ -137,7 +141,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/liter
-     :description         "A non-negative IEEE-754 floating point number representing the pre-boil volume for the equipment setup"
+     :description         "A non-negative IEEE-754 floating point number representing the pre-boil volume for the equipment setup."
      :json-schema/example "10.8"}))
 
 
@@ -145,7 +149,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/liter
-     :description         "A non-negative IEEE-754 floating point number representing the target volume of the batch at the start of fermentation"
+     :description         "A non-negative IEEE-754 floating point number representing the target volume of the batch at the start of fermentation."
      :json-schema/example "5.8"}))
 
 
@@ -153,7 +157,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/liter
-     :description         "A non-negative IEEE-754 floating point number representing the volume of the of the mash tun in liters"
+     :description         "A non-negative IEEE-754 floating point number representing the volume of the of the mash tun in liters."
      :json-schema/example "15.0"}))
 
 
@@ -161,7 +165,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/kilogram
-     :description         "A non-negative IEEE-754 floating point number representing the weight of the of the mash tun in kilograms"
+     :description         "A non-negative IEEE-754 floating point number representing the weight of the of the mash tun in kilograms."
      :json-schema/example "15.0"}))
 
 
@@ -170,7 +174,7 @@
     {:type                :double
      :spec                (spec/and number? #(not (neg? %)))
      :gen                 impl/real-positive-double-generator
-     :description         "A non-negative IEEE-754 floating point number representing the specific heat of the mashtun in Calories per gram-degree Celsius"
+     :description         "A non-negative IEEE-754 floating point number representing the specific heat of the mashtun in Calories per gram-degree Celsius."
      :json-schema/example "0.2"}))
 
 
@@ -178,7 +182,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/liter
-     :description         "A non-negative IEEE-754 floating point number representing the volume of top-up water added before fermentation in liters"
+     :description         "A non-negative IEEE-754 floating point number representing the volume of top-up water added before fermentation in liters."
      :json-schema/example "2.1"}))
 
 
@@ -186,7 +190,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/liter
-     :description         "A non-negative IEEE-754 floating point number representing the volume of wort lost during transition from the boiler to primary fermentation vessel"
+     :description         "A non-negative IEEE-754 floating point number representing the volume of wort lost during transition from the boiler to primary fermentation vessel."
      :json-schema/example "0.1"}))
 
 
@@ -194,7 +198,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/percent
-     :description         "A non-negative IEEE-754 floating point number representing the percentage of wort lost to evaporation per hour of the boil"
+     :description         "A non-negative IEEE-754 floating point number representing the percentage of wort lost to evaporation per hour of the boil."
      :json-schema/example "1.2"}))
 
 
@@ -209,10 +213,11 @@
 (spec/def ::calc-boil-volume
   (st/spec
     {:spec                ::prim/boolean
+     impl/display-name-key "Calculate Boil Volume."
      :description         (impl/multiline "A boolean denoting whether or not programs reading this equipment record should calculate the boil size."
                                           "When absent, assume false."
                                           "When true, then boil-size = (batch-size - top-up-water - trub-chiller-loss) * (1 + boil-time * evap-rate)")
-     :json-schema/example "true"
+     :json-schema/example "true."
      :decode/string       impl/decode-boolean
      :encode/string       impl/encode-boolean}))
 
@@ -221,7 +226,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/liter
-     :description         "A non-negative IEEE-754 floating point number representing the volume of wort lost to the lauter tun"
+     :description         "A non-negative IEEE-754 floating point number representing the volume of wort lost to the lauter tun."
      :json-schema/example "0.1"}))
 
 
@@ -229,7 +234,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/liter
-     :description         "A non-negative IEEE-754 floating point number representing the volume of top-up water added to the boil kettle before the boil begins"
+     :description         "A non-negative IEEE-754 floating point number representing the volume of top-up water added to the boil kettle before the boil begins."
      :json-schema/example "2.1"}))
 
 
@@ -237,7 +242,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/percent
-     :description         "A non-negative IEEE-754 floating point number representing the percentage of large batch hop utilization"
+     :description         "A non-negative IEEE-754 floating point number representing the percentage of large batch hop utilization."
      :json-schema/example "1.2"}))
 
 
@@ -245,7 +250,7 @@
   (st/spec
     {:type                :string
      :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the pre-boil volume formatted for display in arbitrary units"
+     :description         "A non-empty string denoting a display value for the pre-boil volume formatted for display in arbitrary units."
      :json-schema/example "5.0 gallons"}))
 
 
@@ -253,7 +258,7 @@
   (st/spec
     {:type                :string
      :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the pre-permentation volume formatted for display in arbitrary units"
+     :description         "A non-empty string denoting a display value for the pre-permentation volume formatted for display in arbitrary units."
      :json-schema/example "4.5 gallons"}))
 
 
@@ -261,7 +266,7 @@
   (st/spec
     {:type                :string
      :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the volume capacity of the mash tun formatted for display in arbitrary units"
+     :description         "A non-empty string denoting a display value for the volume capacity of the mash tun formatted for display in arbitrary units."
      :json-schema/example "20 liters"}))
 
 
@@ -269,7 +274,7 @@
   (st/spec
     {:type                :string
      :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the empty weight of the mash tun formatted for display in arbitrary units"
+     :description         "A non-empty string denoting a display value for the empty weight of the mash tun formatted for display in arbitrary units."
      :json-schema/example "5.5 pounds"}))
 
 
@@ -277,7 +282,7 @@
   (st/spec
     {:type                :string
      :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the volume of top-up water added before fermentation formatted for display in arbitrary units"
+     :description         "A non-empty string denoting a display value for the volume of top-up water added before fermentation formatted for display in arbitrary units."
      :json-schema/example "2.2 liters"}))
 
 
@@ -285,7 +290,7 @@
   (st/spec
     {:type                :string
      :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the volume of wort lost in transition between boiler and fermentation vessel formatted for display in arbitrary units"
+     :description         "A non-empty string denoting a display value for the volume of wort lost in transition between boiler and fermentation vessel formatted for display in arbitrary units."
      :json-schema/example "2.2 liters"}))
 
 
@@ -293,7 +298,7 @@
   (st/spec
     {:type                :string
      :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the volume of wort lost in the lauter vessel formatted for display in arbitrary units"
+     :description         "A non-empty string denoting a display value for the volume of wort lost in the lauter vessel formatted for display in arbitrary units."
      :json-schema/example "2.2 liters"}))
 
 
@@ -301,7 +306,7 @@
   (st/spec
     {:type                :string
      :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the top-up water added to the pre-boil stage of the kettle formatted for display in arbitrary units"
+     :description         "A non-empty string denoting a display value for the top-up water added to the pre-boil stage of the kettle formatted for display in arbitrary units."
      :json-schema/example "2.2 liters"}))
 
 
@@ -337,8 +342,24 @@
 
 (spec/def ::equipment-wrapper
   (st/spec
-    {:type          :map
-     :description   "An ::equipment record wrapped in an ::equipment map."
-     :spec          (spec/keys :req-un [::equipment])
-     :decode/string #(impl/decode-wrapper %1 ::equipment %2)
-     :encode/string #(impl/encode-wrapper %1 ::equipment %2)}))
+    {:type                 :map
+     impl/wrapper-spec-key true
+     :description          "An ::equipment record wrapped in an ::equipment map."
+     :spec                 (spec/keys :req-un [::equipment])
+     :decode/string        #(impl/decode-wrapper %1 ::equipment %2)
+     :encode/string        #(impl/encode-wrapper %1 ::equipment %2)}))
+
+(spec/def ::equipments
+  (st/spec
+    {:type          :vector
+     :description   "A vector of valid ::equipment-wrapper records."
+     :spec          (spec/coll-of ::equipment-wrapper :into [] :kind vector?)
+     :decode/string #(impl/decode-sequence %1 ::equipment-wrapper %2)
+     :encode/string #(impl/encode-sequence %1 ::equipment-wrapper %2)}))
+
+(spec/def ::equipments-wrapper
+  (st/spec
+    {:type                 :map
+     impl/wrapper-spec-key true
+     :description          "An ::equipment-wrapper record."
+     :spec                 (spec/keys :req-un [::equipments])}))
