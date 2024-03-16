@@ -12,7 +12,8 @@
             [common-beer-format.equipment :as equipment]
             [common-beer-format.fermentables :as fermentables]
             [common-beer-format.hops :as hops]
-            [common-beer-format.impl :as impl]))
+            [common-beer-format.impl :as impl]
+            [common-beer-format.mash :as mash]))
 
 
 (defn ->capital-sting
@@ -175,8 +176,9 @@
   (let [spec-definition (cbf/get-spec spec)
         key->spec-map   (:spec-tools.parse/key->spec spec-definition)
         leaf-specs      (sort-by name (vals key->spec-map))
-        leaf-markdown   (apply str (map leaf-spec->markdown leaf-specs))]
-    (if (every? :leaf? (map cbf/get-spec leaf-specs))
+        leaf-specs*     (filter #(:leaf? (cbf/get-spec %)) leaf-specs)
+        leaf-markdown   (apply str (map leaf-spec->markdown leaf-specs*))]
+    (if (every? :leaf? (map cbf/get-spec leaf-specs*))
       (impl/multiline leaf-markdown "" "")
       (throw (ex-info "Spec is not a map spec." {:spec spec})))))
 
@@ -231,10 +233,28 @@
                (map-spec->markdown ::hops/hop)
                (map-spec->leaf-spec-markdown ::hops/hop)))))
 
+(defn render-mash-file!
+  "Render the mash specs to a markdown file."
+  []
+  (println "Rendering mash file")
+  (io/make-parents "doc/specs/mash.md")
+  (spit "doc/specs/mash.md"
+        (deformat
+          (str "# Mash Records\n\n"
+               (wrapper-spec->markdown ::mash/mash-wrapper)
+               (map-spec->markdown ::mash/mash)
+               (map-spec->leaf-spec-markdown ::mash/mash)
+               "\n"
+               (sequence-spec->markdown ::mash/mash-steps)
+               (wrapper-spec->markdown ::mash/mash-step-wrapper)
+               (map-spec->markdown ::mash/mash-step)
+               (map-spec->leaf-spec-markdown ::mash/mash-step)))))
+
 #_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
 (defn render-specs!
   "Render all the specs to markdown files."
   []
   (render-equipment-file!)
   (render-fermentables-file!)
-  (render-hop-file!))
+  (render-hop-file!)
+  (render-mash-file!))

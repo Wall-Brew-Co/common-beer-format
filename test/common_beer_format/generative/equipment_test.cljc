@@ -1,11 +1,12 @@
 (ns common-beer-format.generative.equipment-test
-  (:require [clojure.spec.alpha :as spec]
+  (:require #? (:clj  [clojure.test :refer [deftest is testing]])
+            #? (:cljs [cljs.test    :refer-macros [deftest is testing]])
+            [clojure.spec.alpha :as spec]
             [com.wallbrew.spoon.spec :as spoon.spec]
             [common-beer-format.equipment :as equipment]
             [common-beer-format.generative.util :as gen]
-            [common-beer-format.primitives :as primitives]
-            #? (:clj  [clojure.test :refer [deftest is testing]])
-            #? (:cljs [cljs.test    :refer-macros [deftest is testing]])))
+            [common-beer-format.impl :as impl]
+            [common-beer-format.primitives :as primitives]))
 
 
 (deftest data-requirement-test
@@ -24,6 +25,38 @@
   (testing "Collection specs may be empty, but must be vectors"
     (is (not (spec/valid? ::equipment/equipments nil)))
     (is (spoon.spec/test-valid? ::equipment/equipments []))))
+
+(deftest wrapper-test
+  (testing "All wrapper specs are marked as such."
+    (is (true? (impl/wrapper-spec? ::equipment/equipment-wrapper)))
+    (is (true? (impl/wrapper-spec? ::equipment/equipments-wrapper))))
+  (testing "All non-wrapper specs are marked as such."
+    (is (false? (impl/wrapper-spec? ::equipment/equipment)))
+    (is (false? (impl/wrapper-spec? ::equipment/equipments)))
+    (is (false? (impl/wrapper-spec? ::equipment/boil-size)))
+    (is (false? (impl/wrapper-spec? ::equipment/batch-size)))
+    (is (false? (impl/wrapper-spec? ::equipment/tun-volume)))
+    (is (false? (impl/wrapper-spec? ::equipment/tun-weight)))
+    (is (false? (impl/wrapper-spec? ::equipment/tun-specific-heat)))
+    (is (false? (impl/wrapper-spec? ::equipment/top-up-water)))
+    (is (false? (impl/wrapper-spec? ::equipment/trub-chiller-loss)))
+    (is (false? (impl/wrapper-spec? ::equipment/evap-rate)))
+    (is (false? (impl/wrapper-spec? ::equipment/boil-time)))
+    (is (false? (impl/wrapper-spec? ::equipment/calc-boil-volume)))
+    (is (false? (impl/wrapper-spec? ::equipment/lauter-deadspace)))
+    (is (false? (impl/wrapper-spec? ::equipment/top-up-kettle)))
+    (is (false? (impl/wrapper-spec? ::equipment/hop-utilization)))
+    (is (false? (impl/wrapper-spec? ::equipment/display-boil-size)))
+    (is (false? (impl/wrapper-spec? ::equipment/display-tun-volume)))
+    (is (false? (impl/wrapper-spec? ::equipment/display-top-up-water)))
+    (is (false? (impl/wrapper-spec? ::equipment/display-trub-chiller-loss)))
+    (is (false? (impl/wrapper-spec? ::equipment/display-lauter-deadspace)))
+    (is (false? (impl/wrapper-spec? ::equipment/display-top-up-kettle)))))
+
+(deftest display-name-test
+  (testing "calc-boil-volume should be named 'Calculate Boil Volume'"
+    (is (= "Calculate Boil Volume"
+           (impl/spec->display-name ::equipment/calc-boil-volume)))))
 
 
 (deftest valid-generators-test
