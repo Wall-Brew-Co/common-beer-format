@@ -2,9 +2,9 @@
 
 ## Equipments Wrapper
 
-An ::equipment-wrapper record.
+An `::equipment-wrapper` record set.
 
-BeerXML Type: `Record Set`
+- BeerXML Type: `Record Set`
 
 ### Wrapped Record
 
@@ -12,7 +12,7 @@ BeerXML Type: `Record Set`
 
 ## Equipments
 
-A vector of valid ::equipment-wrapper records.
+A vector of valid `::equipment-wrapper` records.
 
 ### Collection Type
 
@@ -22,7 +22,7 @@ A vector of valid ::equipment-wrapper records.
 
 An `::equipment` record wrapped in an `:equipment` map.
 
-BeerXML Type: `Record`
+- BeerXML Type: `Record`
 
 ### Wrapped Record
 
@@ -67,7 +67,7 @@ A record representing the brewing equipment used in brewing.
 A non-negative IEEE-754 floating point number representing the target volume of the batch at the start of fermentation.
 
 - BeerXML Type: `Floating Point`
-- BeerXML Units: `Liter`
+- BeerXML Unit: Liter
 - Clojure Key Name: `:batch-size`
 - Clojure Type: Double
 - Example: `5.8`
@@ -77,7 +77,7 @@ A non-negative IEEE-754 floating point number representing the target volume of 
 A non-negative IEEE-754 floating point number representing the pre-boil volume for the equipment setup.
 
 - BeerXML Type: `Floating Point`
-- BeerXML Units: `Liter`
+- BeerXML Unit: Liter
 - Clojure Key Name: `:boil-size`
 - Clojure Type: Double
 - Example: `10.8`
@@ -87,7 +87,7 @@ A non-negative IEEE-754 floating point number representing the pre-boil volume f
 A non-negative IEEE-754 floating point number representing the normal amount of time one boils for this equipment setup. This can be used with the evaporation rate to calculate the evaporation loss.
 
 - BeerXML Type: `Floating Point`
-- BeerXML Units: `Minute`
+- BeerXML Unit: Minute
 - Clojure Key Name: `:boil-time`
 - Clojure Type: Double
 - Example: `15.0`
@@ -180,7 +180,7 @@ A non-empty string denoting a display value for the empty weight of the mash tun
 A non-negative IEEE-754 floating point number representing the percentage of wort lost to evaporation per hour of the boil.
 
 - BeerXML Type: `Percentage`
-- BeerXML Units: `Percent per Hour`
+- BeerXML Unit: Percent per Hour
 - Clojure Key Name: `:evap-rate`
 - Clojure Type: Double
 - Example: `1.2`
@@ -199,7 +199,7 @@ A non-negative IEEE-754 floating point number representing the percentage of lar
 A non-negative IEEE-754 floating point number representing the volume of wort lost to the lauter tun.
 
 - BeerXML Type: `Floating Point`
-- BeerXML Units: `Liter`
+- BeerXML Unit: Liter
 - Clojure Key Name: `:lauter-deadspace`
 - Clojure Type: Double
 - Example: `0.1`
@@ -208,6 +208,7 @@ A non-negative IEEE-754 floating point number representing the volume of wort lo
 
 A non-empty string representing the name of the ingredient.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:name`
 - Clojure Type: String
 - Example: `"Citra"`
@@ -216,6 +217,7 @@ A non-empty string representing the name of the ingredient.
 
 A non-empty string representing any notes about the subject.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:notes`
 - Clojure Type: String
 - Example: `"A wonderful, zesty aroma"`
@@ -225,7 +227,7 @@ A non-empty string representing any notes about the subject.
 A non-negative IEEE-754 floating point number representing the volume of top-up water added to the boil kettle before the boil begins.
 
 - BeerXML Type: `Floating Point`
-- BeerXML Units: `Liter`
+- BeerXML Unit: Liter
 - Clojure Key Name: `:top-up-kettle`
 - Clojure Type: Double
 - Example: `2.1`
@@ -235,7 +237,7 @@ A non-negative IEEE-754 floating point number representing the volume of top-up 
 A non-negative IEEE-754 floating point number representing the volume of top-up water added before fermentation in liters.
 
 - BeerXML Type: `Floating Point`
-- BeerXML Units: `Liter`
+- BeerXML Unit: Liter
 - Clojure Key Name: `:top-up-water`
 - Clojure Type: Double
 - Example: `2.1`
@@ -245,7 +247,7 @@ A non-negative IEEE-754 floating point number representing the volume of top-up 
 A non-negative IEEE-754 floating point number representing the volume of wort lost during transition from the boiler to primary fermentation vessel.
 
 - BeerXML Type: `Floating Point`
-- BeerXML Units: `Liter`
+- BeerXML Unit: Liter
 - Clojure Key Name: `:trub-chiller-loss`
 - Clojure Type: Double
 - Example: `0.1`
@@ -255,7 +257,7 @@ A non-negative IEEE-754 floating point number representing the volume of wort lo
 A non-negative IEEE-754 floating point number representing the specific heat of the mash tun in Calories per gram-degree Celsius.
 
 - BeerXML Type: `Floating Point`
-- BeerXML Units: `Calories per Gram Degree Celsius`
+- BeerXML Unit: Calories per Gram Degree Celsius
 - Clojure Key Name: `:tun-specific-heat`
 - Clojure Type: Double
 - Example: `0.2`
@@ -265,7 +267,7 @@ A non-negative IEEE-754 floating point number representing the specific heat of 
 A non-negative IEEE-754 floating point number representing the volume of the of the mash tun in liters.
 
 - BeerXML Type: `Floating Point`
-- BeerXML Units: `Liter`
+- BeerXML Unit: Liter
 - Clojure Key Name: `:tun-volume`
 - Clojure Type: Double
 - Example: `15.0`
@@ -275,7 +277,7 @@ A non-negative IEEE-754 floating point number representing the volume of the of 
 A non-negative IEEE-754 floating point number representing the weight of the of the mash tun in kilograms.
 
 - BeerXML Type: `Floating Point`
-- BeerXML Units: `Kilogram`
+- BeerXML Unit: Kilogram
 - Clojure Key Name: `:tun-weight`
 - Clojure Type: Double
 - Example: `15.0`
@@ -284,6 +286,7 @@ A non-negative IEEE-754 floating point number representing the weight of the of 
 
 An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.
 
+- BeerXML Type: `Integer`
 - Clojure Key Name: `:version`
 - Clojure Type: Long
 - Example: `1`

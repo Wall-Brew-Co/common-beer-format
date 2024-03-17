@@ -83,6 +83,54 @@
     (is (gen/generatable? ::equipment/equipment))
     (is (gen/generatable? ::equipment/equipment-wrapper))))
 
+(deftest valid-units-test
+  (testing "All records either specify no units key or a valid BeerXML unit type"
+    (is (gen/valid-beer-xml-units? ::equipment/boil-size))
+    (is (gen/valid-beer-xml-units? ::equipment/batch-size))
+    (is (gen/valid-beer-xml-units? ::equipment/tun-volume))
+    (is (gen/valid-beer-xml-units? ::equipment/tun-weight))
+    (is (gen/valid-beer-xml-units? ::equipment/tun-specific-heat))
+    (is (gen/valid-beer-xml-units? ::equipment/top-up-water))
+    (is (gen/valid-beer-xml-units? ::equipment/trub-chiller-loss))
+    (is (gen/valid-beer-xml-units? ::equipment/evap-rate))
+    (is (gen/valid-beer-xml-units? ::equipment/boil-time))
+    (is (gen/valid-beer-xml-units? ::equipment/calc-boil-volume))
+    (is (gen/valid-beer-xml-units? ::equipment/lauter-deadspace))
+    (is (gen/valid-beer-xml-units? ::equipment/top-up-kettle))
+    (is (gen/valid-beer-xml-units? ::equipment/hop-utilization))
+    (is (gen/valid-beer-xml-units? ::equipment/display-boil-size))
+    (is (gen/valid-beer-xml-units? ::equipment/display-tun-volume))
+    (is (gen/valid-beer-xml-units? ::equipment/display-top-up-water))
+    (is (gen/valid-beer-xml-units? ::equipment/display-trub-chiller-loss))
+    (is (gen/valid-beer-xml-units? ::equipment/display-lauter-deadspace))
+    (is (gen/valid-beer-xml-units? ::equipment/display-top-up-kettle))
+    (is (gen/valid-beer-xml-units? ::equipment/equipment))
+    (is (gen/valid-beer-xml-units? ::equipment/equipment-wrapper))))
+
+(deftest valid-type-test
+  (testing "All records either specify no type key or a valid BeerXML type"
+    (is (gen/valid-beer-xml-type? ::equipment/boil-size))
+    (is (gen/valid-beer-xml-type? ::equipment/batch-size))
+    (is (gen/valid-beer-xml-type? ::equipment/tun-volume))
+    (is (gen/valid-beer-xml-type? ::equipment/tun-weight))
+    (is (gen/valid-beer-xml-type? ::equipment/tun-specific-heat))
+    (is (gen/valid-beer-xml-type? ::equipment/top-up-water))
+    (is (gen/valid-beer-xml-type? ::equipment/trub-chiller-loss))
+    (is (gen/valid-beer-xml-type? ::equipment/evap-rate))
+    (is (gen/valid-beer-xml-type? ::equipment/boil-time))
+    (is (gen/valid-beer-xml-type? ::equipment/calc-boil-volume))
+    (is (gen/valid-beer-xml-type? ::equipment/lauter-deadspace))
+    (is (gen/valid-beer-xml-type? ::equipment/top-up-kettle))
+    (is (gen/valid-beer-xml-type? ::equipment/hop-utilization))
+    (is (gen/valid-beer-xml-type? ::equipment/display-boil-size))
+    (is (gen/valid-beer-xml-type? ::equipment/display-tun-volume))
+    (is (gen/valid-beer-xml-type? ::equipment/display-top-up-water))
+    (is (gen/valid-beer-xml-type? ::equipment/display-trub-chiller-loss))
+    (is (gen/valid-beer-xml-type? ::equipment/display-lauter-deadspace))
+    (is (gen/valid-beer-xml-type? ::equipment/display-top-up-kettle))
+    (is (gen/valid-beer-xml-type? ::equipment/equipment))
+    (is (gen/valid-beer-xml-type? ::equipment/equipment-wrapper))))
+
 
 (def sample-equipment
   "A hard-coded sample equipment for static unit tests"

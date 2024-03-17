@@ -4,6 +4,8 @@
 
 A `::miscs` record.
 
+- BeerXML Type: `Record Set`
+
 ### Wrapped Record
 
 - [Miscellaneous Ingredients](#miscellaneous-ingredients)
@@ -19,6 +21,8 @@ A vector of valid `::misc` records.
 ## Miscellaneous Ingredient Wrapper
 
 A `::misc` record wrapped in a `:misc` map.
+
+- BeerXML Type: `Record`
 
 ### Wrapped Record
 
@@ -48,8 +52,12 @@ A record representing a miscellaneous ingredient in a beer recipe.
 
 ## Amount
 
-A ::kilogram value representing the amount of a particular ingredient.
+A value representing the amount of a particular ingredient.
+When measuring weight, this is in kilograms.
+When measuring volume, this is in liters.
 
+- BeerXML Type: `Floating Point`
+- BeerXML Units: Kilogram, Liter
 - Clojure Key Name: `:amount`
 - Clojure Type: Double
 - Example: `12.5`
@@ -59,6 +67,7 @@ A ::kilogram value representing the amount of a particular ingredient.
 A boolean representing if the amount of the substance is measured in kilograms.
 When absent, assume false and that the amount of substance is measured in liters.
 
+- BeerXML Type: `Boolean`
 - Clojure Key Name: `:amount-is-weight`
 - Clojure Type: Boolean
 - Example: `false`
@@ -67,6 +76,7 @@ When absent, assume false and that the amount of substance is measured in liters
 
 A non-empty string denoting a display value for the amount of the ingredient in a recipe formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:display-amount`
 - Clojure Type: String
 - Example: `"100 g"`
@@ -75,6 +85,7 @@ A non-empty string denoting a display value for the amount of the ingredient in 
 
 A non-empty string denoting a display value for an amount of time formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:display-time`
 - Clojure Type: String
 - Example: `"10 days"`
@@ -83,6 +94,7 @@ A non-empty string denoting a display value for an amount of time formatted for 
 
 A non-empty string denoting a display value for the amount of the ingredient in inventory formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:inventory`
 - Clojure Type: String
 - Example: `"100 lbs"`
@@ -91,6 +103,7 @@ A non-empty string denoting a display value for the amount of the ingredient in 
 
 A non-empty string representing the name of the ingredient.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:name`
 - Clojure Type: String
 - Example: `"Citra"`
@@ -99,17 +112,20 @@ A non-empty string representing the name of the ingredient.
 
 A non-empty string representing any notes about the subject.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:notes`
 - Clojure Type: String
 - Example: `"A wonderful, zesty aroma"`
 
 ## Time
 
-A non-negative IEEE-754 floating point number representing the time in minutes the ingredient was added dependant on the :use field.
+A non-negative IEEE-754 floating point number representing the time in minutes the ingredient was added dependant on the `:use` field.
 For "Boil" this is the boil time.
 For "Mash" this is the mash time.
 For "Primary", "Secondary", and "Bottling" this is the amount of time the ingredient spent in that state.
 
+- BeerXML Type: `Floating Point`
+- BeerXML Unit: Minute
 - Clojure Key Name: `:time`
 - Clojure Type: Double
 - Example: `15.0`
@@ -126,6 +142,7 @@ Must be one of: "Flavor", "Spice", "Water agent", "Fining", "Other", "Herb"
 - Spice: A spice, such as cinnamon or ginger.
 - Water Agent: A water agent, such as campden tablet.
 
+- BeerXML Type: `List`
 - Clojure Key Name: `:type`
 - Clojure Type: String
 - Example: `"Spice"`
@@ -141,6 +158,7 @@ Must be one of: "Mash", "Boil", "Bottling", "Secondary", "Primary"
 - Secondary: The ingredient is added to the secondary fermentation.
 - Bottling: The ingredient is added during the bottling process.
 
+- BeerXML Type: `List`
 - Clojure Key Name: `:use`
 - Clojure Type: String
 - Example: `"Mash"`
@@ -149,6 +167,7 @@ Must be one of: "Mash", "Boil", "Bottling", "Secondary", "Primary"
 
 A non-empty string denoting what the ingredient is used for.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:use-for`
 - Clojure Type: String
 - Example: `"Used to impart a mild, zesty flavor"`
@@ -157,6 +176,7 @@ A non-empty string denoting what the ingredient is used for.
 
 An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.
 
+- BeerXML Type: `Integer`
 - Clojure Key Name: `:version`
 - Clojure Type: Long
 - Example: `1`

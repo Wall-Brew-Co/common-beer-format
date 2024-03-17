@@ -47,6 +47,48 @@
     (is (gen/generatable? ::fermentables/diastatic-power))
     (is (gen/generatable? ::fermentables/max-in-batch))))
 
+(deftest valid-units-test
+  (testing "Ensure all specs specify valid units"
+    (is (gen/valid-beer-xml-units? ::fermentables/coarse-fine-diff))
+    (is (gen/valid-beer-xml-units? ::fermentables/display-color))
+    (is (gen/valid-beer-xml-units? ::fermentables/recommend-mash))
+    (is (gen/valid-beer-xml-units? ::fermentables/protein))
+    (is (gen/valid-beer-xml-units? ::fermentables/yield))
+    (is (gen/valid-beer-xml-units? ::fermentables/ibu-gal-per-lb))
+    (is (gen/valid-beer-xml-units? ::fermentables/fermentables))
+    (is (gen/valid-beer-xml-units? ::fermentables/fermentable-wrapper))
+    (is (gen/valid-beer-xml-units? ::fermentables/potential))
+    (is (gen/valid-beer-xml-units? ::fermentables/supplier))
+    (is (gen/valid-beer-xml-units? ::fermentables/fermentable))
+    (is (gen/valid-beer-xml-units? ::fermentables/type))
+    (is (gen/valid-beer-xml-units? ::fermentables/moisture))
+    (is (gen/valid-beer-xml-units? ::fermentables/fermentables-wrapper))
+    (is (gen/valid-beer-xml-units? ::fermentables/color))
+    (is (gen/valid-beer-xml-units? ::fermentables/add-after-boil))
+    (is (gen/valid-beer-xml-units? ::fermentables/diastatic-power))
+    (is (gen/valid-beer-xml-units? ::fermentables/max-in-batch))))
+
+(deftest valid-types-test
+  (testing "Ensure all specs specify valid types"
+    (is (gen/valid-beer-xml-type? ::fermentables/coarse-fine-diff))
+    (is (gen/valid-beer-xml-type? ::fermentables/display-color))
+    (is (gen/valid-beer-xml-type? ::fermentables/recommend-mash))
+    (is (gen/valid-beer-xml-type? ::fermentables/protein))
+    (is (gen/valid-beer-xml-type? ::fermentables/yield))
+    (is (gen/valid-beer-xml-type? ::fermentables/ibu-gal-per-lb))
+    (is (gen/valid-beer-xml-type? ::fermentables/fermentables))
+    (is (gen/valid-beer-xml-type? ::fermentables/fermentable-wrapper))
+    (is (gen/valid-beer-xml-type? ::fermentables/potential))
+    (is (gen/valid-beer-xml-type? ::fermentables/supplier))
+    (is (gen/valid-beer-xml-type? ::fermentables/fermentable))
+    (is (gen/valid-beer-xml-type? ::fermentables/type))
+    (is (gen/valid-beer-xml-type? ::fermentables/moisture))
+    (is (gen/valid-beer-xml-type? ::fermentables/fermentables-wrapper))
+    (is (gen/valid-beer-xml-type? ::fermentables/color))
+    (is (gen/valid-beer-xml-type? ::fermentables/add-after-boil))
+    (is (gen/valid-beer-xml-type? ::fermentables/diastatic-power))
+    (is (gen/valid-beer-xml-type? ::fermentables/max-in-batch))))
+
 (deftest wrapper-test
   (testing "Ensure wrapper specs are marked as such"
     (is (true? (impl/wrapper-spec? ::fermentables/fermentable-wrapper)))

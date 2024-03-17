@@ -150,20 +150,21 @@
 
 (spec/def ::type
   (st/spec
-   {:type                :string
-    :spec                misc-types
-    :gen                 #(spec/gen misc-types)
-    :description         (impl/multiline
-                          "A case-sensitive string representing the type of the miscellaneous item added to the beer."
-                          (impl/set->description misc-types)
-                          ""
-                          "- Fining: A fining agent, such as isinglass."
-                          "- Flavor: A flavoring, such as orange peel or a flavor concentrate."
-                          "- Herb: An herb, such as mint."
-                          "- Other: Any other type of miscellaneous ingredient."
-                          "- Spice: A spice, such as cinnamon or ginger."
-                          "- Water Agent: A water agent, such as campden tablet.")
-    :json-schema/example "Spice"}))
+   {:type                  :string
+    :spec                  misc-types
+    impl/beer-xml-type-key impl/beer-xml-list
+    :gen                   #(spec/gen misc-types)
+    :description           (impl/multiline
+                            "A case-sensitive string representing the type of the miscellaneous item added to the beer."
+                            (impl/set->description misc-types)
+                            ""
+                            "- Fining: A fining agent, such as isinglass."
+                            "- Flavor: A flavoring, such as orange peel or a flavor concentrate."
+                            "- Herb: An herb, such as mint."
+                            "- Other: Any other type of miscellaneous ingredient."
+                            "- Spice: A spice, such as cinnamon or ginger."
+                            "- Water Agent: A water agent, such as campden tablet.")
+    :json-schema/example   "Spice"}))
 
 
 (def boil
@@ -210,39 +211,43 @@
 
 (spec/def ::use
   (st/spec
-   {:type                :string
-    :spec                misc-uses
-    :gen                 #(spec/gen misc-uses)
-    :description         (impl/multiline
-                          "A case-sensitive string representing the point in the brewing cycle the miscellaneous ingredient is added to the beer."
-                          (impl/set->description misc-uses)
-                          ""
-                          "- Boil: The ingredient is added to the boil."
-                          "- Mash: The ingredient is added to the mash."
-                          "- Primary: The ingredient is added to the primary fermentation."
-                          "- Secondary: The ingredient is added to the secondary fermentation."
-                          "- Bottling: The ingredient is added during the bottling process.")
-    :json-schema/example "Mash"}))
+   {:type                  :string
+    :spec                  misc-uses
+    impl/beer-xml-type-key impl/beer-xml-list
+    :gen                   #(spec/gen misc-uses)
+    :description           (impl/multiline
+                            "A case-sensitive string representing the point in the brewing cycle the miscellaneous ingredient is added to the beer."
+                            (impl/set->description misc-uses)
+                            ""
+                            "- Boil: The ingredient is added to the boil."
+                            "- Mash: The ingredient is added to the mash."
+                            "- Primary: The ingredient is added to the primary fermentation."
+                            "- Secondary: The ingredient is added to the secondary fermentation."
+                            "- Bottling: The ingredient is added during the bottling process.")
+    :json-schema/example   "Mash"}))
 
 
 (spec/def ::time
   (st/spec
-   {:type                :double
-    :spec                ::prim/minute
-    :description         (impl/multiline
-                          "A non-negative IEEE-754 floating point number representing the time in minutes the ingredient was added dependant on the :use field."
-                          "For \"Boil\" this is the boil time."
-                          "For \"Mash\" this is the mash time."
-                          "For \"Primary\", \"Secondary\", and \"Bottling\" this is the amount of time the ingredient spent in that state.")
-    :json-schema/example "15.0"}))
+   {:type                   :double
+    :spec                   ::prim/minute
+    impl/beer-xml-type-key  impl/beer-xml-floating-point
+    impl/beer-xml-units-key impl/beer-xml-minute
+    :description            (impl/multiline
+                             "A non-negative IEEE-754 floating point number representing the time in minutes the ingredient was added dependant on the `:use` field."
+                             "For \"Boil\" this is the boil time."
+                             "For \"Mash\" this is the mash time."
+                             "For \"Primary\", \"Secondary\", and \"Bottling\" this is the amount of time the ingredient spent in that state.")
+    :json-schema/example    "15.0"}))
 
 
 (spec/def ::use-for
   (st/spec
-    {:type                :string
-     :spec                ::prim/text
-     :description         "A non-empty string denoting what the ingredient is used for."
-     :json-schema/example "Used to impart a mild, zesty flavor"}))
+   {:type                  :string
+    :spec                  ::prim/text
+    impl/beer-xml-type-key impl/beer-xml-text
+    :description           "A non-empty string denoting what the ingredient is used for."
+    :json-schema/example   "Used to impart a mild, zesty flavor"}))
 
 
 (spec/def ::misc
@@ -266,11 +271,12 @@
 
 (spec/def ::misc-wrapper
   (st/spec
-    {:type                 :map
-     impl/display-name-key "Miscellaneous Ingredient Wrapper"
-     impl/wrapper-spec-key true
-     :description          "A `::misc` record wrapped in a `:misc` map."
-     :spec                 (spec/keys :req-un [::misc])}))
+    {:type                  :map
+     impl/display-name-key  "Miscellaneous Ingredient Wrapper"
+     impl/wrapper-spec-key  true
+     impl/beer-xml-type-key impl/beer-xml-record
+     :description           "A `::misc` record wrapped in a `:misc` map."
+     :spec                  (spec/keys :req-un [::misc])}))
 
 
 (spec/def ::miscs
@@ -285,8 +291,9 @@
 
 (spec/def ::miscs-wrapper
   (st/spec
-    {:type                 :map
-     impl/display-name-key "Miscellaneous Ingredients Wrapper"
-     impl/wrapper-spec-key true
-     :description          "A `::miscs` record."
-     :spec                 (spec/keys :req-un [::miscs])}))
+    {:type                  :map
+     impl/display-name-key  "Miscellaneous Ingredients Wrapper"
+     impl/wrapper-spec-key  true
+     impl/beer-xml-type-key impl/beer-xml-record-set
+     :description           "A `::miscs` record."
+     :spec                  (spec/keys :req-un [::miscs])}))

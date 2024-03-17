@@ -80,66 +80,73 @@
 
 (spec/def ::calcium
   (st/spec
-    {:type                :double
-     :spec                (spec/and number? pos?)
-     :gen                 impl/real-positive-double-generator
-     :description         "A positive IEEE-754 floating point number representing the amount of calcium (Ca) in parts per million."
-     :json-schema/example "2.5"}))
+    {:type                  :double
+     :spec                  ::prim/non-negative-number
+     impl/beer-xml-type-key impl/beer-xml-floating-point
+     :gen                   impl/real-positive-double-generator
+     :description           "A positive IEEE-754 floating point number representing the amount of calcium (Ca) in parts per million."
+     :json-schema/example   "2.5"}))
 
 
 (spec/def ::bicarbonate
   (st/spec
-    {:type                :double
-     :spec                (spec/and number? pos?)
-     :gen                 impl/real-positive-double-generator
-     :description         "A positive IEEE-754 floating point number representing the amount of bicarbonate (HCO3) in parts per million."
-     :json-schema/example "2.5"}))
+    {:type                  :double
+     :spec                  ::prim/non-negative-number
+     impl/beer-xml-type-key impl/beer-xml-floating-point
+     :gen                   impl/real-positive-double-generator
+     :description           "A positive IEEE-754 floating point number representing the amount of bicarbonate (HCO3) in parts per million."
+     :json-schema/example   "2.5"}))
 
 
 (spec/def ::sulfate
   (st/spec
-    {:type                :double
-     :spec                (spec/and number? pos?)
-     :gen                 impl/real-positive-double-generator
-     :description         "A positive IEEE-754 floating point number representing the amount of sulfate (SO4) in parts per million."
-     :json-schema/example "2.5"}))
+    {:type                  :double
+     :spec                  ::prim/non-negative-number
+     impl/beer-xml-type-key impl/beer-xml-floating-point
+     :gen                   impl/real-positive-double-generator
+     :description           "A positive IEEE-754 floating point number representing the amount of sulfate (SO4) in parts per million."
+     :json-schema/example   "2.5"}))
 
 
 (spec/def ::chloride
   (st/spec
-    {:type                :double
-     :spec                (spec/and number? pos?)
-     :gen                 impl/real-positive-double-generator
-     :description         "A positive IEEE-754 floating point number representing the amount of chloride (Cl-) in parts per million."
-     :json-schema/example "2.5"}))
+    {:type                  :double
+     :spec                  ::prim/non-negative-number
+     impl/beer-xml-type-key impl/beer-xml-floating-point
+     :gen                   impl/real-positive-double-generator
+     :description           "A positive IEEE-754 floating point number representing the amount of chloride (Cl-) in parts per million."
+     :json-schema/example   "2.5"}))
 
 
 (spec/def ::sodium
   (st/spec
-    {:type                :double
-     :spec                (spec/and number? pos?)
-     :gen                 impl/real-positive-double-generator
-     :description         "A positive IEEE-754 floating point number representing the amount of sodium (Na) in parts per million."
-     :json-schema/example "2.5"}))
+    {:type                  :double
+     :spec                  ::prim/non-negative-number
+     impl/beer-xml-type-key impl/beer-xml-floating-point
+     :gen                   impl/real-positive-double-generator
+     :description           "A positive IEEE-754 floating point number representing the amount of sodium (Na) in parts per million."
+     :json-schema/example   "2.5"}))
 
 
 (spec/def ::magnesium
   (st/spec
-    {:type                :double
-     :spec                (spec/and number? pos?)
-     :gen                 impl/real-positive-double-generator
-     :description         "A positive IEEE-754 floating point number representing the amount of magnesium (Mg) in parts per million."
-     :json-schema/example "2.5"}))
+    {:type                  :double
+     :spec                  ::prim/non-negative-number
+     impl/beer-xml-type-key impl/beer-xml-floating-point
+     :gen                   impl/real-positive-double-generator
+     :description           "A positive IEEE-754 floating point number representing the amount of magnesium (Mg) in parts per million."
+     :json-schema/example   "2.5"}))
 
 
 (spec/def ::ph
   (st/spec
-    {:type                 :double
-     :spec                 (spec/and number? pos?)
-     impl/display-name-key "PH"
-     :gen                  impl/real-positive-double-generator
-     :description          "A positive IEEE-754 floating point number representing the PH of the water."
-     :json-schema/example  "2.5"}))
+    {:type                  :double
+     :spec                  ::prim/non-negative-number
+     impl/display-name-key  "PH"
+     impl/beer-xml-type-key impl/beer-xml-floating-point
+     :gen                   impl/real-positive-double-generator
+     :description           "A positive IEEE-754 floating point number representing the PH of the water."
+     :json-schema/example   "2.5"}))
 
 
 (spec/def ::water
@@ -162,10 +169,11 @@
 
 (spec/def ::water-wrapper
   (st/spec
-    {:type                 :map
-     impl/wrapper-spec-key true
-     :description          "A `::water` record wrapped in a `:water` map."
-     :spec                 (spec/keys :req-un [::water])}))
+    {:type                  :map
+     impl/wrapper-spec-key  true
+     impl/beer-xml-type-key impl/beer-xml-record
+     :description           "A `::water` record wrapped in a `:water` map."
+     :spec                  (spec/keys :req-un [::water])}))
 
 
 (spec/def ::waters
@@ -179,7 +187,8 @@
 
 (spec/def ::waters-wrapper
   (st/spec
-    {:type                 :map
-     impl/wrapper-spec-key true
-     :description          "A `::waters-wrapper` record."
-     :spec                 (spec/keys :req-un [::waters])}))
+    {:type                  :map
+     impl/wrapper-spec-key  true
+     impl/beer-xml-type-key impl/beer-xml-record-set
+     :description           "A `::waters-wrapper` record set."
+     :spec                  (spec/keys :req-un [::waters])}))

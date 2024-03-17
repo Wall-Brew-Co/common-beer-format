@@ -147,6 +147,7 @@ All list/enumeration types in BeerXML and common-beer-format are case-sensitive 
 #### Text
 
 Text is any free-format user provided text.
+In all cases, the empty string, and strings only including whitespace characters, are considered invalid.
 For multiline files, line breaks should be preserved and importing programs may choose to truncate text if required.
 Multiline entries may use either Unix-style newlines, or DOS-style carriage return and newline combinations.
 Importing programs **MUST** accept either format.

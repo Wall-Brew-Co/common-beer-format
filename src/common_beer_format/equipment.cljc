@@ -181,7 +181,7 @@
 (spec/def ::tun-specific-heat
   (st/spec
    {:type                   :double
-    :spec                   (spec/and number? #(not (neg? %)))
+    :spec                   ::prim/non-negative-number
     :gen                    impl/real-positive-double-generator
     impl/beer-xml-type-key  impl/beer-xml-floating-point
     impl/beer-xml-units-key impl/beer-xml-calories-per-gram-degree-celsius
@@ -213,6 +213,7 @@
   (st/spec
    {:type                   :double
     :spec                   ::prim/percent
+    impl/display-name-key   "Evaporation Rate"
     impl/beer-xml-type-key  impl/beer-xml-percentage
     impl/beer-xml-units-key impl/beer-xml-percent-per-hour
     :description            "A non-negative IEEE-754 floating point number representing the percentage of wort lost to evaporation per hour of the boil."
@@ -387,7 +388,7 @@
 (spec/def ::equipments
   (st/spec
     {:type          :vector
-     :description   "A vector of valid ::equipment-wrapper records."
+     :description   "A vector of valid `::equipment-wrapper` records."
      :spec          (spec/coll-of ::equipment-wrapper :into [] :kind vector?)
      :decode/string #(impl/decode-sequence %1 ::equipment-wrapper %2)
      :encode/string #(impl/encode-sequence %1 ::equipment-wrapper %2)}))
@@ -398,5 +399,5 @@
     {:type                 :map
      impl/wrapper-spec-key true
      impl/beer-xml-type-key impl/beer-xml-record-set
-     :description          "An ::equipment-wrapper record."
+     :description          "An `::equipment-wrapper` record set."
      :spec                 (spec/keys :req-un [::equipments])}))

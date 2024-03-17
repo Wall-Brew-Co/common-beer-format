@@ -2,7 +2,9 @@
 
 ## Yeasts Wrapper
 
-A `::yeasts-wrapper` record.
+A `::yeasts-wrapper` record set.
+
+- BeerXML Type: `Record Set`
 
 ### Wrapped Record
 
@@ -19,6 +21,8 @@ A vector of valid `::yeast` records.
 ## Yeast Wrapper
 
 A `::yeast` record wrapped in a `:yeast` map.
+
+- BeerXML Type: `Record`
 
 ### Wrapped Record
 
@@ -50,8 +54,8 @@ A record representing the yeast in a beer recipe.
 - [Inventory](#inventory)
 - [Laboratory](#laboratory)
 - [Max Reuse](#max-reuse)
-- [Max Temperature](#max-temperature)
-- [Min Temperature](#min-temperature)
+- [Maximum Temperature](#maximum-temperature)
+- [Minimum Temperature](#minimum-temperature)
 - [Notes](#notes)
 - [Product Id](#product-id)
 - [Times Cultured](#times-cultured)
@@ -61,14 +65,19 @@ A record representing the yeast in a beer recipe.
 A boolean representing if this yeast was added for a secondary fermentation.
 When absent, assume false.
 
+- BeerXML Type: `Boolean`
 - Clojure Key Name: `:add-to-secondary`
 - Clojure Type: Spec
 - Example: `false`
 
 ## Amount
 
-A ::kilogram value representing the amount of a particular ingredient.
+A value representing the amount of a particular ingredient.
+When measuring weight, this is in kilograms.
+When measuring volume, this is in liters.
 
+- BeerXML Type: `Floating Point`
+- BeerXML Units: Kilogram, Liter
 - Clojure Key Name: `:amount`
 - Clojure Type: Double
 - Example: `12.5`
@@ -78,6 +87,7 @@ A ::kilogram value representing the amount of a particular ingredient.
 A boolean representing if the amount of the substance is measured in kilograms.
 When absent, assume false and that the amount of substance is measured in liters.
 
+- BeerXML Type: `Boolean`
 - Clojure Key Name: `:amount-is-weight`
 - Clojure Type: Boolean
 - Example: `false`
@@ -86,6 +96,7 @@ When absent, assume false and that the amount of substance is measured in liters
 
 A positive IEEE-754 floating point number representing the percent of malt sugar that can be converted to ethanol and carbon dioxide.
 
+- BeerXML Type: `Percentage`
 - Clojure Key Name: `:attenuation`
 - Clojure Type: Double
 - Example: `73.2`
@@ -94,6 +105,7 @@ A positive IEEE-754 floating point number representing the percent of malt sugar
 
 A non-empty string denoting the styles of beer this yeast is best suited for.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:best-for`
 - Clojure Type: String
 - Example: `"WLP008"`
@@ -102,6 +114,7 @@ A non-empty string denoting the styles of beer this yeast is best suited for.
 
 A non-empty string denoting a display value for the date the yeast sample was last cultured formatted for display in arbitrary structure.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:culture-date`
 - Clojure Type: String
 - Example: `"10/10/2020"`
@@ -110,6 +123,7 @@ A non-empty string denoting a display value for the date the yeast sample was la
 
 A non-empty string denoting a display value for the maximum fermentation temperature formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:disp-max-temp`
 - Clojure Type: String
 - Example: `"75F"`
@@ -118,6 +132,7 @@ A non-empty string denoting a display value for the maximum fermentation tempera
 
 A non-empty string denoting a display value for the minimum fermentation temperature formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:disp-min-temp`
 - Clojure Type: String
 - Example: `"68F"`
@@ -126,6 +141,7 @@ A non-empty string denoting a display value for the minimum fermentation tempera
 
 A non-empty string denoting a display value for the amount of the ingredient in a recipe formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:display-amount`
 - Clojure Type: String
 - Example: `"100 g"`
@@ -140,6 +156,7 @@ Must be one of: "Medium", "Very high", "High", "Low"
 - High: The yeast settles out of suspension quickly.
 - Very High: The yeast settles out of suspension very quickly.
 
+- BeerXML Type: `List`
 - Clojure Key Name: `:flocculation`
 - Clojure Type: String
 - Example: `"High"`
@@ -154,6 +171,7 @@ Must be one of: "Culture", "Slant", "Dry", "Liquid"
 - Slant: Yeast cultivated on a solid growth medium.
 - Culture: Yeast cultivated from previous fermentations.
 
+- BeerXML Type: `List`
 - Clojure Key Name: `:form`
 - Clojure Type: String
 - Example: `"Ale"`
@@ -162,6 +180,7 @@ Must be one of: "Culture", "Slant", "Dry", "Liquid"
 
 A non-empty string denoting a display value for the amount of the ingredient in inventory formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:inventory`
 - Clojure Type: String
 - Example: `"100 lbs"`
@@ -170,6 +189,7 @@ A non-empty string denoting a display value for the amount of the ingredient in 
 
 A non-empty string denoting the laboratory that cultivated the yeast.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:laboratory`
 - Clojure Type: String
 - Example: `"White Labs"`
@@ -178,22 +198,27 @@ A non-empty string denoting the laboratory that cultivated the yeast.
 
 A non-negative integer representing the suggested maximum number of times the yeast may be harvested and recultured.
 
+- BeerXML Type: `Integer`
 - Clojure Key Name: `:max-reuse`
 - Clojure Type: Long
 - Example: `3`
 
-## Max Temperature
+## Maximum Temperature
 
 An IEEE-754 floating point number representing the maximum recommended temperature of fermentation.
 
+- BeerXML Type: `Floating Point`
+- BeerXML Unit: Degrees Celsius
 - Clojure Key Name: `:max-temperature`
 - Clojure Type: Double
 - Example: `23.9`
 
-## Min Temperature
+## Minimum Temperature
 
 An IEEE-754 floating point number representing the minimum recommended temperature of fermentation.
 
+- BeerXML Type: `Floating Point`
+- BeerXML Unit: Degrees Celsius
 - Clojure Key Name: `:min-temperature`
 - Clojure Type: Double
 - Example: `19.5`
@@ -202,6 +227,7 @@ An IEEE-754 floating point number representing the minimum recommended temperatu
 
 A non-empty string representing the name of the ingredient.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:name`
 - Clojure Type: String
 - Example: `"Citra"`
@@ -210,6 +236,7 @@ A non-empty string representing the name of the ingredient.
 
 A non-empty string representing any notes about the subject.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:notes`
 - Clojure Type: String
 - Example: `"A wonderful, zesty aroma"`
@@ -218,6 +245,7 @@ A non-empty string representing any notes about the subject.
 
 A non-empty string denoting the product label or id number that identifies the strain of yeast.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:product-id`
 - Clojure Type: String
 - Example: `"WLP008"`
@@ -227,6 +255,7 @@ A non-empty string denoting the product label or id number that identifies the s
 A non-negative integer representing the number of times this yeast has been harvested and re-used.
 A value of zero assumes the yeast came directly from the manufacturer.
 
+- BeerXML Type: `Integer`
 - Clojure Key Name: `:times-cultured`
 - Clojure Type: Long
 - Example: `1`
@@ -242,6 +271,7 @@ Must be one of: "Lager", "Wheat", "Ale", "Champagne", "Wine"
 - Wine: Yeast traditionally used in wine making.
 - Champagne: Yeast traditionally used in champagne making, offering a dry taste.
 
+- BeerXML Type: `List`
 - Clojure Key Name: `:type`
 - Clojure Type: String
 - Example: `"Ale"`
@@ -250,6 +280,7 @@ Must be one of: "Lager", "Wheat", "Ale", "Champagne", "Wine"
 
 An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.
 
+- BeerXML Type: `Integer`
 - Clojure Key Name: `:version`
 - Clojure Type: Long
 - Example: `1`

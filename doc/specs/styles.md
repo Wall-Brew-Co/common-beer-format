@@ -2,7 +2,9 @@
 
 ## Styles Wrapper
 
-A `::styles-wrapper` record
+A `::styles-wrapper` record set.
+
+- BeerXML Type: `Record Set`
 
 ### Wrapped Record
 
@@ -10,7 +12,7 @@ A `::styles-wrapper` record
 
 ## Styles
 
-A vector of valid `::style` records
+A vector of valid `::style` records.
 
 ### Collection Type
 
@@ -18,7 +20,9 @@ A vector of valid `::style` records
 
 ## Style Wrapper
 
-A `::style` record wrapped in a `:style` map
+A `::style` record wrapped in a `:style` map.
+
+- BeerXML Type: `Record`
 
 ### Wrapped Record
 
@@ -73,6 +77,8 @@ A record representing a beer style.
 
 A non-negative IEEE-754 floating point number representing the maximum recommended ABV percentage for the style.
 
+- BeerXML Type: `Percentage`
+- BeerXML Unit: ABV
 - Clojure Key Name: `:abv-max`
 - Clojure Type: Double
 - Example: `0.04`
@@ -81,6 +87,8 @@ A non-negative IEEE-754 floating point number representing the maximum recommend
 
 A non-negative IEEE-754 floating point number representing the minimum recommended ABV percentage for the style.
 
+- BeerXML Type: `Percentage`
+- BeerXML Unit: ABV
 - Clojure Key Name: `:abv-min`
 - Clojure Type: Double
 - Example: `0.032`
@@ -89,6 +97,7 @@ A non-negative IEEE-754 floating point number representing the minimum recommend
 
 A non-empty string denoting a display value for the range of ABV levels formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:abv-range`
 - Clojure Type: String
 - Example: `"8.0-11.2%"`
@@ -97,6 +106,8 @@ A non-empty string denoting a display value for the range of ABV levels formatte
 
 A non-negative IEEE-754 floating point number representing the maximum carbonation for this style in volumes of CO2.
 
+- BeerXML Type: `Percentage`
+- BeerXML Unit: Volumes of CO2
 - Clojure Key Name: `:carb-max`
 - Clojure Type: Double
 - Example: `2.2`
@@ -105,6 +116,8 @@ A non-negative IEEE-754 floating point number representing the maximum carbonati
 
 A non-negative IEEE-754 floating point number representing the minimum carbonation for this style in volumes of CO2.
 
+- BeerXML Type: `Percentage`
+- BeerXML Unit: Volumes of CO2
 - Clojure Key Name: `:carb-min`
 - Clojure Type: Double
 - Example: `1.5`
@@ -113,6 +126,7 @@ A non-negative IEEE-754 floating point number representing the minimum carbonati
 
 A non-empty string denoting a display value for the range of carbonation volumes formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:carb-range`
 - Clojure Type: String
 - Example: `"2.0-2.6 vols CO2"`
@@ -121,6 +135,7 @@ A non-empty string denoting a display value for the range of carbonation volumes
 
 A non-empty string denoting the category this style belongs to.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:category`
 - Clojure Type: String
 - Example: `"American Lagers"`
@@ -130,6 +145,7 @@ A non-empty string denoting the category this style belongs to.
 A non-empty string denoting the category number of this style.
 The category number is a string because it can be a letter followed by a number, e.g. 'A1' on some guides.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:category-number`
 - Clojure Type: String
 - Example: `"1"`
@@ -138,6 +154,8 @@ The category number is a string because it can be a letter followed by a number,
 
 A non-negative IEEE-754 floating point number representing the darkest color in SRM for the style.
 
+- BeerXML Type: `Floating Point`
+- BeerXML Unit: SRM
 - Clojure Key Name: `:color-max`
 - Clojure Type: Double
 - Example: `40.0`
@@ -146,6 +164,8 @@ A non-negative IEEE-754 floating point number representing the darkest color in 
 
 A non-negative IEEE-754 floating point number representing the lightest color in SRM for the style.
 
+- BeerXML Type: `Floating Point`
+- BeerXML Unit: SRM
 - Clojure Key Name: `:color-min`
 - Clojure Type: Double
 - Example: `32.0`
@@ -154,6 +174,7 @@ A non-negative IEEE-754 floating point number representing the lightest color in
 
 A non-empty string denoting a display value for the range of colors formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:color-range`
 - Clojure Type: String
 - Example: `"10 - 22 SRM"`
@@ -162,6 +183,7 @@ A non-empty string denoting a display value for the range of colors formatted fo
 
 A non-empty string denoting a display value for the maximum color formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:display-color-max`
 - Clojure Type: String
 - Example: `"40 SRM"`
@@ -170,6 +192,7 @@ A non-empty string denoting a display value for the maximum color formatted for 
 
 A non-empty string denoting a display value for the minimum color formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:display-color-min`
 - Clojure Type: String
 - Example: `"32SRM"`
@@ -178,6 +201,7 @@ A non-empty string denoting a display value for the minimum color formatted for 
 
 A non-empty string denoting a display value for the maximum final gravity formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:display-fg-max`
 - Clojure Type: String
 - Example: `"1.050sg"`
@@ -186,6 +210,7 @@ A non-empty string denoting a display value for the maximum final gravity format
 
 A non-empty string denoting a display value for the minimum final gravity formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:display-fg-min`
 - Clojure Type: String
 - Example: `"1.036sg"`
@@ -194,6 +219,7 @@ A non-empty string denoting a display value for the minimum final gravity format
 
 A non-empty string denoting a display value for the maximum original gravity formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:display-og-max`
 - Clojure Type: String
 - Example: `"1.050sg"`
@@ -202,6 +228,7 @@ A non-empty string denoting a display value for the maximum original gravity for
 
 A non-empty string denoting a display value for the minimum original gravity formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:display-og-min`
 - Clojure Type: String
 - Example: `"1.036sg"`
@@ -210,6 +237,7 @@ A non-empty string denoting a display value for the minimum original gravity for
 
 A non-empty string denoting example beers of this style.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:examples`
 - Clojure Type: String
 - Example: `"Every overly citrus IPA on the market."`
@@ -218,6 +246,8 @@ A non-empty string denoting example beers of this style.
 
 A non-negative IEEE-754 floating point number representing the maximum post-fermentation specific gravity for the style.
 
+- BeerXML Type: `Floating Point`
+- BeerXML Unit: Specific Gravity
 - Clojure Key Name: `:fg-max`
 - Clojure Type: Double
 - Example: `1.06`
@@ -226,6 +256,8 @@ A non-negative IEEE-754 floating point number representing the maximum post-ferm
 
 A non-negative IEEE-754 floating point number representing the minimum post-fermentation specific gravity for the style.
 
+- BeerXML Type: `Floating Point`
+- BeerXML Unit: Specific Gravity
 - Clojure Key Name: `:fg-min`
 - Clojure Type: Double
 - Example: `1.048`
@@ -234,6 +266,7 @@ A non-negative IEEE-754 floating point number representing the minimum post-ferm
 
 A non-empty string denoting a display value for the range of final gravities formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:fg-range`
 - Clojure Type: String
 - Example: `"1.036sg-1.050sg"`
@@ -242,6 +275,8 @@ A non-empty string denoting a display value for the range of final gravities for
 
 A non-negative IEEE-754 floating point number representing the maximum bitterness in IBUs for the style.
 
+- BeerXML Type: `Floating Point`
+- BeerXML Unit: IBU
 - Clojure Key Name: `:ibu-max`
 - Clojure Type: Double
 - Example: `40.0`
@@ -250,6 +285,8 @@ A non-negative IEEE-754 floating point number representing the maximum bitternes
 
 A non-negative IEEE-754 floating point number representing the minimum bitterness in IBUs for the style.
 
+- BeerXML Type: `Floating Point`
+- BeerXML Unit: IBU
 - Clojure Key Name: `:ibu-min`
 - Clojure Type: Double
 - Example: `32.0`
@@ -258,6 +295,7 @@ A non-negative IEEE-754 floating point number representing the minimum bitternes
 
 A non-empty string denoting a display value for the range of International Bittering Units formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:ibu-range`
 - Clojure Type: String
 - Example: `"10-20IBUs"`
@@ -266,6 +304,7 @@ A non-empty string denoting a display value for the range of International Bitte
 
 A non-empty string denoting the suggested ingredients for the style.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:ingredients`
 - Clojure Type: String
 - Example: `"water, barley, and hops."`
@@ -274,6 +313,7 @@ A non-empty string denoting the suggested ingredients for the style.
 
 A non-empty string representing the name of the ingredient.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:name`
 - Clojure Type: String
 - Example: `"Citra"`
@@ -282,6 +322,7 @@ A non-empty string representing the name of the ingredient.
 
 A non-empty string representing any notes about the subject.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:notes`
 - Clojure Type: String
 - Example: `"A wonderful, zesty aroma"`
@@ -290,6 +331,8 @@ A non-empty string representing any notes about the subject.
 
 A non-negative IEEE-754 floating point number representing the maximum pre-fermentation specific gravity for the style.
 
+- BeerXML Type: `Floating Point`
+- BeerXML Unit: Specific Gravity
 - Clojure Key Name: `:og-max`
 - Clojure Type: Double
 - Example: `1.06`
@@ -298,6 +341,8 @@ A non-negative IEEE-754 floating point number representing the maximum pre-ferme
 
 A non-negative IEEE-754 floating point number representing the minimum pre-fermentation specific gravity for the style.
 
+- BeerXML Type: `Floating Point`
+- BeerXML Unit: Specific Gravity
 - Clojure Key Name: `:og-min`
 - Clojure Type: Double
 - Example: `1.048`
@@ -306,6 +351,7 @@ A non-negative IEEE-754 floating point number representing the minimum pre-ferme
 
 A non-empty string denoting a display value for the range of original gravities formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:og-range`
 - Clojure Type: String
 - Example: `"1.036sg-1.050sg"`
@@ -314,6 +360,7 @@ A non-empty string denoting a display value for the range of original gravities 
 
 A non-empty string denoting the aroma and flavor profile of the style.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:profile`
 - Clojure Type: String
 - Example: `"Full-bodied and dark."`
@@ -322,6 +369,7 @@ A non-empty string denoting the aroma and flavor profile of the style.
 
 A non-empty string denoting the name of the style guide the style/category belongs to.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:style-guide`
 - Clojure Type: String
 - Example: `"BJCP"`
@@ -330,6 +378,7 @@ A non-empty string denoting the name of the style guide the style/category belon
 
 A non-empty string denoting the letter used to denote the style or sub-style.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:style-letter`
 - Clojure Type: String
 - Example: `"A"`
@@ -346,6 +395,7 @@ Must be one of: "Lager", "Cider", "Mixed", "Mead", "Wheat", "Ale"
 - Mixed: A beer style that blends two or more styles.
 - Wheat: A beer made with a large proportion of wheat malt.
 
+- BeerXML Type: `List`
 - Clojure Key Name: `:type`
 - Clojure Type: String
 - Example: `"Lager"`
@@ -354,6 +404,7 @@ Must be one of: "Lager", "Cider", "Mixed", "Mead", "Wheat", "Ale"
 
 An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.
 
+- BeerXML Type: `Integer`
 - Clojure Key Name: `:version`
 - Clojure Type: Long
 - Example: `1`

@@ -39,6 +39,17 @@
           (str/split #" ")
           ->capital-sting))))
 
+(defn beer-xml-units->markdown
+  "Converts a BeerXML unit to a markdown string."
+  [units]
+  (let [units-seq (cond
+                    (string? units) [units]
+                    (sequential? units) units
+                    :else (throw (ex-info "Units must be a string or a sequence." {:units units})))]
+    (if (= 1 (count units-seq))
+      (str "- BeerXML Unit: " (first units-seq))
+      (str "- BeerXML Units: " (str/join ", " units-seq)))))
+
 
 (defn spec->markdown-link
   "Converts a spec to a markdown link."
@@ -82,7 +93,7 @@
        (when beer-xml-type
          (str "- BeerXML Type: `" beer-xml-type "`"))
        (when beer-xml-units
-         (str "- BeerXML Units: `" beer-xml-units "`"))
+         (beer-xml-units->markdown beer-xml-units))
        (str "- Clojure Key Name: `" (-> spec name keyword) "`")
        (str "- Clojure Type: " spec-type)
        (str "- Example: `" example-value "`")
@@ -151,7 +162,7 @@
        spec-description
        ""
        (when beer-xml-type
-         (str "BeerXML Type: `" beer-xml-type "`"))
+         (str "- BeerXML Type: `" beer-xml-type "`"))
        ""
        "### Wrapped Record"
        ""
@@ -256,6 +267,8 @@
   (spit "doc/specs/mash.md"
         (deformat
           (str "# Mash Records\n\n"
+               (wrapper-spec->markdown ::mash/mashs-wrapper)
+               (sequence-spec->markdown ::mash/mashs)
                (wrapper-spec->markdown ::mash/mash-wrapper)
                (map-spec->markdown ::mash/mash)
                (map-spec->leaf-spec-markdown ::mash/mash)

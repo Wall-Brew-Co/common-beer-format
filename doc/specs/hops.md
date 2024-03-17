@@ -2,7 +2,9 @@
 
 ## Hops Wrapper
 
-A `::hops-wrapper` record.
+A `::hops-wrapper` record set.
+
+- BeerXML Type: `Record Set`
 
 ### Wrapped Record
 
@@ -19,6 +21,8 @@ A vector of valid `::hop-wrapper` records.
 ## Hop Wrapper
 
 A `::hop` record wrapped in a `:hop` map.
+
+- BeerXML Type: `Record`
 
 ### Wrapped Record
 
@@ -58,14 +62,19 @@ A record representing a hop in a beer recipe.
 
 A non-negative IEEE-754 floating point number representing the percent contents of alpha acid in the hop.
 
+- BeerXML Type: `Percentage`
 - Clojure Key Name: `:alpha`
 - Clojure Type: Double
 - Example: `10.7`
 
 ## Amount
 
-A ::kilogram value representing the amount of a particular ingredient.
+A value representing the amount of a particular ingredient.
+When measuring weight, this is in kilograms.
+When measuring volume, this is in liters.
 
+- BeerXML Type: `Floating Point`
+- BeerXML Units: Kilogram, Liter
 - Clojure Key Name: `:amount`
 - Clojure Type: Double
 - Example: `12.5`
@@ -74,6 +83,7 @@ A ::kilogram value representing the amount of a particular ingredient.
 
 A non-negative IEEE-754 floating point number representing the percent contents of beta acid in the hop.
 
+- BeerXML Type: `Percentage`
 - Clojure Key Name: `:beta`
 - Clojure Type: Double
 - Example: `10.7`
@@ -82,6 +92,7 @@ A non-negative IEEE-754 floating point number representing the percent contents 
 
 A non-negative IEEE-754 floating point number representing the percent contents of caryophyllene in the hop.
 
+- BeerXML Type: `Percentage`
 - Clojure Key Name: `:caryophyllene`
 - Clojure Type: Double
 - Example: `10.7`
@@ -90,6 +101,7 @@ A non-negative IEEE-754 floating point number representing the percent contents 
 
 A non-negative IEEE-754 floating point number representing the percent contents of cohumulone in the hop.
 
+- BeerXML Type: `Percentage`
 - Clojure Key Name: `:cohumulone`
 - Clojure Type: Double
 - Example: `10.7`
@@ -98,6 +110,7 @@ A non-negative IEEE-754 floating point number representing the percent contents 
 
 A non-empty string denoting a display value for the amount of the ingredient in a recipe formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:display-amount`
 - Clojure Type: String
 - Example: `"100 g"`
@@ -106,6 +119,7 @@ A non-empty string denoting a display value for the amount of the ingredient in 
 
 A non-empty string denoting a display value for an amount of time formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:display-time`
 - Clojure Type: String
 - Example: `"10 days"`
@@ -119,6 +133,7 @@ Must be one of: "Pellet", "Leaf", "Plug"
 - Plug: Whole hop cones compressed into plugs.
 - Leaf: Whole hop cones.
 
+- BeerXML Type: `List`
 - Clojure Key Name: `:form`
 - Clojure Type: String
 - Example: `"leaf"`
@@ -127,6 +142,7 @@ Must be one of: "Pellet", "Leaf", "Plug"
 
 A non-negative IEEE-754 floating point number representing the Hop Stability Index, or percent decay of a hop's alpha acid over six months.
 
+- BeerXML Type: `Percentage`
 - Clojure Key Name: `:hsi`
 - Clojure Type: Double
 - Example: `2.2`
@@ -135,6 +151,7 @@ A non-negative IEEE-754 floating point number representing the Hop Stability Ind
 
 A non-negative IEEE-754 floating point number representing the percent contents of humulene in the hop.
 
+- BeerXML Type: `Percentage`
 - Clojure Key Name: `:humulene`
 - Clojure Type: Double
 - Example: `10.7`
@@ -143,6 +160,7 @@ A non-negative IEEE-754 floating point number representing the percent contents 
 
 A non-empty string denoting a display value for the amount of the ingredient in inventory formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:inventory`
 - Clojure Type: String
 - Example: `"100 lbs"`
@@ -151,6 +169,7 @@ A non-empty string denoting a display value for the amount of the ingredient in 
 
 A non-negative IEEE-754 floating point number representing the percent contents of myrcene in the hop.
 
+- BeerXML Type: `Percentage`
 - Clojure Key Name: `:myrcene`
 - Clojure Type: Double
 - Example: `10.7`
@@ -159,6 +178,7 @@ A non-negative IEEE-754 floating point number representing the percent contents 
 
 A non-empty string representing the name of the ingredient.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:name`
 - Clojure Type: String
 - Example: `"Citra"`
@@ -167,6 +187,7 @@ A non-empty string representing the name of the ingredient.
 
 A non-empty string representing any notes about the subject.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:notes`
 - Clojure Type: String
 - Example: `"A wonderful, zesty aroma"`
@@ -175,6 +196,7 @@ A non-empty string representing any notes about the subject.
 
 A non-empty string denoting the place of origin for a particular ingredient.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:origin`
 - Clojure Type: String
 - Example: `"Nice, France"`
@@ -183,13 +205,14 @@ A non-empty string denoting the place of origin for a particular ingredient.
 
 A non-empty string denoting ingredients with me bay used in place of those denoted in the record.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:substitutes`
 - Clojure Type: String
 - Example: `"Citra or Sorachi"`
 
 ## Time
 
-A non-negative IEEE-754 floating point number representing the time in minutes the hop was added dependant on the :use field.
+A non-negative IEEE-754 floating point number representing the time in minutes the hop was added dependant on the `:use` field.
 
 - Boil: this is the boil time.
 - Mash: this is the mash time.
@@ -197,6 +220,8 @@ A non-negative IEEE-754 floating point number representing the time in minutes t
 - Aroma: this is the steep time.
 - Dry Hop: this is the amount of time to dry hop.
 
+- BeerXML Type: `Floating Point`
+- BeerXML Unit: Minute
 - Clojure Key Name: `:time`
 - Clojure Type: Double
 - Example: `15.0`
@@ -210,6 +235,7 @@ Must be one of: "Both", "Aroma", "Bittering"
 - Aroma: Hops added solely for their aromatic properties and flavor.
 - Both: Hops which may be added for both/either their bittering and/or aromatic properties.
 
+- BeerXML Type: `List`
 - Clojure Key Name: `:type`
 - Clojure Type: String
 - Example: `"bittering"`
@@ -225,6 +251,7 @@ Must be one of: "Mash", "Boil", "Dry hop", "First wort", "Aroma"
 - First Wort: Hops added to first wort prior to the boil.
 - Mash: Hops added to the mash prior to the boil.
 
+- BeerXML Type: `List`
 - Clojure Key Name: `:use`
 - Clojure Type: String
 - Example: `"mash"`
@@ -233,6 +260,7 @@ Must be one of: "Mash", "Boil", "Dry hop", "First wort", "Aroma"
 
 An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.
 
+- BeerXML Type: `Integer`
 - Clojure Key Name: `:version`
 - Clojure Type: Long
 - Example: `1`

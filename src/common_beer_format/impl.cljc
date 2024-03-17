@@ -99,7 +99,6 @@
   ([] "")
   ([s] s)
   ([s & more]
-
    (if s
     (str s "\n" (apply multiline more))
     (apply multiline more))))

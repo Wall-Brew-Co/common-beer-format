@@ -4,6 +4,8 @@
 
 A `::recipes-wrapper` record.
 
+- BeerXML Type: `Record Set`
+
 ### Wrapped Record
 
 - [Recipes](#recipes)
@@ -19,6 +21,8 @@ A vector of valid `::recipe` records.
 ## Recipe Wrapper
 
 A `::recipe` record wrapped in a `:recipes` map.
+
+- BeerXML Type: `Record`
 
 ### Wrapped Record
 
@@ -95,22 +99,27 @@ A record representing a beer recipe.
 
 A non-negative IEEE-754 floating point number representing the actual ABV for the recipe.
 
+- BeerXML Type: `Floating Point`
+- BeerXML Unit: ABV
 - Clojure Key Name: `:abv`
 - Clojure Type: Double
-- Example: `40.0`
+- Example: `40.2`
 
 ## Actual Efficiency
 
 A non-negative IEEE-754 floating point number representing the actual conversion efficiency between the measured final and original gravities.
 
+- BeerXML Type: `Floating Point`
 - Clojure Key Name: `:actual-efficiency`
 - Clojure Type: Double
-- Example: `40.0`
+- Example: `40.3`
 
 ## Age
 
 A non-negative IEEE-754 floating point number representing the number of days to bottle age the beer.
 
+- BeerXML Type: `Floating Point`
+- BeerXML Unit: Day
 - Clojure Key Name: `:age`
 - Clojure Type: Double
 - Example: `12.0`
@@ -119,6 +128,8 @@ A non-negative IEEE-754 floating point number representing the number of days to
 
 A non-negative IEEE-754 floating point number representing the temperature in degrees Celsius for bottle aging.
 
+- BeerXML Type: `Floating Point`
+- BeerXML Unit: Degrees Celsius
 - Clojure Key Name: `:age-temp`
 - Clojure Type: Double
 - Example: `12.0`
@@ -127,6 +138,7 @@ A non-negative IEEE-754 floating point number representing the temperature in de
 
 A non-empty string denoting the name of the assistant brewer.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:asst-brewer`
 - Clojure Type: String
 - Example: `"Dariusz R. Jakubowski"`
@@ -135,6 +147,8 @@ A non-empty string denoting the name of the assistant brewer.
 
 A non-negative IEEE-754 floating point number representing the target final volume of recipe.
 
+- BeerXML Type: `Floating Point`
+- BeerXML Unit: Liter
 - Clojure Key Name: `:batch-size`
 - Clojure Type: Double
 - Example: `5.8`
@@ -143,6 +157,8 @@ A non-negative IEEE-754 floating point number representing the target final volu
 
 A non-negative IEEE-754 floating point number representing the starting volume of the wort.
 
+- BeerXML Type: `Floating Point`
+- BeerXML Unit: Liter
 - Clojure Key Name: `:boil-size`
 - Clojure Type: Double
 - Example: `7.5`
@@ -151,6 +167,8 @@ A non-negative IEEE-754 floating point number representing the starting volume o
 
 A non-negative IEEE-754 floating point number representing the time in minutes to boil the wort.
 
+- BeerXML Type: `Floating Point`
+- BeerXML Unit: Minute
 - Clojure Key Name: `:boil-time`
 - Clojure Type: Double
 - Example: `45.0`
@@ -159,6 +177,7 @@ A non-negative IEEE-754 floating point number representing the time in minutes t
 
 A non-empty string denoting the name of the brewer.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:brewer`
 - Clojure Type: String
 - Example: `"Nick A. Nichols"`
@@ -167,6 +186,7 @@ A non-empty string denoting the name of the brewer.
 
 A non-empty string describing the number of dietary calories per serving of this recipe.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:calories`
 - Clojure Type: String
 - Example: `"180 Cal / pint"`
@@ -175,6 +195,8 @@ A non-empty string describing the number of dietary calories per serving of this
 
 An IEEE-754 floating point number representing the carbonation for this recipe in volumes of CO2.
 
+- BeerXML Type: `Floating Point`
+- BeerXML Unit: Volumes of CO2
 - Clojure Key Name: `:carbonation`
 - Clojure Type: Double
 - Example: `1.5`
@@ -183,6 +205,8 @@ An IEEE-754 floating point number representing the carbonation for this recipe i
 
 An IEEE-754 floating point number representing the temperature in degrees Celsius for either bottling or forced carbonation.
 
+- BeerXML Type: `Floating Point`
+- BeerXML Unit: Degrees Celsius
 - Clojure Key Name: `:carbonation-temp`
 - Clojure Type: Double
 - Example: `12.0`
@@ -191,6 +215,7 @@ An IEEE-754 floating point number representing the temperature in degrees Celsiu
 
 A non-empty string denoting a display value for the carbonation measures used formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:carbonation-used`
 - Clojure Type: String
 - Example: `"Kegged at 1.36 atmospheres"`
@@ -200,6 +225,7 @@ A non-empty string denoting a display value for the carbonation measures used fo
 A non-empty string denoting the display date the recipe was created on.
 Intentionally implemented as a string type to match BeerXML spec.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:date`
 - Clojure Type: String
 - Example: `"2020/05/06"`
@@ -208,6 +234,7 @@ Intentionally implemented as a string type to match BeerXML spec.
 
 A non-empty string denoting a display value for the temperature of the aging step formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:display-age-temp`
 - Clojure Type: String
 - Example: `"68F"`
@@ -216,6 +243,7 @@ A non-empty string denoting a display value for the temperature of the aging ste
 
 A non-empty string denoting a display value for the pre-fermentation volume formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:display-batch-size`
 - Clojure Type: String
 - Example: `"4.5 gallons"`
@@ -224,6 +252,7 @@ A non-empty string denoting a display value for the pre-fermentation volume form
 
 A non-empty string denoting a display value for the pre-boil volume formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:display-boil-size`
 - Clojure Type: String
 - Example: `"5.0 gallons"`
@@ -232,6 +261,7 @@ A non-empty string denoting a display value for the pre-boil volume formatted fo
 
 A non-empty string denoting a display value for the temperature of the bottling step formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:display-carb-temp`
 - Clojure Type: String
 - Example: `"68F"`
@@ -240,6 +270,7 @@ A non-empty string denoting a display value for the temperature of the bottling 
 
 A non-empty string denoting a display value for the post-fermentation gravity formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:display-fg`
 - Clojure Type: String
 - Example: `"1.050sg"`
@@ -248,6 +279,7 @@ A non-empty string denoting a display value for the post-fermentation gravity fo
 
 A non-empty string denoting a display value for the pre-fermentation gravity formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:display-og`
 - Clojure Type: String
 - Example: `"1.050sg"`
@@ -256,6 +288,7 @@ A non-empty string denoting a display value for the pre-fermentation gravity for
 
 A non-empty string denoting a display value for the temperature of the primary fermentation step formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:display-primary-temp`
 - Clojure Type: String
 - Example: `"68F"`
@@ -264,6 +297,7 @@ A non-empty string denoting a display value for the temperature of the primary f
 
 A non-empty string denoting a display value for the temperature of the secondary fermentation step formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:display-secondary-temp`
 - Clojure Type: String
 - Example: `"68F"`
@@ -272,6 +306,7 @@ A non-empty string denoting a display value for the temperature of the secondary
 
 A non-empty string denoting a display value for the temperature of the tertiary fermentation step formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:display-tertiary-temp`
 - Clojure Type: String
 - Example: `"68F"`
@@ -280,6 +315,7 @@ A non-empty string denoting a display value for the temperature of the tertiary 
 
 A non-negative IEEE-754 floating point number representing the percent brewhouse efficiency to be used for estimating the starting gravity of the beer.
 
+- BeerXML Type: `Percentage`
 - Clojure Key Name: `:efficiency`
 - Clojure Type: Double
 - Example: `85.6`
@@ -288,14 +324,17 @@ A non-negative IEEE-754 floating point number representing the percent brewhouse
 
 A non-negative IEEE-754 floating point number representing the estimated ABV for the recipe.
 
+- BeerXML Type: `Floating Point`
+- BeerXML Unit: ABV
 - Clojure Key Name: `:est-abv`
 - Clojure Type: Double
-- Example: `40.0`
+- Example: `40.1`
 
 ## Estimated Color
 
 A non-empty string describing the calculated color formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:est-color`
 - Clojure Type: String
 - Example: `"30SRM"`
@@ -304,6 +343,7 @@ A non-empty string describing the calculated color formatted for display in arbi
 
 A non-empty string describing the calculated estimated final gravity formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:est-fg`
 - Clojure Type: String
 - Example: `"1.050sg"`
@@ -312,6 +352,7 @@ A non-empty string describing the calculated estimated final gravity formatted f
 
 A non-empty string describing the calculated estimated original gravity formatted for display in arbitrary units.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:est-og`
 - Clojure Type: String
 - Example: `"1.050sg"`
@@ -320,6 +361,7 @@ A non-empty string describing the calculated estimated original gravity formatte
 
 An integer representing the number of fermentation stages in the recipe.
 
+- BeerXML Type: `Integer`
 - Clojure Key Name: `:fermentation-stages`
 - Clojure Type: Long
 - Example: `2`
@@ -328,6 +370,8 @@ An integer representing the number of fermentation stages in the recipe.
 
 A non-negative IEEE-754 floating point number representing the post-fermentation specific gravity of the recipe.
 
+- BeerXML Type: `Floating Point`
+- BeerXML Unit: Specific Gravity
 - Clojure Key Name: `:fg`
 - Clojure Type: Double
 - Example: `1.048`
@@ -337,6 +381,7 @@ A non-negative IEEE-754 floating point number representing the post-fermentation
 A boolean representing if this batch was force carbonated with CO2 pressure.
 When absent, assume false.
 
+- BeerXML Type: `Boolean`
 - Clojure Key Name: `:forced-carbonation`
 - Clojure Type: Spec
 - Example: `false`
@@ -345,6 +390,8 @@ When absent, assume false.
 
 A positive IEEE-754 floating point number representing the bitterness in IBUs for the recipe.
 
+- BeerXML Type: `Floating Point`
+- BeerXML Unit: IBU
 - Clojure Key Name: `:ibu`
 - Clojure Type: Double
 - Example: `40.0`
@@ -358,6 +405,7 @@ Must be one of: "Tinseth", "Rager", "Garetz"
 - Rager: The Rager method of IBU calculation.
 - Tinseth: The Tinseth method of IBU calculation.
 
+- BeerXML Type: `List`
 - Clojure Key Name: `:ibu-method`
 - Clojure Type: String
 - Example: `"Garetz"`
@@ -366,6 +414,7 @@ Must be one of: "Tinseth", "Rager", "Garetz"
 
 An IEEE-754 floating point number representing the conversion factor of sugar needed to prime carbonation in large containers.
 
+- BeerXML Type: `Floating Point`
 - Clojure Key Name: `:keg-priming-factor`
 - Clojure Type: Double
 - Example: `1.5`
@@ -374,6 +423,7 @@ An IEEE-754 floating point number representing the conversion factor of sugar ne
 
 A non-empty string representing the name of the ingredient.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:name`
 - Clojure Type: String
 - Example: `"Citra"`
@@ -382,6 +432,7 @@ A non-empty string representing the name of the ingredient.
 
 A non-empty string representing any notes about the subject.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:notes`
 - Clojure Type: String
 - Example: `"A wonderful, zesty aroma"`
@@ -390,6 +441,8 @@ A non-empty string representing any notes about the subject.
 
 A non-negative IEEE-754 floating point number representing the pre-fermentation specific gravity of the recipe.
 
+- BeerXML Type: `Floating Point`
+- BeerXML Unit: Specific Gravity
 - Clojure Key Name: `:og`
 - Clojure Type: Double
 - Example: `1.06`
@@ -398,6 +451,8 @@ A non-negative IEEE-754 floating point number representing the pre-fermentation 
 
 A positive IEEE-754 floating point number representing the number of days spent in primary fermentation.
 
+- BeerXML Type: `Floating Point`
+- BeerXML Unit: Day
 - Clojure Key Name: `:primary-age`
 - Clojure Type: Double
 - Example: `12.0`
@@ -406,6 +461,8 @@ A positive IEEE-754 floating point number representing the number of days spent 
 
 A non-negative IEEE-754 floating point number representing the temperature in degrees Celsius for primary fermentation.
 
+- BeerXML Type: `Floating Point`
+- BeerXML Unit: Degrees Celsius
 - Clojure Key Name: `:primary-temp`
 - Clojure Type: Double
 - Example: `12.0`
@@ -414,6 +471,7 @@ A non-negative IEEE-754 floating point number representing the temperature in de
 
 An IEEE-754 floating point number representing the conversion factor to an equivalent amount of corn sugar.
 
+- BeerXML Type: `Floating Point`
 - Clojure Key Name: `:priming-sugar-equiv`
 - Clojure Type: Double
 - Example: `1.5`
@@ -422,6 +480,7 @@ An IEEE-754 floating point number representing the conversion factor to an equiv
 
 A non-empty string denoting the name of the priming agent used to carbonate the beer.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:priming-sugar-name`
 - Clojure Type: String
 - Example: `"Corn Sugar"`
@@ -430,6 +489,8 @@ A non-empty string denoting the name of the priming agent used to carbonate the 
 
 A non-negative IEEE-754 floating point number representing the number of days spent in secondary fermentation.
 
+- BeerXML Type: `Floating Point`
+- BeerXML Unit: Day
 - Clojure Key Name: `:secondary-age`
 - Clojure Type: Double
 - Example: `12.0`
@@ -438,6 +499,8 @@ A non-negative IEEE-754 floating point number representing the number of days sp
 
 A non-negative IEEE-754 floating point number representing the temperature in degrees Celsius for secondary fermentation.
 
+- BeerXML Type: `Floating Point`
+- BeerXML Unit: Degrees Celsius
 - Clojure Key Name: `:secondary-temp`
 - Clojure Type: Double
 - Example: `12.0`
@@ -446,6 +509,7 @@ A non-negative IEEE-754 floating point number representing the temperature in de
 
 A non-empty string denoting any tasting notes.
 
+- BeerXML Type: `Text`
 - Clojure Key Name: `:taste-notes`
 - Clojure Type: String
 - Example: `"A nice, full body and intense mouthfeel"`
@@ -454,6 +518,7 @@ A non-empty string denoting any tasting notes.
 
 An IEEE-754 floating point number representing the tasting score of the beer.
 
+- BeerXML Type: `Floating Point`
 - Clojure Key Name: `:taste-rating`
 - Clojure Type: Double
 - Example: `100.0`
@@ -462,6 +527,8 @@ An IEEE-754 floating point number representing the tasting score of the beer.
 
 A non-negative IEEE-754 floating point number representing the number of days spent in tertiary fermentation.
 
+- BeerXML Type: `Floating Point`
+- BeerXML Unit: Day
 - Clojure Key Name: `:tertiary-age`
 - Clojure Type: Double
 - Example: `12.0`
@@ -470,6 +537,8 @@ A non-negative IEEE-754 floating point number representing the number of days sp
 
 A non-negative IEEE-754 floating point number representing the temperature in degrees Celsius for tertiary fermentation.
 
+- BeerXML Type: `Floating Point`
+- BeerXML Unit: Degrees Celsius
 - Clojure Key Name: `:tertiary-temp`
 - Clojure Type: Double
 - Example: `12.0`
@@ -483,6 +552,7 @@ Must be one of: "Partial mash", "All grain", "Extract"
 - Partial Mash: A recipe that uses a combination of malted grains and malt extract.
 - Extract: A recipe that uses only malt extract.
 
+- BeerXML Type: `List`
 - Clojure Key Name: `:type`
 - Clojure Type: String
 - Example: `"All Grain"`
@@ -491,6 +561,7 @@ Must be one of: "Partial mash", "All grain", "Extract"
 
 An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.
 
+- BeerXML Type: `Integer`
 - Clojure Key Name: `:version`
 - Clojure Type: Long
 - Example: `1`
