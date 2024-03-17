@@ -51,7 +51,7 @@ A record representing the brewing equipment used in brewing.
 - [Display Trub Chiller Loss](#display-trub-chiller-loss)
 - [Display Tun Volume](#display-tun-volume)
 - [Display Tun Weight](#display-tun-weight)
-- [Evap Rate](#evap-rate)
+- [Evaporation Rate](#evaporation-rate)
 - [Hop Utilization](#hop-utilization)
 - [Lauter Deadspace](#lauter-deadspace)
 - [Notes](#notes)
@@ -175,7 +175,7 @@ A non-empty string denoting a display value for the empty weight of the mash tun
 - Clojure Type: String
 - Example: `"5.5 pounds"`
 
-## Evap Rate
+## Evaporation Rate
 
 A non-negative IEEE-754 floating point number representing the percentage of wort lost to evaporation per hour of the boil.
 

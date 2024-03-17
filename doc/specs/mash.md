@@ -187,7 +187,7 @@ An integer representing the version of the BeerXML standard implemented in a giv
 
 ## Mash Steps
 
-A `::mash-step` record set
+A `::mash-step` record set.
 
 ### Collection Type
 

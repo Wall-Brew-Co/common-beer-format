@@ -1,0 +1,15 @@
+{:version      {:major 2
+                :minor 3
+                :patch 0}
+ :version-type :semver3
+ :changes      {:added      ["Documentation generation from specs to markdown."]
+                :changed    ["Specs now carry metadata indicating the BeerXML Types and Units they are associated with."
+                             "Specs may contain metadata to render human friendly names for abbreviated fields."
+                             "List specs are tightened to only allow valid BeerXML units and types."
+                             "Symbols have been added for all legal values for BeerXML List types. For example: `common-beer-format.miscs/boil`."]
+                :deprecated []
+                :removed    ["Data (de)serialization dependencies (`clojure.data.xml`, `clojure.data.json`) leftover from `clj-xml`'s promotion to a standalone library have been removed."
+                             "Data generation dependencies (`clojure.test.check`) have been removed."]
+                :fixed      []
+                :security   []}
+ :timestamp    "2024-03-17T20:16:43.988162Z"}

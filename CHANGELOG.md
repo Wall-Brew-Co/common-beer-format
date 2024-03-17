@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## Table of Contents
 
+* [2.3.0 - 2024-03-17](#230---2024-03-17)
 * [2.2.2 - 2024-03-10](#222---2024-03-10)
 * [2.2.1 - 2023-02-12](#221---2023-02-12)
 * [2.2.0 - 2023-02-09](#220---2023-02-09)
@@ -18,6 +19,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 * [1.1.0 - 2020-05-08](#110---2020-05-08)
 * [1.0.0 - 2020-05-05](#100---2020-05-05)
 * [0.0.0 - 2020-03-17](#000---2020-03-17)
+
+## 2.3.0 - 2024-03-17
+
+* Added
+  * Documentation generation from specs to markdown.
+* Changed
+  * Specs now carry metadata indicating the BeerXML Types and Units they are associated with.
+  * Specs may contain metadata to render human friendly names for abbreviated fields.
+  * List specs are tightened to only allow valid BeerXML units and types.
+  * Symbols have been added for all legal values for BeerXML List types. For example: `common-beer-format.miscs/boil`.
+* Removed
+  * Data (de)serialization dependencies (`clojure.data.xml`, `clojure.data.json`) leftover from `clj-xml`'s promotion to a standalone library have been removed.
+  * Data generation dependencies (`clojure.test.check`) have been removed.
 
 ## 2.2.2 - 2024-03-10
 

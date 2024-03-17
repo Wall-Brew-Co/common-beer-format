@@ -12,7 +12,7 @@ This repository follows the guidelines and standards of the [Wall Brew Open Sour
 
 ## Domain Experience
 
-This documentation and library assumes a moderately advanced level of familiarity with homebrewing, specifically the brewing of beer.
+This documentation and library assumes a moderately advanced level of familiarity with homebrewing- specifically the brewing of beer.
 If you are unfamiliar with the brewing process, we highly recommend setting this documentation aside and gathering the essential experience and knowledge first.
 The following resources are great places to begin:
 
@@ -31,6 +31,13 @@ To use it, add the following as a dependency in your project.clj file:
 
 The next time you build your application, [Leiningen](https://leiningen.org/) or [deps.edn](https://clojure.org/guides/deps_and_cli) should pull it automatically.
 Alternatively, you may clone or fork the repository to work with it directly.
+
+## Documentation
+
+common-beer-format's public documentation is available on [cljdoc.](https://cljdoc.org/d/com.wallbrew/common-beer-format/CURRENT)
+Please note that cljdoc does not currently include clojure specs in auto-generated namespace documentation.
+Documentation of the specs contained by this library may be found in the `Specs` article.
+The original markdown copies of this documentation are located in the `doc` folder of this repository.
 
 ## Usage
 

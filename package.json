@@ -1,6 +1,6 @@
 {
   "name": "common-beer-format",
-  "version": "2.2.2",
+  "version": "2.3.0",
   "description": "An implementation  of the BeerXML spec in multiple formats",
   "main": "index.js",
   "directories": {
