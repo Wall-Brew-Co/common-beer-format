@@ -39,6 +39,7 @@
           (str/split #" ")
           ->capital-sting))))
 
+
 (defn beer-xml-units->markdown
   "Converts a BeerXML unit to a markdown string."
   [units]
@@ -86,19 +87,19 @@
         beer-xml-units   (get spec-definition impl/beer-xml-units-key)]
     (if (:leaf? spec-definition)
       (impl/multiline
-       (str "## " display-name)
-       ""
-       spec-description
-       ""
-       (when beer-xml-type
-         (str "- BeerXML Type: `" beer-xml-type "`"))
-       (when beer-xml-units
-         (beer-xml-units->markdown beer-xml-units))
-       (str "- Clojure Key Name: `" (-> spec name keyword) "`")
-       (str "- Clojure Type: " spec-type)
-       (str "- Example: `" example-value "`")
-       "" ; Add a newline at the end
-       "")
+        (str "## " display-name)
+        ""
+        spec-description
+        ""
+        (when beer-xml-type
+          (str "- BeerXML Type: `" beer-xml-type "`"))
+        (when beer-xml-units
+          (beer-xml-units->markdown beer-xml-units))
+        (str "- Clojure Key Name: `" (-> spec name keyword) "`")
+        (str "- Clojure Type: " spec-type)
+        (str "- Example: `" example-value "`")
+        "" ; Add a newline at the end
+        "")
       (throw (ex-info "Spec is not a leaf spec." {:spec spec})))))
 
 
@@ -127,19 +128,19 @@
 
     (if (= :map (:type spec-definition))
       (impl/multiline
-       (str "## " display-name)
-       ""
-       spec-description
-       ""
-       "### Required Keys"
-       ""
-       required-key-markdown
-       ""
-       "### Optional Keys"
-       ""
-       optional-key-markdown
-       ""
-       "")
+        (str "## " display-name)
+        ""
+        spec-description
+        ""
+        "### Required Keys"
+        ""
+        required-key-markdown
+        ""
+        "### Optional Keys"
+        ""
+        optional-key-markdown
+        ""
+        "")
       (throw (ex-info "Spec is not a map spec." {:spec spec})))))
 
 
@@ -157,18 +158,18 @@
         beer-xml-type         (get spec-definition impl/beer-xml-type-key)]
     (if (impl/wrapper-spec? spec)
       (impl/multiline
-       (str "## " display-name)
-       ""
-       spec-description
-       ""
-       (when beer-xml-type
-         (str "- BeerXML Type: `" beer-xml-type "`"))
-       ""
-       "### Wrapped Record"
-       ""
-       required-key-markdown
-       ""
-       "")
+        (str "## " display-name)
+        ""
+        spec-description
+        ""
+        (when beer-xml-type
+          (str "- BeerXML Type: `" beer-xml-type "`"))
+        ""
+        "### Wrapped Record"
+        ""
+        required-key-markdown
+        ""
+        "")
       (throw (ex-info "Spec is not a wrapper spec." {:spec spec})))))
 
 
@@ -183,15 +184,15 @@
         required-key-markdown (key-spec->markdown sequence-spec)]
     (if (= :vector (:type spec-definition))
       (impl/multiline
-       (str "## " display-name)
-       ""
-       spec-description
-       ""
-       "### Collection Type"
-       ""
-       required-key-markdown
-       ""
-       "")
+        (str "## " display-name)
+        ""
+        spec-description
+        ""
+        "### Collection Type"
+        ""
+        required-key-markdown
+        ""
+        "")
       (throw (ex-info "Spec is not a sequence spec." {:spec spec})))))
 
 
@@ -231,6 +232,7 @@
                (map-spec->markdown ::equipment/equipment)
                (map-spec->leaf-spec-markdown ::equipment/equipment)))))
 
+
 (defn render-fermentables-file!
   "Render the fermentable specs to a markdown file."
   []
@@ -245,6 +247,7 @@
                (map-spec->markdown ::fermentables/fermentable)
                (map-spec->leaf-spec-markdown ::fermentables/fermentable)))))
 
+
 (defn render-hop-file!
   "Render the hop specs to a markdown file."
   []
@@ -258,6 +261,7 @@
                (wrapper-spec->markdown ::hops/hop-wrapper)
                (map-spec->markdown ::hops/hop)
                (map-spec->leaf-spec-markdown ::hops/hop)))))
+
 
 (defn render-mash-file!
   "Render the mash specs to a markdown file."
@@ -278,6 +282,7 @@
                (map-spec->markdown ::mash/mash-step)
                (map-spec->leaf-spec-markdown ::mash/mash-step)))))
 
+
 (defn render-miscs-file!
   "Render the misc specs to a markdown file."
   []
@@ -291,6 +296,7 @@
                (wrapper-spec->markdown ::miscs/misc-wrapper)
                (map-spec->markdown ::miscs/misc)
                (map-spec->leaf-spec-markdown ::miscs/misc)))))
+
 
 (defn render-recipes-file!
   "Render the recipe specs to a markdown file."
@@ -306,6 +312,7 @@
                (map-spec->markdown ::recipes/recipe)
                (map-spec->leaf-spec-markdown ::recipes/recipe)))))
 
+
 (defn render-styles-file!
   "Render the style specs to a markdown file."
   []
@@ -320,6 +327,7 @@
                (map-spec->markdown ::styles/style)
                (map-spec->leaf-spec-markdown ::styles/style)))))
 
+
 (defn render-waters-file!
   "Render the water specs to a markdown file."
   []
@@ -333,6 +341,7 @@
                (wrapper-spec->markdown ::waters/water-wrapper)
                (map-spec->markdown ::waters/water)
                (map-spec->leaf-spec-markdown ::waters/water)))))
+
 
 (defn render-yeasts-file!
   "Render the yeast specs to a markdown file."
@@ -350,6 +359,8 @@
 
 
 #_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
+
+
 (defn render-specs!
   "Render all the specs to markdown files."
   []

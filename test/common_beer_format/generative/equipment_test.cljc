@@ -26,6 +26,7 @@
     (is (not (spec/valid? ::equipment/equipments nil)))
     (is (spoon.spec/test-valid? ::equipment/equipments []))))
 
+
 (deftest wrapper-test
   (testing "All wrapper specs are marked as such."
     (is (true? (impl/wrapper-spec? ::equipment/equipment-wrapper)))
@@ -52,6 +53,7 @@
     (is (false? (impl/wrapper-spec? ::equipment/display-trub-chiller-loss)))
     (is (false? (impl/wrapper-spec? ::equipment/display-lauter-deadspace)))
     (is (false? (impl/wrapper-spec? ::equipment/display-top-up-kettle)))))
+
 
 (deftest display-name-test
   (testing "calc-boil-volume should be named 'Calculate Boil Volume'"
@@ -83,6 +85,7 @@
     (is (gen/generatable? ::equipment/equipment))
     (is (gen/generatable? ::equipment/equipment-wrapper))))
 
+
 (deftest valid-units-test
   (testing "All records either specify no units key or a valid BeerXML unit type"
     (is (gen/valid-beer-xml-units? ::equipment/boil-size))
@@ -106,6 +109,7 @@
     (is (gen/valid-beer-xml-units? ::equipment/display-top-up-kettle))
     (is (gen/valid-beer-xml-units? ::equipment/equipment))
     (is (gen/valid-beer-xml-units? ::equipment/equipment-wrapper))))
+
 
 (deftest valid-type-test
   (testing "All records either specify no type key or a valid BeerXML type"

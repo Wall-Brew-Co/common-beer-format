@@ -115,20 +115,20 @@
 
 (spec/def ::type
   (st/spec
-   {:type                  :string
-    :spec                  yeast-types
-    impl/beer-xml-type-key impl/beer-xml-list
-    :gen                   #(spec/gen yeast-types)
-    :description           (impl/multiline
-                            "A case-sensitive string representing the type of yeast added to the beer."
-                            (impl/set->description yeast-types)
-                            ""
-                            "- Ale: Yeast that ferments at higher temperatures and produces a more fruity, estery, and alcohol-forward beer."
-                            "- Lager: Yeast that ferments at lower temperatures and produces a crisp, clean, and alcohol-restrained beer."
-                            "- Wheat: Yeast that ferments at higher temperatures and produces a fruity and phenol-forward beer."
-                            "- Wine: Yeast traditionally used in wine making."
-                            "- Champagne: Yeast traditionally used in champagne making, offering a dry taste.")
-    :json-schema/example   "Ale"}))
+    {:type                  :string
+     :spec                  yeast-types
+     impl/beer-xml-type-key impl/beer-xml-list
+     :gen                   #(spec/gen yeast-types)
+     :description           (impl/multiline
+                              "A case-sensitive string representing the type of yeast added to the beer."
+                              (impl/set->description yeast-types)
+                              ""
+                              "- Ale: Yeast that ferments at higher temperatures and produces a more fruity, estery, and alcohol-forward beer."
+                              "- Lager: Yeast that ferments at lower temperatures and produces a crisp, clean, and alcohol-restrained beer."
+                              "- Wheat: Yeast that ferments at higher temperatures and produces a fruity and phenol-forward beer."
+                              "- Wine: Yeast traditionally used in wine making."
+                              "- Champagne: Yeast traditionally used in champagne making, offering a dry taste.")
+     :json-schema/example   "Ale"}))
 
 
 (def yeast-forms
@@ -253,28 +253,28 @@
 
 (spec/def ::form
   (st/spec
-   {:type                  :string
-    :spec                  yeast-forms
-    impl/beer-xml-type-key impl/beer-xml-list
-    :gen                   #(spec/gen yeast-forms)
-    :description           (impl/multiline
-                            "A case-sensitive string representing the form of the yeast added to the beer."
-                            (impl/set->description yeast-forms)
-                            ""
-                            "- Liquid: A liquid slurry of yeast, usually with a source of nutrients or sugars."
-                            "- Dry: Dry yeast sold in a dehydrated state to extend shelf life."
-                            "- Slant: Yeast cultivated on a solid growth medium."
-                            "- Culture: Yeast cultivated from previous fermentations.")
-    :json-schema/example   "Ale"}))
+    {:type                  :string
+     :spec                  yeast-forms
+     impl/beer-xml-type-key impl/beer-xml-list
+     :gen                   #(spec/gen yeast-forms)
+     :description           (impl/multiline
+                              "A case-sensitive string representing the form of the yeast added to the beer."
+                              (impl/set->description yeast-forms)
+                              ""
+                              "- Liquid: A liquid slurry of yeast, usually with a source of nutrients or sugars."
+                              "- Dry: Dry yeast sold in a dehydrated state to extend shelf life."
+                              "- Slant: Yeast cultivated on a solid growth medium."
+                              "- Culture: Yeast cultivated from previous fermentations.")
+     :json-schema/example   "Ale"}))
 
 
 (spec/def ::laboratory
   (st/spec
-   {:type                  :string
-    :spec                  ::prim/text
-    impl/beer-xml-type-key impl/beer-xml-text
-    :description           "A non-empty string denoting the laboratory that cultivated the yeast."
-    :json-schema/example   "White Labs"}))
+    {:type                  :string
+     :spec                  ::prim/text
+     impl/beer-xml-type-key impl/beer-xml-text
+     :description           "A non-empty string denoting the laboratory that cultivated the yeast."
+     :json-schema/example   "White Labs"}))
 
 
 (spec/def ::product-id
@@ -318,27 +318,27 @@
 
 (spec/def ::flocculation
   (st/spec
-   {:type                  :string
-    :spec                  yeast-flocculation-types
-    impl/beer-xml-type-key impl/beer-xml-list
-    :gen                   #(spec/gen yeast-flocculation-types)
-    :description           (impl/multiline "A case-sensitive string representing how dense of a floc the yeast will form."
-                                           (impl/set->description yeast-flocculation-types)
-                                           ""
-                                           "- Low: The yeast settles out of suspension slowly."
-                                           "- Medium: The yeast settles out of suspension at a moderate rate."
-                                           "- High: The yeast settles out of suspension quickly."
-                                           "- Very High: The yeast settles out of suspension very quickly.")
-    :json-schema/example   "High"}))
+    {:type                  :string
+     :spec                  yeast-flocculation-types
+     impl/beer-xml-type-key impl/beer-xml-list
+     :gen                   #(spec/gen yeast-flocculation-types)
+     :description           (impl/multiline "A case-sensitive string representing how dense of a floc the yeast will form."
+                                            (impl/set->description yeast-flocculation-types)
+                                            ""
+                                            "- Low: The yeast settles out of suspension slowly."
+                                            "- Medium: The yeast settles out of suspension at a moderate rate."
+                                            "- High: The yeast settles out of suspension quickly."
+                                            "- Very High: The yeast settles out of suspension very quickly.")
+     :json-schema/example   "High"}))
 
 
 (spec/def ::attenuation
   (st/spec
-   {:type                  :double
-    :spec                  ::prim/percent
-    impl/beer-xml-type-key impl/beer-xml-percentage
-    :description           "A positive IEEE-754 floating point number representing the percent of malt sugar that can be converted to ethanol and carbon dioxide."
-    :json-schema/example   "73.2"}))
+    {:type                  :double
+     :spec                  ::prim/percent
+     impl/beer-xml-type-key impl/beer-xml-percentage
+     :description           "A positive IEEE-754 floating point number representing the percent of malt sugar that can be converted to ethanol and carbon dioxide."
+     :json-schema/example   "73.2"}))
 
 
 (spec/def ::best-for
@@ -352,34 +352,34 @@
 
 (spec/def ::times-cultured
   (st/spec
-   {:type                  :long
-    :spec                  (spec/and int? pos?)
-    impl/beer-xml-type-key impl/beer-xml-integer
-    :description           (impl/multiline
-                            "A non-negative integer representing the number of times this yeast has been harvested and re-used."
-                            "A value of zero assumes the yeast came directly from the manufacturer.")
-    :json-schema/example   "1"}))
+    {:type                  :long
+     :spec                  (spec/and int? pos?)
+     impl/beer-xml-type-key impl/beer-xml-integer
+     :description           (impl/multiline
+                              "A non-negative integer representing the number of times this yeast has been harvested and re-used."
+                              "A value of zero assumes the yeast came directly from the manufacturer.")
+     :json-schema/example   "1"}))
 
 
 (spec/def ::max-reuse
   (st/spec
-   {:type                  :long
-    :spec                  (spec/and int? pos?)
-    impl/beer-xml-type-key impl/beer-xml-integer
-    :description           "A non-negative integer representing the suggested maximum number of times the yeast may be harvested and recultured."
-    :json-schema/example   "3"}))
+    {:type                  :long
+     :spec                  (spec/and int? pos?)
+     impl/beer-xml-type-key impl/beer-xml-integer
+     :description           "A non-negative integer representing the suggested maximum number of times the yeast may be harvested and recultured."
+     :json-schema/example   "3"}))
 
 
 (spec/def ::add-to-secondary
   (st/spec
-   {:spec                  ::prim/boolean
-    impl/beer-xml-type-key impl/beer-xml-boolean
-    :description           (impl/multiline
-                            "A boolean representing if this yeast was added for a secondary fermentation."
-                            "When absent, assume false.")
-    :json-schema/example   "false"
-    :decode/string         impl/decode-boolean
-    :encode/string         impl/encode-boolean}))
+    {:spec                  ::prim/boolean
+     impl/beer-xml-type-key impl/beer-xml-boolean
+     :description           (impl/multiline
+                              "A boolean representing if this yeast was added for a secondary fermentation."
+                              "When absent, assume false.")
+     :json-schema/example   "false"
+     :decode/string         impl/decode-boolean
+     :encode/string         impl/encode-boolean}))
 
 
 (spec/def ::disp-min-temp

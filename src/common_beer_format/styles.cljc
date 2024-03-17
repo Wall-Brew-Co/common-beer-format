@@ -281,21 +281,21 @@
 
 (spec/def ::type
   (st/spec
-   {:type                  :string
-    :spec                  style-types
-    impl/beer-xml-type-key impl/beer-xml-list
-    :gen                   #(spec/gen style-types)
-    :description           (impl/multiline
-                            "A case-sensitive string representing the type of beverage the style dictates."
-                            (impl/set->description style-types)
-                            ""
-                            "- Ale: A top-fermented beer with a fruity, hoppy taste and a dry finish."
-                            "- Cider: A fermented beverage made from fruit and water."
-                            "- Lager: A light, bottom-fermented beer with a clean, crisp taste and a smooth finish."
-                            "- Mead: A fermented beverage made from honey and water."
-                            "- Mixed: A beer style that blends two or more styles."
-                            "- Wheat: A beer made with a large proportion of wheat malt.")
-    :json-schema/example   "Lager"}))
+    {:type                  :string
+     :spec                  style-types
+     impl/beer-xml-type-key impl/beer-xml-list
+     :gen                   #(spec/gen style-types)
+     :description           (impl/multiline
+                              "A case-sensitive string representing the type of beverage the style dictates."
+                              (impl/set->description style-types)
+                              ""
+                              "- Ale: A top-fermented beer with a fruity, hoppy taste and a dry finish."
+                              "- Cider: A fermented beverage made from fruit and water."
+                              "- Lager: A light, bottom-fermented beer with a clean, crisp taste and a smooth finish."
+                              "- Mead: A fermented beverage made from honey and water."
+                              "- Mixed: A beer style that blends two or more styles."
+                              "- Wheat: A beer made with a large proportion of wheat malt.")
+     :json-schema/example   "Lager"}))
 
 
 (spec/def ::og-min

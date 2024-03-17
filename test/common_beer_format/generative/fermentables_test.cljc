@@ -47,6 +47,7 @@
     (is (gen/generatable? ::fermentables/diastatic-power))
     (is (gen/generatable? ::fermentables/max-in-batch))))
 
+
 (deftest valid-units-test
   (testing "Ensure all specs specify valid units"
     (is (gen/valid-beer-xml-units? ::fermentables/coarse-fine-diff))
@@ -68,6 +69,7 @@
     (is (gen/valid-beer-xml-units? ::fermentables/diastatic-power))
     (is (gen/valid-beer-xml-units? ::fermentables/max-in-batch))))
 
+
 (deftest valid-types-test
   (testing "Ensure all specs specify valid types"
     (is (gen/valid-beer-xml-type? ::fermentables/coarse-fine-diff))
@@ -88,6 +90,7 @@
     (is (gen/valid-beer-xml-type? ::fermentables/add-after-boil))
     (is (gen/valid-beer-xml-type? ::fermentables/diastatic-power))
     (is (gen/valid-beer-xml-type? ::fermentables/max-in-batch))))
+
 
 (deftest wrapper-test
   (testing "Ensure wrapper specs are marked as such"

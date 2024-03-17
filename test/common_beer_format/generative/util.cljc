@@ -18,6 +18,7 @@
       (println e)
       false)))
 
+
 (defn valid-beer-xml-units?
   "Check the spec for valid BeerXML units.
    Values must either not be present or be one of the valid BeerXML units."
@@ -30,6 +31,7 @@
       (string? spec-units) (contains? impl/beer-xml-units spec-units)
       (coll? spec-units)   (every? #(contains? impl/beer-xml-units %) spec-units)
       :else                (do (println (str "Invalid units specified for spec: " spec)) false))))
+
 
 (defn valid-beer-xml-type?
   "Check the spec for valid BeerXML types.
