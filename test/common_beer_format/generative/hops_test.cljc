@@ -74,9 +74,6 @@
     (is (not (impl/wrapper-spec? ::hops/version)))))
 
 
-
-
-
 (def sample-hop
   "A hard-coded sample hop for static unit tests"
   {:alpha          5.0
@@ -101,15 +98,9 @@
    :version        1})
 
 
-
-
-
 (def sample-hop-wrapper
   "A hard-coded sample hop-wrapper for static unit tests"
   {:hop sample-hop})
-
-
-
 
 
 (def sample-hops
@@ -117,15 +108,9 @@
   [sample-hop-wrapper])
 
 
-
-
-
 (def sample-hops-wrapper
   "A hard-coded sample hops-wrapper for static unit tests"
   {:hops sample-hops})
-
-
-
 
 
 (deftest type-test
@@ -138,9 +123,6 @@
                      hops/aroma
                      hops/bittering
                      hops/both)))))
-
-
-
 
 
 (deftest use-test
@@ -159,9 +141,6 @@
                      hops/mash)))))
 
 
-
-
-
 (deftest form-test
   (testing "Ensure type map contains all hop forms"
     (is (contains? hops/hop-forms hops/pellet))
@@ -172,9 +151,6 @@
                      hops/pellet
                      hops/plug
                      hops/leaf)))))
-
-
-
 
 
 (deftest static-keys-test
