@@ -4,7 +4,7 @@
   <groupId>com.wallbrew</groupId>
   <artifactId>common-beer-format</artifactId>
   <packaging>jar</packaging>
-  <version>2.2.2</version>
+  <version>2.3.0</version>
   <name>common-beer-format</name>
   <description>An implementation of the BeerXML spec in multiple formats.</description>
   <url>https://github.com/Wall-Brew-Co/common-beer-format</url>
@@ -20,7 +20,7 @@
     <url>https://github.com/Wall-Brew-Co/common-beer-format</url>
     <connection>scm:git:git://github.com/Wall-Brew-Co/common-beer-format.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/Wall-Brew-Co/common-beer-format.git</developerConnection>
-    <tag>b6e31caf397b82455954f1c055357d6b37e1c398</tag>
+    <tag>c4485cd2d249812b882a1d69a807e1452a502e11</tag>
   </scm>
   <build>
     <sourceDirectory>src</sourceDirectory>
@@ -87,28 +87,6 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>org.clojure</groupId>
-      <artifactId>data.json</artifactId>
-      <version>2.5.0</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.clojure</groupId>
-      <artifactId>data.xml</artifactId>
-      <version>0.2.0-alpha9</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.clojure</groupId>
-      <artifactId>spec.alpha</artifactId>
-      <version>0.4.233</version>
-    </dependency>
-    <dependency>
-      <groupId>org.clojure</groupId>
-      <artifactId>test.check</artifactId>
-      <version>1.1.1</version>
-    </dependency>
-    <dependency>
       <groupId>com.wallbrew</groupId>
       <artifactId>clj-xml</artifactId>
       <version>1.9.0</version>
@@ -124,6 +102,12 @@
       <groupId>doo</groupId>
       <artifactId>doo</artifactId>
       <version>0.1.11</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.clojure</groupId>
+      <artifactId>data.json</artifactId>
+      <version>2.5.0</version>
       <scope>test</scope>
     </dependency>
   </dependencies>

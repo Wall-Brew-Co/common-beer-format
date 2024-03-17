@@ -1,4 +1,4 @@
-(defproject com.wallbrew/common-beer-format "2.2.2"
+(defproject com.wallbrew/common-beer-format "2.3.0"
   :description "An implementation of the BeerXML spec in multiple formats."
   :url "https://github.com/Wall-Brew-Co/common-beer-format"
   :license {:name         "MIT"
@@ -10,11 +10,7 @@
   :dependencies [[metosin/spec-tools "0.10.6"]
                  [nnichols "1.1.0"]
                  [org.clojure/clojure "1.11.2"]
-                 [org.clojure/clojurescript "1.11.132" :scope "provided"]
-                 [org.clojure/data.json "2.5.0"]
-                 [org.clojure/data.xml "0.2.0-alpha9"]
-                 [org.clojure/spec.alpha "0.4.233"]
-                 [org.clojure/test.check "1.1.1"]]
+                 [org.clojure/clojurescript "1.11.132" :scope "provided"]]
   :plugins [[com.github.clj-kondo/lein-clj-kondo "2024.03.13"]
             [com.wallbrew/lein-sealog "1.3.0"]
             [lein-cljsbuild "1.1.8"]
@@ -25,9 +21,9 @@
              :dev     {:dependencies [[com.wallbrew/clj-xml "1.9.0"]
                                       [com.wallbrew/spoon "1.2.2"]
                                       [doo "0.1.11"]
-                                      [org.clojure/data.json "2.5.0"]
-                                      [org.clojure/data.xml "0.2.0-alpha9"]]
-                       :plugins      [[lein-doo "0.1.11"]]}}
+                                      [org.clojure/data.json "2.5.0"]]
+                       :plugins      [[lein-doo "0.1.11"]]}
+             :export  {:source-paths ["src" "dev"]}}
   :deploy-branches ["master"]
   :deploy-repositories [["clojars" {:url           "https://clojars.org/repo"
                                     :username      :env/clojars_user
@@ -36,7 +32,8 @@
 
   :min-lein-version "2.5.3"
 
-  :aliases {"test-build" ["do" "clean" ["cljsbuild" "once" "test"] ["doo" "once"] ["test"]]}
+  :aliases {"test-build"   ["do" "clean" ["cljsbuild" "once" "test"] ["doo" "once"] ["test"]]
+            "export-specs" ["with-profile" "export" "run" "-m" "common-beer-format.spec-export/render-specs!"]}
 
   :cljsbuild {:builds [{:id           "test"
                         :source-paths ["src" "test"]

@@ -1,6 +1,5 @@
 (ns common-beer-format.files.xml-test
   (:require [clj-xml.core :as clj-xml]
-            [clojure.data.xml :as xml]
             [clojure.string :as str]
             [clojure.test :refer :all]
             [com.wallbrew.spoon.spec :as spoon]
@@ -28,7 +27,7 @@
   {:no-doc true}
   [file-name spec]
   (let [xml (deformat (slurp file-name))
-        edn (clj-xml/xml->edn (xml/parse-str xml))]
+        edn (clj-xml/xml-str->edn xml)]
     (cbf/coerce spec edn)))
 
 

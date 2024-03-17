@@ -1,11 +1,12 @@
 (ns common-beer-format.generative.hops-test
-  (:require [clojure.spec.alpha :as spec]
+  (:require #? (:clj  [clojure.test :refer [deftest is testing]])
+            #? (:cljs [cljs.test    :refer-macros [deftest is testing]])
+            [clojure.spec.alpha :as spec]
             [com.wallbrew.spoon.spec :as spoon.spec]
             [common-beer-format.generative.util :as gen]
             [common-beer-format.hops :as hops]
-            [common-beer-format.primitives :as primitives]
-            #? (:clj  [clojure.test :refer [deftest is testing]])
-            #? (:cljs [cljs.test    :refer-macros [deftest is testing]])))
+            [common-beer-format.impl :as impl]
+            [common-beer-format.primitives :as primitives]))
 
 
 (deftest data-requirement-test
@@ -44,6 +45,35 @@
     (is (gen/generatable? ::hops/alpha))))
 
 
+(deftest wrapper-test
+  (testing "Ensure all wrapper specs are marked as such"
+    (is (true? (impl/wrapper-spec? ::hops/hops-wrapper)))
+    (is (true? (impl/wrapper-spec? ::hops/hop-wrapper))))
+  (testing "Ensure all non-wrapper specs are not marked as such"
+    (is (not (impl/wrapper-spec? ::hops/hops)))
+    (is (not (impl/wrapper-spec? ::hops/hop)))
+    (is (not (impl/wrapper-spec? ::hops/alpha)))
+    (is (not (impl/wrapper-spec? ::hops/amount)))
+    (is (not (impl/wrapper-spec? ::hops/beta)))
+    (is (not (impl/wrapper-spec? ::hops/caryophyllene)))
+    (is (not (impl/wrapper-spec? ::hops/cohumulone)))
+    (is (not (impl/wrapper-spec? ::hops/display-amount)))
+    (is (not (impl/wrapper-spec? ::hops/display-time)))
+    (is (not (impl/wrapper-spec? ::hops/form)))
+    (is (not (impl/wrapper-spec? ::hops/hsi)))
+    (is (not (impl/wrapper-spec? ::hops/humulene)))
+    (is (not (impl/wrapper-spec? ::hops/inventory)))
+    (is (not (impl/wrapper-spec? ::hops/myrcene)))
+    (is (not (impl/wrapper-spec? ::hops/name)))
+    (is (not (impl/wrapper-spec? ::hops/notes)))
+    (is (not (impl/wrapper-spec? ::hops/origin)))
+    (is (not (impl/wrapper-spec? ::hops/substitutes)))
+    (is (not (impl/wrapper-spec? ::hops/time)))
+    (is (not (impl/wrapper-spec? ::hops/type)))
+    (is (not (impl/wrapper-spec? ::hops/use)))
+    (is (not (impl/wrapper-spec? ::hops/version)))))
+
+
 (def sample-hop
   "A hard-coded sample hop for static unit tests"
   {:alpha          5.0
@@ -53,7 +83,7 @@
    :cohumulone     0.0
    :display-amount "6.38 g"
    :display-time   "60.1 min"
-   :form           "pellet"
+   :form           "Pellet"
    :hsi            0.0
    :humulene       0.0
    :inventory      "0.0 g"
@@ -63,7 +93,7 @@
    :origin         "United Kingdom"
    :substitutes    "Fuggles, East Kent Goldings, Target"
    :time           60.1
-   :type           "bittering"
+   :type           "Bittering"
    :use            "Boil"
    :version        1})
 

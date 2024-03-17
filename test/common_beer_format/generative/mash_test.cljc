@@ -114,6 +114,16 @@
   {:mash sample-mash})
 
 
+(def sample-mashs
+  "A hard-coded sample mashs for static unit tests"
+  [sample-mash-wrapper])
+
+
+(def sample-mashs-wrapper
+  "A hard-coded sample mashs-wrapper for static unit tests"
+  {:mashs sample-mashs})
+
+
 (deftest mash-step-type-test
   (testing "Ensure type map contains all mash step types"
     (is (contains? mash/mash-step-types mash/infusion))
@@ -137,7 +147,11 @@
     (is (spoon.spec/test-valid? ::mash/mash sample-mash)
         "Static test data should conform to common-beer-format.hop/mash")
     (is (spoon.spec/test-valid? ::mash/mash-wrapper sample-mash-wrapper)
-        "Static test data should conform to common-beer-format.hop/mash-wrapper")))
+        "Static test data should conform to common-beer-format.hop/mash-wrapper")
+    (is (spoon.spec/test-valid? ::mash/mashs sample-mashs)
+        "Static test data should conform to common-beer-format.hop/mashs")
+    (is (spoon.spec/test-valid? ::mash/mashs-wrapper sample-mashs-wrapper)
+        "Static test data should conform to common-beer-format.hop/mashs-wrapper")))
 
 
 (deftest static-keys-test

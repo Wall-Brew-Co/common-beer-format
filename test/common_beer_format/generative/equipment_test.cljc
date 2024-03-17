@@ -1,11 +1,12 @@
 (ns common-beer-format.generative.equipment-test
-  (:require [clojure.spec.alpha :as spec]
+  (:require #? (:clj  [clojure.test :refer [deftest is testing]])
+            #? (:cljs [cljs.test    :refer-macros [deftest is testing]])
+            [clojure.spec.alpha :as spec]
             [com.wallbrew.spoon.spec :as spoon.spec]
             [common-beer-format.equipment :as equipment]
             [common-beer-format.generative.util :as gen]
-            [common-beer-format.primitives :as primitives]
-            #? (:clj  [clojure.test :refer [deftest is testing]])
-            #? (:cljs [cljs.test    :refer-macros [deftest is testing]])))
+            [common-beer-format.impl :as impl]
+            [common-beer-format.primitives :as primitives]))
 
 
 (deftest data-requirement-test
@@ -15,7 +16,49 @@
     (is (not (spec/valid? ::equipment/equipment {})))
     (is (not (spec/valid? ::equipment/equipment-wrapper nil)))
     (is (not (spec/valid? ::equipment/equipment-wrapper [])))
-    (is (not (spec/valid? ::equipment/equipment-wrapper {})))))
+    (is (not (spec/valid? ::equipment/equipment-wrapper {})))
+    (is (not (spec/valid? ::equipment/equipments nil)))
+    (is (not (spec/valid? ::equipment/equipments {})))
+    (is (not (spec/valid? ::equipment/equipments-wrapper nil)))
+    (is (not (spec/valid? ::equipment/equipments-wrapper [])))
+    (is (not (spec/valid? ::equipment/equipments-wrapper {}))))
+  (testing "Collection specs may be empty, but must be vectors"
+    (is (not (spec/valid? ::equipment/equipments nil)))
+    (is (spoon.spec/test-valid? ::equipment/equipments []))))
+
+
+(deftest wrapper-test
+  (testing "All wrapper specs are marked as such."
+    (is (true? (impl/wrapper-spec? ::equipment/equipment-wrapper)))
+    (is (true? (impl/wrapper-spec? ::equipment/equipments-wrapper))))
+  (testing "All non-wrapper specs are marked as such."
+    (is (false? (impl/wrapper-spec? ::equipment/equipment)))
+    (is (false? (impl/wrapper-spec? ::equipment/equipments)))
+    (is (false? (impl/wrapper-spec? ::equipment/boil-size)))
+    (is (false? (impl/wrapper-spec? ::equipment/batch-size)))
+    (is (false? (impl/wrapper-spec? ::equipment/tun-volume)))
+    (is (false? (impl/wrapper-spec? ::equipment/tun-weight)))
+    (is (false? (impl/wrapper-spec? ::equipment/tun-specific-heat)))
+    (is (false? (impl/wrapper-spec? ::equipment/top-up-water)))
+    (is (false? (impl/wrapper-spec? ::equipment/trub-chiller-loss)))
+    (is (false? (impl/wrapper-spec? ::equipment/evap-rate)))
+    (is (false? (impl/wrapper-spec? ::equipment/boil-time)))
+    (is (false? (impl/wrapper-spec? ::equipment/calc-boil-volume)))
+    (is (false? (impl/wrapper-spec? ::equipment/lauter-deadspace)))
+    (is (false? (impl/wrapper-spec? ::equipment/top-up-kettle)))
+    (is (false? (impl/wrapper-spec? ::equipment/hop-utilization)))
+    (is (false? (impl/wrapper-spec? ::equipment/display-boil-size)))
+    (is (false? (impl/wrapper-spec? ::equipment/display-tun-volume)))
+    (is (false? (impl/wrapper-spec? ::equipment/display-top-up-water)))
+    (is (false? (impl/wrapper-spec? ::equipment/display-trub-chiller-loss)))
+    (is (false? (impl/wrapper-spec? ::equipment/display-lauter-deadspace)))
+    (is (false? (impl/wrapper-spec? ::equipment/display-top-up-kettle)))))
+
+
+(deftest display-name-test
+  (testing "calc-boil-volume should be named 'Calculate Boil Volume'"
+    (is (= "Calculate Boil Volume"
+           (impl/spec->display-name ::equipment/calc-boil-volume)))))
 
 
 (deftest valid-generators-test
@@ -41,6 +84,56 @@
     (is (gen/generatable? ::equipment/display-top-up-kettle))
     (is (gen/generatable? ::equipment/equipment))
     (is (gen/generatable? ::equipment/equipment-wrapper))))
+
+
+(deftest valid-units-test
+  (testing "All records either specify no units key or a valid BeerXML unit type"
+    (is (gen/valid-beer-xml-units? ::equipment/boil-size))
+    (is (gen/valid-beer-xml-units? ::equipment/batch-size))
+    (is (gen/valid-beer-xml-units? ::equipment/tun-volume))
+    (is (gen/valid-beer-xml-units? ::equipment/tun-weight))
+    (is (gen/valid-beer-xml-units? ::equipment/tun-specific-heat))
+    (is (gen/valid-beer-xml-units? ::equipment/top-up-water))
+    (is (gen/valid-beer-xml-units? ::equipment/trub-chiller-loss))
+    (is (gen/valid-beer-xml-units? ::equipment/evap-rate))
+    (is (gen/valid-beer-xml-units? ::equipment/boil-time))
+    (is (gen/valid-beer-xml-units? ::equipment/calc-boil-volume))
+    (is (gen/valid-beer-xml-units? ::equipment/lauter-deadspace))
+    (is (gen/valid-beer-xml-units? ::equipment/top-up-kettle))
+    (is (gen/valid-beer-xml-units? ::equipment/hop-utilization))
+    (is (gen/valid-beer-xml-units? ::equipment/display-boil-size))
+    (is (gen/valid-beer-xml-units? ::equipment/display-tun-volume))
+    (is (gen/valid-beer-xml-units? ::equipment/display-top-up-water))
+    (is (gen/valid-beer-xml-units? ::equipment/display-trub-chiller-loss))
+    (is (gen/valid-beer-xml-units? ::equipment/display-lauter-deadspace))
+    (is (gen/valid-beer-xml-units? ::equipment/display-top-up-kettle))
+    (is (gen/valid-beer-xml-units? ::equipment/equipment))
+    (is (gen/valid-beer-xml-units? ::equipment/equipment-wrapper))))
+
+
+(deftest valid-type-test
+  (testing "All records either specify no type key or a valid BeerXML type"
+    (is (gen/valid-beer-xml-type? ::equipment/boil-size))
+    (is (gen/valid-beer-xml-type? ::equipment/batch-size))
+    (is (gen/valid-beer-xml-type? ::equipment/tun-volume))
+    (is (gen/valid-beer-xml-type? ::equipment/tun-weight))
+    (is (gen/valid-beer-xml-type? ::equipment/tun-specific-heat))
+    (is (gen/valid-beer-xml-type? ::equipment/top-up-water))
+    (is (gen/valid-beer-xml-type? ::equipment/trub-chiller-loss))
+    (is (gen/valid-beer-xml-type? ::equipment/evap-rate))
+    (is (gen/valid-beer-xml-type? ::equipment/boil-time))
+    (is (gen/valid-beer-xml-type? ::equipment/calc-boil-volume))
+    (is (gen/valid-beer-xml-type? ::equipment/lauter-deadspace))
+    (is (gen/valid-beer-xml-type? ::equipment/top-up-kettle))
+    (is (gen/valid-beer-xml-type? ::equipment/hop-utilization))
+    (is (gen/valid-beer-xml-type? ::equipment/display-boil-size))
+    (is (gen/valid-beer-xml-type? ::equipment/display-tun-volume))
+    (is (gen/valid-beer-xml-type? ::equipment/display-top-up-water))
+    (is (gen/valid-beer-xml-type? ::equipment/display-trub-chiller-loss))
+    (is (gen/valid-beer-xml-type? ::equipment/display-lauter-deadspace))
+    (is (gen/valid-beer-xml-type? ::equipment/display-top-up-kettle))
+    (is (gen/valid-beer-xml-type? ::equipment/equipment))
+    (is (gen/valid-beer-xml-type? ::equipment/equipment-wrapper))))
 
 
 (def sample-equipment
@@ -73,7 +166,17 @@
 
 (def sample-equipment-wrapper
   "A hard-coded sample equipment-wrapper for static unit tests"
-  {:equipment sample-equipment})
+  {equipment/equipment sample-equipment})
+
+
+(def sample-equipments
+  "A hard-coded sample equipments for static unit tests"
+  [sample-equipment-wrapper])
+
+
+(def sample-equipments-wrapper
+  "A hard-coded sample equipments-wrapper for static unit tests"
+  {equipment/equipments sample-equipments})
 
 
 (deftest static-test-data-check
@@ -81,7 +184,11 @@
     (is (spoon.spec/test-valid? ::equipment/equipment sample-equipment)
         "Static test data should conform to common-beer-format.equipment/equipment")
     (is (spoon.spec/test-valid? ::equipment/equipment-wrapper sample-equipment-wrapper)
-        "Static test data should conform to common-beer-format.equipment/equipment-wrapper")))
+        "Static test data should conform to common-beer-format.equipment/equipment-wrapper")
+    (is (spoon.spec/test-valid? ::equipment/equipments sample-equipments)
+        "Static test data should conform to common-beer-format.equipment/equipments")
+    (is (spoon.spec/test-valid? ::equipment/equipments-wrapper sample-equipments-wrapper)
+        "Static test data should conform to common-beer-format.equipment/equipments-wrapper")))
 
 
 (deftest static-keys-test
