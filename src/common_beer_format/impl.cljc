@@ -98,7 +98,11 @@
    :no-doc true}
   ([] "")
   ([s] s)
-  ([s & more] (str s "\n" (apply multiline more))))
+  ([s & more]
+
+   (if s
+    (str s "\n" (apply multiline more))
+    (apply multiline more))))
 
 
 (defn real-double-generator
@@ -130,6 +134,131 @@
 (def display-name-key
   "A keyword intended for use with spec-tools to indicate a display name for a spec."
   :common-beer-format/display-name)
+
+(def beer-xml-type-key
+  "A keyword intended for use with spec-tools to indicate the type of a beer-xml spec."
+  :common-beer-format/beer-xml-type)
+
+(def beer-xml-record-set
+  "The BeerXML version 1 type for a record set."
+  "Record Set")
+
+(def beer-xml-record
+  "The BeerXML version 1 type for a record."
+  "Record")
+
+(def beer-xml-percentage
+  "The BeerXML version 1 type for a percentage."
+  "Percentage")
+
+(def beer-xml-list
+  "The BeerXML version 1 type for a list."
+  "List")
+
+(def beer-xml-text
+  "The BeerXML version 1 type for a text."
+  "Text")
+
+(def beer-xml-boolean
+  "The BeerXML version 1 type for a boolean."
+  "Boolean")
+
+(def beer-xml-integer
+  "The BeerXML version 1 type for an integer."
+  "Integer")
+
+(def beer-xml-floating-point
+  "The BeerXML version 1 type for a floating point number."
+  "Floating Point")
+
+(def beer-xml-types
+  "A set of all BeerXML version 1 types.
+   These are called Dara Formats in the BeerXML standard."
+  #{beer-xml-record-set
+    beer-xml-record
+    beer-xml-percentage
+    beer-xml-list
+    beer-xml-text
+    beer-xml-boolean
+    beer-xml-integer
+    beer-xml-floating-point})
+
+(def beer-xml-units-key
+  "A keyword intended for use with spec-tools to indicate the unit of a beer-xml spec."
+  :common-beer-format/beer-xml-units)
+
+(def beer-xml-kilogram
+  "The BeerXML version 1 unit for a kilogram."
+  "Kilogram")
+
+(def beer-xml-liter
+  "The BeerXML version 1 unit for a liter."
+  "Liter")
+
+(def beer-xml-degrees-celsius
+  "The BeerXML version 1 unit for degrees Celsius."
+  "Degrees Celsius")
+
+(def beer-xml-minute
+  "The BeerXML version 1 unit for a minute."
+  "Minute")
+
+(def beer-xml-day
+  "The BeerXML version 1 unit for a day."
+  "Day")
+
+(def beer-xml-specific-gravity
+  "The BeerXML version 1 unit for specific gravity."
+  "Specific Gravity")
+
+(def beer-xml-kilopascal
+  "The BeerXML version 1 unit for a kilopascal."
+  "Kilopascal")
+
+(def beer-xml-abv
+  "The BeerXML version 1 unit for ABV."
+  "ABV")
+
+(def beer-xml-ibu
+  "The BeerXML version 1 unit for IBU."
+  "IBU")
+
+(def beer-xml-volumes-of-co2
+  "The BeerXML version 1 unit for volumes of CO2."
+  "Volumes of CO2")
+
+(def beer-xml-calories-per-gram-degree-celsius
+  "The BeerXML version 1 unit for calories per gram degree Celsius."
+  "Calories per Gram Degree Celsius")
+
+(def beer-xml-percent-per-hour
+  "The BeerXML version 1 unit for percent per hour."
+  "Percent per Hour")
+
+(def beer-xml-srm
+  "The BeerXML version 1 unit for SRM."
+  "SRM")
+
+(def beer-xml-lovibond
+  "The BeerXML version 1 unit for Lovibond."
+  "Lovibond")
+
+(def beer-xml-units
+  "A set of all BeerXML version 1 units."
+  #{beer-xml-kilogram
+    beer-xml-liter
+    beer-xml-degrees-celsius
+    beer-xml-minute
+    beer-xml-day
+    beer-xml-specific-gravity
+    beer-xml-kilopascal
+    beer-xml-abv
+    beer-xml-ibu
+    beer-xml-volumes-of-co2
+    beer-xml-calories-per-gram-degree-celsius
+    beer-xml-percent-per-hour
+    beer-xml-srm
+    beer-xml-lovibond})
 
 
 (defn wrapper-spec?

@@ -70,15 +70,21 @@
         display-name     (spec->human-name spec)
         spec-type        (-> spec-definition :type spec->human-name)
         example-value    (coerce-example-value spec)
-        spec-description (:description spec-definition)]
+        spec-description (:description spec-definition)
+        beer-xml-type    (get spec-definition impl/beer-xml-type-key)
+        beer-xml-units   (get spec-definition impl/beer-xml-units-key)]
     (if (:leaf? spec-definition)
       (impl/multiline
        (str "## " display-name)
        ""
        spec-description
        ""
-       (str "- Key Name: `" (-> spec name keyword) "`")
-       (str "- Type: " spec-type)
+       (when beer-xml-type
+         (str "- BeerXML Type: `" beer-xml-type "`"))
+       (when beer-xml-units
+         (str "- BeerXML Units: `" beer-xml-units "`"))
+       (str "- Clojure Key Name: `" (-> spec name keyword) "`")
+       (str "- Clojure Type: " spec-type)
        (str "- Example: `" example-value "`")
        "" ; Add a newline at the end
        "")
@@ -136,12 +142,16 @@
         key->spec-map         (:spec-tools.parse/key->spec spec-definition)
         required-keys         (vec (:spec-tools.parse/keys-req spec-definition))
         required-specs        (sort-by name (vals (select-keys key->spec-map required-keys)))
-        required-key-markdown (apply str (map key-spec->markdown required-specs))]
+        required-key-markdown (apply str (map key-spec->markdown required-specs))
+        beer-xml-type         (get spec-definition impl/beer-xml-type-key)]
     (if (impl/wrapper-spec? spec)
       (impl/multiline
        (str "## " display-name)
        ""
        spec-description
+       ""
+       (when beer-xml-type
+         (str "BeerXML Type: `" beer-xml-type "`"))
        ""
        "### Wrapped Record"
        ""

@@ -37,32 +37,32 @@ A record representing the mashing process.
 
 A non-empty string denoting a display value for grain temperature formatted for display in arbitrary units.
 
-- Key Name: `:display-grain-temp`
-- Type: String
+- Clojure Key Name: `:display-grain-temp`
+- Clojure Type: String
 - Example: `"72F"`
 
 ## Display Sparge Temperature
 
 A non-empty string denoting a display value for sparging process temperature formatted for display in arbitrary units.
 
-- Key Name: `:display-sparge-temp`
-- Type: String
+- Clojure Key Name: `:display-sparge-temp`
+- Clojure Type: String
 - Example: `"172F"`
 
 ## Display Tun Temperature
 
 A non-empty string denoting a display value for mash tun temperature formatted for display in arbitrary units.
 
-- Key Name: `:display-tun-temp`
-- Type: String
+- Clojure Key Name: `:display-tun-temp`
+- Clojure Type: String
 - Example: `"72F"`
 
 ## Display Tun Weight
 
 A non-empty string denoting a display value for mash tun weight formatted for display in arbitrary units.
 
-- Key Name: `:display-tun-weight`
-- Type: String
+- Clojure Key Name: `:display-tun-weight`
+- Clojure Type: String
 - Example: `"72lbs"`
 
 ## Equip Adjust
@@ -70,80 +70,80 @@ A non-empty string denoting a display value for mash tun weight formatted for di
 A boolean denoting whether or not programs should account for the temperature effects of the equipment used.
 When absent, assume false.
 
-- Key Name: `:equip-adjust`
-- Type: Spec
+- Clojure Key Name: `:equip-adjust`
+- Clojure Type: Spec
 - Example: `true`
 
 ## Grain Temperature
 
 A non-negative IEEE-754 floating point number representing the temperature of the grain before adding it to the mash in degrees Celsius.
 
-- Key Name: `:grain-temp`
-- Type: Double
+- Clojure Key Name: `:grain-temp`
+- Clojure Type: Double
 - Example: `80.0`
 
 ## Name
 
-A non-empty string representing the name of the ingredient
+A non-empty string representing the name of the ingredient.
 
-- Key Name: `:name`
-- Type: String
+- Clojure Key Name: `:name`
+- Clojure Type: String
 - Example: `"Citra"`
 
 ## Notes
 
-A non-empty string representing any notes about the subject
+A non-empty string representing any notes about the subject.
 
-- Key Name: `:notes`
-- Type: String
+- Clojure Key Name: `:notes`
+- Clojure Type: String
 - Example: `"A wonderful, zesty aroma"`
 
 ## PH
 
 A non-negative IEEE-754 floating point number representing the PH of the water.
 
-- Key Name: `:ph`
-- Type: Double
+- Clojure Key Name: `:ph`
+- Clojure Type: Double
 - Example: `2.5`
 
 ## Sparge Temperature
 
 A non-negative IEEE-754 floating point number representing the temperature of the sparge in degrees Celsius.
 
-- Key Name: `:sparge-temp`
-- Type: Double
+- Clojure Key Name: `:sparge-temp`
+- Clojure Type: Double
 - Example: `50.0`
 
 ## Tun Specific Heat
 
 A non-negative IEEE-754 floating point number representing the specific heat of the mash tun in Calories per gram-degree Celsius.
 
-- Key Name: `:tun-specific-heat`
-- Type: Double
+- Clojure Key Name: `:tun-specific-heat`
+- Clojure Type: Double
 - Example: `0.2`
 
 ## Tun Temperature
 
 A non-negative IEEE-754 floating point number representing the temperature of the grain tun in degrees Celsius.
 
-- Key Name: `:tun-temp`
-- Type: Double
+- Clojure Key Name: `:tun-temp`
+- Clojure Type: Double
 - Example: `80.0`
 
 ## Tun Weight
 
 A non-negative IEEE-754 floating point number representing the weight of the of the mash tun in kilograms.
 
-- Key Name: `:tun-weight`
-- Type: Double
+- Clojure Key Name: `:tun-weight`
+- Clojure Type: Double
 - Example: `15.0`
 
 ## Version
 
-An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists
+An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.
 
-- Key Name: `:version`
-- Type: Long
+- Clojure Key Name: `:version`
+- Clojure Type: Long
 - Example: `1`
 
 ## Mash Steps
@@ -190,115 +190,115 @@ A record representing a step within the mashing process.
 
 A non-empty string denoting a display value for the calculated volume of mash to decoct formatted for display in arbitrary units.
 
-- Key Name: `:decoction-amt`
-- Type: String
+- Clojure Key Name: `:decoction-amt`
+- Clojure Type: String
 - Example: `"7.5 liters"`
 
 ## Description
 
 A non-empty string describing the mash step.
 
-- Key Name: `:description`
-- Type: String
+- Clojure Key Name: `:description`
+- Clojure Type: String
 - Example: `"Stir your grain bag carefully at 140F."`
 
 ## Display Infusion Amount
 
 A non-empty string denoting a display value for the volume of infused liquid formatted for display in arbitrary units.
 
-- Key Name: `:display-infuse-amt`
-- Type: String
+- Clojure Key Name: `:display-infuse-amt`
+- Clojure Type: String
 - Example: `"2.2L"`
 
 ## Display Step Temperature
 
 A non-empty string denoting a display value for the temperature of an arbitrary step formatted for display in arbitrary units.
 
-- Key Name: `:display-step-temp`
-- Type: String
+- Clojure Key Name: `:display-step-temp`
+- Clojure Type: String
 - Example: `"150F"`
 
 ## End Temperature
 
 A non-negative IEEE-754 floating point number representing the temperature of the mash after the step has completed in degrees Celsius.
 
-- Key Name: `:end-temp`
-- Type: Double
+- Clojure Key Name: `:end-temp`
+- Clojure Type: Double
 - Example: `80.0`
 
 ## Infuse Amount
 
 A non-negative IEEE-754 floating point number representing the volume of water in liters required for an infusion step.
 
-- Key Name: `:infuse-amount`
-- Type: Double
+- Clojure Key Name: `:infuse-amount`
+- Clojure Type: Double
 - Example: `5.8`
 
 ## Infusion Temperature
 
 A non-empty string denoting a display value for the temperature of an infusion step formatted for display in arbitrary units.
 
-- Key Name: `:infuse-temp`
-- Type: String
+- Clojure Key Name: `:infuse-temp`
+- Clojure Type: String
 - Example: `"150F"`
 
 ## Name
 
-A non-empty string representing the name of the ingredient
+A non-empty string representing the name of the ingredient.
 
-- Key Name: `:name`
-- Type: String
+- Clojure Key Name: `:name`
+- Clojure Type: String
 - Example: `"Citra"`
 
 ## Ramp Time
 
 A non-negative IEEE-754 floating point number representing the time in minutes to achieve the desired step temperature.
 
-- Key Name: `:ramp-time`
-- Type: Double
+- Clojure Key Name: `:ramp-time`
+- Clojure Type: Double
 - Example: `45.0`
 
 ## Step Temperature
 
 A non-negative IEEE-754 floating point number representing the temperature of the mash step should be performed at in degrees Celsius.
 
-- Key Name: `:step-temp`
-- Type: Double
+- Clojure Key Name: `:step-temp`
+- Clojure Type: Double
 - Example: `80.0`
 
 ## Step Time
 
 A non-negative IEEE-754 floating point number representing the time in minutes to spend at this step.
 
-- Key Name: `:step-time`
-- Type: Double
+- Clojure Key Name: `:step-time`
+- Clojure Type: Double
 - Example: `45.0`
 
 ## Type
 
-A case-insensitive string representing the type of mash step.
-Must be one of: "Infusion", "Temperature", "Decoction"
+A case-sensitive string representing the type of mash step.
+Must be one of: "Decoction", "Temperature", "Infusion"
 
 - Decoction: A mash step where the fermentable ingredients are boiled and then returned to the mash tun.
 - Infusion: A mash step where fermentable ingredients steep in water at a specific temperature.
 - Temperature: A mash step where the temperature of the mash is held at a specific temperature for a specific time by an external source.
 
-- Key Name: `:type`
-- Type: String
+- Clojure Key Name: `:type`
+- Clojure Type: String
 - Example: `"Temperature"`
 
 ## Version
 
-An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists
+An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.
 
-- Key Name: `:version`
-- Type: Long
+- Clojure Key Name: `:version`
+- Clojure Type: Long
 - Example: `1`
 
 ## Water Grain Ratio
 
 A non-empty string denoting a display value for the water:grain ratio after infusion formatted for display in arbitrary units.
 
-- Key Name: `:water-grain-ratio`
-- Type: String
+- Clojure Key Name: `:water-grain-ratio`
+- Clojure Type: String
 - Example: `"1.5qt/lb"`

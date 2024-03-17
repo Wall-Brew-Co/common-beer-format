@@ -140,175 +140,207 @@
 
 (spec/def ::boil-size
   (st/spec
-    {:type                :double
-     :spec                ::prim/liter
-     :description         "A non-negative IEEE-754 floating point number representing the pre-boil volume for the equipment setup."
-     :json-schema/example "10.8"}))
+   {:type                   :double
+    :spec                   ::prim/liter
+    impl/beer-xml-type-key  impl/beer-xml-floating-point
+    impl/beer-xml-units-key impl/beer-xml-liter
+    :description            "A non-negative IEEE-754 floating point number representing the pre-boil volume for the equipment setup."
+    :json-schema/example    "10.8"}))
 
 
 (spec/def ::batch-size
   (st/spec
-    {:type                :double
-     :spec                ::prim/liter
-     :description         "A non-negative IEEE-754 floating point number representing the target volume of the batch at the start of fermentation."
-     :json-schema/example "5.8"}))
+   {:type                   :double
+    :spec                   ::prim/liter
+    impl/beer-xml-type-key  impl/beer-xml-floating-point
+    impl/beer-xml-units-key impl/beer-xml-liter
+    :description            "A non-negative IEEE-754 floating point number representing the target volume of the batch at the start of fermentation."
+    :json-schema/example    "5.8"}))
 
 
 (spec/def ::tun-volume
   (st/spec
-    {:type                :double
-     :spec                ::prim/liter
-     :description         "A non-negative IEEE-754 floating point number representing the volume of the of the mash tun in liters."
-     :json-schema/example "15.0"}))
+   {:type                   :double
+    :spec                   ::prim/liter
+    impl/beer-xml-type-key  impl/beer-xml-floating-point
+    impl/beer-xml-units-key impl/beer-xml-liter
+    :description            "A non-negative IEEE-754 floating point number representing the volume of the of the mash tun in liters."
+    :json-schema/example    "15.0"}))
 
 
 (spec/def ::tun-weight
   (st/spec
-    {:type                :double
-     :spec                ::prim/kilogram
-     :description         "A non-negative IEEE-754 floating point number representing the weight of the of the mash tun in kilograms."
-     :json-schema/example "15.0"}))
+   {:type                   :double
+    :spec                   ::prim/kilogram
+    impl/beer-xml-type-key  impl/beer-xml-floating-point
+    impl/beer-xml-units-key impl/beer-xml-kilogram
+    :description            "A non-negative IEEE-754 floating point number representing the weight of the of the mash tun in kilograms."
+    :json-schema/example    "15.0"}))
 
 
 (spec/def ::tun-specific-heat
   (st/spec
-    {:type                :double
-     :spec                (spec/and number? #(not (neg? %)))
-     :gen                 impl/real-positive-double-generator
-     :description         "A non-negative IEEE-754 floating point number representing the specific heat of the mash tun in Calories per gram-degree Celsius."
-     :json-schema/example "0.2"}))
+   {:type                   :double
+    :spec                   (spec/and number? #(not (neg? %)))
+    :gen                    impl/real-positive-double-generator
+    impl/beer-xml-type-key  impl/beer-xml-floating-point
+    impl/beer-xml-units-key impl/beer-xml-calories-per-gram-degree-celsius
+    :description            "A non-negative IEEE-754 floating point number representing the specific heat of the mash tun in Calories per gram-degree Celsius."
+    :json-schema/example    "0.2"}))
 
 
 (spec/def ::top-up-water
   (st/spec
-    {:type                :double
-     :spec                ::prim/liter
-     :description         "A non-negative IEEE-754 floating point number representing the volume of top-up water added before fermentation in liters."
-     :json-schema/example "2.1"}))
+   {:type                   :double
+    :spec                   ::prim/liter
+    impl/beer-xml-type-key  impl/beer-xml-floating-point
+    impl/beer-xml-units-key impl/beer-xml-liter
+    :description            "A non-negative IEEE-754 floating point number representing the volume of top-up water added before fermentation in liters."
+    :json-schema/example    "2.1"}))
 
 
 (spec/def ::trub-chiller-loss
   (st/spec
-    {:type                :double
-     :spec                ::prim/liter
-     :description         "A non-negative IEEE-754 floating point number representing the volume of wort lost during transition from the boiler to primary fermentation vessel."
-     :json-schema/example "0.1"}))
+   {:type                   :double
+    :spec                   ::prim/liter
+    impl/beer-xml-type-key  impl/beer-xml-floating-point
+    impl/beer-xml-units-key impl/beer-xml-liter
+    :description            "A non-negative IEEE-754 floating point number representing the volume of wort lost during transition from the boiler to primary fermentation vessel."
+    :json-schema/example    "0.1"}))
 
 
 (spec/def ::evap-rate
   (st/spec
-    {:type                :double
-     :spec                ::prim/percent
-     :description         "A non-negative IEEE-754 floating point number representing the percentage of wort lost to evaporation per hour of the boil."
-     :json-schema/example "1.2"}))
+   {:type                   :double
+    :spec                   ::prim/percent
+    impl/beer-xml-type-key  impl/beer-xml-percentage
+    impl/beer-xml-units-key impl/beer-xml-percent-per-hour
+    :description            "A non-negative IEEE-754 floating point number representing the percentage of wort lost to evaporation per hour of the boil."
+    :json-schema/example    "1.2"}))
 
 
 (spec/def ::boil-time
   (st/spec
-    {:type                :double
-     :spec                ::prim/minute
-     :description         "A non-negative IEEE-754 floating point number representing the normal amount of time one boils for this equipment setup. This can be used with the evaporation rate to calculate the evaporation loss."
-     :json-schema/example "15"}))
+   {:type                   :double
+    :spec                   ::prim/minute
+    impl/beer-xml-type-key  impl/beer-xml-floating-point
+    impl/beer-xml-units-key impl/beer-xml-minute
+    :description            "A non-negative IEEE-754 floating point number representing the normal amount of time one boils for this equipment setup. This can be used with the evaporation rate to calculate the evaporation loss."
+    :json-schema/example    "15"}))
 
 
 (spec/def ::calc-boil-volume
   (st/spec
-    {:spec                ::prim/boolean
-     impl/display-name-key "Calculate Boil Volume"
-     :description         (impl/multiline "A boolean denoting whether or not programs reading this equipment record should calculate the boil size."
-                                          "When absent, assume false."
-                                          "When true, then boil-size = `(batch-size - top-up-water - trub-chiller-loss) * (1 + boil-time * evap-rate)`")
-     :json-schema/example "true."
-     :decode/string       impl/decode-boolean
-     :encode/string       impl/encode-boolean}))
+   {:spec                  ::prim/boolean
+    impl/display-name-key  "Calculate Boil Volume"
+    impl/beer-xml-type-key impl/beer-xml-boolean
+    :description           (impl/multiline "A boolean denoting whether or not programs reading this equipment record should calculate the boil size."
+                                           "When absent, assume false."
+                                           "When true, then boil-size = `(batch-size - top-up-water - trub-chiller-loss) * (1 + boil-time * evap-rate)`")
+    :json-schema/example   "TRUE"
+    :decode/string         impl/decode-boolean
+    :encode/string         impl/encode-boolean}))
 
 
 (spec/def ::lauter-deadspace
   (st/spec
-    {:type                :double
-     :spec                ::prim/liter
-     :description         "A non-negative IEEE-754 floating point number representing the volume of wort lost to the lauter tun."
-     :json-schema/example "0.1"}))
+   {:type                   :double
+    :spec                   ::prim/liter
+    impl/beer-xml-type-key  impl/beer-xml-floating-point
+    impl/beer-xml-units-key impl/beer-xml-liter
+    :description            "A non-negative IEEE-754 floating point number representing the volume of wort lost to the lauter tun."
+    :json-schema/example    "0.1"}))
 
 
 (spec/def ::top-up-kettle
   (st/spec
-    {:type                :double
-     :spec                ::prim/liter
-     :description         "A non-negative IEEE-754 floating point number representing the volume of top-up water added to the boil kettle before the boil begins."
-     :json-schema/example "2.1"}))
+   {:type                   :double
+    :spec                   ::prim/liter
+    impl/beer-xml-type-key  impl/beer-xml-floating-point
+    impl/beer-xml-units-key impl/beer-xml-liter
+    :description            "A non-negative IEEE-754 floating point number representing the volume of top-up water added to the boil kettle before the boil begins."
+    :json-schema/example    "2.1"}))
 
 
 (spec/def ::hop-utilization
   (st/spec
-    {:type                :double
-     :spec                ::prim/percent
-     :description         "A non-negative IEEE-754 floating point number representing the percentage of large batch hop utilization."
-     :json-schema/example "1.2"}))
+   {:type                  :double
+    :spec                  ::prim/percent
+    impl/beer-xml-type-key impl/beer-xml-percentage
+    :description           "A non-negative IEEE-754 floating point number representing the percentage of large batch hop utilization."
+    :json-schema/example   "1.2"}))
 
 
 (spec/def ::display-boil-size
   (st/spec
-    {:type                :string
-     :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the pre-boil volume formatted for display in arbitrary units."
-     :json-schema/example "5.0 gallons"}))
+   {:type                  :string
+    :spec                  ::prim/text
+    impl/beer-xml-type-key impl/beer-xml-text
+    :description           "A non-empty string denoting a display value for the pre-boil volume formatted for display in arbitrary units."
+    :json-schema/example   "5.0 gallons"}))
 
 
 (spec/def ::display-batch-size
   (st/spec
-    {:type                :string
-     :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the pre-fermentation volume formatted for display in arbitrary units."
-     :json-schema/example "4.5 gallons"}))
+   {:type                  :string
+    :spec                  ::prim/text
+    impl/beer-xml-type-key impl/beer-xml-text
+    :description           "A non-empty string denoting a display value for the pre-fermentation volume formatted for display in arbitrary units."
+    :json-schema/example   "4.5 gallons"}))
 
 
 (spec/def ::display-tun-volume
   (st/spec
-    {:type                :string
-     :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the volume capacity of the mash tun formatted for display in arbitrary units."
-     :json-schema/example "20 liters"}))
+   {:type                  :string
+    :spec                  ::prim/text
+    impl/beer-xml-type-key impl/beer-xml-text
+    :description           "A non-empty string denoting a display value for the volume capacity of the mash tun formatted for display in arbitrary units."
+    :json-schema/example   "20 liters"}))
 
 
 (spec/def ::display-tun-weight
   (st/spec
-    {:type                :string
-     :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the empty weight of the mash tun formatted for display in arbitrary units."
-     :json-schema/example "5.5 pounds"}))
+   {:type                  :string
+    :spec                  ::prim/text
+    impl/beer-xml-type-key impl/beer-xml-text
+    :description           "A non-empty string denoting a display value for the empty weight of the mash tun formatted for display in arbitrary units."
+    :json-schema/example   "5.5 pounds"}))
 
 
 (spec/def ::display-top-up-water
   (st/spec
-    {:type                :string
-     :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the volume of top-up water added before fermentation formatted for display in arbitrary units."
-     :json-schema/example "2.2 liters"}))
+   {:type                  :string
+    :spec                  ::prim/text
+    impl/beer-xml-type-key impl/beer-xml-text
+    :description           "A non-empty string denoting a display value for the volume of top-up water added before fermentation formatted for display in arbitrary units."
+    :json-schema/example   "2.2 liters"}))
 
 
 (spec/def ::display-trub-chiller-loss
   (st/spec
-    {:type                :string
-     :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the volume of wort lost in transition between boiler and fermentation vessel formatted for display in arbitrary units."
-     :json-schema/example "2.2 liters"}))
+   {:type                  :string
+    :spec                  ::prim/text
+    impl/beer-xml-type-key impl/beer-xml-text
+    :description           "A non-empty string denoting a display value for the volume of wort lost in transition between boiler and fermentation vessel formatted for display in arbitrary units."
+    :json-schema/example   "2.2 liters"}))
 
 
 (spec/def ::display-lauter-deadspace
   (st/spec
-    {:type                :string
-     :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the volume of wort lost in the lauter vessel formatted for display in arbitrary units."
-     :json-schema/example "2.2 liters"}))
+   {:type                  :string
+    :spec                  ::prim/text
+    impl/beer-xml-type-key impl/beer-xml-text
+    :description           "A non-empty string denoting a display value for the volume of wort lost in the lauter vessel formatted for display in arbitrary units."
+    :json-schema/example   "2.2 liters"}))
 
 
 (spec/def ::display-top-up-kettle
   (st/spec
-    {:type                :string
-     :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the top-up water added to the pre-boil stage of the kettle formatted for display in arbitrary units."
-     :json-schema/example "2.2 liters"}))
+   {:type                  :string
+    :spec                  ::prim/text
+    impl/beer-xml-type-key impl/beer-xml-text
+    :description           "A non-empty string denoting a display value for the top-up water added to the pre-boil stage of the kettle formatted for display in arbitrary units."
+    :json-schema/example   "2.2 liters"}))
 
 
 (spec/def ::equipment
@@ -345,7 +377,8 @@
   (st/spec
     {:type                 :map
      impl/wrapper-spec-key true
-     :description          "An ::equipment record wrapped in an ::equipment map."
+     impl/beer-xml-type-key impl/beer-xml-record
+     :description          "An `::equipment` record wrapped in an `:equipment` map."
      :spec                 (spec/keys :req-un [::equipment])
      :decode/string        #(impl/decode-wrapper %1 ::equipment %2)
      :encode/string        #(impl/encode-wrapper %1 ::equipment %2)}))
@@ -364,5 +397,6 @@
   (st/spec
     {:type                 :map
      impl/wrapper-spec-key true
+     impl/beer-xml-type-key impl/beer-xml-record-set
      :description          "An ::equipment-wrapper record."
      :spec                 (spec/keys :req-un [::equipments])}))

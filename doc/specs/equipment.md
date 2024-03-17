@@ -4,6 +4,8 @@
 
 An ::equipment-wrapper record.
 
+BeerXML Type: `Record Set`
+
 ### Wrapped Record
 
 - [Equipments](#equipments)
@@ -18,7 +20,9 @@ A vector of valid ::equipment-wrapper records.
 
 ## Equipment Wrapper
 
-An ::equipment record wrapped in an ::equipment map.
+An `::equipment` record wrapped in an `:equipment` map.
+
+BeerXML Type: `Record`
 
 ### Wrapped Record
 
@@ -62,24 +66,30 @@ A record representing the brewing equipment used in brewing.
 
 A non-negative IEEE-754 floating point number representing the target volume of the batch at the start of fermentation.
 
-- Key Name: `:batch-size`
-- Type: Double
+- BeerXML Type: `Floating Point`
+- BeerXML Units: `Liter`
+- Clojure Key Name: `:batch-size`
+- Clojure Type: Double
 - Example: `5.8`
 
 ## Boil Size
 
 A non-negative IEEE-754 floating point number representing the pre-boil volume for the equipment setup.
 
-- Key Name: `:boil-size`
-- Type: Double
+- BeerXML Type: `Floating Point`
+- BeerXML Units: `Liter`
+- Clojure Key Name: `:boil-size`
+- Clojure Type: Double
 - Example: `10.8`
 
 ## Boil Time
 
 A non-negative IEEE-754 floating point number representing the normal amount of time one boils for this equipment setup. This can be used with the evaporation rate to calculate the evaporation loss.
 
-- Key Name: `:boil-time`
-- Type: Double
+- BeerXML Type: `Floating Point`
+- BeerXML Units: `Minute`
+- Clojure Key Name: `:boil-time`
+- Clojure Type: Double
 - Example: `15.0`
 
 ## Calculate Boil Volume
@@ -88,166 +98,192 @@ A boolean denoting whether or not programs reading this equipment record should 
 When absent, assume false.
 When true, then boil-size = `(batch-size - top-up-water - trub-chiller-loss) * (1 + boil-time * evap-rate)`
 
-- Key Name: `:calc-boil-volume`
-- Type: Spec
+- BeerXML Type: `Boolean`
+- Clojure Key Name: `:calc-boil-volume`
+- Clojure Type: Spec
 - Example: `true`
 
 ## Display Batch Size
 
 A non-empty string denoting a display value for the pre-fermentation volume formatted for display in arbitrary units.
 
-- Key Name: `:display-batch-size`
-- Type: String
+- BeerXML Type: `Text`
+- Clojure Key Name: `:display-batch-size`
+- Clojure Type: String
 - Example: `"4.5 gallons"`
 
 ## Display Boil Size
 
 A non-empty string denoting a display value for the pre-boil volume formatted for display in arbitrary units.
 
-- Key Name: `:display-boil-size`
-- Type: String
+- BeerXML Type: `Text`
+- Clojure Key Name: `:display-boil-size`
+- Clojure Type: String
 - Example: `"5.0 gallons"`
 
 ## Display Lauter Deadspace
 
 A non-empty string denoting a display value for the volume of wort lost in the lauter vessel formatted for display in arbitrary units.
 
-- Key Name: `:display-lauter-deadspace`
-- Type: String
+- BeerXML Type: `Text`
+- Clojure Key Name: `:display-lauter-deadspace`
+- Clojure Type: String
 - Example: `"2.2 liters"`
 
 ## Display Top Up Kettle
 
 A non-empty string denoting a display value for the top-up water added to the pre-boil stage of the kettle formatted for display in arbitrary units.
 
-- Key Name: `:display-top-up-kettle`
-- Type: String
+- BeerXML Type: `Text`
+- Clojure Key Name: `:display-top-up-kettle`
+- Clojure Type: String
 - Example: `"2.2 liters"`
 
 ## Display Top Up Water
 
 A non-empty string denoting a display value for the volume of top-up water added before fermentation formatted for display in arbitrary units.
 
-- Key Name: `:display-top-up-water`
-- Type: String
+- BeerXML Type: `Text`
+- Clojure Key Name: `:display-top-up-water`
+- Clojure Type: String
 - Example: `"2.2 liters"`
 
 ## Display Trub Chiller Loss
 
 A non-empty string denoting a display value for the volume of wort lost in transition between boiler and fermentation vessel formatted for display in arbitrary units.
 
-- Key Name: `:display-trub-chiller-loss`
-- Type: String
+- BeerXML Type: `Text`
+- Clojure Key Name: `:display-trub-chiller-loss`
+- Clojure Type: String
 - Example: `"2.2 liters"`
 
 ## Display Tun Volume
 
 A non-empty string denoting a display value for the volume capacity of the mash tun formatted for display in arbitrary units.
 
-- Key Name: `:display-tun-volume`
-- Type: String
+- BeerXML Type: `Text`
+- Clojure Key Name: `:display-tun-volume`
+- Clojure Type: String
 - Example: `"20 liters"`
 
 ## Display Tun Weight
 
 A non-empty string denoting a display value for the empty weight of the mash tun formatted for display in arbitrary units.
 
-- Key Name: `:display-tun-weight`
-- Type: String
+- BeerXML Type: `Text`
+- Clojure Key Name: `:display-tun-weight`
+- Clojure Type: String
 - Example: `"5.5 pounds"`
 
 ## Evap Rate
 
 A non-negative IEEE-754 floating point number representing the percentage of wort lost to evaporation per hour of the boil.
 
-- Key Name: `:evap-rate`
-- Type: Double
+- BeerXML Type: `Percentage`
+- BeerXML Units: `Percent per Hour`
+- Clojure Key Name: `:evap-rate`
+- Clojure Type: Double
 - Example: `1.2`
 
 ## Hop Utilization
 
 A non-negative IEEE-754 floating point number representing the percentage of large batch hop utilization.
 
-- Key Name: `:hop-utilization`
-- Type: Double
+- BeerXML Type: `Percentage`
+- Clojure Key Name: `:hop-utilization`
+- Clojure Type: Double
 - Example: `1.2`
 
 ## Lauter Deadspace
 
 A non-negative IEEE-754 floating point number representing the volume of wort lost to the lauter tun.
 
-- Key Name: `:lauter-deadspace`
-- Type: Double
+- BeerXML Type: `Floating Point`
+- BeerXML Units: `Liter`
+- Clojure Key Name: `:lauter-deadspace`
+- Clojure Type: Double
 - Example: `0.1`
 
 ## Name
 
-A non-empty string representing the name of the ingredient
+A non-empty string representing the name of the ingredient.
 
-- Key Name: `:name`
-- Type: String
+- Clojure Key Name: `:name`
+- Clojure Type: String
 - Example: `"Citra"`
 
 ## Notes
 
-A non-empty string representing any notes about the subject
+A non-empty string representing any notes about the subject.
 
-- Key Name: `:notes`
-- Type: String
+- Clojure Key Name: `:notes`
+- Clojure Type: String
 - Example: `"A wonderful, zesty aroma"`
 
 ## Top Up Kettle
 
 A non-negative IEEE-754 floating point number representing the volume of top-up water added to the boil kettle before the boil begins.
 
-- Key Name: `:top-up-kettle`
-- Type: Double
+- BeerXML Type: `Floating Point`
+- BeerXML Units: `Liter`
+- Clojure Key Name: `:top-up-kettle`
+- Clojure Type: Double
 - Example: `2.1`
 
 ## Top Up Water
 
 A non-negative IEEE-754 floating point number representing the volume of top-up water added before fermentation in liters.
 
-- Key Name: `:top-up-water`
-- Type: Double
+- BeerXML Type: `Floating Point`
+- BeerXML Units: `Liter`
+- Clojure Key Name: `:top-up-water`
+- Clojure Type: Double
 - Example: `2.1`
 
 ## Trub Chiller Loss
 
 A non-negative IEEE-754 floating point number representing the volume of wort lost during transition from the boiler to primary fermentation vessel.
 
-- Key Name: `:trub-chiller-loss`
-- Type: Double
+- BeerXML Type: `Floating Point`
+- BeerXML Units: `Liter`
+- Clojure Key Name: `:trub-chiller-loss`
+- Clojure Type: Double
 - Example: `0.1`
 
 ## Tun Specific Heat
 
 A non-negative IEEE-754 floating point number representing the specific heat of the mash tun in Calories per gram-degree Celsius.
 
-- Key Name: `:tun-specific-heat`
-- Type: Double
+- BeerXML Type: `Floating Point`
+- BeerXML Units: `Calories per Gram Degree Celsius`
+- Clojure Key Name: `:tun-specific-heat`
+- Clojure Type: Double
 - Example: `0.2`
 
 ## Tun Volume
 
 A non-negative IEEE-754 floating point number representing the volume of the of the mash tun in liters.
 
-- Key Name: `:tun-volume`
-- Type: Double
+- BeerXML Type: `Floating Point`
+- BeerXML Units: `Liter`
+- Clojure Key Name: `:tun-volume`
+- Clojure Type: Double
 - Example: `15.0`
 
 ## Tun Weight
 
 A non-negative IEEE-754 floating point number representing the weight of the of the mash tun in kilograms.
 
-- Key Name: `:tun-weight`
-- Type: Double
+- BeerXML Type: `Floating Point`
+- BeerXML Units: `Kilogram`
+- Clojure Key Name: `:tun-weight`
+- Clojure Type: Double
 - Example: `15.0`
 
 ## Version
 
-An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists
+An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.
 
-- Key Name: `:version`
-- Type: Long
+- Clojure Key Name: `:version`
+- Clojure Type: Long
 - Example: `1`

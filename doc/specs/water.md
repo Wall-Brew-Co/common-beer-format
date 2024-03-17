@@ -48,96 +48,96 @@ A record representing the water in a beer recipe.
 
 ## Amount
 
-A ::kilogram value representing the amount of a particular ingredient
+A ::kilogram value representing the amount of a particular ingredient.
 
-- Key Name: `:amount`
-- Type: Double
+- Clojure Key Name: `:amount`
+- Clojure Type: Double
 - Example: `12.5`
 
 ## Bicarbonate
 
 A positive IEEE-754 floating point number representing the amount of bicarbonate (HCO3) in parts per million.
 
-- Key Name: `:bicarbonate`
-- Type: Double
+- Clojure Key Name: `:bicarbonate`
+- Clojure Type: Double
 - Example: `2.5`
 
 ## Calcium
 
 A positive IEEE-754 floating point number representing the amount of calcium (Ca) in parts per million.
 
-- Key Name: `:calcium`
-- Type: Double
+- Clojure Key Name: `:calcium`
+- Clojure Type: Double
 - Example: `2.5`
 
 ## Chloride
 
 A positive IEEE-754 floating point number representing the amount of chloride (Cl-) in parts per million.
 
-- Key Name: `:chloride`
-- Type: Double
+- Clojure Key Name: `:chloride`
+- Clojure Type: Double
 - Example: `2.5`
 
 ## Display Amount
 
-A non-empty string denoting a display value for the amount of the ingredient in a recipe formatted for display in arbitrary units
+A non-empty string denoting a display value for the amount of the ingredient in a recipe formatted for display in arbitrary units.
 
-- Key Name: `:display-amount`
-- Type: String
+- Clojure Key Name: `:display-amount`
+- Clojure Type: String
 - Example: `"100 g"`
 
 ## Magnesium
 
 A positive IEEE-754 floating point number representing the amount of magnesium (Mg) in parts per million.
 
-- Key Name: `:magnesium`
-- Type: Double
+- Clojure Key Name: `:magnesium`
+- Clojure Type: Double
 - Example: `2.5`
 
 ## Name
 
-A non-empty string representing the name of the ingredient
+A non-empty string representing the name of the ingredient.
 
-- Key Name: `:name`
-- Type: String
+- Clojure Key Name: `:name`
+- Clojure Type: String
 - Example: `"Citra"`
 
 ## Notes
 
-A non-empty string representing any notes about the subject
+A non-empty string representing any notes about the subject.
 
-- Key Name: `:notes`
-- Type: String
+- Clojure Key Name: `:notes`
+- Clojure Type: String
 - Example: `"A wonderful, zesty aroma"`
 
 ## PH
 
 A positive IEEE-754 floating point number representing the PH of the water.
 
-- Key Name: `:ph`
-- Type: Double
+- Clojure Key Name: `:ph`
+- Clojure Type: Double
 - Example: `2.5`
 
 ## Sodium
 
 A positive IEEE-754 floating point number representing the amount of sodium (Na) in parts per million.
 
-- Key Name: `:sodium`
-- Type: Double
+- Clojure Key Name: `:sodium`
+- Clojure Type: Double
 - Example: `2.5`
 
 ## Sulfate
 
 A positive IEEE-754 floating point number representing the amount of sulfate (SO4) in parts per million.
 
-- Key Name: `:sulfate`
-- Type: Double
+- Clojure Key Name: `:sulfate`
+- Clojure Type: Double
 - Example: `2.5`
 
 ## Version
 
-An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists
+An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.
 
-- Key Name: `:version`
-- Type: Long
+- Clojure Key Name: `:version`
+- Clojure Type: Long
 - Example: `1`

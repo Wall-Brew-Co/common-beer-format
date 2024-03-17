@@ -226,6 +226,10 @@ The color of a fermentable is described in degrees Lovibond with one exception.
 Fermentables of the "Liquid Extract" type are measured with the Standard Reference Model.
 Styles and recipes measure their color with the Standard Reference Model.
 
+###### Specific Heat
+
+Specific heat is measured in Calories per Gram Degree Celsius.
+
 ### Optional Extensions
 
 BeerXML version 1 has been updated with a single appendix describing optional extensions.
