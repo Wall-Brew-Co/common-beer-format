@@ -2,7 +2,6 @@
   "The definition of a style record used in BeerXML."
   {:added "2.0"}
   (:require [clojure.spec.alpha :as spec]
-            [clojure.string :as str]
             [common-beer-format.impl :as impl]
             [common-beer-format.primitives :as prim]
             [spec-tools.core :as st])
@@ -50,10 +49,10 @@
 
 
 (def type
-  "A case-insensitive string representing the type of beverage the style dictates.
-   
+  "A case-sensitive string representing the type of beverage the style dictates.
+
    Currently, the following values are supported:
-   
+
    - \"Ale\" - A top-fermented beer with a fruity, hoppy taste and a dry finish.
    - \"Lager\" - A light, bottom-fermented beer with a clean, crisp taste and a smooth finish.
    - \"Mead\" - A fermented beverage made from honey and water.
@@ -207,7 +206,7 @@
   (st/spec
     {:type                :string
      :spec                ::prim/text
-     :description         "A non-empty string denoting the category this style belongs to"
+     :description         "A non-empty string denoting the category this style belongs to."
      :json-schema/example "American Lagers"}))
 
 
@@ -224,7 +223,7 @@
   (st/spec
     {:type                :string
      :spec                ::prim/text
-     :description         "A non-empty string denoting the letter used to denote the style or sub-style"
+     :description         "A non-empty string denoting the letter used to denote the style or sub-style."
      :json-schema/example "A"}))
 
 
@@ -232,38 +231,38 @@
   (st/spec
     {:type                :string
      :spec                ::prim/text
-     :description         "A non-empty string denoting the name of the style guide the style/category belongs to"
+     :description         "A non-empty string denoting the name of the style guide the style/category belongs to."
      :json-schema/example "BJCP"}))
 
 
 (def lager
   "A light, bottom-fermented beer with a clean, crisp taste and a smooth finish."
-  "lager")
+  "Lager")
 
 
 (def ale
   "A top-fermented beer with a fruity, hoppy taste and a dry finish."
-  "ale")
+  "Ale")
 
 
 (def mead
   "A fermented beverage made from honey and water."
-  "mead")
+  "Mead")
 
 
 (def wheat
   "A beer made with a large proportion of wheat malt."
-  "wheat")
+  "Wheat")
 
 
 (def mixed
   "A beer style that blends two or more styles."
-  "mixed")
+  "Mixed")
 
 
 (def cider
   "A fermented beverage made from fruit and water."
-  "cider")
+  "Cider")
 
 
 (def style-types
@@ -278,64 +277,76 @@
 
 (spec/def ::type
   (st/spec
-    {:type                :string
-     :spec                (spec/and string?
-                                    #(not (str/blank? %))
-                                    #(contains? style-types (str/lower-case %)))
-     :gen                 #(spec/gen style-types)
-     :description         (impl/multiline "A case-insensitive string representing the type of beverage the style dictates."
-                                          (impl/set->description style-types))
-     :json-schema/example "Lager"}))
+   {:type                :string
+    :spec                style-types
+    :gen                 #(spec/gen style-types)
+    :description         (impl/multiline
+                          "A case-sensitive string representing the type of beverage the style dictates."
+                          (impl/set->description style-types)
+                          ""
+                          "- Ale: A top-fermented beer with a fruity, hoppy taste and a dry finish."
+                          "- Cider: A fermented beverage made from fruit and water."
+                          "- Lager: A light, bottom-fermented beer with a clean, crisp taste and a smooth finish."
+                          "- Mead: A fermented beverage made from honey and water."
+                          "- Mixed: A beer style that blends two or more styles."
+                          "- Wheat: A beer made with a large proportion of wheat malt.")
+    :json-schema/example "Lager"}))
 
 
 (spec/def ::og-min
   (st/spec
-    {:type                :double
-     :spec                ::prim/specific-gravity
-     :description         "A non-negative IEEE-754 floating point number representing the minimum pre-fermentation specific gravity for the style"
-     :json-schema/example "1.048"}))
+    {:type                 :double
+     :spec                 ::prim/specific-gravity
+     impl/display-name-key "Minimum Original Gravity"
+     :description          "A non-negative IEEE-754 floating point number representing the minimum pre-fermentation specific gravity for the style."
+     :json-schema/example  "1.048"}))
 
 
 (spec/def ::og-max
   (st/spec
-    {:type                :double
-     :spec                ::prim/specific-gravity
-     :description         "A non-negative IEEE-754 floating point number representing the maximum pre-fermentation specific gravity for the style"
-     :json-schema/example "1.060"}))
+    {:type                 :double
+     :spec                 ::prim/specific-gravity
+     impl/display-name-key "Maximum Original Gravity"
+     :description          "A non-negative IEEE-754 floating point number representing the maximum pre-fermentation specific gravity for the style."
+     :json-schema/example  "1.060"}))
 
 
 (spec/def ::fg-min
   (st/spec
-    {:type                :double
-     :spec                ::prim/specific-gravity
-     :description         "A non-negative IEEE-754 floating point number representing the minimum post-fermentation specific gravity for the style"
-     :json-schema/example "1.048"}))
+    {:type                 :double
+     :spec                 ::prim/specific-gravity
+     impl/display-name-key "Minimum Final Gravity"
+     :description          "A non-negative IEEE-754 floating point number representing the minimum post-fermentation specific gravity for the style."
+     :json-schema/example  "1.048"}))
 
 
 (spec/def ::fg-max
   (st/spec
-    {:type                :double
-     :spec                ::prim/specific-gravity
-     :description         "A non-negative IEEE-754 floating point number representing the maximum post-fermentation specific gravity for the style"
-     :json-schema/example "1.060"}))
+    {:type                 :double
+     :spec                 ::prim/specific-gravity
+     impl/display-name-key "Maximum Final Gravity"
+     :description          "A non-negative IEEE-754 floating point number representing the maximum post-fermentation specific gravity for the style."
+     :json-schema/example  "1.060"}))
 
 
 (spec/def ::ibu-min
   (st/spec
-    {:type                :double
-     :spec                number?
-     :gen                 impl/real-double-generator
-     :description         "A non-negative IEEE-754 floating point number representing the minimum bitterness in IBUs for the style"
-     :json-schema/example "32"}))
+    {:type                 :double
+     :spec                 number?
+     impl/display-name-key "Minimum International Bittering Units"
+     :gen                  impl/real-double-generator
+     :description          "A non-negative IEEE-754 floating point number representing the minimum bitterness in IBUs for the style."
+     :json-schema/example  "32"}))
 
 
 (spec/def ::ibu-max
   (st/spec
-    {:type                :double
-     :spec                number?
-     :gen                 impl/real-double-generator
-     :description         "A non-negative IEEE-754 floating point number representing the maximum bitterness in IBUs for the style"
-     :json-schema/example "40"}))
+    {:type                 :double
+     :spec                 number?
+     impl/display-name-key "Maximum International Bittering Units"
+     :gen                  impl/real-double-generator
+     :description          "A non-negative IEEE-754 floating point number representing the maximum bitterness in IBUs for the style."
+     :json-schema/example  "40"}))
 
 
 (spec/def ::color-min
@@ -343,7 +354,7 @@
     {:type                :double
      :spec                number?
      :gen                 impl/real-double-generator
-     :description         "A non-negative IEEE-754 floating point number representing the lightest color in SRM for the style"
+     :description         "A non-negative IEEE-754 floating point number representing the lightest color in SRM for the style."
      :json-schema/example "32"}))
 
 
@@ -352,33 +363,35 @@
     {:type                :double
      :spec                number?
      :gen                 impl/real-double-generator
-     :description         "A non-negative IEEE-754 floating point number representing the darkest color in SRM for the style"
+     :description         "A non-negative IEEE-754 floating point number representing the darkest color in SRM for the style."
      :json-schema/example "40"}))
 
 
 (spec/def ::carb-min
   (st/spec
-    {:type                :double
-     :spec                number?
-     :gen                 impl/real-double-generator
-     :description         "A non-negative IEEE-754 floating point number representing the minimum carbonation for this style in volumes of CO2"
-     :json-schema/example "1.5"}))
+    {:type                 :double
+     :spec                 number?
+     impl/display-name-key "Minimum Carbonation"
+     :gen                  impl/real-double-generator
+     :description          "A non-negative IEEE-754 floating point number representing the minimum carbonation for this style in volumes of CO2."
+     :json-schema/example  "1.5"}))
 
 
 (spec/def ::carb-max
   (st/spec
-    {:type                :double
-     :spec                number?
-     :gen                 impl/real-double-generator
-     :description         "A non-negative IEEE-754 floating point number representing the maximum carbonation for this style in volumes of CO2"
-     :json-schema/example "2.2"}))
+    {:type                 :double
+     :spec                 number?
+     impl/display-name-key "Maximum Carbonation"
+     :gen                  impl/real-double-generator
+     :description          "A non-negative IEEE-754 floating point number representing the maximum carbonation for this style in volumes of CO2."
+     :json-schema/example  "2.2"}))
 
 
 (spec/def ::abv-min
   (st/spec
     {:type                :double
      :spec                ::prim/percent
-     :description         "A non-negative IEEE-754 floating point number representing the minimum recommended ABV percentage for the style"
+     :description         "A non-negative IEEE-754 floating point number representing the minimum recommended ABV percentage for the style."
      :json-schema/example "0.032"}))
 
 
@@ -386,7 +399,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/percent
-     :description         "A non-negative IEEE-754 floating point number representing the maximum recommended ABV percentage for the style"
+     :description         "A non-negative IEEE-754 floating point number representing the maximum recommended ABV percentage for the style."
      :json-schema/example "0.04"}))
 
 
@@ -394,63 +407,67 @@
   (st/spec
     {:type                :string
      :spec                ::prim/text
-     :description         "A non-empty string denoting the aroma and flavor profile of the style"
-     :json-schema/example "Full-bodied and dark"}))
+     :description         "A non-empty string denoting the aroma and flavor profile of the style."
+     :json-schema/example "Full-bodied and dark."}))
 
 
 (spec/def ::ingredients
   (st/spec
     {:type                :string
      :spec                ::prim/text
-     :description         "A non-empty string denoting the suggested ingredients for the style"
-     :json-schema/example "water, barley, and hops"}))
+     :description         "A non-empty string denoting the suggested ingredients for the style."
+     :json-schema/example "water, barley, and hops."}))
 
 
 (spec/def ::examples
   (st/spec
     {:type                :string
      :spec                ::prim/text
-     :description         "A non-empty string denoting example beers of this style"
-     :json-schema/example "Every overly citrus IPA on the market"}))
+     :description         "A non-empty string denoting example beers of this style."
+     :json-schema/example "Every overly citrus IPA on the market."}))
 
 
 (spec/def ::display-og-min
   (st/spec
-    {:type                :string
-     :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the minimum original gravity formatted for display in arbitrary units"
-     :json-schema/example "1.036sg"}))
+    {:type                 :string
+     :spec                 ::prim/text
+     impl/display-name-key "Display Original Gravity Min"
+     :description          "A non-empty string denoting a display value for the minimum original gravity formatted for display in arbitrary units."
+     :json-schema/example  "1.036sg"}))
 
 
 (spec/def ::display-og-max
   (st/spec
-    {:type                :string
-     :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the maximum original gravity formatted for display in arbitrary units"
-     :json-schema/example "1.050sg"}))
+    {:type                 :string
+     :spec                 ::prim/text
+     impl/display-name-key "Display Original Gravity Max"
+     :description          "A non-empty string denoting a display value for the maximum original gravity formatted for display in arbitrary units."
+     :json-schema/example  "1.050sg"}))
 
 
 (spec/def ::display-fg-min
   (st/spec
-    {:type                :string
-     :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the minimum final gravity formatted for display in arbitrary units"
-     :json-schema/example "1.036sg"}))
+    {:type                 :string
+     :spec                 ::prim/text
+     impl/display-name-key "Display Final Gravity Min"
+     :description          "A non-empty string denoting a display value for the minimum final gravity formatted for display in arbitrary units."
+     :json-schema/example  "1.036sg"}))
 
 
 (spec/def ::display-fg-max
   (st/spec
-    {:type                :string
-     :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the maximum final gravity formatted for display in arbitrary units"
-     :json-schema/example "1.050sg"}))
+    {:type                 :string
+     :spec                 ::prim/text
+     impl/display-name-key "Display Final Gravity Max"
+     :description          "A non-empty string denoting a display value for the maximum final gravity formatted for display in arbitrary units."
+     :json-schema/example  "1.050sg"}))
 
 
 (spec/def ::display-color-min
   (st/spec
     {:type                :string
      :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the minimum color formatted for display in arbitrary units"
+     :description         "A non-empty string denoting a display value for the minimum color formatted for display in arbitrary units."
      :json-schema/example "32SRM"}))
 
 
@@ -458,47 +475,51 @@
   (st/spec
     {:type                :string
      :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the maximum color formatted for display in arbitrary units"
+     :description         "A non-empty string denoting a display value for the maximum color formatted for display in arbitrary units."
      :json-schema/example "40 SRM"}))
 
 
 (spec/def ::og-range
   (st/spec
-    {:type                :string
-     :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the range of original gravities formatted for display in arbitrary units"
-     :json-schema/example "1.036sg-1.050sg"}))
+    {:type                 :string
+     :spec                 ::prim/text
+     impl/display-name-key "Original Gravity Range"
+     :description          "A non-empty string denoting a display value for the range of original gravities formatted for display in arbitrary units."
+     :json-schema/example  "1.036sg-1.050sg"}))
 
 
 (spec/def ::fg-range
   (st/spec
-    {:type                :string
-     :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the range of final gravities formatted for display in arbitrary units"
-     :json-schema/example "1.036sg-1.050sg"}))
+    {:type                 :string
+     :spec                 ::prim/text
+     impl/display-name-key "Final Gravity Range"
+     :description          "A non-empty string denoting a display value for the range of final gravities formatted for display in arbitrary units."
+     :json-schema/example  "1.036sg-1.050sg"}))
 
 
 (spec/def ::ibu-range
   (st/spec
-    {:type                :string
-     :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the range of International Bittering Units formatted for display in arbitrary units"
-     :json-schema/example "10-20IBUs"}))
+    {:type                 :string
+     :spec                 ::prim/text
+     impl/display-name-key "International Bittering Units Range"
+     :description          "A non-empty string denoting a display value for the range of International Bittering Units formatted for display in arbitrary units."
+     :json-schema/example  "10-20IBUs"}))
 
 
 (spec/def ::carb-range
   (st/spec
-    {:type                :string
-     :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the range of carbonation volumes formatted for display in arbitrary units"
-     :json-schema/example "2.0-2.6 vols CO2"}))
+    {:type                 :string
+     :spec                 ::prim/text
+     impl/display-name-key "Carbonation Range"
+     :description          "A non-empty string denoting a display value for the range of carbonation volumes formatted for display in arbitrary units."
+     :json-schema/example  "2.0-2.6 vols CO2"}))
 
 
 (spec/def ::color-range
   (st/spec
     {:type                :string
      :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the range of colors formatted for display in arbitrary units"
+     :description         "A non-empty string denoting a display value for the range of colors formatted for display in arbitrary units."
      :json-schema/example "10 - 22 SRM"}))
 
 
@@ -506,7 +527,7 @@
   (st/spec
     {:type                :string
      :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the range of ABV levels formatted for display in arbitrary units"
+     :description         "A non-empty string denoting a display value for the range of ABV levels formatted for display in arbitrary units."
      :json-schema/example "8.0-11.2%"}))
 
 
@@ -553,15 +574,16 @@
 
 (spec/def ::style-wrapper
   (st/spec
-    {:type        :map
-     :description "A ::style record wrapped in a ::style map"
-     :spec        (spec/keys :req-un [::style])}))
+    {:type                 :map
+     impl/wrapper-spec-key true
+     :description          "A `::style` record wrapped in a `:style` map"
+     :spec                 (spec/keys :req-un [::style])}))
 
 
 (spec/def ::styles
   (st/spec
     {:type          :vector
-     :description   "A vector of valid ::style records"
+     :description   "A vector of valid `::style` records"
      :spec          (spec/coll-of ::style-wrapper :into [] :kind vector?)
      :decode/string #(impl/decode-sequence %1 ::style-wrapper %2)
      :encode/string #(impl/encode-sequence %1 ::style-wrapper %2)}))
@@ -569,6 +591,7 @@
 
 (spec/def ::styles-wrapper
   (st/spec
-    {:type        :map
-     :description "A ::styles-wrapper record"
-     :spec        (spec/keys :req-un [::styles])}))
+    {:type                 :map
+     impl/wrapper-spec-key true
+     :description          "A `::styles-wrapper` record"
+     :spec                 (spec/keys :req-un [::styles])}))

@@ -10,6 +10,18 @@ The library endeavors to support the data specification as a [clojure spec](http
 
 This repository follows the guidelines and standards of the [Wall Brew Open Source Policy.](https://github.com/Wall-Brew-Co/open-source "Our open source guidelines")
 
+## Domain Experience
+
+This documentation and library assumes a moderately advanced level of familiarity with homebrewing, specifically the brewing of beer.
+If you are unfamiliar with the brewing process, we highly recommend setting this documentation aside and gathering the essential experience and knowledge first.
+The following resources are great places to begin:
+
+- *The Complete Joy of Home Brewing* - Charlie Papazian
+- *How to Brew* - John J. Palmer
+- [The American Homebrewers Association](https://www.homebrewersassociation.org/)
+- A friend, relative, or neighbor with homebrewing experience
+- A local brewery or local homebrewing supply store
+
 ## Installation
 
 A deployed copy of the most recent version of [common-beer-format can be found on clojars.](https://clojars.org/com.wallbrew/common-beer-format)
@@ -46,77 +58,77 @@ Once the file is read and parsed, the code above will return something like this
 ```clj
   {:fermentables
    [{:fermentable
-     {:amount 2.27
-      :yield 78.0
-      :supplier "Fussybrewer Malting"
-      :color 3.0
-      :name "Pale Malt (2 row) UK"
-      :moisture 4.0
-      :type "Grain"
-      :notes "All purpose base malt for English styles"
-      :protein 10.2
-      :origin "United Kingdom"
+     {:amount           2.27
+      :yield            78.0
+      :supplier         "Fussybrewer Malting"
+      :color            3.0
+      :name             "Pale Malt (2 row) UK"
+      :moisture         4.0
+      :type             "Grain"
+      :notes            "All purpose base malt for English styles"
+      :protein          10.2
+      :origin           "United Kingdom"
       :coarse-fine-diff 1.5
-      :version 1
-      :max-in-batch 100.0
-      :diastatic-power 45.0}}
+      :version          1
+      :max-in-batch     100.0
+      :diastatic-power  45.0}}
     {:fermentable
-     {:amount 0.91
-      :yield 70.0
-      :supplier "Fussybrewer Malting"
-      :color 2.0
-      :name "Barley, Flaked"
-      :moisture 9.0
-      :type "Grain"
-      :notes "Adds body to porters and stouts, must be mashed"
-      :protein 13.2
-      :origin "United Kingdom"
+     {:amount           0.91
+      :yield            70.0
+      :supplier         "Fussybrewer Malting"
+      :color            2.0
+      :name             "Barley, Flaked"
+      :moisture         9.0
+      :type             "Grain"
+      :notes            "Adds body to porters and stouts, must be mashed"
+      :protein          13.2
+      :origin           "United Kingdom"
       :coarse-fine-diff 1.5
-      :version 1
-      :max-in-batch 20.0
-      :recommend-mash true
-      :diastatic-power 0.0}}
+      :version          1
+      :max-in-batch     20.0
+      :recommend-mash   true
+      :diastatic-power  0.0}}
     {:fermentable
-     {:amount 0.45
-      :yield 78.0
-      :supplier "Fussybrewer Malting"
-      :color 500.0
-      :name "Black Barley"
-      :moisture 5.0
-      :type "Grain"
-      :notes "Unmalted roasted barley for stouts, porters"
+     {:amount           0.45
+      :yield            78.0
+      :supplier         "Fussybrewer Malting"
+      :color            500.0
+      :name             "Black Barley"
+      :moisture         5.0
+      :type             "Grain"
+      :notes            "Unmalted roasted barley for stouts, porters"
       :coarse-fine-diff 1.5
-      :diastatic-power 0.0
-      :protein 13.2
-      :max-in-batch 10.0}}]}
+      :diastatic-power  0.0
+      :protein          13.2
+      :max-in-batch     10.0}}]}
 ```
 
 This library takes data structured to the [BeerXML](http://www.beerxml.com/beerxml.htm) specification and provides a layer of conformance and coercion.
 
 Specs for the following data types have been provided, as well as several wrappers for container objects:
 
-* [Equipment](/src/common_beer_format/equipment.cljc)
-* [Fermentables](/src/common_beer_format/fermentables.cljc)
-* [Hops](/src/common_beer_format/hops.cljc)
-* [Mash](/src/common_beer_format/mash.cljc)
-* [Miscs](/src/common_beer_format/miscs.cljc)
-* [Recipes](/src/common_beer_format/recipes.cljc)
-* [Styles](/src/common_beer_format/styles.cljc)
-* [Waters](/src/common_beer_format/waters.cljc)
-* [Yeasts](/src/common_beer_format/yeasts.cljc)
+- [Equipment](/src/common_beer_format/equipment.cljc)
+- [Fermentables](/src/common_beer_format/fermentables.cljc)
+- [Hops](/src/common_beer_format/hops.cljc)
+- [Mash](/src/common_beer_format/mash.cljc)
+- [Miscs](/src/common_beer_format/miscs.cljc)
+- [Recipes](/src/common_beer_format/recipes.cljc)
+- [Styles](/src/common_beer_format/styles.cljc)
+- [Waters](/src/common_beer_format/waters.cljc)
+- [Yeasts](/src/common_beer_format/yeasts.cljc)
 
 ### Core Data Functions
 
 In the core namespace, several utility functions have been provided to allow users of common-beer-format to inherit the utilities in `spec-tools`.
-That ssers may use any function from `spec-tools` or `clojure.spec`, with the specs in this library.
+That users may use any function from `spec-tools` or `clojure.spec`, with the specs in this library.
 
 Surfaced functions include:
 
-* `conform`
-* `coerce`
-* `explain`
-* `explain-data`
-* `spec-description`
+- `conform`
+- `coerce`
+- `explain`
+- `explain-data`
+- `spec-description`
 
 ## Additional Notes
 
@@ -133,20 +145,20 @@ To cleanly interop with Clojure Spec, this required the construction of spec wra
 ;; as well as
 
 {:fermentable
-  {:amount 2.27
-   :yield 78.0
-   :supplier "Fussybrewer Malting"
-   :color 3.0
-   :name "Pale Malt (2 row) UK"
-   :moisture 4.0
-   :type "Grain"
-   :notes "All purpose base malt for English styles"
-   :protein 10.2
-   :origin "United Kingdom"
+  {:amount           2.27
+   :yield            78.0
+   :supplier         "Fussybrewer Malting"
+   :color            3.0
+   :name             "Pale Malt (2 row) UK"
+   :moisture         4.0
+   :type             "Grain"
+   :notes            "All purpose base malt for English styles"
+   :protein          10.2
+   :origin           "United Kingdom"
    :coarse-fine-diff 1.5
-   :version 1
-   :max-in-batch 100.0
-   :diastatic-power 45.0}}
+   :version          1
+   :max-in-batch     100.0
+   :diastatic-power  45.0}}
 ```
 
 Therefore, specs named like `::fermentable` and `::fermentables` are used to describe the innermost values- meaning a key-value pair of the data describing a fermentable ingredient or a list of fermentable records.

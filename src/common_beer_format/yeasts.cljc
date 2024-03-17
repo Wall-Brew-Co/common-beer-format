@@ -2,7 +2,6 @@
   "The definition of a yeast record used in BeerXML."
   {:added "2.0"}
   (:require [clojure.spec.alpha :as spec]
-            [clojure.string :as str]
             [common-beer-format.impl :as impl]
             [common-beer-format.primitives :as prim]
             [spec-tools.core :as st])
@@ -37,9 +36,9 @@
 
 (def type
   "The type of yeast, usually categorized by the intended beverage or style.
-   
+
    Currently, the following types are supported:
-   
+
    - `ale` - Yeast that ferments at higher temperatures and produces a more fruity, estery, and alcohol-forward beer.
    - `lager` - Yeast that ferments at lower temperatures and produces a crisp, clean, and alcohol-restrained beer.
    - `wheat` - Yeast that ferments at higher temperatures and produces a fruity and phenol-forward beer.
@@ -50,27 +49,27 @@
 
 (def ale
   "Yeast that ferments at higher temperatures and produces a more fruity, estery, and alcohol-forward beer."
-  "ale")
+  "Ale")
 
 
 (def lager
   "Yeast that ferments at lower temperatures and produces a crisp, clean, and alcohol-restrained beer."
-  "lager")
+  "Lager")
 
 
 (def wheat
   "Yeast that ferments at higher temperatures and produces a fruity and phenol-forward beer."
-  "wheat")
+  "Wheat")
 
 
 (def wine
   "Yeast traditionally used in wine making."
-  "wine")
+  "Wine")
 
 
 (def champagne
   "Yeast traditionally used in champagne making, offering a dry taste."
-  "champagne")
+  "Champagne")
 
 
 (def yeast-types
@@ -84,46 +83,51 @@
 
 (def form
   "The form of the yeast added to the beer.
-   
+
    Currently, the following forms are supported:
-   
-   - `liquid` - A liquid slurry of yeast, usually with a source of nutrietns or sugars.
+
+   - `liquid` - A liquid slurry of yeast, usually with a source of nutrients or sugars.
    - `dry` - Dry yeast sold in a dehydrated state to extend shelf life.
    - `slant` - Yeast cultivated on a solid growth medium.
-   - `culture` - Yeast clutivated from previous fermentations."
+   - `culture` - Yeast cultivated from previous fermentations."
   :form)
 
 
 (def liquid
-  "A liquid slurry of yeast, usually with a source of nutrietns or sugars."
-  "liquid")
+  "A liquid slurry of yeast, usually with a source of nutrients or sugars."
+  "Liquid")
 
 
 (def dry
   "Dry yeast sold in a dehydrated state to extend shelf life."
-  "dry")
+  "Dry")
 
 
 (def slant
   "Yeast cultivated on a solid growth medium."
-  "slant")
+  "Slant")
 
 
 (def culture
-  "Yeast clutivated from previous fermentations."
-  "culture")
+  "Yeast cultivated from previous fermentations."
+  "Culture")
 
 
 (spec/def ::type
   (st/spec
-    {:type                :string
-     :spec                (spec/and string?
-                                    #(not (str/blank? %))
-                                    #(contains? yeast-types (str/lower-case %)))
-     :gen                 #(spec/gen yeast-types)
-     :description         (impl/multiline "A case-insensitive string representing the type of yeast added to the beer."
-                                          (impl/set->description yeast-types))
-     :json-schema/example "Ale"}))
+   {:type                :string
+    :spec                yeast-types
+    :gen                 #(spec/gen yeast-types)
+    :description         (impl/multiline
+                          "A case-sensitive string representing the type of yeast added to the beer."
+                          (impl/set->description yeast-types)
+                          ""
+                          "- Ale: Yeast that ferments at higher temperatures and produces a more fruity, estery, and alcohol-forward beer."
+                          "- Lager: Yeast that ferments at lower temperatures and produces a crisp, clean, and alcohol-restrained beer."
+                          "- Wheat: Yeast that ferments at higher temperatures and produces a fruity and phenol-forward beer."
+                          "- Wine: Yeast traditionally used in wine making."
+                          "- Champagne: Yeast traditionally used in champagne making, offering a dry taste.")
+    :json-schema/example "Ale"}))
 
 
 (def yeast-forms
@@ -150,20 +154,20 @@
 
 
 (def min-temperature
-  "The minimum recommended temperature of fermenation."
+  "The minimum recommended temperature of fermentation."
   :min-temperature)
 
 
 (def max-temperature
-  "The maximum recommended temperature of fermenation."
+  "The maximum recommended temperature of fermentation."
   :max-temperature)
 
 
 (def flocculation
   "The rate at which the yeast settles out of suspension.
-   
+
    Currently, the following flocculation types are supported:
-   
+
    - `low` - The yeast settles out of suspension slowly.
    - `medium` - The yeast settles out of suspension at a moderate rate.
    - `high` - The yeast settles out of suspension quickly.
@@ -173,22 +177,22 @@
 
 (def low
   "The yeast settles out of suspension slowly."
-  "low")
+  "Low")
 
 
 (def medium
   "The yeast settles out of suspension at a moderate rate."
-  "medium")
+  "Medium")
 
 
 (def high
   "The yeast settles out of suspension quickly."
-  "high")
+  "High")
 
 
 (def very-high
   "The yeast settles out of suspension very quickly."
-  "very high")
+  "Very High")
 
 
 (def attenuation
@@ -227,12 +231,12 @@
 
 
 (def disp-min-temp
-  "A human-readable string representing the minimum recommended temperature of fermenation."
+  "A human-readable string representing the minimum recommended temperature of fermentation."
   :disp-min-temp)
 
 
 (def disp-max-temp
-  "A human-readable string representing the maximum recommended temperature of fermenation."
+  "A human-readable string representing the maximum recommended temperature of fermentation."
   :disp-max-temp)
 
 
@@ -248,21 +252,25 @@
 
 (spec/def ::form
   (st/spec
-    {:type                :string
-     :spec                (spec/and string?
-                                    #(not (str/blank? %))
-                                    #(contains? yeast-forms (str/lower-case %)))
-     :gen                 #(spec/gen yeast-forms)
-     :description         (impl/multiline "A case-insensitive string representing the form of the yeast added to the beer."
-                                          (impl/set->description yeast-forms))
-     :json-schema/example "Ale"}))
+   {:type                :string
+    :spec                yeast-forms
+    :gen                 #(spec/gen yeast-forms)
+    :description         (impl/multiline
+                          "A case-sensitive string representing the form of the yeast added to the beer."
+                          (impl/set->description yeast-forms)
+                          ""
+                          "- Liquid: A liquid slurry of yeast, usually with a source of nutrients or sugars."
+                          "- Dry: Dry yeast sold in a dehydrated state to extend shelf life."
+                          "- Slant: Yeast cultivated on a solid growth medium."
+                          "- Culture: Yeast cultivated from previous fermentations.")
+    :json-schema/example "Ale"}))
 
 
 (spec/def ::laboratory
   (st/spec
     {:type                :string
      :spec                ::prim/text
-     :description         "A non-empty string denoting the laboratory that cultivated the yeast"
+     :description         "A non-empty string denoting the laboratory that cultivated the yeast."
      :json-schema/example "White Labs"}))
 
 
@@ -270,7 +278,7 @@
   (st/spec
     {:type                :string
      :spec                ::prim/text
-     :description         "A non-empty string denoting the product label or id number that identifies the strain of yeast"
+     :description         "A non-empty string denoting the product label or id number that identifies the strain of yeast."
      :json-schema/example "WLP008"}))
 
 
@@ -278,7 +286,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/degrees-celsius
-     :description         "An IEEE-754 floating point number representing the minimum recommended temperature of fermenation"
+     :description         "An IEEE-754 floating point number representing the minimum recommended temperature of fermentation."
      :json-schema/example "19.5"}))
 
 
@@ -286,7 +294,7 @@
   (st/spec
     {:type                :double
      :spec                ::prim/degrees-celsius
-     :description         "An IEEE-754 floating point number representing the maximum recommended temperature of fermenation"
+     :description         "An IEEE-754 floating point number representing the maximum recommended temperature of fermentation."
      :json-schema/example "23.9"}))
 
 
@@ -300,21 +308,24 @@
 
 (spec/def ::flocculation
   (st/spec
-    {:type                :string
-     :spec                (spec/and string?
-                                    #(not (str/blank? %))
-                                    #(contains? yeast-flocculation-types (str/lower-case %)))
-     :gen                 #(spec/gen yeast-flocculation-types)
-     :description         (impl/multiline "A case-insensitive string representing how dense of a floc the yeast will form."
-                                          (impl/set->description yeast-flocculation-types))
-     :json-schema/example "High"}))
+   {:type                :string
+    :spec                yeast-flocculation-types
+    :gen                 #(spec/gen yeast-flocculation-types)
+    :description         (impl/multiline "A case-sensitive string representing how dense of a floc the yeast will form."
+                                         (impl/set->description yeast-flocculation-types)
+                                         ""
+                                         "- Low: The yeast settles out of suspension slowly."
+                                         "- Medium: The yeast settles out of suspension at a moderate rate."
+                                         "- High: The yeast settles out of suspension quickly."
+                                         "- Very High: The yeast settles out of suspension very quickly.")
+    :json-schema/example "High"}))
 
 
 (spec/def ::attenuation
   (st/spec
     {:type                :double
      :spec                ::prim/percent
-     :description         "A positive IEEE-754 floating point number representing the percent of malt sugar that can be converted to ethanol and carbon dioxide"
+     :description         "A positive IEEE-754 floating point number representing the percent of malt sugar that can be converted to ethanol and carbon dioxide."
      :json-schema/example "73.2"}))
 
 
@@ -322,7 +333,7 @@
   (st/spec
     {:type                :string
      :spec                ::prim/text
-     :description         "A non-empty string denoting the styles of beer this yeast is best suited for"
+     :description         "A non-empty string denoting the styles of beer this yeast is best suited for."
      :json-schema/example "WLP008"}))
 
 
@@ -340,7 +351,7 @@
   (st/spec
     {:type                :long
      :spec                (spec/and int? #(not (neg? %)))
-     :description         "A non-negative integer representing the suggested maximum number of times the yeast may be harvested and recultured"
+     :description         "A non-negative integer representing the suggested maximum number of times the yeast may be harvested and recultured."
      :json-schema/example "3"}))
 
 
@@ -357,25 +368,27 @@
 
 (spec/def ::disp-min-temp
   (st/spec
-    {:type                :string
-     :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the minimum fermentation temperature formatted for display in arbitrary units"
-     :json-schema/example "68F"}))
+    {:type                 :string
+     :spec                 ::prim/text
+     impl/display-name-key "Display Minimum Temperature"
+     :description          "A non-empty string denoting a display value for the minimum fermentation temperature formatted for display in arbitrary units."
+     :json-schema/example  "68F"}))
 
 
 (spec/def ::disp-max-temp
   (st/spec
-    {:type                :string
-     :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the maximum fermentation temperature formatted for display in arbitrary units"
-     :json-schema/example "75F"}))
+    {:type                 :string
+     :spec                 ::prim/text
+     impl/display-name-key "Display Maximum Temperature"
+     :description          "A non-empty string denoting a display value for the maximum fermentation temperature formatted for display in arbitrary units."
+     :json-schema/example  "75F"}))
 
 
 (spec/def ::culture-date
   (st/spec
     {:type                :string
      :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the date the yeast sample was last cultured formatted for display in arbitrary structure"
+     :description         "A non-empty string denoting a display value for the date the yeast sample was last cultured formatted for display in arbitrary structure."
      :json-schema/example "10/10/2020"}))
 
 
@@ -409,15 +422,16 @@
 
 (spec/def ::yeast-wrapper
   (st/spec
-    {:type        :map
-     :description "A ::yeast record wrapped in a ::yeast map."
-     :spec        (spec/keys :req-un [::yeast])}))
+    {:type                 :map
+     impl/wrapper-spec-key true
+     :description          "A `::yeast` record wrapped in a `:yeast` map."
+     :spec                 (spec/keys :req-un [::yeast])}))
 
 
 (spec/def ::yeasts
   (st/spec
     {:type          :vector
-     :description   "A vector of valid ::yeast records."
+     :description   "A vector of valid `::yeast` records."
      :spec          (spec/coll-of ::yeast-wrapper :into [] :kind vector?)
      :decode/string #(impl/decode-sequence %1 ::yeast-wrapper %2)
      :encode/string #(impl/encode-sequence %1 ::yeast-wrapper %2)}))
@@ -425,6 +439,7 @@
 
 (spec/def ::yeasts-wrapper
   (st/spec
-    {:type        :map
-     :description "A ::yeasts-wrapper record."
-     :spec        (spec/keys :req-un [::yeasts])}))
+    {:type                 :map
+     impl/wrapper-spec-key true
+     :description          "A `::yeasts-wrapper` record."
+     :spec                 (spec/keys :req-un [::yeasts])}))

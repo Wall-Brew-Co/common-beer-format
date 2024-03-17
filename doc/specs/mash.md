@@ -27,7 +27,7 @@ A record representing the mashing process.
 - [Display Tun Weight](#display-tun-weight)
 - [Equip Adjust](#equip-adjust)
 - [Notes](#notes)
-- [Ph](#ph)
+- [PH](#ph)
 - [Sparge Temperature](#sparge-temperature)
 - [Tun Specific Heat](#tun-specific-heat)
 - [Tun Temperature](#tun-temperature)
@@ -98,7 +98,7 @@ A non-empty string representing any notes about the subject
 - Type: String
 - Example: `"A wonderful, zesty aroma"`
 
-## Ph
+## PH
 
 A non-negative IEEE-754 floating point number representing the PH of the water.
 

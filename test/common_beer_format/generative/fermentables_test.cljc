@@ -1,11 +1,12 @@
 (ns common-beer-format.generative.fermentables-test
-  (:require [clojure.spec.alpha :as spec]
+  (:require #? (:clj  [clojure.test :refer [deftest is testing]])
+            #? (:cljs [cljs.test    :refer-macros [deftest is testing]])
+            [clojure.spec.alpha :as spec]
             [com.wallbrew.spoon.spec :as spoon.spec]
             [common-beer-format.fermentables :as fermentables]
             [common-beer-format.generative.util :as gen]
-            [common-beer-format.primitives :as primitives]
-            #? (:clj  [clojure.test :refer [deftest is testing]])
-            #? (:cljs [cljs.test    :refer-macros [deftest is testing]])))
+            [common-beer-format.impl :as impl]
+            [common-beer-format.primitives :as primitives]))
 
 
 (deftest data-requirement-test
@@ -45,6 +46,28 @@
     (is (gen/generatable? ::fermentables/add-after-boil))
     (is (gen/generatable? ::fermentables/diastatic-power))
     (is (gen/generatable? ::fermentables/max-in-batch))))
+
+(deftest wrapper-test
+  (testing "Ensure wrapper specs are marked as such"
+    (is (true? (impl/wrapper-spec? ::fermentables/fermentable-wrapper)))
+    (is (true? (impl/wrapper-spec? ::fermentables/fermentables-wrapper))))
+  (testing "Ensure non-wrapper specs are not marked as such"
+    (is (false? (impl/wrapper-spec? ::fermentables/fermentable)))
+    (is (false? (impl/wrapper-spec? ::fermentables/fermentables)))
+    (is (false? (impl/wrapper-spec? ::fermentables/coarse-fine-diff)))
+    (is (false? (impl/wrapper-spec? ::fermentables/display-color)))
+    (is (false? (impl/wrapper-spec? ::fermentables/recommend-mash)))
+    (is (false? (impl/wrapper-spec? ::fermentables/protein)))
+    (is (false? (impl/wrapper-spec? ::fermentables/yield)))
+    (is (false? (impl/wrapper-spec? ::fermentables/ibu-gal-per-lb)))
+    (is (false? (impl/wrapper-spec? ::fermentables/potential)))
+    (is (false? (impl/wrapper-spec? ::fermentables/supplier)))
+    (is (false? (impl/wrapper-spec? ::fermentables/type)))
+    (is (false? (impl/wrapper-spec? ::fermentables/moisture)))
+    (is (false? (impl/wrapper-spec? ::fermentables/color)))
+    (is (false? (impl/wrapper-spec? ::fermentables/add-after-boil)))
+    (is (false? (impl/wrapper-spec? ::fermentables/diastatic-power)))
+    (is (false? (impl/wrapper-spec? ::fermentables/max-in-batch)))))
 
 
 (def sample-fermentable

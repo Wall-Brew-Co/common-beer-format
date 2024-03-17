@@ -2,7 +2,6 @@
   "The definition of a fermentable record used in BeerXML."
   {:added "2.0"}
   (:require [clojure.spec.alpha :as spec]
-            [clojure.string :as str]
             [common-beer-format.impl :as impl]
             [common-beer-format.primitives :as prim]
             [spec-tools.core :as st])
@@ -135,27 +134,27 @@
 
 (def adjunct
   "A non-grain and non-sugar ingredient that is added to the wort that contain fermentable sugars."
-  "adjunct")
+  "Adjunct")
 
 
 (def dry-extract
   "A concentrated form of fermentable sugars derived from malted barley."
-  "dry extract")
+  "Dry Extract")
 
 
 (def extract
   "A concentrated form of fermentable sugars derived from malted barley in liquid form."
-  "extract")
+  "Extract")
 
 
 (def grain
   "Whole or milled barley, rye, wheat, or other grain."
-  "grain")
+  "Grain")
 
 
 (def sugar
   "Raw, candied, and other natural sources of sugar (e.g. Honey)."
-  "sugar")
+  "Sugar")
 
 
 (def fermentable-types
@@ -176,11 +175,9 @@
 (spec/def ::type
   (st/spec
    {:type                :string
-    :spec                (spec/and string?
-                                   #(not (str/blank? %))
-                                   #(contains? fermentable-types (str/lower-case %)))
+    :spec                fermentable-types
     :gen                 #(spec/gen fermentable-types)
-    :description         (impl/multiline "A case-insensitive string representing the form of the fermentable."
+    :description         (impl/multiline "A case-sensitive string representing the form of the fermentable."
                                          (impl/set->description fermentable-types)
                                          ""
                                          "- Adjunct: Non-grain and non-sugar ingredients that are added to the wort that contain fermentable sugars."

@@ -2,7 +2,6 @@
   "The definition of a recipe record used in BeerXML."
   {:added "2.0"}
   (:require [clojure.spec.alpha :as spec]
-            [clojure.string :as str]
             [common-beer-format.equipment :as cbf-equipment]
             [common-beer-format.fermentables :as cbf-fermentables]
             [common-beer-format.hops :as cbf-hops]
@@ -326,17 +325,17 @@
 
 (def extract
   "A recipe type that exclusively uses malt extracts and sugars."
-  "extract")
+  "Extract")
 
 
 (def partial-mash
   "A recipe type that uses a combination of malt extracts and sugars and malted grains."
-  "partial mash")
+  "Partial Mash")
 
 
 (def all-grain
   "A recipe type that exclusively uses malted grains."
-  "all grain")
+  "All Grain")
 
 
 (def recipe-types
@@ -348,14 +347,17 @@
 
 (spec/def ::type
   (st/spec
-    {:type                :string
-     :spec                (spec/and string?
-                                    #(not (str/blank? %))
-                                    #(contains? recipe-types (str/lower-case %)))
-     :gen                 #(spec/gen recipe-types)
-     :description         (impl/multiline "A case-insensitive string representing the type of recipe."
-                                          (impl/set->description recipe-types))
-     :json-schema/example "All Grain"}))
+   {:type                :string
+    :spec                recipe-types
+    :gen                 #(spec/gen recipe-types)
+    :description         (impl/multiline
+                          "A case-sensitive string representing the type of recipe."
+                          (impl/set->description recipe-types)
+                          ""
+                          "- All Grain: A recipe that uses only malted grains."
+                          "- Partial Mash: A recipe that uses a combination of malted grains and malt extract."
+                          "- Extract: A recipe that uses only malt extract.")
+    :json-schema/example "All Grain"}))
 
 
 (spec/def ::brewer
@@ -392,10 +394,11 @@
 
 (spec/def ::asst-brewer
   (st/spec
-    {:type                :string
-     :spec                ::prim/text
-     :description         "A non-empty string denoting the name of the assistant brewer."
-     :json-schema/example "Dariusz R. Jakubowski"}))
+    {:type                 :string
+     impl/display-name-key "Assistant Brewer"
+     :spec                 ::prim/text
+     :description          "A non-empty string denoting the name of the assistant brewer."
+     :json-schema/example  "Dariusz R. Jakubowski"}))
 
 
 (spec/def ::efficiency
@@ -425,18 +428,20 @@
 
 (spec/def ::og
   (st/spec
-    {:type                :double
-     :spec                ::prim/specific-gravity
-     :description         "A non-negative IEEE-754 floating point number representing the pre-fermentation specific gravity of the recipe."
-     :json-schema/example "1.060"}))
+    {:type                 :double
+     :spec                 ::prim/specific-gravity
+     impl/display-name-key "Original Gravity"
+     :description          "A non-negative IEEE-754 floating point number representing the pre-fermentation specific gravity of the recipe."
+     :json-schema/example  "1.060"}))
 
 
 (spec/def ::fg
   (st/spec
-    {:type                :double
-     :spec                ::prim/specific-gravity
-     :description         "A non-negative IEEE-754 floating point number representing the post-fermentation specific gravity of the recipe."
-     :json-schema/example "1.048"}))
+    {:type                 :double
+     :spec                 ::prim/specific-gravity
+     impl/display-name-key "Final Gravity"
+     :description          "A non-negative IEEE-754 floating point number representing the post-fermentation specific gravity of the recipe."
+     :json-schema/example  "1.048"}))
 
 
 (spec/def ::fermentation-stages
@@ -458,10 +463,11 @@
 
 (spec/def ::primary-temp
   (st/spec
-    {:type                :double
-     :spec                ::prim/degrees-celsius
-     :description         "A non-negative IEEE-754 floating point number representing the temperaure in degrees Celsius for primary fermentation."
-     :json-schema/example "12.0"}))
+    {:type                 :double
+     :spec                 ::prim/degrees-celsius
+     impl/display-name-key "Primary Temperature"
+     :description          "A non-negative IEEE-754 floating point number representing the temperature in degrees Celsius for primary fermentation."
+     :json-schema/example  "12.0"}))
 
 
 (spec/def ::secondary-age
@@ -475,10 +481,11 @@
 
 (spec/def ::secondary-temp
   (st/spec
-    {:type                :double
-     :spec                ::prim/degrees-celsius
-     :description         "A non-negative IEEE-754 floating point number representing the temperaure in degrees Celsius for secondary fermentation."
-     :json-schema/example "12.0"}))
+    {:type                 :double
+     :spec                 ::prim/degrees-celsius
+     impl/display-name-key "Secondary Temperature"
+     :description          "A non-negative IEEE-754 floating point number representing the temperature in degrees Celsius for secondary fermentation."
+     :json-schema/example  "12.0"}))
 
 
 (spec/def ::tertiary-age
@@ -492,10 +499,11 @@
 
 (spec/def ::tertiary-temp
   (st/spec
-    {:type                :double
-     :spec                ::prim/degrees-celsius
-     :description         "A non-negative IEEE-754 floating point number representing the temperaure in degrees Celsius for tertiary fermentation."
-     :json-schema/example "12.0"}))
+    {:type                 :double
+     :spec                 ::prim/degrees-celsius
+     impl/display-name-key "Tertiary Temperature"
+     :description          "A non-negative IEEE-754 floating point number representing the temperature in degrees Celsius for tertiary fermentation."
+     :json-schema/example  "12.0"}))
 
 
 (spec/def ::age
@@ -507,30 +515,23 @@
      :json-schema/example "12.0"}))
 
 
-(spec/def ::age
-  (st/spec
-    {:type                :double
-     :spec                ::prim/degrees-celsius
-     :description         "A non-negative IEEE-754 floating point number representing the number of days to bottle age the beer."
-     :json-schema/example "12.0"}))
-
-
 (spec/def ::age-temp
   (st/spec
-    {:type                :double
-     :spec                ::prim/degrees-celsius
-     :description         "A non-negative IEEE-754 floating point number representing the temperaure in degrees Celsius for bottle aging."
-     :json-schema/example "12.0"}))
+    {:type                 :double
+     :spec                 ::prim/degrees-celsius
+     impl/display-name-key "Aging Temperature"
+     :description          "A non-negative IEEE-754 floating point number representing the temperature in degrees Celsius for bottle aging."
+     :json-schema/example  "12.0"}))
 
 
 (spec/def ::date
-  ;;
   (st/spec
-    {:type                :string
-     :spec                ::prim/text
-     :description         (impl/multiline "A non-empty string denoting the display date the recipe was created on."
-                                          "Intentionally implemented as a string type to match BeerXML spec.")
-     :json-schema/example "2020/05/06"}))
+   {:type                :string
+    :spec                ::prim/text
+    :description         (impl/multiline
+                          "A non-empty string denoting the display date the recipe was created on."
+                          "Intentionally implemented as a string type to match BeerXML spec.")
+    :json-schema/example "2020/05/06"}))
 
 
 (spec/def ::carbonation
@@ -544,12 +545,13 @@
 
 (spec/def ::forced-carbonation
   (st/spec
-    {:spec                ::prim/boolean
-     :description         (impl/multiline "A boolean representing if this batch was force carbonated with CO2 pressure."
-                                          "When absent, assume false.")
-     :json-schema/example "false"
-     :decode/string       impl/decode-boolean
-     :encode/string       impl/encode-boolean}))
+   {:spec                ::prim/boolean
+    :description         (impl/multiline
+                          "A boolean representing if this batch was force carbonated with CO2 pressure."
+                          "When absent, assume false.")
+    :json-schema/example "false"
+    :decode/string       impl/decode-boolean
+    :encode/string       impl/encode-boolean}))
 
 
 (spec/def ::priming-sugar-name
@@ -564,17 +566,18 @@
   (st/spec
     {:type                :double
      :spec                ::prim/degrees-celsius
-     :description         "An IEEE-754 floating point number representing the temperaure in degrees Celsius for either bottling or forced carbonation."
+     :description         "An IEEE-754 floating point number representing the temperature in degrees Celsius for either bottling or forced carbonation."
      :json-schema/example "12.0"}))
 
 
 (spec/def ::priming-sugar-equiv
   (st/spec
-    {:type                :double
-     :spec                number?
-     :gen                 impl/real-double-generator
-     :description         "An IEEE-754 floating point number representing the conversion factor to an equivalent amount of corn sugar."
-     :json-schema/example "1.5"}))
+    {:type                 :double
+     :spec                 number?
+     impl/display-name-key "Priming Sugar Equivalent"
+     :gen                  impl/real-double-generator
+     :description          "An IEEE-754 floating point number representing the conversion factor to an equivalent amount of corn sugar."
+     :json-schema/example  "1.5"}))
 
 
 (spec/def ::keg-priming-factor
@@ -588,50 +591,54 @@
 
 (spec/def ::est-og
   (st/spec
-    {:type                :string
-     :spec                ::prim/text
-     :description         "A non-empty string describing the calculated estimated original gravity formatted for display in arbitrary units."
-     :json-schema/example "1.050sg"}))
+    {:type                 :string
+     :spec                 ::prim/text
+     impl/display-name-key "Estimated Original Gravity"
+     :description          "A non-empty string describing the calculated estimated original gravity formatted for display in arbitrary units."
+     :json-schema/example  "1.050sg"}))
 
 
 (spec/def ::est-fg
   (st/spec
-    {:type                :string
-     :spec                ::prim/text
-     :description         "A non-empty string describing the calculated estimated final gravity formatted for display in arbitrary units."
-     :json-schema/example "1.050sg"}))
+    {:type                 :string
+     :spec                 ::prim/text
+     impl/display-name-key "Estimated Final Gravity"
+     :description          "A non-empty string describing the calculated estimated final gravity formatted for display in arbitrary units."
+     :json-schema/example  "1.050sg"}))
 
 
 (spec/def ::est-color
   (st/spec
-    {:type                :string
-     :spec                ::prim/text
-     :description         "A non-empty string describing the calculated color formatted for display in arbitrary units."
-     :json-schema/example "30SRM"}))
+    {:type                 :string
+     :spec                 ::prim/text
+     impl/display-name-key "Estimated Color"
+     :description          "A non-empty string describing the calculated color formatted for display in arbitrary units."
+     :json-schema/example  "30SRM"}))
 
 
 (spec/def ::ibu
   (st/spec
-    {:type                :double
-     :spec                (spec/and number? #(not (neg? %)))
-     :gen                 impl/real-positive-double-generator
-     :description         "A positive IEEE-754 floating point number representing the bitterness in IBUs for the recipe."
-     :json-schema/example "40"}))
+    {:type                 :double
+     :spec                 (spec/and number? #(not (neg? %)))
+     impl/display-name-key "International Bitterness Units"
+     :gen                  impl/real-positive-double-generator
+     :description          "A positive IEEE-754 floating point number representing the bitterness in IBUs for the recipe."
+     :json-schema/example  "40"}))
 
 
 (def rager
   "The Rager method of IBU calculation."
-  "rager")
+  "Rager")
 
 
 (def tinseth
   "The Tinseth method of IBU calculation."
-  "tinseth")
+  "Tinseth")
 
 
 (def garetz
   "The Garetz method of IBU calculation."
-  "garetz")
+  "Garetz")
 
 
 (def ibu-method-types
@@ -643,22 +650,26 @@
 
 (spec/def ::ibu-method
   (st/spec
-    {:type                :string
-     :spec                (spec/and string?
-                                    #(not (str/blank? %))
-                                    #(contains? ibu-method-types (str/lower-case %)))
-     :gen                 #(spec/gen ibu-method-types)
-     :description         (impl/multiline "A case-insensitive string representing the method of calculation used derive the IBUs."
-                                          (impl/set->description ibu-method-types))
-     :json-schema/example "Garetz"}))
+   {:type                :string
+    :spec                ibu-method-types
+    :gen                 #(spec/gen ibu-method-types)
+    :description         (impl/multiline
+                          "A case-sensitive string representing the method of calculation used derive the IBUs."
+                          (impl/set->description ibu-method-types)
+                          ""
+                          "- Garetz: The Garetz method of IBU calculation."
+                          "- Rager: The Rager method of IBU calculation."
+                          "- Tinseth: The Tinseth method of IBU calculation.")
+    :json-schema/example "Garetz"}))
 
 
 (spec/def ::est-abv
   (st/spec
-    {:type                :double
-     :spec                ::prim/percent
-     :description         "A non-negative IEEE-754 floating point number representing the estimated ABV for the recipe."
-     :json-schema/example "40"}))
+    {:type                 :double
+     :spec                 ::prim/percent
+     impl/display-name-key "Estimated ABV"
+     :description          "A non-negative IEEE-754 floating point number representing the estimated ABV for the recipe."
+     :json-schema/example  "40"}))
 
 
 (spec/def ::abv
@@ -703,50 +714,56 @@
 
 (spec/def ::display-og
   (st/spec
-    {:type                :string
-     :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the pre-fermentation gravity formatted for display in arbitrary units."
-     :json-schema/example "1.050sg"}))
+    {:type                 :string
+     :spec                 ::prim/text
+     impl/display-name-key "Display Original Gravity"
+     :description          "A non-empty string denoting a display value for the pre-fermentation gravity formatted for display in arbitrary units."
+     :json-schema/example  "1.050sg"}))
 
 
 (spec/def ::display-fg
   (st/spec
-    {:type                :string
-     :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the post-permentation gravity formatted for display in arbitrary units."
-     :json-schema/example "1.050sg"}))
+    {:type                 :string
+     :spec                 ::prim/text
+     impl/display-name-key "Display Final Gravity"
+     :description          "A non-empty string denoting a display value for the post-fermentation gravity formatted for display in arbitrary units."
+     :json-schema/example  "1.050sg"}))
 
 
 (spec/def ::display-primary-temp
   (st/spec
-    {:type                :string
-     :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the temperature of the primary fermentation step formatted for display in arbitrary units."
-     :json-schema/example "68F"}))
+    {:type                 :string
+     :spec                 ::prim/text
+     impl/display-name-key "Display Primary Temperature"
+     :description          "A non-empty string denoting a display value for the temperature of the primary fermentation step formatted for display in arbitrary units."
+     :json-schema/example  "68F"}))
 
 
 (spec/def ::display-secondary-temp
   (st/spec
-    {:type                :string
-     :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the temperature of the secondary fermentation step formatted for display in arbitrary units."
-     :json-schema/example "68F"}))
+    {:type                 :string
+     :spec                 ::prim/text
+     impl/display-name-key "Display Secondary Temperature"
+     :description          "A non-empty string denoting a display value for the temperature of the secondary fermentation step formatted for display in arbitrary units."
+     :json-schema/example  "68F"}))
 
 
 (spec/def ::display-tertiary-temp
   (st/spec
-    {:type                :string
-     :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the temperature of the tertiary fermentation step formatted for display in arbitrary units."
-     :json-schema/example "68F"}))
+    {:type                 :string
+     :spec                 ::prim/text
+     impl/display-name-key "Display Tertiary Temperature"
+     :description          "A non-empty string denoting a display value for the temperature of the tertiary fermentation step formatted for display in arbitrary units."
+     :json-schema/example  "68F"}))
 
 
 (spec/def ::display-age-temp
   (st/spec
-    {:type                :string
-     :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the temperature of the aging step formatted for display in arbitrary units."
-     :json-schema/example "68F"}))
+    {:type                 :string
+     :spec                 ::prim/text
+     impl/display-name-key "Display Aging Temperature"
+     :description          "A non-empty string denoting a display value for the temperature of the aging step formatted for display in arbitrary units."
+     :json-schema/example  "68F"}))
 
 
 (spec/def ::carbonation-used
@@ -759,10 +776,11 @@
 
 (spec/def ::display-carb-temp
   (st/spec
-    {:type                :string
-     :spec                ::prim/text
-     :description         "A non-empty string denoting a display value for the temperature of the bottling step formatted for display in arbitrary units."
-     :json-schema/example "68F"}))
+    {:type                 :string
+     :spec                 ::prim/text
+     impl/display-name-key "Display Carbonation Temperature"
+     :description          "A non-empty string denoting a display value for the temperature of the bottling step formatted for display in arbitrary units."
+     :json-schema/example  "68F"}))
 
 
 (spec/def ::recipe
@@ -830,15 +848,16 @@
 
 (spec/def ::recipe-wrapper
   (st/spec
-    {:type        :map
-     :description "A ::recipe record wrapped in a ::recipes map."
-     :spec        (spec/keys :req-un [::recipe])}))
+    {:type                 :map
+     impl/wrapper-spec-key true
+     :description          "A `::recipe` record wrapped in a `:recipes` map."
+     :spec                 (spec/keys :req-un [::recipe])}))
 
 
 (spec/def ::recipes
   (st/spec
     {:type          :vector
-     :description   "A vector of valid ::recipe records."
+     :description   "A vector of valid `::recipe` records."
      :spec          (spec/coll-of ::recipe-wrapper :into [] :kind vector?)
      :decode/string #(impl/decode-sequence %1 ::recipe-wrapper %2)
      :encode/string #(impl/encode-sequence %1 ::recipe-wrapper %2)}))
@@ -846,6 +865,7 @@
 
 (spec/def ::recipes-wrapper
   (st/spec
-    {:type        :map
-     :description "A ::recipes-wrapper record."
-     :spec        (spec/keys :req-un [::recipes])}))
+    {:type                 :map
+     impl/wrapper-spec-key true
+     :description          "A `::recipes-wrapper` record."
+     :spec                 (spec/keys :req-un [::recipes])}))

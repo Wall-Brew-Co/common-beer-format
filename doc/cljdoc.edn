@@ -5,9 +5,15 @@
                     ["Code of Conduct" {:file "CODE_OF_CONDUCT.md"}]
                     ["Security Policy" {:file "SECURITY.md"}]]
                    ["Functionality" {}
-                    ["Specs" {}
+                    ["Specs" {:file "doc/specs.md"}
                      ["Equipment" {:file "doc/specs/equipment.md"}]
                      ["Fermentables" {:file "doc/specs/fermentables.md"}]
-                     ["Hops" {:file "doc/specs/hops.md"}]]]
+                     ["Hops" {:file "doc/specs/hops.md"}]
+                     ["Mash" {:file "doc/specs/mash.md"}]
+                     ["Miscs" {:file "doc/specs/miscs.md"}]
+                     ["Recipes" {:file "doc/specs/recipes.md"}]
+                     ["Styles" {:file "doc/specs/styles.md"}]
+                     ["Water" {:file "doc/specs/water.md"}]
+                     ["Yeast" {:file "doc/specs/yeast.md"}]]]
                    ["Adopted Patterns" {}
                     ["Symbolic Keywords" {:file "doc/patterns/symbolic_keywords.md"}]]]}

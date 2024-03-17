@@ -2,7 +2,6 @@
   "The definition of a misc record used in BeerXML."
   {:added "2.0"}
   (:require [clojure.spec.alpha :as spec]
-            [clojure.string :as str]
             [common-beer-format.impl :as impl]
             [common-beer-format.primitives :as prim]
             [spec-tools.core :as st])
@@ -31,9 +30,9 @@
 
 (def type
   "The type of the miscellaneous ingredient.
-   
+
    Currently, BeerXML Supports the following types:
-   
+
    - `spice`: A spice, such as cinnamon or ginger.
    - `fining`: A fining agent, such as isinglass.
    - `water agent`: A water agent, such as campden tablet.
@@ -45,9 +44,9 @@
 
 (def use
   "How the miscellaneous ingredient is used in the brewing process.
-   
+
    Currently, BeerXML supports the following uses:
-   
+
    - `boil`: The ingredient is added to the boil.
    - `mash`: The ingredient is added to the mash.
    - `primary`: The ingredient is added to the primary fermentation.
@@ -58,7 +57,7 @@
 
 (def time
   "The time in minutes the ingredient is added to the beer.
-   
+
    For `boil` this is the boil time.
    For `mash` this is the mash time.
    For `primary`, `secondary`, and `bottling` this is the amount of time the ingredient spent in that state."
@@ -102,39 +101,39 @@
 
 (def fining
   "A fining agent, such as isinglass."
-  "fining")
+  "Fining")
 
 
 (def flavor
   "A flavoring, such as orange peel or a flavor concentrate."
-  "flavor")
+  "Flavor")
 
 
 (def herb
   "An herb, such as mint."
-  "herb")
+  "Herb")
 
 
 (def other
   "Any other type of miscellaneous ingredient."
-  "other")
+  "Other")
 
 
 (def spice
   "A spice, such as cinnamon or ginger."
-  "spice")
+  "Spice")
 
 
 (def water-agent
   "A water agent, such as campden tablet."
-  "water agent")
+  "Water Agent")
 
 
 (def misc-types
   "A set of the miscellaneous ingredient types supported by BeerXML.
-   
+
    Currently, BeerXML Supports the following types:
-   
+
    - `spice`: A spice, such as cinnamon or ginger.
    - `fining`: A fining agent, such as isinglass.
    - `water agent`: A water agent, such as campden tablet.
@@ -151,51 +150,57 @@
 
 (spec/def ::type
   (st/spec
-    {:type                :string
-     :spec                (spec/and string?
-                                    #(not (str/blank? %))
-                                    #(contains? misc-types (str/lower-case %)))
-     :gen                 #(spec/gen misc-types)
-     :description         (impl/multiline "A case-insensitive string representing the type of the miscellaneous item added to the beer."
-                                          (impl/set->description misc-types))
-     :json-schema/example "Spice"}))
+   {:type                :string
+    :spec                misc-types
+    :gen                 #(spec/gen misc-types)
+    :description         (impl/multiline
+                          "A case-sensitive string representing the type of the miscellaneous item added to the beer."
+                          (impl/set->description misc-types)
+                          ""
+                          "- Fining: A fining agent, such as isinglass."
+                          "- Flavor: A flavoring, such as orange peel or a flavor concentrate."
+                          "- Herb: An herb, such as mint."
+                          "- Other: Any other type of miscellaneous ingredient."
+                          "- Spice: A spice, such as cinnamon or ginger."
+                          "- Water Agent: A water agent, such as campden tablet.")
+    :json-schema/example "Spice"}))
 
 
 (def boil
   "The ingredient is added to the boil."
-  "boil")
+  "Boil")
 
 
 (def mash
   "The ingredient is added to the mash."
-  "mash")
+  "Mash")
 
 
 (def primary
   "The ingredient is added to the primary fermentation."
-  "primary")
+  "Primary")
 
 
 (def secondary
   "The ingredient is added to the secondary fermentation."
-  "secondary")
+  "Secondary")
 
 
 (def bottling
   "The ingredient is added to the bottling process."
-  "bottling")
+  "Bottling")
 
 
 (def misc-uses
   "A set of the miscellaneous ingredient uses supported by BeerXML.
-   
+
    Currently, BeerXML supports the following uses:
-   
+
    - `boil`: The ingredient is added to the boil.
    - `mash`: The ingredient is added to the mash.
    - `primary`: The ingredient is added to the primary fermentation.
    - `secondary`: The ingredient is added to the secondary fermentation.
-   - `bottling`: The ingredient is added to the bottling process."
+   - `bottling`: The ingredient is added during the bottling process."
   #{boil
     mash
     primary
@@ -205,26 +210,31 @@
 
 (spec/def ::use
   (st/spec
-    {:type                :string
-     :spec                (spec/and string?
-                                    #(not (str/blank? %))
-                                    #(contains? misc-uses (str/lower-case %)))
-     :gen                 #(spec/gen misc-uses)
-     :description         (impl/multiline
-                            "A case-insensitive string representing the point in the brewing cycle the miscellaneous ingredient is added to the beer."
-                            (impl/set->description misc-uses))
-     :json-schema/example "Mash"}))
+   {:type                :string
+    :spec                misc-uses
+    :gen                 #(spec/gen misc-uses)
+    :description         (impl/multiline
+                          "A case-sensitive string representing the point in the brewing cycle the miscellaneous ingredient is added to the beer."
+                          (impl/set->description misc-uses)
+                          ""
+                          "- Boil: The ingredient is added to the boil."
+                          "- Mash: The ingredient is added to the mash."
+                          "- Primary: The ingredient is added to the primary fermentation."
+                          "- Secondary: The ingredient is added to the secondary fermentation."
+                          "- Bottling: The ingredient is added during the bottling process.")
+    :json-schema/example "Mash"}))
 
 
 (spec/def ::time
   (st/spec
-    {:type                :double
-     :spec                ::prim/minute
-     :description         (impl/multiline "A non-negative IEEE-754 floating point number representing the time in minutes the ingredient was added dependant on the :use field."
-                                          "For \"Boil\" this is the boil time."
-                                          "For \"Mash\" this is the mash time."
-                                          "For \"Primary\", \"Secondary\", and \"Bottling\" this is the amount of time the ingredient spent in that state.")
-     :json-schema/example "15.0"}))
+   {:type                :double
+    :spec                ::prim/minute
+    :description         (impl/multiline
+                          "A non-negative IEEE-754 floating point number representing the time in minutes the ingredient was added dependant on the :use field."
+                          "For \"Boil\" this is the boil time."
+                          "For \"Mash\" this is the mash time."
+                          "For \"Primary\", \"Secondary\", and \"Bottling\" this is the amount of time the ingredient spent in that state.")
+    :json-schema/example "15.0"}))
 
 
 (spec/def ::use-for
@@ -237,40 +247,46 @@
 
 (spec/def ::misc
   (st/spec
-    {:type        :map
-     :description "A record representing a miscellaneous ingredient in a beer recipe."
-     :spec        (spec/keys :req-un [::prim/name
-                                      ::prim/version
-                                      ::type
-                                      ::use
-                                      ::time
-                                      ::prim/amount]
-                             :opt-un [::prim/amount-is-weight
-                                      ::use-for
-                                      ::prim/notes
-                                      ::prim/display-amount
-                                      ::prim/inventory
-                                      ::prim/display-time])}))
+    {:type                 :map
+     impl/display-name-key "Miscellaneous Ingredient"
+     :description          "A record representing a miscellaneous ingredient in a beer recipe."
+     :spec                 (spec/keys :req-un [::prim/name
+                                               ::prim/version
+                                               ::type
+                                               ::use
+                                               ::time
+                                               ::prim/amount]
+                                      :opt-un [::prim/amount-is-weight
+                                               ::use-for
+                                               ::prim/notes
+                                               ::prim/display-amount
+                                               ::prim/inventory
+                                               ::prim/display-time])}))
 
 
 (spec/def ::misc-wrapper
   (st/spec
-    {:type        :map
-     :description "A ::misc record wrapped in a :misc map."
-     :spec        (spec/keys :req-un [::misc])}))
+    {:type                 :map
+     impl/display-name-key "Miscellaneous Ingredient Wrapper"
+     impl/wrapper-spec-key true
+     :description          "A `::misc` record wrapped in a `:misc` map."
+     :spec                 (spec/keys :req-un [::misc])}))
 
 
 (spec/def ::miscs
   (st/spec
-    {:type          :vector
-     :description   "A vector of valid ::misc records."
-     :spec          (spec/coll-of ::misc-wrapper :into [] :kind vector?)
-     :decode/string #(impl/decode-sequence %1 ::misc-wrapper %2)
-     :encode/string #(impl/encode-sequence %1 ::misc-wrapper %2)}))
+    {:type                 :vector
+     impl/display-name-key "Miscellaneous Ingredients"
+     :description          "A vector of valid `::misc` records."
+     :spec                 (spec/coll-of ::misc-wrapper :into [] :kind vector?)
+     :decode/string        #(impl/decode-sequence %1 ::misc-wrapper %2)
+     :encode/string        #(impl/encode-sequence %1 ::misc-wrapper %2)}))
 
 
 (spec/def ::miscs-wrapper
   (st/spec
-    {:type        :map
-     :description "A ::miscs record."
-     :spec        (spec/keys :req-un [::miscs])}))
+    {:type                 :map
+     impl/display-name-key "Miscellaneous Ingredients Wrapper"
+     impl/wrapper-spec-key true
+     :description          "A `::miscs` record."
+     :spec                 (spec/keys :req-un [::miscs])}))

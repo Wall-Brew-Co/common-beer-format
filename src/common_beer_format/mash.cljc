@@ -2,7 +2,6 @@
   "The definition of mash steps and the mash profile records used in BeerXML."
   {:added "2.0"}
   (:require [clojure.spec.alpha :as spec]
-            [clojure.string :as str]
             [common-beer-format.impl :as impl]
             [common-beer-format.primitives :as prim]
             [spec-tools.core :as st])
@@ -97,17 +96,17 @@
 
 (def decoction
   "A mash step where the fermentable ingredients are boiled and then returned to the mash tun."
-  "decoction")
+  "Decoction")
 
 
 (def infusion
   "A mash step where fermentable ingredients steep in water at a specific temperature."
-  "infusion")
+  "Infusion")
 
 
 (def temperature
   "A mash step where the temperature of the mash is held at a specific temperature for a specific time by an external source."
-  "temperature")
+  "Temperature")
 
 
 (def mash-step-types
@@ -126,11 +125,9 @@
 (spec/def ::type
   (st/spec
     {:type                :string
-     :spec                (spec/and string?
-                                    #(not (str/blank? %))
-                                    #(contains? mash-step-types (str/lower-case %)))
+     :spec                mash-step-types
      :gen                 #(spec/gen mash-step-types)
-     :description         (impl/multiline "A case-insensitive string representing the type of mash step."
+     :description         (impl/multiline "A case-sensitive string representing the type of mash step."
                                           (impl/set->description mash-step-types)
                                           ""
                                           "- Decoction: A mash step where the fermentable ingredients are boiled and then returned to the mash tun."
@@ -364,10 +361,11 @@
 
 (spec/def ::ph
   (st/spec
-    {:type                :double
-     :spec                (spec/and number? #(not (neg? %)))
-     :description         "A non-negative IEEE-754 floating point number representing the PH of the water."
-     :json-schema/example "2.5"}))
+    {:type                 :double
+     impl/display-name-key "PH"
+     :spec                 (spec/and number? #(not (neg? %)))
+     :description          "A non-negative IEEE-754 floating point number representing the PH of the water."
+     :json-schema/example  "2.5"}))
 
 
 (spec/def ::tun-weight

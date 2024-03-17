@@ -4,7 +4,7 @@
    cljdoc will use these markdown files to generate the documentation for the common-beer-format library.
    Otherwise, the specs are not easily accessible to the end user.
 
-   This namespace is not intended for public use."
+   This namespace is not intended for public use and is not bundled into the source code."
   {:no-doc true}
   (:require [clojure.java.io :as io]
             [clojure.string :as str]
@@ -13,7 +13,12 @@
             [common-beer-format.fermentables :as fermentables]
             [common-beer-format.hops :as hops]
             [common-beer-format.impl :as impl]
-            [common-beer-format.mash :as mash]))
+            [common-beer-format.mash :as mash]
+            [common-beer-format.miscs :as miscs]
+            [common-beer-format.recipes :as recipes]
+            [common-beer-format.styles :as styles]
+            [common-beer-format.waters :as waters]
+            [common-beer-format.yeasts :as yeasts]))
 
 
 (defn ->capital-sting
@@ -250,6 +255,77 @@
                (map-spec->markdown ::mash/mash-step)
                (map-spec->leaf-spec-markdown ::mash/mash-step)))))
 
+(defn render-miscs-file!
+  "Render the misc specs to a markdown file."
+  []
+  (println "Rendering misc file")
+  (io/make-parents "doc/specs/miscs.md")
+  (spit "doc/specs/miscs.md"
+        (deformat
+          (str "# Misc Records\n\n"
+               (wrapper-spec->markdown ::miscs/miscs-wrapper)
+               (sequence-spec->markdown ::miscs/miscs)
+               (wrapper-spec->markdown ::miscs/misc-wrapper)
+               (map-spec->markdown ::miscs/misc)
+               (map-spec->leaf-spec-markdown ::miscs/misc)))))
+
+(defn render-recipes-file!
+  "Render the recipe specs to a markdown file."
+  []
+  (println "Rendering recipe file")
+  (io/make-parents "doc/specs/recipes.md")
+  (spit "doc/specs/recipes.md"
+        (deformat
+          (str "# Recipe Records\n\n"
+               (wrapper-spec->markdown ::recipes/recipes-wrapper)
+               (sequence-spec->markdown ::recipes/recipes)
+               (wrapper-spec->markdown ::recipes/recipe-wrapper)
+               (map-spec->markdown ::recipes/recipe)
+               (map-spec->leaf-spec-markdown ::recipes/recipe)))))
+
+(defn render-styles-file!
+  "Render the style specs to a markdown file."
+  []
+  (println "Rendering style file")
+  (io/make-parents "doc/specs/styles.md")
+  (spit "doc/specs/styles.md"
+        (deformat
+          (str "# Style Records\n\n"
+               (wrapper-spec->markdown ::styles/styles-wrapper)
+               (sequence-spec->markdown ::styles/styles)
+               (wrapper-spec->markdown ::styles/style-wrapper)
+               (map-spec->markdown ::styles/style)
+               (map-spec->leaf-spec-markdown ::styles/style)))))
+
+(defn render-waters-file!
+  "Render the water specs to a markdown file."
+  []
+  (println "Rendering water file")
+  (io/make-parents "doc/specs/water.md")
+  (spit "doc/specs/water.md"
+        (deformat
+          (str "# Water Records\n\n"
+               (wrapper-spec->markdown ::waters/waters-wrapper)
+               (sequence-spec->markdown ::waters/waters)
+               (wrapper-spec->markdown ::waters/water-wrapper)
+               (map-spec->markdown ::waters/water)
+               (map-spec->leaf-spec-markdown ::waters/water)))))
+
+(defn render-yeasts-file!
+  "Render the yeast specs to a markdown file."
+  []
+  (println "Rendering yeast file")
+  (io/make-parents "doc/specs/yeast.md")
+  (spit "doc/specs/yeast.md"
+        (deformat
+          (str "# Yeast Records\n\n"
+               (wrapper-spec->markdown ::yeasts/yeasts-wrapper)
+               (sequence-spec->markdown ::yeasts/yeasts)
+               (wrapper-spec->markdown ::yeasts/yeast-wrapper)
+               (map-spec->markdown ::yeasts/yeast)
+               (map-spec->leaf-spec-markdown ::yeasts/yeast)))))
+
+
 #_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
 (defn render-specs!
   "Render all the specs to markdown files."
@@ -257,4 +333,9 @@
   (render-equipment-file!)
   (render-fermentables-file!)
   (render-hop-file!)
-  (render-mash-file!))
+  (render-mash-file!)
+  (render-miscs-file!)
+  (render-recipes-file!)
+  (render-styles-file!)
+  (render-waters-file!)
+  (render-yeasts-file!))

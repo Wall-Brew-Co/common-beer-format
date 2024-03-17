@@ -2,7 +2,6 @@
   "The definition of a hop record used in BeerXML"
   {:added "2.0"}
   (:require [clojure.spec.alpha :as spec]
-            [clojure.string :as str]
             [common-beer-format.impl :as impl]
             [common-beer-format.primitives :as prim]
             [spec-tools.core :as st])
@@ -149,27 +148,27 @@
 
 (def boil
   "Hops added to the boil."
-  "boil")
+  "Boil")
 
 
 (def dry-hop
   "Hops added to the fermentation vessel after pitching yeast."
-  "dry hop")
+  "Dry Hop")
 
 
 (def mash
   "Hops added to the mash prior to the boil."
-  "mash")
+  "Mash")
 
 
 (def first-wort
   "Hops added to the first wort."
-  "first wort")
+  "First Wort")
 
 
 (def aroma
   "Hops added to the beer for aroma."
-  "aroma")
+  "Aroma")
 
 
 (def hop-uses
@@ -184,11 +183,9 @@
 (spec/def ::use
   (st/spec
     {:type                :string
-     :spec                (spec/and string?
-                                    #(not (str/blank? %))
-                                    #(contains? hop-uses (str/lower-case %)))
+     :spec                hop-uses
      :gen                 #(spec/gen hop-uses)
-     :description         (impl/multiline "A case-insensitive string representing the means by which the hop is added to the beer."
+     :description         (impl/multiline "A case-sensitive string representing the means by which the hop is added to the beer."
                                           (impl/set->description hop-uses)
                                           ""
                                           "- Aroma: Hops added to the beer after the boil. They do not significantly contribute to the bitterness of the beer."
@@ -216,12 +213,12 @@
 
 (def bittering
   "Hops added to the boil for bittering."
-  "bittering")
+  "Bittering")
 
 
 (def both
   "Hops added to the boil for both bittering and aroma."
-  "both")
+  "Both")
 
 
 (def hop-types
@@ -234,11 +231,9 @@
 (spec/def ::type
   (st/spec
     {:type                :string
-     :spec                (spec/and string?
-                                    #(not (str/blank? %))
-                                    #(contains? hop-types (str/lower-case %)))
+     :spec                hop-types
      :gen                 #(spec/gen hop-types)
-     :description         (impl/multiline "A case-insensitive string representing the typical purpose of the hop's addition to a beer."
+     :description         (impl/multiline "A case-sensitive string representing the typical purpose of the hop's addition to a beer."
                                           (impl/set->description hop-types)
                                           ""
                                           "- Bittering: Hops added solely for their bittering properties."
@@ -249,17 +244,17 @@
 
 (def pellet
   "Hops added to the boil in pellet form."
-  "pellet")
+  "Pellet")
 
 
 (def plug
   "Hops added to the boil in plug form."
-  "plug")
+  "Plug")
 
 
 (def leaf
   "Hops added to the boil in whole leaf form."
-  "leaf")
+  "Leaf")
 
 
 (def hop-forms
@@ -272,11 +267,9 @@
 (spec/def ::form
   (st/spec
     {:type                :string
-     :spec                (spec/and string?
-                                    #(not (str/blank? %))
-                                    #(contains? hop-forms (str/lower-case %)))
+     :spec                hop-forms
      :gen                 #(spec/gen hop-forms)
-     :description         (impl/multiline "A case-insensitive string representing the physical form of the hop."
+     :description         (impl/multiline "A case-sensitive string representing the physical form of the hop."
                                           (impl/set->description hop-forms)
                                           ""
                                           "- Pellet: Ground and compressed hop cones."
