@@ -11,7 +11,7 @@
                  [nnichols "1.1.0"]
                  [org.clojure/clojure "1.11.3"]
                  [org.clojure/clojurescript "1.11.132" :scope "provided"]]
-  :plugins [[com.github.clj-kondo/lein-clj-kondo "2024.05.22"]
+  :plugins [[com.github.clj-kondo/lein-clj-kondo "2024.05.24"]
             [com.wallbrew/lein-sealog "1.6.0"]
             [lein-cljsbuild "1.1.8"]
             [lein-cloverage "1.2.4"]
