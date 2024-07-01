@@ -7,7 +7,7 @@
             :comments     "Same-as all Wall-Brew projects."}
   :scm {:name "git"
         :url  "https://github.com/Wall-Brew-Co/common-beer-format"}
-  :dependencies [[metosin/spec-tools "0.10.6"]
+  :dependencies [[metosin/spec-tools "0.10.7"]
                  [nnichols "1.1.0"]
                  [org.clojure/clojure "1.11.3"]
                  [org.clojure/clojurescript "1.11.132" :scope "provided"]]
