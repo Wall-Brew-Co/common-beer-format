@@ -9,7 +9,7 @@
         :url  "https://github.com/Wall-Brew-Co/common-beer-format"}
   :dependencies [[metosin/spec-tools "0.10.7"]
                  [nnichols "1.1.0"]
-                 [org.clojure/clojure "1.11.3"]
+                 [org.clojure/clojure "1.11.4"]
                  [org.clojure/clojurescript "1.11.132" :scope "provided"]]
   :plugins [[com.github.clj-kondo/lein-clj-kondo "2024.08.01"]
             [com.wallbrew/lein-sealog "1.6.0"]
