@@ -1,28 +1,30 @@
-(defproject com.wallbrew/common-beer-format "2.3.0"
+(defproject com.wallbrew/common-beer-format "2.4.0"
   :description "An implementation of the BeerXML spec in multiple formats."
   :url "https://github.com/Wall-Brew-Co/common-beer-format"
   :license {:name         "MIT"
             :url          "https://opensource.org/licenses/MIT"
             :distribution :repo
-            :comments     "Same-as all Wall-Brew projects."}
+            :comments     "Same-as all Wall-Brew projects"}
   :scm {:name "git"
         :url  "https://github.com/Wall-Brew-Co/common-beer-format"}
+  :pom-addition [:organization
+                 [:name "Wall Brew Co."]
+                 [:url "https://wallbrew.com"]]
   :dependencies [[metosin/spec-tools "0.10.7"]
-                 [nnichols "1.1.0"]
+                 [nnichols/nnichols "1.1.0"]
                  [org.clojure/clojure "1.12.0"]
                  [org.clojure/clojurescript "1.11.132" :scope "provided"]]
   :plugins [[com.github.clj-kondo/lein-clj-kondo "2024.08.29"]
+            [com.wallbrew/bouncer "1.0.0"]
             [com.wallbrew/lein-sealog "1.6.0"]
-            [lein-cljsbuild "1.1.8"]
-            [lein-cloverage "1.2.4"]
-            [lein-project-version "0.1.0"]
+            [lein-cljsbuild/lein-cljsbuild "1.1.8"]
             [mvxcvi/cljstyle "0.16.630"]]
   :profiles {:uberjar {:aot :all}
              :dev     {:dependencies [[com.wallbrew/clj-xml "1.9.1"]
                                       [com.wallbrew/spoon "1.2.3"]
-                                      [doo "0.1.11"]
+                                      [doo/doo "0.1.11"]
                                       [org.clojure/data.json "2.5.0"]]
-                       :plugins      [[lein-doo "0.1.11"]]}
+                       :plugins      [[lein-doo/lein-doo "0.1.11"]]}
              :export  {:source-paths ["src" "dev"]}}
   :deploy-branches ["master"]
   :deploy-repositories [["clojars" {:url           "https://clojars.org/repo"
