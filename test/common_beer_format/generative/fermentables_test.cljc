@@ -1,7 +1,6 @@
 (ns common-beer-format.generative.fermentables-test
-  (:require #? (:clj  [clojure.test :refer [deftest is testing]])
-            #? (:cljs [cljs.test    :refer-macros [deftest is testing]])
-            [clojure.spec.alpha :as spec]
+  (:require [clojure.spec.alpha :as spec]
+            [clojure.test :refer [deftest is testing]]
             [com.wallbrew.spoon.spec :as spoon.spec]
             [common-beer-format.fermentables :as fermentables]
             [common-beer-format.generative.util :as gen]

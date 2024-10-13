@@ -1,5 +1,6 @@
 (ns common-beer-format.generative.recipes-test
   (:require [clojure.spec.alpha :as spec]
+            [clojure.test :refer [deftest is testing]]
             [com.wallbrew.spoon.spec :as spoon.spec]
             [common-beer-format.generative.equipment-test :as equipment]
             [common-beer-format.generative.fermentables-test :as fermentables]
@@ -10,9 +11,7 @@
             [common-beer-format.generative.util :as gen]
             [common-beer-format.generative.waters-test :as waters]
             [common-beer-format.generative.yeasts-test :as yeasts]
-            [common-beer-format.recipes :as recipes]
-            #? (:clj  [clojure.test :refer [deftest is testing]])
-            #? (:cljs [cljs.test    :refer-macros [deftest is testing]])))
+            [common-beer-format.recipes :as recipes]))
 
 
 (deftest data-requirement-test
@@ -356,4 +355,3 @@
                    recipes/recipe)))
     (is (= {}
            (dissoc sample-recipes-wrapper recipes/recipes)))))
-

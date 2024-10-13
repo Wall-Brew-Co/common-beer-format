@@ -1,11 +1,10 @@
 (ns common-beer-format.generative.mash-test
   (:require [clojure.spec.alpha :as spec]
+            [clojure.test :refer [deftest is testing]]
             [com.wallbrew.spoon.spec :as spoon.spec]
             [common-beer-format.generative.util :as gen]
             [common-beer-format.mash :as mash]
-            [common-beer-format.primitives :as primitives]
-            #? (:clj  [clojure.test :refer [deftest is testing]])
-            #? (:cljs [cljs.test    :refer-macros [deftest is testing]])))
+            [common-beer-format.primitives :as primitives]))
 
 
 (deftest data-requirements-test

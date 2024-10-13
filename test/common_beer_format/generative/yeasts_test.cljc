@@ -1,9 +1,8 @@
 (ns common-beer-format.generative.yeasts-test
-  (:require [com.wallbrew.spoon.spec :as spoon.spec]
+  (:require [clojure.test :refer [deftest is testing]]
+            [com.wallbrew.spoon.spec :as spoon.spec]
             [common-beer-format.generative.util :as gen]
-            [common-beer-format.yeasts :as yeasts]
-            #? (:clj  [clojure.test :refer [deftest is testing]])
-            #? (:cljs [cljs.test    :refer-macros [deftest is testing]])))
+            [common-beer-format.yeasts :as yeasts]))
 
 
 (deftest valid-generators-test

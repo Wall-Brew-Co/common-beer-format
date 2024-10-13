@@ -1,10 +1,9 @@
 (ns common-beer-format.generative.primitives-test
   (:require [clojure.spec.alpha :as spec]
+            [clojure.test :refer [deftest is testing]]
             [com.wallbrew.spoon.spec :as spoon.spec]
             [common-beer-format.generative.util :as gen]
-            [common-beer-format.primitives :as primitives]
-            #? (:clj  [clojure.test :refer [deftest is testing]])
-            #? (:cljs [cljs.test    :refer-macros [deftest is testing]])))
+            [common-beer-format.primitives :as primitives]))
 
 
 (deftest valid-generators-test
@@ -207,4 +206,3 @@
     (is (not (spec/valid? ::primitives/name [])))
     (is (not (spec/valid? ::primitives/name {})))
     (is (not (spec/valid? ::primitives/name #{})))))
-

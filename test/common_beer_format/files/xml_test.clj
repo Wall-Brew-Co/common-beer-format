@@ -1,7 +1,7 @@
 (ns common-beer-format.files.xml-test
   (:require [clj-xml.core :as clj-xml]
             [clojure.string :as str]
-            [clojure.test :refer :all]
+            [clojure.test :refer [deftest is]]
             [com.wallbrew.spoon.spec :as spoon]
             [common-beer-format.core :as cbf]
             [common-beer-format.equipment :as equipment]
