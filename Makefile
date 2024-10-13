@@ -1,4 +1,4 @@
-
+.PHONY: version/major version/minor version/patch changelog/render
 MAKE = make
 
 # These are the locations of the directories we'll use

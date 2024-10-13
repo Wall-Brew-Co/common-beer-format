@@ -1,8 +1,7 @@
 (ns common-beer-format.impl-test
   (:require [clojure.spec.gen.alpha :as gen.alpha]
-            [common-beer-format.impl :as sut]
-            #? (:clj  [clojure.test :refer [deftest is testing]])
-            #? (:cljs [cljs.test    :refer-macros [deftest is testing]])))
+            [clojure.test :refer [deftest is testing]]
+            [common-beer-format.impl :as sut]))
 
 
 (deftest decode-boolean-test

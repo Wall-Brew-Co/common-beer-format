@@ -1,6 +1,6 @@
 (ns common-beer-format.files.edn-test
   (:require [clojure.edn :as edn]
-            [clojure.test :refer :all]
+            [clojure.test :refer [deftest is]]
             [com.wallbrew.spoon.spec :as spoon]
             [common-beer-format.core :as cbf]
             [common-beer-format.equipment :as equipment]

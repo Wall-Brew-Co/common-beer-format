@@ -1,4 +1,6 @@
 {:comment       "The default configuration for Wall Brew projects."
+ :fixes         {:namespace-sorting {:disabled false
+                                     :reason   "Namespace sorting is required for Wall Brew projects."}}
  :project-rules {:license {:comment  "https://github.com/Wall-Brew-Co/open-source?tab=readme-ov-file#licensing"
                            :disabled false}
                  :plugins {:disabled          false

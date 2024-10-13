@@ -1,5 +1,5 @@
 (ns common-beer-format.generative.util
-  "Utilities for generative tests"
+  "Utilities for generative tests."
   (:require [clojure.spec.alpha :as spec]
             [clojure.spec.gen.alpha :as gen]
             [common-beer-format.core :as cbf]
