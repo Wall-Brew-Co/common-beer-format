@@ -1,0 +1,11 @@
+{:version      {:major 2
+                :minor 4
+                :patch 1}
+ :version-type :semver3
+ :changes      {:added      []
+                :changed    []
+                :deprecated []
+                :removed    []
+                :fixed      ["Eliminated reader macro usage in test files."]
+                :security   []}
+ :timestamp    "2024-10-13T20:27:24.279300267Z"}
