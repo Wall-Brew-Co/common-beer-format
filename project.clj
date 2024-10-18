@@ -34,8 +34,9 @@
 
   :min-lein-version "2.5.3"
 
-  :aliases {"test-build"   ["do" "clean" ["cljsbuild" "once" "test"] ["doo" "once"] ["test"]]
-            "export-specs" ["with-profile" "export" "run" "-m" "common-beer-format.spec-export/render-specs!"]}
+  :aliases {"test-build"    ["do" "clean" ["cljsbuild" "once" "test"] ["doo" "once"] ["test"]]
+            "export-specs"  ["with-profile" "+export" "run" "-m" "common-beer-format.spec-export/render-specs!"]
+            "export-schema" ["with-profile" "+export" "run" "-m" "common-beer-format.json-schema-export/render-specs!"]}
 
   :cljsbuild {:builds [{:id           "test"
                         :source-paths ["src" "test"]

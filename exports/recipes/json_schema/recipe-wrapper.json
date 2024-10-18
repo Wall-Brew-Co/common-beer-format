@@ -1,0 +1,1745 @@
+{
+  "type": "object",
+  "properties": {
+    "recipe": {
+      "type": "object",
+      "properties": {
+        "asst-brewer": {
+          "type": "string",
+          "description": "A non-empty string denoting the name of the assistant brewer.",
+          "example": "Dariusz R. Jakubowski",
+          "title": "common-beer-format.recipes\/asst-brewer"
+        },
+        "display-og": {
+          "type": "string",
+          "description": "A non-empty string denoting a display value for the pre-fermentation gravity formatted for display in arbitrary units.",
+          "example": "1.050sg",
+          "title": "common-beer-format.recipes\/display-og"
+        },
+        "display-age-temp": {
+          "type": "string",
+          "description": "A non-empty string denoting a display value for the temperature of the aging step formatted for display in arbitrary units.",
+          "example": "68F",
+          "title": "common-beer-format.recipes\/display-age-temp"
+        },
+        "priming-sugar-equiv": {
+          "type": "number",
+          "format": "double",
+          "description": "An IEEE-754 floating point number representing the conversion factor to an equivalent amount of corn sugar.",
+          "title": "common-beer-format.recipes\/priming-sugar-equiv",
+          "example": "1.5"
+        },
+        "taste-rating": {
+          "type": "number",
+          "format": "double",
+          "description": "An IEEE-754 floating point number representing the tasting score of the beer.",
+          "title": "common-beer-format.recipes\/taste-rating",
+          "example": "100.0"
+        },
+        "age-temp": {
+          "type": "number",
+          "format": "double",
+          "description": "A non-negative IEEE-754 floating point number representing the temperature in degrees Celsius for bottle aging.",
+          "example": "12.0",
+          "title": "common-beer-format.recipes\/age-temp"
+        },
+        "og": {
+          "allOf": [
+            {
+              "type": "number",
+              "format": "double"
+            },
+            {
+              "minimum": 0,
+              "exclusiveMinimum": true
+            }
+          ],
+          "description": "A non-negative IEEE-754 floating point number representing the pre-fermentation specific gravity of the recipe.",
+          "example": "1.060",
+          "title": "common-beer-format.recipes\/og"
+        },
+        "primary-age": {
+          "type": "number",
+          "format": "double",
+          "description": "A positive IEEE-754 floating point number representing the number of days spent in primary fermentation.",
+          "example": "12.0",
+          "title": "common-beer-format.recipes\/primary-age"
+        },
+        "carbonation-used": {
+          "type": "string",
+          "description": "A non-empty string denoting a display value for the carbonation measures used formatted for display in arbitrary units.",
+          "example": "Kegged at 1.36 atmospheres",
+          "title": "common-beer-format.recipes\/carbonation-used"
+        },
+        "display-primary-temp": {
+          "type": "string",
+          "description": "A non-empty string denoting a display value for the temperature of the primary fermentation step formatted for display in arbitrary units.",
+          "example": "68F",
+          "title": "common-beer-format.recipes\/display-primary-temp"
+        },
+        "age": {
+          "type": "number",
+          "format": "double",
+          "description": "A non-negative IEEE-754 floating point number representing the number of days to bottle age the beer.",
+          "example": "12.0",
+          "title": "common-beer-format.recipes\/age"
+        },
+        "keg-priming-factor": {
+          "type": "number",
+          "format": "double",
+          "description": "An IEEE-754 floating point number representing the conversion factor of sugar needed to prime carbonation in large containers.",
+          "title": "common-beer-format.recipes\/keg-priming-factor",
+          "example": "1.5"
+        },
+        "hops": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "hop": {
+                "type": "object",
+                "properties": {
+                  "origin": {
+                    "type": "string",
+                    "description": "A non-empty string denoting the place of origin for a particular ingredient.",
+                    "example": "Nice, France",
+                    "title": "common-beer-format.primitives\/origin"
+                  },
+                  "caryophyllene": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "A non-negative IEEE-754 floating point number representing the percent contents of caryophyllene in the hop.",
+                    "example": "10.7",
+                    "title": "common-beer-format.hops\/caryophyllene"
+                  },
+                  "display-time": {
+                    "type": "string",
+                    "description": "A non-empty string denoting a display value for an amount of time formatted for display in arbitrary units.",
+                    "example": "10 days",
+                    "title": "common-beer-format.primitives\/display-time"
+                  },
+                  "hsi": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "A non-negative IEEE-754 floating point number representing the Hop Stability Index, or percent decay of a hop's alpha acid over six months.",
+                    "example": "2.2",
+                    "title": "common-beer-format.hops\/hsi"
+                  },
+                  "myrcene": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "A non-negative IEEE-754 floating point number representing the percent contents of myrcene in the hop.",
+                    "example": "10.7",
+                    "title": "common-beer-format.hops\/myrcene"
+                  },
+                  "form": {
+                    "description": "A case-sensitive string representing the physical form of the hop.\nMust be one of: \"Pellet\", \"Leaf\", \"Plug\"\n\n- Pellet: Ground and compressed hop cones.\n- Plug: Whole hop cones compressed into plugs.\n- Leaf: Whole hop cones.",
+                    "title": "common-beer-format.hops\/form",
+                    "example": "leaf"
+                  },
+                  "humulene": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "A non-negative IEEE-754 floating point number representing the percent contents of humulene in the hop.",
+                    "example": "10.7",
+                    "title": "common-beer-format.hops\/humulene"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "A non-empty string representing the name of the ingredient.",
+                    "example": "Citra",
+                    "title": "common-beer-format.primitives\/name"
+                  },
+                  "time": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "A non-negative IEEE-754 floating point number representing the time in minutes the hop was added dependant on the `:use` field.\n\n- Boil: this is the boil time.\n- Mash: this is the mash time.\n- First Wort: this is the boil time.\n- Aroma: this is the steep time.\n- Dry Hop: this is the amount of time to dry hop.",
+                    "example": "15.0",
+                    "title": "common-beer-format.hops\/time"
+                  },
+                  "inventory": {
+                    "type": "string",
+                    "description": "A non-empty string denoting a display value for the amount of the ingredient in inventory formatted for display in arbitrary units.",
+                    "example": "100 lbs",
+                    "title": "common-beer-format.primitives\/inventory"
+                  },
+                  "type": {
+                    "description": "A case-sensitive string representing the typical purpose of the hop's addition to a beer.\nMust be one of: \"Both\", \"Aroma\", \"Bittering\"\n\n- Bittering: Hops added solely for their bittering properties.\n- Aroma: Hops added solely for their aromatic properties and flavor.\n- Both: Hops which may be added for both\/either their bittering and\/or aromatic properties.",
+                    "title": "common-beer-format.hops\/type",
+                    "example": "bittering"
+                  },
+                  "amount": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "A value representing the amount of a particular ingredient.\nWhen measuring weight, this is in kilograms.\nWhen measuring volume, this is in liters.",
+                    "example": "12.5",
+                    "title": "common-beer-format.primitives\/amount"
+                  },
+                  "cohumulone": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "A non-negative IEEE-754 floating point number representing the percent contents of cohumulone in the hop.",
+                    "example": "10.7",
+                    "title": "common-beer-format.hops\/cohumulone"
+                  },
+                  "version": {
+                    "description": "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.",
+                    "title": "common-beer-format.primitives\/version",
+                    "example": "1"
+                  },
+                  "alpha": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "A non-negative IEEE-754 floating point number representing the percent contents of alpha acid in the hop.",
+                    "example": "10.7",
+                    "title": "common-beer-format.hops\/alpha"
+                  },
+                  "beta": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "A non-negative IEEE-754 floating point number representing the percent contents of beta acid in the hop.",
+                    "example": "10.7",
+                    "title": "common-beer-format.hops\/beta"
+                  },
+                  "notes": {
+                    "type": "string",
+                    "description": "A non-empty string representing any notes about the subject.",
+                    "example": "A wonderful, zesty aroma",
+                    "title": "common-beer-format.primitives\/notes"
+                  },
+                  "display-amount": {
+                    "type": "string",
+                    "description": "A non-empty string denoting a display value for the amount of the ingredient in a recipe formatted for display in arbitrary units.",
+                    "example": "100 g",
+                    "title": "common-beer-format.primitives\/display-amount"
+                  },
+                  "use": {
+                    "description": "A case-sensitive string representing the means by which the hop is added to the beer.\nMust be one of: \"Mash\", \"Boil\", \"Dry hop\", \"First wort\", \"Aroma\"\n\n- Aroma: Hops added to the beer after the boil. They do not significantly contribute to the bitterness of the beer.\n- Boil: Hops added to the boil for bittering.\n- Dry Hop: Hops added to the fermentation vessel after pitching yeast. They do not significantly contribute to the bitterness of the beer.\n- First Wort: Hops added to first wort prior to the boil.\n- Mash: Hops added to the mash prior to the boil.",
+                    "title": "common-beer-format.hops\/use",
+                    "example": "mash"
+                  },
+                  "substitutes": {
+                    "type": "string",
+                    "description": "A non-empty string denoting ingredients with me bay used in place of those denoted in the record.",
+                    "example": "Citra or Sorachi",
+                    "title": "common-beer-format.primitives\/substitutes"
+                  }
+                },
+                "required": [
+                  "name",
+                  "version",
+                  "alpha",
+                  "amount",
+                  "use",
+                  "time"
+                ],
+                "description": "A record representing a hop in a beer recipe.",
+                "title": "common-beer-format.hops\/hop"
+              }
+            },
+            "required": [
+              "hop"
+            ],
+            "description": "A `::hop` record wrapped in a `:hop` map.",
+            "title": "common-beer-format.hops\/hop-wrapper"
+          },
+          "description": "A vector of valid `::hop-wrapper` records.",
+          "title": "common-beer-format.hops\/hops"
+        },
+        "display-fg": {
+          "type": "string",
+          "description": "A non-empty string denoting a display value for the post-fermentation gravity formatted for display in arbitrary units.",
+          "example": "1.050sg",
+          "title": "common-beer-format.recipes\/display-fg"
+        },
+        "miscs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "misc": {
+                "type": "object",
+                "properties": {
+                  "display-time": {
+                    "type": "string",
+                    "description": "A non-empty string denoting a display value for an amount of time formatted for display in arbitrary units.",
+                    "example": "10 days",
+                    "title": "common-beer-format.primitives\/display-time"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "A non-empty string representing the name of the ingredient.",
+                    "example": "Citra",
+                    "title": "common-beer-format.primitives\/name"
+                  },
+                  "amount-is-weight": {
+                    "description": "A boolean representing if the amount of the substance is measured in kilograms.\nWhen absent, assume false and that the amount of substance is measured in liters.",
+                    "example": "false",
+                    "title": "common-beer-format.primitives\/amount-is-weight"
+                  },
+                  "use-for": {
+                    "type": "string",
+                    "description": "A non-empty string denoting what the ingredient is used for.",
+                    "example": "Used to impart a mild, zesty flavor",
+                    "title": "common-beer-format.miscs\/use-for"
+                  },
+                  "time": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "A non-negative IEEE-754 floating point number representing the time in minutes the ingredient was added dependant on the `:use` field.\nFor \"Boil\" this is the boil time.\nFor \"Mash\" this is the mash time.\nFor \"Primary\", \"Secondary\", and \"Bottling\" this is the amount of time the ingredient spent in that state.",
+                    "example": "15.0",
+                    "title": "common-beer-format.miscs\/time"
+                  },
+                  "inventory": {
+                    "type": "string",
+                    "description": "A non-empty string denoting a display value for the amount of the ingredient in inventory formatted for display in arbitrary units.",
+                    "example": "100 lbs",
+                    "title": "common-beer-format.primitives\/inventory"
+                  },
+                  "type": {
+                    "description": "A case-sensitive string representing the type of the miscellaneous item added to the beer.\nMust be one of: \"Flavor\", \"Spice\", \"Water agent\", \"Fining\", \"Other\", \"Herb\"\n\n- Fining: A fining agent, such as isinglass.\n- Flavor: A flavoring, such as orange peel or a flavor concentrate.\n- Herb: An herb, such as mint.\n- Other: Any other type of miscellaneous ingredient.\n- Spice: A spice, such as cinnamon or ginger.\n- Water Agent: A water agent, such as campden tablet.",
+                    "title": "common-beer-format.miscs\/type",
+                    "example": "Spice"
+                  },
+                  "amount": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "A value representing the amount of a particular ingredient.\nWhen measuring weight, this is in kilograms.\nWhen measuring volume, this is in liters.",
+                    "example": "12.5",
+                    "title": "common-beer-format.primitives\/amount"
+                  },
+                  "version": {
+                    "description": "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.",
+                    "title": "common-beer-format.primitives\/version",
+                    "example": "1"
+                  },
+                  "notes": {
+                    "type": "string",
+                    "description": "A non-empty string representing any notes about the subject.",
+                    "example": "A wonderful, zesty aroma",
+                    "title": "common-beer-format.primitives\/notes"
+                  },
+                  "display-amount": {
+                    "type": "string",
+                    "description": "A non-empty string denoting a display value for the amount of the ingredient in a recipe formatted for display in arbitrary units.",
+                    "example": "100 g",
+                    "title": "common-beer-format.primitives\/display-amount"
+                  },
+                  "use": {
+                    "description": "A case-sensitive string representing the point in the brewing cycle the miscellaneous ingredient is added to the beer.\nMust be one of: \"Mash\", \"Boil\", \"Bottling\", \"Secondary\", \"Primary\"\n\n- Boil: The ingredient is added to the boil.\n- Mash: The ingredient is added to the mash.\n- Primary: The ingredient is added to the primary fermentation.\n- Secondary: The ingredient is added to the secondary fermentation.\n- Bottling: The ingredient is added during the bottling process.",
+                    "title": "common-beer-format.miscs\/use",
+                    "example": "Mash"
+                  }
+                },
+                "required": [
+                  "name",
+                  "version",
+                  "type",
+                  "use",
+                  "time",
+                  "amount"
+                ],
+                "description": "A record representing a miscellaneous ingredient in a beer recipe.",
+                "title": "common-beer-format.miscs\/misc"
+              }
+            },
+            "required": [
+              "misc"
+            ],
+            "description": "A `::misc` record wrapped in a `:misc` map.",
+            "title": "common-beer-format.miscs\/misc-wrapper"
+          },
+          "description": "A vector of valid `::misc` records.",
+          "title": "common-beer-format.miscs\/miscs"
+        },
+        "est-fg": {
+          "type": "string",
+          "description": "A non-empty string describing the calculated estimated final gravity formatted for display in arbitrary units.",
+          "example": "1.050sg",
+          "title": "common-beer-format.recipes\/est-fg"
+        },
+        "carbonation": {
+          "type": "number",
+          "format": "double",
+          "description": "An IEEE-754 floating point number representing the carbonation for this recipe in volumes of CO2.",
+          "title": "common-beer-format.recipes\/carbonation",
+          "example": "1.5"
+        },
+        "display-tertiary-temp": {
+          "type": "string",
+          "description": "A non-empty string denoting a display value for the temperature of the tertiary fermentation step formatted for display in arbitrary units.",
+          "example": "68F",
+          "title": "common-beer-format.recipes\/display-tertiary-temp"
+        },
+        "name": {
+          "type": "string",
+          "description": "A non-empty string representing the name of the ingredient.",
+          "example": "Citra",
+          "title": "common-beer-format.primitives\/name"
+        },
+        "tertiary-age": {
+          "type": "number",
+          "format": "double",
+          "description": "A non-negative IEEE-754 floating point number representing the number of days spent in tertiary fermentation.",
+          "example": "12.0",
+          "title": "common-beer-format.recipes\/tertiary-age"
+        },
+        "ibu-method": {
+          "description": "A case-sensitive string representing the method of calculation used derive the IBUs.\nMust be one of: \"Tinseth\", \"Rager\", \"Garetz\"\n\n- Garetz: The Garetz method of IBU calculation.\n- Rager: The Rager method of IBU calculation.\n- Tinseth: The Tinseth method of IBU calculation.",
+          "title": "common-beer-format.recipes\/ibu-method",
+          "example": "Garetz"
+        },
+        "style": {
+          "type": "object",
+          "properties": {
+            "og-range": {
+              "type": "string",
+              "description": "A non-empty string denoting a display value for the range of original gravities formatted for display in arbitrary units.",
+              "example": "1.036sg-1.050sg",
+              "title": "common-beer-format.styles\/og-range"
+            },
+            "display-fg-max": {
+              "type": "string",
+              "description": "A non-empty string denoting a display value for the maximum final gravity formatted for display in arbitrary units.",
+              "example": "1.050sg",
+              "title": "common-beer-format.styles\/display-fg-max"
+            },
+            "og-min": {
+              "allOf": [
+                {
+                  "type": "number",
+                  "format": "double"
+                },
+                {
+                  "minimum": 0,
+                  "exclusiveMinimum": true
+                }
+              ],
+              "description": "A non-negative IEEE-754 floating point number representing the minimum pre-fermentation specific gravity for the style.",
+              "example": "1.048",
+              "title": "common-beer-format.styles\/og-min"
+            },
+            "display-color-min": {
+              "type": "string",
+              "description": "A non-empty string denoting a display value for the minimum color formatted for display in arbitrary units.",
+              "example": "32SRM",
+              "title": "common-beer-format.styles\/display-color-min"
+            },
+            "ibu-max": {
+              "type": "number",
+              "format": "double",
+              "description": "A non-negative IEEE-754 floating point number representing the maximum bitterness in IBUs for the style.",
+              "title": "common-beer-format.styles\/ibu-max",
+              "example": "40"
+            },
+            "carb-max": {
+              "type": "number",
+              "format": "double",
+              "description": "A non-negative IEEE-754 floating point number representing the maximum carbonation for this style in volumes of CO2.",
+              "title": "common-beer-format.styles\/carb-max",
+              "example": "2.2"
+            },
+            "profile": {
+              "type": "string",
+              "description": "A non-empty string denoting the aroma and flavor profile of the style.",
+              "example": "Full-bodied and dark.",
+              "title": "common-beer-format.styles\/profile"
+            },
+            "carb-min": {
+              "type": "number",
+              "format": "double",
+              "description": "A non-negative IEEE-754 floating point number representing the minimum carbonation for this style in volumes of CO2.",
+              "title": "common-beer-format.styles\/carb-min",
+              "example": "1.5"
+            },
+            "abv-max": {
+              "type": "number",
+              "format": "double",
+              "description": "A non-negative IEEE-754 floating point number representing the maximum recommended ABV percentage for the style.",
+              "example": "0.04",
+              "title": "common-beer-format.styles\/abv-max"
+            },
+            "name": {
+              "type": "string",
+              "description": "A non-empty string representing the name of the ingredient.",
+              "example": "Citra",
+              "title": "common-beer-format.primitives\/name"
+            },
+            "display-og-max": {
+              "type": "string",
+              "description": "A non-empty string denoting a display value for the maximum original gravity formatted for display in arbitrary units.",
+              "example": "1.050sg",
+              "title": "common-beer-format.styles\/display-og-max"
+            },
+            "style-letter": {
+              "type": "string",
+              "description": "A non-empty string denoting the letter used to denote the style or sub-style.",
+              "example": "A",
+              "title": "common-beer-format.styles\/style-letter"
+            },
+            "ingredients": {
+              "type": "string",
+              "description": "A non-empty string denoting the suggested ingredients for the style.",
+              "example": "water, barley, and hops.",
+              "title": "common-beer-format.styles\/ingredients"
+            },
+            "color-range": {
+              "type": "string",
+              "description": "A non-empty string denoting a display value for the range of colors formatted for display in arbitrary units.",
+              "example": "10 - 22 SRM",
+              "title": "common-beer-format.styles\/color-range"
+            },
+            "carb-range": {
+              "type": "string",
+              "description": "A non-empty string denoting a display value for the range of carbonation volumes formatted for display in arbitrary units.",
+              "example": "2.0-2.6 vols CO2",
+              "title": "common-beer-format.styles\/carb-range"
+            },
+            "color-max": {
+              "type": "number",
+              "format": "double",
+              "description": "A non-negative IEEE-754 floating point number representing the darkest color in SRM for the style.",
+              "title": "common-beer-format.styles\/color-max",
+              "example": "40"
+            },
+            "category-number": {
+              "type": "string",
+              "description": "A non-empty string denoting the category number of this style.\nThe category number is a string because it can be a letter followed by a number, e.g. 'A1' on some guides.",
+              "example": "1",
+              "title": "common-beer-format.styles\/category-number"
+            },
+            "fg-min": {
+              "allOf": [
+                {
+                  "type": "number",
+                  "format": "double"
+                },
+                {
+                  "minimum": 0,
+                  "exclusiveMinimum": true
+                }
+              ],
+              "description": "A non-negative IEEE-754 floating point number representing the minimum post-fermentation specific gravity for the style.",
+              "example": "1.048",
+              "title": "common-beer-format.styles\/fg-min"
+            },
+            "display-color-max": {
+              "type": "string",
+              "description": "A non-empty string denoting a display value for the maximum color formatted for display in arbitrary units.",
+              "example": "40 SRM",
+              "title": "common-beer-format.styles\/display-color-max"
+            },
+            "fg-max": {
+              "allOf": [
+                {
+                  "type": "number",
+                  "format": "double"
+                },
+                {
+                  "minimum": 0,
+                  "exclusiveMinimum": true
+                }
+              ],
+              "description": "A non-negative IEEE-754 floating point number representing the maximum post-fermentation specific gravity for the style.",
+              "example": "1.060",
+              "title": "common-beer-format.styles\/fg-max"
+            },
+            "ibu-min": {
+              "type": "number",
+              "format": "double",
+              "description": "A non-negative IEEE-754 floating point number representing the minimum bitterness in IBUs for the style.",
+              "title": "common-beer-format.styles\/ibu-min",
+              "example": "32"
+            },
+            "type": {
+              "description": "A case-sensitive string representing the type of beverage the style dictates.\nMust be one of: \"Lager\", \"Cider\", \"Mixed\", \"Mead\", \"Wheat\", \"Ale\"\n\n- Ale: A top-fermented beer with a fruity, hoppy taste and a dry finish.\n- Cider: A fermented beverage made from fruit and water.\n- Lager: A light, bottom-fermented beer with a clean, crisp taste and a smooth finish.\n- Mead: A fermented beverage made from honey and water.\n- Mixed: A beer style that blends two or more styles.\n- Wheat: A beer made with a large proportion of wheat malt.",
+              "title": "common-beer-format.styles\/type",
+              "example": "Lager"
+            },
+            "display-og-min": {
+              "type": "string",
+              "description": "A non-empty string denoting a display value for the minimum original gravity formatted for display in arbitrary units.",
+              "example": "1.036sg",
+              "title": "common-beer-format.styles\/display-og-min"
+            },
+            "display-fg-min": {
+              "type": "string",
+              "description": "A non-empty string denoting a display value for the minimum final gravity formatted for display in arbitrary units.",
+              "example": "1.036sg",
+              "title": "common-beer-format.styles\/display-fg-min"
+            },
+            "version": {
+              "description": "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.",
+              "title": "common-beer-format.primitives\/version",
+              "example": "1"
+            },
+            "fg-range": {
+              "type": "string",
+              "description": "A non-empty string denoting a display value for the range of final gravities formatted for display in arbitrary units.",
+              "example": "1.036sg-1.050sg",
+              "title": "common-beer-format.styles\/fg-range"
+            },
+            "og-max": {
+              "allOf": [
+                {
+                  "type": "number",
+                  "format": "double"
+                },
+                {
+                  "minimum": 0,
+                  "exclusiveMinimum": true
+                }
+              ],
+              "description": "A non-negative IEEE-754 floating point number representing the maximum pre-fermentation specific gravity for the style.",
+              "example": "1.060",
+              "title": "common-beer-format.styles\/og-max"
+            },
+            "category": {
+              "type": "string",
+              "description": "A non-empty string denoting the category this style belongs to.",
+              "example": "American Lagers",
+              "title": "common-beer-format.styles\/category"
+            },
+            "ibu-range": {
+              "type": "string",
+              "description": "A non-empty string denoting a display value for the range of International Bittering Units formatted for display in arbitrary units.",
+              "example": "10-20IBUs",
+              "title": "common-beer-format.styles\/ibu-range"
+            },
+            "notes": {
+              "type": "string",
+              "description": "A non-empty string representing any notes about the subject.",
+              "example": "A wonderful, zesty aroma",
+              "title": "common-beer-format.primitives\/notes"
+            },
+            "color-min": {
+              "type": "number",
+              "format": "double",
+              "description": "A non-negative IEEE-754 floating point number representing the lightest color in SRM for the style.",
+              "title": "common-beer-format.styles\/color-min",
+              "example": "32"
+            },
+            "examples": {
+              "type": "string",
+              "description": "A non-empty string denoting example beers of this style.",
+              "example": "Every overly citrus IPA on the market.",
+              "title": "common-beer-format.styles\/examples"
+            },
+            "abv-min": {
+              "type": "number",
+              "format": "double",
+              "description": "A non-negative IEEE-754 floating point number representing the minimum recommended ABV percentage for the style.",
+              "example": "0.032",
+              "title": "common-beer-format.styles\/abv-min"
+            },
+            "style-guide": {
+              "type": "string",
+              "description": "A non-empty string denoting the name of the style guide the style\/category belongs to.",
+              "example": "BJCP",
+              "title": "common-beer-format.styles\/style-guide"
+            },
+            "abv-range": {
+              "type": "string",
+              "description": "A non-empty string denoting a display value for the range of ABV levels formatted for display in arbitrary units.",
+              "example": "8.0-11.2%",
+              "title": "common-beer-format.styles\/abv-range"
+            }
+          },
+          "required": [
+            "name",
+            "version",
+            "category",
+            "category-number",
+            "style-letter",
+            "style-guide",
+            "type",
+            "og-min",
+            "og-max",
+            "fg-min",
+            "fg-max",
+            "ibu-min",
+            "ibu-max",
+            "color-min",
+            "color-max"
+          ],
+          "description": "A record representing a beer style.",
+          "title": "common-beer-format.styles\/style"
+        },
+        "actual-efficiency": {
+          "type": "number",
+          "format": "double",
+          "description": "A non-negative IEEE-754 floating point number representing the actual conversion efficiency between the measured final and original gravities.",
+          "example": "40.3",
+          "title": "common-beer-format.recipes\/actual-efficiency"
+        },
+        "carbonation-temp": {
+          "type": "number",
+          "format": "double",
+          "description": "An IEEE-754 floating point number representing the temperature in degrees Celsius for either bottling or forced carbonation.",
+          "example": "12.0",
+          "title": "common-beer-format.recipes\/carbonation-temp"
+        },
+        "priming-sugar-name": {
+          "type": "string",
+          "description": "A non-empty string denoting the name of the priming agent used to carbonate the beer.",
+          "example": "Corn Sugar",
+          "title": "common-beer-format.recipes\/priming-sugar-name"
+        },
+        "forced-carbonation": {
+          "description": "A boolean representing if this batch was force carbonated with CO2 pressure.\nWhen absent, assume false.",
+          "example": "false",
+          "title": "common-beer-format.recipes\/forced-carbonation"
+        },
+        "tertiary-temp": {
+          "type": "number",
+          "format": "double",
+          "description": "A non-negative IEEE-754 floating point number representing the temperature in degrees Celsius for tertiary fermentation.",
+          "example": "12.0",
+          "title": "common-beer-format.recipes\/tertiary-temp"
+        },
+        "display-carb-temp": {
+          "type": "string",
+          "description": "A non-empty string denoting a display value for the temperature of the bottling step formatted for display in arbitrary units.",
+          "example": "68F",
+          "title": "common-beer-format.recipes\/display-carb-temp"
+        },
+        "taste-notes": {
+          "type": "string",
+          "description": "A non-empty string denoting any tasting notes.",
+          "example": "A nice, full body and intense mouthfeel",
+          "title": "common-beer-format.recipes\/taste-notes"
+        },
+        "secondary-age": {
+          "type": "number",
+          "format": "double",
+          "description": "A non-negative IEEE-754 floating point number representing the number of days spent in secondary fermentation.",
+          "example": "12.0",
+          "title": "common-beer-format.recipes\/secondary-age"
+        },
+        "est-og": {
+          "type": "string",
+          "description": "A non-empty string describing the calculated estimated original gravity formatted for display in arbitrary units.",
+          "example": "1.050sg",
+          "title": "common-beer-format.recipes\/est-og"
+        },
+        "calories": {
+          "type": "string",
+          "description": "A non-empty string describing the number of dietary calories per serving of this recipe.",
+          "example": "180 Cal \/ pint",
+          "title": "common-beer-format.recipes\/calories"
+        },
+        "abv": {
+          "type": "number",
+          "format": "double",
+          "description": "A non-negative IEEE-754 floating point number representing the actual ABV for the recipe.",
+          "example": "40.2",
+          "title": "common-beer-format.recipes\/abv"
+        },
+        "ibu": {
+          "type": "number",
+          "format": "double",
+          "description": "A positive IEEE-754 floating point number representing the bitterness in IBUs for the recipe.",
+          "example": "40",
+          "title": "common-beer-format.recipes\/ibu"
+        },
+        "waters": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "water": {
+                "type": "object",
+                "properties": {
+                  "calcium": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "A positive IEEE-754 floating point number representing the amount of calcium (Ca) in parts per million.",
+                    "example": "2.5",
+                    "title": "common-beer-format.waters\/calcium"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "A non-empty string representing the name of the ingredient.",
+                    "example": "Citra",
+                    "title": "common-beer-format.primitives\/name"
+                  },
+                  "sulfate": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "A positive IEEE-754 floating point number representing the amount of sulfate (SO4) in parts per million.",
+                    "example": "2.5",
+                    "title": "common-beer-format.waters\/sulfate"
+                  },
+                  "chloride": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "A positive IEEE-754 floating point number representing the amount of chloride (Cl-) in parts per million.",
+                    "example": "2.5",
+                    "title": "common-beer-format.waters\/chloride"
+                  },
+                  "ph": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "A positive IEEE-754 floating point number representing the PH of the water.",
+                    "example": "2.5",
+                    "title": "common-beer-format.waters\/ph"
+                  },
+                  "bicarbonate": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "A positive IEEE-754 floating point number representing the amount of bicarbonate (HCO3) in parts per million.",
+                    "example": "2.5",
+                    "title": "common-beer-format.waters\/bicarbonate"
+                  },
+                  "amount": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "A value representing the amount of a particular ingredient.\nWhen measuring weight, this is in kilograms.\nWhen measuring volume, this is in liters.",
+                    "example": "12.5",
+                    "title": "common-beer-format.primitives\/amount"
+                  },
+                  "version": {
+                    "description": "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.",
+                    "title": "common-beer-format.primitives\/version",
+                    "example": "1"
+                  },
+                  "notes": {
+                    "type": "string",
+                    "description": "A non-empty string representing any notes about the subject.",
+                    "example": "A wonderful, zesty aroma",
+                    "title": "common-beer-format.primitives\/notes"
+                  },
+                  "magnesium": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "A positive IEEE-754 floating point number representing the amount of magnesium (Mg) in parts per million.",
+                    "example": "2.5",
+                    "title": "common-beer-format.waters\/magnesium"
+                  },
+                  "sodium": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "A positive IEEE-754 floating point number representing the amount of sodium (Na) in parts per million.",
+                    "example": "2.5",
+                    "title": "common-beer-format.waters\/sodium"
+                  },
+                  "display-amount": {
+                    "type": "string",
+                    "description": "A non-empty string denoting a display value for the amount of the ingredient in a recipe formatted for display in arbitrary units.",
+                    "example": "100 g",
+                    "title": "common-beer-format.primitives\/display-amount"
+                  }
+                },
+                "required": [
+                  "name",
+                  "version",
+                  "amount",
+                  "calcium",
+                  "bicarbonate",
+                  "sulfate",
+                  "chloride",
+                  "sodium",
+                  "magnesium"
+                ],
+                "description": "A record representing the water in a beer recipe.",
+                "title": "common-beer-format.waters\/water"
+              }
+            },
+            "required": [
+              "water"
+            ],
+            "description": "A `::water` record wrapped in a `:water` map.",
+            "title": "common-beer-format.waters\/water-wrapper"
+          },
+          "description": "A vector of valid `::water` records.",
+          "title": "common-beer-format.waters\/waters"
+        },
+        "est-color": {
+          "type": "string",
+          "description": "A non-empty string describing the calculated color formatted for display in arbitrary units.",
+          "example": "30SRM",
+          "title": "common-beer-format.recipes\/est-color"
+        },
+        "type": {
+          "description": "A case-sensitive string representing the type of recipe.\nMust be one of: \"Partial mash\", \"All grain\", \"Extract\"\n\n- All Grain: A recipe that uses only malted grains.\n- Partial Mash: A recipe that uses a combination of malted grains and malt extract.\n- Extract: A recipe that uses only malt extract.",
+          "title": "common-beer-format.recipes\/type",
+          "example": "All Grain"
+        },
+        "boil-size": {
+          "type": "number",
+          "format": "double",
+          "description": "A non-negative IEEE-754 floating point number representing the starting volume of the wort.",
+          "example": "7.5",
+          "title": "common-beer-format.recipes\/boil-size"
+        },
+        "fg": {
+          "allOf": [
+            {
+              "type": "number",
+              "format": "double"
+            },
+            {
+              "minimum": 0,
+              "exclusiveMinimum": true
+            }
+          ],
+          "description": "A non-negative IEEE-754 floating point number representing the post-fermentation specific gravity of the recipe.",
+          "example": "1.048",
+          "title": "common-beer-format.recipes\/fg"
+        },
+        "version": {
+          "description": "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.",
+          "title": "common-beer-format.primitives\/version",
+          "example": "1"
+        },
+        "display-boil-size": {
+          "type": "string",
+          "description": "A non-empty string denoting a display value for the pre-boil volume formatted for display in arbitrary units.",
+          "example": "5.0 gallons",
+          "title": "common-beer-format.recipes\/display-boil-size"
+        },
+        "fermentables": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "fermentable": {
+                "type": "object",
+                "properties": {
+                  "origin": {
+                    "type": "string",
+                    "description": "A non-empty string denoting the place of origin for a particular ingredient.",
+                    "example": "Nice, France",
+                    "title": "common-beer-format.primitives\/origin"
+                  },
+                  "yield": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "A non-negative IEEE-754 floating point number representing the percent rendered sugar from the fermentable.",
+                    "example": "0.856",
+                    "title": "common-beer-format.fermentables\/yield"
+                  },
+                  "recommend-mash": {
+                    "description": "A boolean representing if the fermentable is recommended to be included in the mashing step.\nOnly appropriate for the 'Grain' or 'Adjunct' types.\nWhen absent, assume false.",
+                    "example": "false",
+                    "title": "common-beer-format.fermentables\/recommend-mash"
+                  },
+                  "moisture": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "A non-negative IEEE-754 floating point number representing the percent moisture in the grain.\nOnly appropriate for the 'Grain' or 'Adjunct' types.",
+                    "example": "45.0",
+                    "title": "common-beer-format.fermentables\/moisture"
+                  },
+                  "coarse-fine-diff": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "A non-negative IEEE-754 floating point number representing the percent difference between the coarse grain yield and fine grain yield.\nOnly appropriate for the 'Grain' or 'Adjunct' types.",
+                    "example": "0.856",
+                    "title": "common-beer-format.fermentables\/coarse-fine-diff"
+                  },
+                  "max-in-batch": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "A non-negative IEEE-754 floating point number representing the suggested maximum percent by weight of the fermentable with respect to all fermentables.",
+                    "example": "1.0",
+                    "title": "common-beer-format.fermentables\/max-in-batch"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "A non-empty string representing the name of the ingredient.",
+                    "example": "Citra",
+                    "title": "common-beer-format.primitives\/name"
+                  },
+                  "diastatic-power": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "A non-negative IEEE-754 floating point number representing the diastatic power of the grain in Lintner units.\nOnly appropriate for the 'Grain' or 'Adjunct' types.",
+                    "title": "common-beer-format.fermentables\/diastatic-power",
+                    "example": "0.65"
+                  },
+                  "add-after-boil": {
+                    "description": "A boolean representing if the fermentable was added after the boil.\nWhen absent, assume false.",
+                    "example": "false",
+                    "title": "common-beer-format.fermentables\/add-after-boil"
+                  },
+                  "inventory": {
+                    "type": "string",
+                    "description": "A non-empty string denoting a display value for the amount of the ingredient in inventory formatted for display in arbitrary units.",
+                    "example": "100 lbs",
+                    "title": "common-beer-format.primitives\/inventory"
+                  },
+                  "type": {
+                    "description": "A case-sensitive string representing the form of the fermentable.\nMust be one of: \"Dry extract\", \"Sugar\", \"Adjunct\", \"Grain\", \"Extract\"\n\n- Adjunct: Non-grain and non-sugar ingredients that are added to the wort that contain fermentable sugars.\n- Dry Extract: Dry extract is a concentrated form of fermentable sugars derived from malted barley.\n- Extract: Extract is a concentrated form of fermentable sugars derived from malted barley in liquid form.\n- Grain: Whole or milled barley, rye, wheat, or other grain.\n- Sugar: Raw, candied, and other natural sources of sugar (e.g. Honey) .)",
+                    "title": "common-beer-format.fermentables\/type",
+                    "example": "grain"
+                  },
+                  "amount": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "A value representing the amount of a particular ingredient.\nWhen measuring weight, this is in kilograms.\nWhen measuring volume, this is in liters.",
+                    "example": "12.5",
+                    "title": "common-beer-format.primitives\/amount"
+                  },
+                  "version": {
+                    "description": "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.",
+                    "title": "common-beer-format.primitives\/version",
+                    "example": "1"
+                  },
+                  "protein": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "A non-negative IEEE-754 floating point number representing the protein contents of the grain.\nOnly appropriate for the 'Grain' or 'Adjunct' types.",
+                    "example": "10.0",
+                    "title": "common-beer-format.fermentables\/protein"
+                  },
+                  "supplier": {
+                    "type": "string",
+                    "description": "A non-empty string denoting the supplier of the fermentable ingredient.",
+                    "example": "Gnome Brew",
+                    "title": "common-beer-format.fermentables\/supplier"
+                  },
+                  "notes": {
+                    "type": "string",
+                    "description": "A non-empty string representing any notes about the subject.",
+                    "example": "A wonderful, zesty aroma",
+                    "title": "common-beer-format.primitives\/notes"
+                  },
+                  "display-color": {
+                    "type": "string",
+                    "description": "A non-empty string denoting a display value for the color of the ingredient formatted for display in arbitrary units.",
+                    "example": "200 Lovibond",
+                    "title": "common-beer-format.fermentables\/display-color"
+                  },
+                  "display-amount": {
+                    "type": "string",
+                    "description": "A non-empty string denoting a display value for the amount of the ingredient in a recipe formatted for display in arbitrary units.",
+                    "example": "100 g",
+                    "title": "common-beer-format.primitives\/display-amount"
+                  },
+                  "ibu-gal-per-lb": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "A non-negative IEEE-754 floating point number representing the IBUs per pound per gallon of water assuming a 60 minute boil.\nOnly appropriate for the 'Extract' type.",
+                    "title": "common-beer-format.fermentables\/ibu-gal-per-lb",
+                    "example": "12.5"
+                  },
+                  "color": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "A non-negative IEEE-754 floating point number representing the color in Lovibond for the grain type, and SRM for all other types for the fermentable.",
+                    "title": "common-beer-format.fermentables\/color",
+                    "example": "32"
+                  },
+                  "potential": {
+                    "allOf": [
+                      {
+                        "type": "number",
+                        "format": "double"
+                      },
+                      {
+                        "minimum": 0,
+                        "exclusiveMinimum": true
+                      }
+                    ],
+                    "description": "A non-negative IEEE-754 floating point number representing the potential yield in specific gravity units of the ingredient.",
+                    "example": "1.048",
+                    "title": "common-beer-format.fermentables\/potential"
+                  }
+                },
+                "required": [
+                  "name",
+                  "version",
+                  "type",
+                  "amount",
+                  "yield",
+                  "color"
+                ],
+                "description": "A record representing a fermentable ingredient in a beer recipe.",
+                "title": "common-beer-format.fermentables\/fermentable"
+              }
+            },
+            "required": [
+              "fermentable"
+            ],
+            "description": "A `::fermentable` record wrapped in a `::fermentable` map.",
+            "title": "common-beer-format.fermentables\/fermentable-wrapper"
+          },
+          "description": "A vector of valid `::fermentable-wrapper` records.",
+          "title": "common-beer-format.fermentables\/fermentables"
+        },
+        "brewer": {
+          "type": "string",
+          "description": "A non-empty string denoting the name of the brewer.",
+          "example": "Nick A. Nichols",
+          "title": "common-beer-format.recipes\/brewer"
+        },
+        "equipment": {
+          "type": "object",
+          "properties": {
+            "display-tun-weight": {
+              "type": "string",
+              "description": "A non-empty string denoting a display value for the empty weight of the mash tun formatted for display in arbitrary units.",
+              "example": "5.5 pounds",
+              "title": "common-beer-format.equipment\/display-tun-weight"
+            },
+            "trub-chiller-loss": {
+              "type": "number",
+              "format": "double",
+              "description": "A non-negative IEEE-754 floating point number representing the volume of wort lost during transition from the boiler to primary fermentation vessel.",
+              "example": "0.1",
+              "title": "common-beer-format.equipment\/trub-chiller-loss"
+            },
+            "tun-volume": {
+              "type": "number",
+              "format": "double",
+              "description": "A non-negative IEEE-754 floating point number representing the volume of the of the mash tun in liters.",
+              "example": "15.0",
+              "title": "common-beer-format.equipment\/tun-volume"
+            },
+            "display-top-up-kettle": {
+              "type": "string",
+              "description": "A non-empty string denoting a display value for the top-up water added to the pre-boil stage of the kettle formatted for display in arbitrary units.",
+              "example": "2.2 liters",
+              "title": "common-beer-format.equipment\/display-top-up-kettle"
+            },
+            "tun-specific-heat": {
+              "type": "number",
+              "format": "double",
+              "description": "A non-negative IEEE-754 floating point number representing the specific heat of the mash tun in Calories per gram-degree Celsius.",
+              "example": "0.2",
+              "title": "common-beer-format.equipment\/tun-specific-heat"
+            },
+            "name": {
+              "type": "string",
+              "description": "A non-empty string representing the name of the ingredient.",
+              "example": "Citra",
+              "title": "common-beer-format.primitives\/name"
+            },
+            "evap-rate": {
+              "type": "number",
+              "format": "double",
+              "description": "A non-negative IEEE-754 floating point number representing the percentage of wort lost to evaporation per hour of the boil.",
+              "example": "1.2",
+              "title": "common-beer-format.equipment\/evap-rate"
+            },
+            "hop-utilization": {
+              "type": "number",
+              "format": "double",
+              "description": "A non-negative IEEE-754 floating point number representing the percentage of large batch hop utilization.",
+              "example": "1.2",
+              "title": "common-beer-format.equipment\/hop-utilization"
+            },
+            "display-trub-chiller-loss": {
+              "type": "string",
+              "description": "A non-empty string denoting a display value for the volume of wort lost in transition between boiler and fermentation vessel formatted for display in arbitrary units.",
+              "example": "2.2 liters",
+              "title": "common-beer-format.equipment\/display-trub-chiller-loss"
+            },
+            "display-lauter-deadspace": {
+              "type": "string",
+              "description": "A non-empty string denoting a display value for the volume of wort lost in the lauter vessel formatted for display in arbitrary units.",
+              "example": "2.2 liters",
+              "title": "common-beer-format.equipment\/display-lauter-deadspace"
+            },
+            "boil-size": {
+              "type": "number",
+              "format": "double",
+              "description": "A non-negative IEEE-754 floating point number representing the pre-boil volume for the equipment setup.",
+              "example": "10.8",
+              "title": "common-beer-format.equipment\/boil-size"
+            },
+            "version": {
+              "description": "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.",
+              "title": "common-beer-format.primitives\/version",
+              "example": "1"
+            },
+            "display-boil-size": {
+              "type": "string",
+              "description": "A non-empty string denoting a display value for the pre-boil volume formatted for display in arbitrary units.",
+              "example": "5.0 gallons",
+              "title": "common-beer-format.equipment\/display-boil-size"
+            },
+            "lauter-deadspace": {
+              "type": "number",
+              "format": "double",
+              "description": "A non-negative IEEE-754 floating point number representing the volume of wort lost to the lauter tun.",
+              "example": "0.1",
+              "title": "common-beer-format.equipment\/lauter-deadspace"
+            },
+            "tun-weight": {
+              "type": "number",
+              "format": "double",
+              "description": "A non-negative IEEE-754 floating point number representing the weight of the of the mash tun in kilograms.",
+              "example": "15.0",
+              "title": "common-beer-format.equipment\/tun-weight"
+            },
+            "batch-size": {
+              "type": "number",
+              "format": "double",
+              "description": "A non-negative IEEE-754 floating point number representing the target volume of the batch at the start of fermentation.",
+              "example": "5.8",
+              "title": "common-beer-format.equipment\/batch-size"
+            },
+            "display-batch-size": {
+              "type": "string",
+              "description": "A non-empty string denoting a display value for the pre-fermentation volume formatted for display in arbitrary units.",
+              "example": "4.5 gallons",
+              "title": "common-beer-format.equipment\/display-batch-size"
+            },
+            "top-up-water": {
+              "type": "number",
+              "format": "double",
+              "description": "A non-negative IEEE-754 floating point number representing the volume of top-up water added before fermentation in liters.",
+              "example": "2.1",
+              "title": "common-beer-format.equipment\/top-up-water"
+            },
+            "boil-time": {
+              "type": "number",
+              "format": "double",
+              "description": "A non-negative IEEE-754 floating point number representing the normal amount of time one boils for this equipment setup. This can be used with the evaporation rate to calculate the evaporation loss.",
+              "example": "15",
+              "title": "common-beer-format.equipment\/boil-time"
+            },
+            "notes": {
+              "type": "string",
+              "description": "A non-empty string representing any notes about the subject.",
+              "example": "A wonderful, zesty aroma",
+              "title": "common-beer-format.primitives\/notes"
+            },
+            "calc-boil-volume": {
+              "description": "A boolean denoting whether or not programs reading this equipment record should calculate the boil size.\nWhen absent, assume false.\nWhen true, then boil-size = `(batch-size - top-up-water - trub-chiller-loss) * (1 + boil-time * evap-rate)`",
+              "example": "TRUE",
+              "title": "common-beer-format.equipment\/calc-boil-volume"
+            },
+            "display-tun-volume": {
+              "type": "string",
+              "description": "A non-empty string denoting a display value for the volume capacity of the mash tun formatted for display in arbitrary units.",
+              "example": "20 liters",
+              "title": "common-beer-format.equipment\/display-tun-volume"
+            },
+            "display-top-up-water": {
+              "type": "string",
+              "description": "A non-empty string denoting a display value for the volume of top-up water added before fermentation formatted for display in arbitrary units.",
+              "example": "2.2 liters",
+              "title": "common-beer-format.equipment\/display-top-up-water"
+            },
+            "top-up-kettle": {
+              "type": "number",
+              "format": "double",
+              "description": "A non-negative IEEE-754 floating point number representing the volume of top-up water added to the boil kettle before the boil begins.",
+              "example": "2.1",
+              "title": "common-beer-format.equipment\/top-up-kettle"
+            }
+          },
+          "required": [
+            "name",
+            "version",
+            "boil-size",
+            "batch-size"
+          ],
+          "description": "A record representing the brewing equipment used in brewing.",
+          "title": "common-beer-format.equipment\/equipment"
+        },
+        "est-abv": {
+          "type": "number",
+          "format": "double",
+          "description": "A non-negative IEEE-754 floating point number representing the estimated ABV for the recipe.",
+          "example": "40.1",
+          "title": "common-beer-format.recipes\/est-abv"
+        },
+        "date": {
+          "type": "string",
+          "description": "A non-empty string denoting the display date the recipe was created on.\nIntentionally implemented as a string type to match BeerXML spec.",
+          "example": "2020\/05\/06",
+          "title": "common-beer-format.recipes\/date"
+        },
+        "batch-size": {
+          "type": "number",
+          "format": "double",
+          "description": "A non-negative IEEE-754 floating point number representing the target final volume of recipe.",
+          "example": "5.8",
+          "title": "common-beer-format.recipes\/batch-size"
+        },
+        "display-batch-size": {
+          "type": "string",
+          "description": "A non-empty string denoting a display value for the pre-fermentation volume formatted for display in arbitrary units.",
+          "example": "4.5 gallons",
+          "title": "common-beer-format.recipes\/display-batch-size"
+        },
+        "secondary-temp": {
+          "type": "number",
+          "format": "double",
+          "description": "A non-negative IEEE-754 floating point number representing the temperature in degrees Celsius for secondary fermentation.",
+          "example": "12.0",
+          "title": "common-beer-format.recipes\/secondary-temp"
+        },
+        "yeasts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "yeast": {
+                "type": "object",
+                "properties": {
+                  "product-id": {
+                    "type": "string",
+                    "description": "A non-empty string denoting the product label or id number that identifies the strain of yeast.",
+                    "example": "WLP008",
+                    "title": "common-beer-format.yeasts\/product-id"
+                  },
+                  "form": {
+                    "description": "A case-sensitive string representing the form of the yeast added to the beer.\nMust be one of: \"Culture\", \"Slant\", \"Dry\", \"Liquid\"\n\n- Liquid: A liquid slurry of yeast, usually with a source of nutrients or sugars.\n- Dry: Dry yeast sold in a dehydrated state to extend shelf life.\n- Slant: Yeast cultivated on a solid growth medium.\n- Culture: Yeast cultivated from previous fermentations.",
+                    "title": "common-beer-format.yeasts\/form",
+                    "example": "Ale"
+                  },
+                  "disp-min-temp": {
+                    "type": "string",
+                    "description": "A non-empty string denoting a display value for the minimum fermentation temperature formatted for display in arbitrary units.",
+                    "example": "68F",
+                    "title": "common-beer-format.yeasts\/disp-min-temp"
+                  },
+                  "add-to-secondary": {
+                    "description": "A boolean representing if this yeast was added for a secondary fermentation.\nWhen absent, assume false.",
+                    "example": "false",
+                    "title": "common-beer-format.yeasts\/add-to-secondary"
+                  },
+                  "max-reuse": {
+                    "allOf": [
+                      {
+                        "type": "integer",
+                        "format": "int64"
+                      },
+                      {
+                        "minimum": 0,
+                        "exclusiveMinimum": true
+                      }
+                    ],
+                    "description": "A non-negative integer representing the suggested maximum number of times the yeast may be harvested and recultured.",
+                    "title": "common-beer-format.yeasts\/max-reuse",
+                    "example": "3"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "A non-empty string representing the name of the ingredient.",
+                    "example": "Citra",
+                    "title": "common-beer-format.primitives\/name"
+                  },
+                  "amount-is-weight": {
+                    "description": "A boolean representing if the amount of the substance is measured in kilograms.\nWhen absent, assume false and that the amount of substance is measured in liters.",
+                    "example": "false",
+                    "title": "common-beer-format.primitives\/amount-is-weight"
+                  },
+                  "culture-date": {
+                    "type": "string",
+                    "description": "A non-empty string denoting a display value for the date the yeast sample was last cultured formatted for display in arbitrary structure.",
+                    "example": "10\/10\/2020",
+                    "title": "common-beer-format.yeasts\/culture-date"
+                  },
+                  "flocculation": {
+                    "description": "A case-sensitive string representing how dense of a floc the yeast will form.\nMust be one of: \"Medium\", \"Very high\", \"High\", \"Low\"\n\n- Low: The yeast settles out of suspension slowly.\n- Medium: The yeast settles out of suspension at a moderate rate.\n- High: The yeast settles out of suspension quickly.\n- Very High: The yeast settles out of suspension very quickly.",
+                    "title": "common-beer-format.yeasts\/flocculation",
+                    "example": "High"
+                  },
+                  "min-temperature": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "An IEEE-754 floating point number representing the minimum recommended temperature of fermentation.",
+                    "example": "19.5",
+                    "title": "common-beer-format.yeasts\/min-temperature"
+                  },
+                  "laboratory": {
+                    "type": "string",
+                    "description": "A non-empty string denoting the laboratory that cultivated the yeast.",
+                    "example": "White Labs",
+                    "title": "common-beer-format.yeasts\/laboratory"
+                  },
+                  "inventory": {
+                    "type": "string",
+                    "description": "A non-empty string denoting a display value for the amount of the ingredient in inventory formatted for display in arbitrary units.",
+                    "example": "100 lbs",
+                    "title": "common-beer-format.primitives\/inventory"
+                  },
+                  "disp-max-temp": {
+                    "type": "string",
+                    "description": "A non-empty string denoting a display value for the maximum fermentation temperature formatted for display in arbitrary units.",
+                    "example": "75F",
+                    "title": "common-beer-format.yeasts\/disp-max-temp"
+                  },
+                  "type": {
+                    "description": "A case-sensitive string representing the type of yeast added to the beer.\nMust be one of: \"Lager\", \"Wheat\", \"Ale\", \"Champagne\", \"Wine\"\n\n- Ale: Yeast that ferments at higher temperatures and produces a more fruity, estery, and alcohol-forward beer.\n- Lager: Yeast that ferments at lower temperatures and produces a crisp, clean, and alcohol-restrained beer.\n- Wheat: Yeast that ferments at higher temperatures and produces a fruity and phenol-forward beer.\n- Wine: Yeast traditionally used in wine making.\n- Champagne: Yeast traditionally used in champagne making, offering a dry taste.",
+                    "title": "common-beer-format.yeasts\/type",
+                    "example": "Ale"
+                  },
+                  "amount": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "A value representing the amount of a particular ingredient.\nWhen measuring weight, this is in kilograms.\nWhen measuring volume, this is in liters.",
+                    "example": "12.5",
+                    "title": "common-beer-format.primitives\/amount"
+                  },
+                  "times-cultured": {
+                    "allOf": [
+                      {
+                        "type": "integer",
+                        "format": "int64"
+                      },
+                      {
+                        "minimum": 0,
+                        "exclusiveMinimum": true
+                      }
+                    ],
+                    "description": "A non-negative integer representing the number of times this yeast has been harvested and re-used.\nA value of zero assumes the yeast came directly from the manufacturer.",
+                    "title": "common-beer-format.yeasts\/times-cultured",
+                    "example": "1"
+                  },
+                  "version": {
+                    "description": "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.",
+                    "title": "common-beer-format.primitives\/version",
+                    "example": "1"
+                  },
+                  "best-for": {
+                    "type": "string",
+                    "description": "A non-empty string denoting the styles of beer this yeast is best suited for.",
+                    "example": "WLP008",
+                    "title": "common-beer-format.yeasts\/best-for"
+                  },
+                  "notes": {
+                    "type": "string",
+                    "description": "A non-empty string representing any notes about the subject.",
+                    "example": "A wonderful, zesty aroma",
+                    "title": "common-beer-format.primitives\/notes"
+                  },
+                  "max-temperature": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "An IEEE-754 floating point number representing the maximum recommended temperature of fermentation.",
+                    "example": "23.9",
+                    "title": "common-beer-format.yeasts\/max-temperature"
+                  },
+                  "display-amount": {
+                    "type": "string",
+                    "description": "A non-empty string denoting a display value for the amount of the ingredient in a recipe formatted for display in arbitrary units.",
+                    "example": "100 g",
+                    "title": "common-beer-format.primitives\/display-amount"
+                  },
+                  "attenuation": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "A positive IEEE-754 floating point number representing the percent of malt sugar that can be converted to ethanol and carbon dioxide.",
+                    "example": "73.2",
+                    "title": "common-beer-format.yeasts\/attenuation"
+                  }
+                },
+                "required": [
+                  "name",
+                  "version",
+                  "type",
+                  "form",
+                  "amount"
+                ],
+                "description": "A record representing the yeast in a beer recipe.",
+                "title": "common-beer-format.yeasts\/yeast"
+              }
+            },
+            "required": [
+              "yeast"
+            ],
+            "description": "A `::yeast` record wrapped in a `:yeast` map.",
+            "title": "common-beer-format.yeasts\/yeast-wrapper"
+          },
+          "description": "A vector of valid `::yeast` records.",
+          "title": "common-beer-format.yeasts\/yeasts"
+        },
+        "boil-time": {
+          "type": "number",
+          "format": "double",
+          "description": "A non-negative IEEE-754 floating point number representing the time in minutes to boil the wort.",
+          "example": "45.0",
+          "title": "common-beer-format.recipes\/boil-time"
+        },
+        "notes": {
+          "type": "string",
+          "description": "A non-empty string representing any notes about the subject.",
+          "example": "A wonderful, zesty aroma",
+          "title": "common-beer-format.primitives\/notes"
+        },
+        "efficiency": {
+          "type": "number",
+          "format": "double",
+          "description": "A non-negative IEEE-754 floating point number representing the percent brewhouse efficiency to be used for estimating the starting gravity of the beer.",
+          "example": "85.6",
+          "title": "common-beer-format.recipes\/efficiency"
+        },
+        "mash": {
+          "type": "object",
+          "properties": {
+            "display-tun-weight": {
+              "type": "string",
+              "description": "A non-empty string denoting a display value for mash tun weight formatted for display in arbitrary units.",
+              "example": "72lbs",
+              "title": "common-beer-format.mash\/display-tun-weight"
+            },
+            "sparge-temp": {
+              "type": "number",
+              "format": "double",
+              "description": "A non-negative IEEE-754 floating point number representing the temperature of the sparge in degrees Celsius.",
+              "example": "50",
+              "title": "common-beer-format.mash\/sparge-temp"
+            },
+            "display-grain-temp": {
+              "type": "string",
+              "description": "A non-empty string denoting a display value for grain temperature formatted for display in arbitrary units.",
+              "example": "72F",
+              "title": "common-beer-format.mash\/display-grain-temp"
+            },
+            "equip-adjust": {
+              "description": "A boolean denoting whether or not programs should account for the temperature effects of the equipment used.\nWhen absent, assume false.",
+              "example": "true",
+              "title": "common-beer-format.mash\/equip-adjust"
+            },
+            "tun-temp": {
+              "type": "number",
+              "format": "double",
+              "description": "A non-negative IEEE-754 floating point number representing the temperature of the grain tun in degrees Celsius.",
+              "example": "80",
+              "title": "common-beer-format.mash\/tun-temp"
+            },
+            "grain-temp": {
+              "type": "number",
+              "format": "double",
+              "description": "A non-negative IEEE-754 floating point number representing the temperature of the grain before adding it to the mash in degrees Celsius.",
+              "example": "80",
+              "title": "common-beer-format.mash\/grain-temp"
+            },
+            "tun-specific-heat": {
+              "type": "number",
+              "format": "double",
+              "description": "A non-negative IEEE-754 floating point number representing the specific heat of the mash tun in Calories per gram-degree Celsius.",
+              "example": "0.2",
+              "title": "common-beer-format.mash\/tun-specific-heat"
+            },
+            "name": {
+              "type": "string",
+              "description": "A non-empty string representing the name of the ingredient.",
+              "example": "Citra",
+              "title": "common-beer-format.primitives\/name"
+            },
+            "mash-steps": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "mash-step": {
+                    "type": "object",
+                    "properties": {
+                      "infuse-amount": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "A non-negative IEEE-754 floating point number representing the volume of water in liters required for an infusion step.",
+                        "example": "5.8",
+                        "title": "common-beer-format.mash\/infuse-amount"
+                      },
+                      "display-infuse-amt": {
+                        "type": "string",
+                        "description": "A non-empty string denoting a display value for the volume of infused liquid formatted for display in arbitrary units.",
+                        "example": "2.2L",
+                        "title": "common-beer-format.mash\/display-infuse-amt"
+                      },
+                      "step-time": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "A non-negative IEEE-754 floating point number representing the time in minutes to spend at this step.",
+                        "example": "45.0",
+                        "title": "common-beer-format.mash\/step-time"
+                      },
+                      "infuse-temp": {
+                        "type": "string",
+                        "description": "A non-empty string denoting a display value for the temperature of an infusion step formatted for display in arbitrary units.",
+                        "example": "150F",
+                        "title": "common-beer-format.mash\/infuse-temp"
+                      },
+                      "display-step-temp": {
+                        "type": "string",
+                        "description": "A non-empty string denoting a display value for the temperature of an arbitrary step formatted for display in arbitrary units.",
+                        "example": "150F",
+                        "title": "common-beer-format.mash\/display-step-temp"
+                      },
+                      "end-temp": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "A non-negative IEEE-754 floating point number representing the temperature of the mash after the step has completed in degrees Celsius.",
+                        "example": "80",
+                        "title": "common-beer-format.mash\/end-temp"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "A non-empty string representing the name of the ingredient.",
+                        "example": "Citra",
+                        "title": "common-beer-format.primitives\/name"
+                      },
+                      "ramp-time": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "A non-negative IEEE-754 floating point number representing the time in minutes to achieve the desired step temperature.",
+                        "example": "45.0",
+                        "title": "common-beer-format.mash\/ramp-time"
+                      },
+                      "type": {
+                        "description": "A case-sensitive string representing the type of mash step.\nMust be one of: \"Decoction\", \"Temperature\", \"Infusion\"\n\n- Decoction: A mash step where the fermentable ingredients are boiled and then returned to the mash tun.\n- Infusion: A mash step where fermentable ingredients steep in water at a specific temperature.\n- Temperature: A mash step where the temperature of the mash is held at a specific temperature for a specific time by an external source.",
+                        "title": "common-beer-format.mash\/type",
+                        "example": "Temperature"
+                      },
+                      "water-grain-ratio": {
+                        "type": "string",
+                        "description": "A non-empty string denoting a display value for the water:grain ratio after infusion formatted for display in arbitrary units.",
+                        "example": "1.5qt\/lb",
+                        "title": "common-beer-format.mash\/water-grain-ratio"
+                      },
+                      "version": {
+                        "description": "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.",
+                        "title": "common-beer-format.primitives\/version",
+                        "example": "1"
+                      },
+                      "decoction-amt": {
+                        "type": "string",
+                        "description": "A non-empty string denoting a display value for the calculated volume of mash to decoct formatted for display in arbitrary units.",
+                        "example": "7.5 liters",
+                        "title": "common-beer-format.mash\/decoction-amt"
+                      },
+                      "step-temp": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "A non-negative IEEE-754 floating point number representing the temperature of the mash step should be performed at in degrees Celsius.",
+                        "example": "80",
+                        "title": "common-beer-format.mash\/step-temp"
+                      },
+                      "description": {
+                        "type": "string",
+                        "description": "A non-empty string describing the mash step.",
+                        "example": "Stir your grain bag carefully at 140F.",
+                        "title": "common-beer-format.mash\/description"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "version",
+                      "type",
+                      "infuse-amount",
+                      "step-temp",
+                      "step-time"
+                    ],
+                    "description": "A record representing a step within the mashing process.",
+                    "title": "common-beer-format.mash\/mash-step"
+                  }
+                },
+                "required": [
+                  "mash-step"
+                ],
+                "description": "A `::mash` record wrapped in a `:mash` map",
+                "title": "common-beer-format.mash\/mash-step-wrapper"
+              },
+              "description": "A `::mash-step` record set.",
+              "title": "common-beer-format.mash\/mash-steps"
+            },
+            "display-sparge-temp": {
+              "type": "string",
+              "description": "A non-empty string denoting a display value for sparging process temperature formatted for display in arbitrary units.",
+              "example": "172F",
+              "title": "common-beer-format.mash\/display-sparge-temp"
+            },
+            "ph": {
+              "type": "number",
+              "format": "double",
+              "description": "A non-negative IEEE-754 floating point number representing the PH of the water.",
+              "example": "2.5",
+              "title": "common-beer-format.mash\/ph"
+            },
+            "version": {
+              "description": "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.",
+              "title": "common-beer-format.primitives\/version",
+              "example": "1"
+            },
+            "tun-weight": {
+              "type": "number",
+              "format": "double",
+              "description": "A non-negative IEEE-754 floating point number representing the weight of the of the mash tun in kilograms.",
+              "example": "15.0",
+              "title": "common-beer-format.mash\/tun-weight"
+            },
+            "notes": {
+              "type": "string",
+              "description": "A non-empty string representing any notes about the subject.",
+              "example": "A wonderful, zesty aroma",
+              "title": "common-beer-format.primitives\/notes"
+            },
+            "display-tun-temp": {
+              "type": "string",
+              "description": "A non-empty string denoting a display value for mash tun temperature formatted for display in arbitrary units.",
+              "example": "72F",
+              "title": "common-beer-format.mash\/display-tun-temp"
+            }
+          },
+          "required": [
+            "name",
+            "version",
+            "grain-temp",
+            "mash-steps"
+          ],
+          "description": "A record representing the mashing process.",
+          "title": "common-beer-format.mash\/mash"
+        },
+        "display-secondary-temp": {
+          "type": "string",
+          "description": "A non-empty string denoting a display value for the temperature of the secondary fermentation step formatted for display in arbitrary units.",
+          "example": "68F",
+          "title": "common-beer-format.recipes\/display-secondary-temp"
+        },
+        "primary-temp": {
+          "type": "number",
+          "format": "double",
+          "description": "A non-negative IEEE-754 floating point number representing the temperature in degrees Celsius for primary fermentation.",
+          "example": "12.0",
+          "title": "common-beer-format.recipes\/primary-temp"
+        },
+        "fermentation-stages": {
+          "allOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "minimum": 0,
+              "exclusiveMinimum": true
+            }
+          ],
+          "description": "An integer representing the number of fermentation stages in the recipe.",
+          "title": "common-beer-format.recipes\/fermentation-stages",
+          "example": "2"
+        }
+      },
+      "required": [
+        "name",
+        "version",
+        "type",
+        "style",
+        "brewer",
+        "batch-size",
+        "boil-size",
+        "boil-time",
+        "hops",
+        "fermentables",
+        "miscs",
+        "yeasts",
+        "waters",
+        "mash"
+      ],
+      "description": "A record representing a beer recipe.",
+      "title": "common-beer-format.recipes\/recipe"
+    }
+  },
+  "required": [
+    "recipe"
+  ],
+  "description": "A `::recipe` record wrapped in a `:recipes` map.",
+  "title": "common-beer-format.recipes\/recipe-wrapper"
+}

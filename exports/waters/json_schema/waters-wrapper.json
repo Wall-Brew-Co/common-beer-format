@@ -1,0 +1,122 @@
+{
+  "type": "object",
+  "properties": {
+    "waters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "water": {
+            "type": "object",
+            "properties": {
+              "calcium": {
+                "type": "number",
+                "format": "double",
+                "description": "A positive IEEE-754 floating point number representing the amount of calcium (Ca) in parts per million.",
+                "example": "2.5",
+                "title": "common-beer-format.waters\/calcium"
+              },
+              "name": {
+                "type": "string",
+                "description": "A non-empty string representing the name of the ingredient.",
+                "example": "Citra",
+                "title": "common-beer-format.primitives\/name"
+              },
+              "sulfate": {
+                "type": "number",
+                "format": "double",
+                "description": "A positive IEEE-754 floating point number representing the amount of sulfate (SO4) in parts per million.",
+                "example": "2.5",
+                "title": "common-beer-format.waters\/sulfate"
+              },
+              "chloride": {
+                "type": "number",
+                "format": "double",
+                "description": "A positive IEEE-754 floating point number representing the amount of chloride (Cl-) in parts per million.",
+                "example": "2.5",
+                "title": "common-beer-format.waters\/chloride"
+              },
+              "ph": {
+                "type": "number",
+                "format": "double",
+                "description": "A positive IEEE-754 floating point number representing the PH of the water.",
+                "example": "2.5",
+                "title": "common-beer-format.waters\/ph"
+              },
+              "bicarbonate": {
+                "type": "number",
+                "format": "double",
+                "description": "A positive IEEE-754 floating point number representing the amount of bicarbonate (HCO3) in parts per million.",
+                "example": "2.5",
+                "title": "common-beer-format.waters\/bicarbonate"
+              },
+              "amount": {
+                "type": "number",
+                "format": "double",
+                "description": "A value representing the amount of a particular ingredient.\nWhen measuring weight, this is in kilograms.\nWhen measuring volume, this is in liters.",
+                "example": "12.5",
+                "title": "common-beer-format.primitives\/amount"
+              },
+              "version": {
+                "description": "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.",
+                "title": "common-beer-format.primitives\/version",
+                "example": "1"
+              },
+              "notes": {
+                "type": "string",
+                "description": "A non-empty string representing any notes about the subject.",
+                "example": "A wonderful, zesty aroma",
+                "title": "common-beer-format.primitives\/notes"
+              },
+              "magnesium": {
+                "type": "number",
+                "format": "double",
+                "description": "A positive IEEE-754 floating point number representing the amount of magnesium (Mg) in parts per million.",
+                "example": "2.5",
+                "title": "common-beer-format.waters\/magnesium"
+              },
+              "sodium": {
+                "type": "number",
+                "format": "double",
+                "description": "A positive IEEE-754 floating point number representing the amount of sodium (Na) in parts per million.",
+                "example": "2.5",
+                "title": "common-beer-format.waters\/sodium"
+              },
+              "display-amount": {
+                "type": "string",
+                "description": "A non-empty string denoting a display value for the amount of the ingredient in a recipe formatted for display in arbitrary units.",
+                "example": "100 g",
+                "title": "common-beer-format.primitives\/display-amount"
+              }
+            },
+            "required": [
+              "name",
+              "version",
+              "amount",
+              "calcium",
+              "bicarbonate",
+              "sulfate",
+              "chloride",
+              "sodium",
+              "magnesium"
+            ],
+            "description": "A record representing the water in a beer recipe.",
+            "title": "common-beer-format.waters\/water"
+          }
+        },
+        "required": [
+          "water"
+        ],
+        "description": "A `::water` record wrapped in a `:water` map.",
+        "title": "common-beer-format.waters\/water-wrapper"
+      },
+      "description": "A vector of valid `::water` records.",
+      "title": "common-beer-format.waters\/waters"
+    }
+  },
+  "required": [
+    "waters"
+  ],
+  "description": "A `::waters-wrapper` record set.",
+  "title": "common-beer-format.waters\/waters-wrapper"
+}

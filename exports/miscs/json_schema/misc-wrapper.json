@@ -1,0 +1,95 @@
+{
+  "type": "object",
+  "properties": {
+    "misc": {
+      "type": "object",
+      "properties": {
+        "display-time": {
+          "type": "string",
+          "description": "A non-empty string denoting a display value for an amount of time formatted for display in arbitrary units.",
+          "example": "10 days",
+          "title": "common-beer-format.primitives\/display-time"
+        },
+        "name": {
+          "type": "string",
+          "description": "A non-empty string representing the name of the ingredient.",
+          "example": "Citra",
+          "title": "common-beer-format.primitives\/name"
+        },
+        "amount-is-weight": {
+          "description": "A boolean representing if the amount of the substance is measured in kilograms.\nWhen absent, assume false and that the amount of substance is measured in liters.",
+          "example": "false",
+          "title": "common-beer-format.primitives\/amount-is-weight"
+        },
+        "use-for": {
+          "type": "string",
+          "description": "A non-empty string denoting what the ingredient is used for.",
+          "example": "Used to impart a mild, zesty flavor",
+          "title": "common-beer-format.miscs\/use-for"
+        },
+        "time": {
+          "type": "number",
+          "format": "double",
+          "description": "A non-negative IEEE-754 floating point number representing the time in minutes the ingredient was added dependant on the `:use` field.\nFor \"Boil\" this is the boil time.\nFor \"Mash\" this is the mash time.\nFor \"Primary\", \"Secondary\", and \"Bottling\" this is the amount of time the ingredient spent in that state.",
+          "example": "15.0",
+          "title": "common-beer-format.miscs\/time"
+        },
+        "inventory": {
+          "type": "string",
+          "description": "A non-empty string denoting a display value for the amount of the ingredient in inventory formatted for display in arbitrary units.",
+          "example": "100 lbs",
+          "title": "common-beer-format.primitives\/inventory"
+        },
+        "type": {
+          "description": "A case-sensitive string representing the type of the miscellaneous item added to the beer.\nMust be one of: \"Flavor\", \"Spice\", \"Water agent\", \"Fining\", \"Other\", \"Herb\"\n\n- Fining: A fining agent, such as isinglass.\n- Flavor: A flavoring, such as orange peel or a flavor concentrate.\n- Herb: An herb, such as mint.\n- Other: Any other type of miscellaneous ingredient.\n- Spice: A spice, such as cinnamon or ginger.\n- Water Agent: A water agent, such as campden tablet.",
+          "title": "common-beer-format.miscs\/type",
+          "example": "Spice"
+        },
+        "amount": {
+          "type": "number",
+          "format": "double",
+          "description": "A value representing the amount of a particular ingredient.\nWhen measuring weight, this is in kilograms.\nWhen measuring volume, this is in liters.",
+          "example": "12.5",
+          "title": "common-beer-format.primitives\/amount"
+        },
+        "version": {
+          "description": "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.",
+          "title": "common-beer-format.primitives\/version",
+          "example": "1"
+        },
+        "notes": {
+          "type": "string",
+          "description": "A non-empty string representing any notes about the subject.",
+          "example": "A wonderful, zesty aroma",
+          "title": "common-beer-format.primitives\/notes"
+        },
+        "display-amount": {
+          "type": "string",
+          "description": "A non-empty string denoting a display value for the amount of the ingredient in a recipe formatted for display in arbitrary units.",
+          "example": "100 g",
+          "title": "common-beer-format.primitives\/display-amount"
+        },
+        "use": {
+          "description": "A case-sensitive string representing the point in the brewing cycle the miscellaneous ingredient is added to the beer.\nMust be one of: \"Mash\", \"Boil\", \"Bottling\", \"Secondary\", \"Primary\"\n\n- Boil: The ingredient is added to the boil.\n- Mash: The ingredient is added to the mash.\n- Primary: The ingredient is added to the primary fermentation.\n- Secondary: The ingredient is added to the secondary fermentation.\n- Bottling: The ingredient is added during the bottling process.",
+          "title": "common-beer-format.miscs\/use",
+          "example": "Mash"
+        }
+      },
+      "required": [
+        "name",
+        "version",
+        "type",
+        "use",
+        "time",
+        "amount"
+      ],
+      "description": "A record representing a miscellaneous ingredient in a beer recipe.",
+      "title": "common-beer-format.miscs\/misc"
+    }
+  },
+  "required": [
+    "misc"
+  ],
+  "description": "A `::misc` record wrapped in a `:misc` map.",
+  "title": "common-beer-format.miscs\/misc-wrapper"
+}

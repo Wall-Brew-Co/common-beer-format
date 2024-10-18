@@ -1,0 +1,155 @@
+{
+  "type": "object",
+  "properties": {
+    "origin": {
+      "type": "string",
+      "description": "A non-empty string denoting the place of origin for a particular ingredient.",
+      "example": "Nice, France",
+      "title": "common-beer-format.primitives\/origin"
+    },
+    "yield": {
+      "type": "number",
+      "format": "double",
+      "description": "A non-negative IEEE-754 floating point number representing the percent rendered sugar from the fermentable.",
+      "example": "0.856",
+      "title": "common-beer-format.fermentables\/yield"
+    },
+    "recommend-mash": {
+      "description": "A boolean representing if the fermentable is recommended to be included in the mashing step.\nOnly appropriate for the 'Grain' or 'Adjunct' types.\nWhen absent, assume false.",
+      "example": "false",
+      "title": "common-beer-format.fermentables\/recommend-mash"
+    },
+    "moisture": {
+      "type": "number",
+      "format": "double",
+      "description": "A non-negative IEEE-754 floating point number representing the percent moisture in the grain.\nOnly appropriate for the 'Grain' or 'Adjunct' types.",
+      "example": "45.0",
+      "title": "common-beer-format.fermentables\/moisture"
+    },
+    "coarse-fine-diff": {
+      "type": "number",
+      "format": "double",
+      "description": "A non-negative IEEE-754 floating point number representing the percent difference between the coarse grain yield and fine grain yield.\nOnly appropriate for the 'Grain' or 'Adjunct' types.",
+      "example": "0.856",
+      "title": "common-beer-format.fermentables\/coarse-fine-diff"
+    },
+    "max-in-batch": {
+      "type": "number",
+      "format": "double",
+      "description": "A non-negative IEEE-754 floating point number representing the suggested maximum percent by weight of the fermentable with respect to all fermentables.",
+      "example": "1.0",
+      "title": "common-beer-format.fermentables\/max-in-batch"
+    },
+    "name": {
+      "type": "string",
+      "description": "A non-empty string representing the name of the ingredient.",
+      "example": "Citra",
+      "title": "common-beer-format.primitives\/name"
+    },
+    "diastatic-power": {
+      "type": "number",
+      "format": "double",
+      "description": "A non-negative IEEE-754 floating point number representing the diastatic power of the grain in Lintner units.\nOnly appropriate for the 'Grain' or 'Adjunct' types.",
+      "title": "common-beer-format.fermentables\/diastatic-power",
+      "example": "0.65"
+    },
+    "add-after-boil": {
+      "description": "A boolean representing if the fermentable was added after the boil.\nWhen absent, assume false.",
+      "example": "false",
+      "title": "common-beer-format.fermentables\/add-after-boil"
+    },
+    "inventory": {
+      "type": "string",
+      "description": "A non-empty string denoting a display value for the amount of the ingredient in inventory formatted for display in arbitrary units.",
+      "example": "100 lbs",
+      "title": "common-beer-format.primitives\/inventory"
+    },
+    "type": {
+      "description": "A case-sensitive string representing the form of the fermentable.\nMust be one of: \"Dry extract\", \"Sugar\", \"Adjunct\", \"Grain\", \"Extract\"\n\n- Adjunct: Non-grain and non-sugar ingredients that are added to the wort that contain fermentable sugars.\n- Dry Extract: Dry extract is a concentrated form of fermentable sugars derived from malted barley.\n- Extract: Extract is a concentrated form of fermentable sugars derived from malted barley in liquid form.\n- Grain: Whole or milled barley, rye, wheat, or other grain.\n- Sugar: Raw, candied, and other natural sources of sugar (e.g. Honey) .)",
+      "title": "common-beer-format.fermentables\/type",
+      "example": "grain"
+    },
+    "amount": {
+      "type": "number",
+      "format": "double",
+      "description": "A value representing the amount of a particular ingredient.\nWhen measuring weight, this is in kilograms.\nWhen measuring volume, this is in liters.",
+      "example": "12.5",
+      "title": "common-beer-format.primitives\/amount"
+    },
+    "version": {
+      "description": "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.",
+      "title": "common-beer-format.primitives\/version",
+      "example": "1"
+    },
+    "protein": {
+      "type": "number",
+      "format": "double",
+      "description": "A non-negative IEEE-754 floating point number representing the protein contents of the grain.\nOnly appropriate for the 'Grain' or 'Adjunct' types.",
+      "example": "10.0",
+      "title": "common-beer-format.fermentables\/protein"
+    },
+    "supplier": {
+      "type": "string",
+      "description": "A non-empty string denoting the supplier of the fermentable ingredient.",
+      "example": "Gnome Brew",
+      "title": "common-beer-format.fermentables\/supplier"
+    },
+    "notes": {
+      "type": "string",
+      "description": "A non-empty string representing any notes about the subject.",
+      "example": "A wonderful, zesty aroma",
+      "title": "common-beer-format.primitives\/notes"
+    },
+    "display-color": {
+      "type": "string",
+      "description": "A non-empty string denoting a display value for the color of the ingredient formatted for display in arbitrary units.",
+      "example": "200 Lovibond",
+      "title": "common-beer-format.fermentables\/display-color"
+    },
+    "display-amount": {
+      "type": "string",
+      "description": "A non-empty string denoting a display value for the amount of the ingredient in a recipe formatted for display in arbitrary units.",
+      "example": "100 g",
+      "title": "common-beer-format.primitives\/display-amount"
+    },
+    "ibu-gal-per-lb": {
+      "type": "number",
+      "format": "double",
+      "description": "A non-negative IEEE-754 floating point number representing the IBUs per pound per gallon of water assuming a 60 minute boil.\nOnly appropriate for the 'Extract' type.",
+      "title": "common-beer-format.fermentables\/ibu-gal-per-lb",
+      "example": "12.5"
+    },
+    "color": {
+      "type": "number",
+      "format": "double",
+      "description": "A non-negative IEEE-754 floating point number representing the color in Lovibond for the grain type, and SRM for all other types for the fermentable.",
+      "title": "common-beer-format.fermentables\/color",
+      "example": "32"
+    },
+    "potential": {
+      "allOf": [
+        {
+          "type": "number",
+          "format": "double"
+        },
+        {
+          "minimum": 0,
+          "exclusiveMinimum": true
+        }
+      ],
+      "description": "A non-negative IEEE-754 floating point number representing the potential yield in specific gravity units of the ingredient.",
+      "example": "1.048",
+      "title": "common-beer-format.fermentables\/potential"
+    }
+  },
+  "required": [
+    "name",
+    "version",
+    "type",
+    "amount",
+    "yield",
+    "color"
+  ],
+  "description": "A record representing a fermentable ingredient in a beer recipe.",
+  "title": "common-beer-format.fermentables\/fermentable"
+}

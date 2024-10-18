@@ -181,6 +181,13 @@ You can find that data in the [common-beer-data](https://github.com/Wall-Brew-Co
 
 If we've missed an ingredient you'd like to see in common-beer-data, you can fork that repository and open a pull request or [suggest it here.](https://github.com/Wall-Brew-Co/common-beer-data/issues/new?template=data_request.md)
 
+### Alternative Representations
+
+In addition to surfacing clojure.spec definitions for the BeerXML schema, this library also provides exported type/schema information in the following formats:
+
+- [JSON Schema](https://json-schema.org/specification)
+
+
 ## License
 
 Copyright © [Wall Brew Co](https://wallbrew.com/)
