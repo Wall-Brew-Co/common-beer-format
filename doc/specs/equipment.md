@@ -90,7 +90,7 @@ A non-negative IEEE-754 floating point number representing the normal amount of 
 - BeerXML Unit: Minute
 - Clojure Key Name: `:boil-time`
 - Clojure Type: Double
-- Example: `15.0`
+- Example: `15`
 
 ## Calculate Boil Volume
 

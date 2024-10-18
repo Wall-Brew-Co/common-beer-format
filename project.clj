@@ -23,6 +23,7 @@
              :dev     {:dependencies [[com.wallbrew/clj-xml "1.10.0"]
                                       [com.wallbrew/spoon "1.4.0"]
                                       [doo/doo "0.1.11"]
+                                      [mvxcvi/cljstyle "0.16.630"]
                                       [org.clojure/data.json "2.5.0"]]
                        :plugins      [[lein-doo/lein-doo "0.1.11"]]}
              :export  {:source-paths ["src" "dev"]}}
@@ -34,7 +35,8 @@
 
   :min-lein-version "2.5.3"
 
-  :aliases {"test-build"    ["do" "clean" ["cljsbuild" "once" "test"] ["doo" "once"] ["test"]]
+  :aliases {"cljstyle"   ["run" "-m" "cljstyle.main" "fix"]
+            "test-build"    ["do" "clean" ["cljsbuild" "once" "test"] ["doo" "once"] ["test"]]
             "export-specs"  ["with-profile" "+export" "run" "-m" "common-beer-format.spec-export/render-specs!"]
             "export-schema" ["with-profile" "+export" "run" "-m" "common-beer-format.json-schema-export/render-specs!"]}
 

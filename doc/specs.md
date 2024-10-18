@@ -15,6 +15,40 @@ Since it is based on XML, the data shapes and conventions may differ from what C
 This document covers how the BeerXML spec has been translated to clojure.
 There is additional documentation containing examples and explanations of the data fields covered by these specs in files named after each central entity: For example, Hops.
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [General](#general)
+  - [Tag Names](#tag-names)
+  - [Version](#version)
+  - [Non-Standard Fields](#non-standard-fields)
+  - [Data Formats](#data-formats)
+    - [Record Sets](#record-sets)
+    - [Records](#records)
+    - [Percentage](#percentage)
+    - [List / Enumerations](#list--enumerations)
+    - [Text](#text)
+    - [Boolean](#boolean)
+    - [Integer / Long](#integer--long)
+    - [Floating Point](#floating-point)
+  - [Units of Measure](#units-of-measure)
+    - [Weight](#weight)
+    - [Volume](#volume)
+    - [Temperature](#temperature)
+    - [Time](#time)
+    - [Specific Gravity](#specific-gravity)
+    - [Pressure](#pressure)
+      - [Implicit Unit Types](#implicit-unit-types)
+        - [Alcohol Content](#alcohol-content)
+        - [Bitterness](#bitterness)
+        - [Carbonation](#carbonation)
+        - [Color](#color)
+        - [Specific Heat](#specific-heat)
+  - [Optional Extensions](#optional-extensions)
+- [Additional Reading](#additional-reading)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## General
 
 BeerXML's implementation expects separate tags for each datum.

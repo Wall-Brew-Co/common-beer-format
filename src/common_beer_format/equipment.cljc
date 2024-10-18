@@ -145,7 +145,7 @@
      impl/beer-xml-type-key  impl/beer-xml-floating-point
      impl/beer-xml-units-key impl/beer-xml-liter
      :description            "A non-negative IEEE-754 floating point number representing the pre-boil volume for the equipment setup."
-     :json-schema/example    "10.8"}))
+     :json-schema/example    10.8}))
 
 
 (spec/def ::batch-size
@@ -155,7 +155,7 @@
      impl/beer-xml-type-key  impl/beer-xml-floating-point
      impl/beer-xml-units-key impl/beer-xml-liter
      :description            "A non-negative IEEE-754 floating point number representing the target volume of the batch at the start of fermentation."
-     :json-schema/example    "5.8"}))
+     :json-schema/example    5.8}))
 
 
 (spec/def ::tun-volume
@@ -165,7 +165,7 @@
      impl/beer-xml-type-key  impl/beer-xml-floating-point
      impl/beer-xml-units-key impl/beer-xml-liter
      :description            "A non-negative IEEE-754 floating point number representing the volume of the of the mash tun in liters."
-     :json-schema/example    "15.0"}))
+     :json-schema/example    15.0}))
 
 
 (spec/def ::tun-weight
@@ -175,7 +175,7 @@
      impl/beer-xml-type-key  impl/beer-xml-floating-point
      impl/beer-xml-units-key impl/beer-xml-kilogram
      :description            "A non-negative IEEE-754 floating point number representing the weight of the of the mash tun in kilograms."
-     :json-schema/example    "15.0"}))
+     :json-schema/example    15.0}))
 
 
 (spec/def ::tun-specific-heat
@@ -186,7 +186,7 @@
      impl/beer-xml-type-key  impl/beer-xml-floating-point
      impl/beer-xml-units-key impl/beer-xml-calories-per-gram-degree-celsius
      :description            "A non-negative IEEE-754 floating point number representing the specific heat of the mash tun in Calories per gram-degree Celsius."
-     :json-schema/example    "0.2"}))
+     :json-schema/example    0.2}))
 
 
 (spec/def ::top-up-water
@@ -196,7 +196,7 @@
      impl/beer-xml-type-key  impl/beer-xml-floating-point
      impl/beer-xml-units-key impl/beer-xml-liter
      :description            "A non-negative IEEE-754 floating point number representing the volume of top-up water added before fermentation in liters."
-     :json-schema/example    "2.1"}))
+     :json-schema/example    2.1}))
 
 
 (spec/def ::trub-chiller-loss
@@ -206,7 +206,7 @@
      impl/beer-xml-type-key  impl/beer-xml-floating-point
      impl/beer-xml-units-key impl/beer-xml-liter
      :description            "A non-negative IEEE-754 floating point number representing the volume of wort lost during transition from the boiler to primary fermentation vessel."
-     :json-schema/example    "0.1"}))
+     :json-schema/example    0.1}))
 
 
 (spec/def ::evap-rate
@@ -217,7 +217,7 @@
      impl/beer-xml-type-key  impl/beer-xml-percentage
      impl/beer-xml-units-key impl/beer-xml-percent-per-hour
      :description            "A non-negative IEEE-754 floating point number representing the percentage of wort lost to evaporation per hour of the boil."
-     :json-schema/example    "1.2"}))
+     :json-schema/example    1.2}))
 
 
 (spec/def ::boil-time
@@ -227,7 +227,7 @@
      impl/beer-xml-type-key  impl/beer-xml-floating-point
      impl/beer-xml-units-key impl/beer-xml-minute
      :description            "A non-negative IEEE-754 floating point number representing the normal amount of time one boils for this equipment setup. This can be used with the evaporation rate to calculate the evaporation loss."
-     :json-schema/example    "15"}))
+     :json-schema/example    15}))
 
 
 (spec/def ::calc-boil-volume
@@ -238,7 +238,7 @@
      :description           (impl/multiline "A boolean denoting whether or not programs reading this equipment record should calculate the boil size."
                                             "When absent, assume false."
                                             "When true, then boil-size = `(batch-size - top-up-water - trub-chiller-loss) * (1 + boil-time * evap-rate)`")
-     :json-schema/example   "TRUE"
+     :json-schema/example   true
      :decode/string         impl/decode-boolean
      :encode/string         impl/encode-boolean}))
 
@@ -250,7 +250,7 @@
      impl/beer-xml-type-key  impl/beer-xml-floating-point
      impl/beer-xml-units-key impl/beer-xml-liter
      :description            "A non-negative IEEE-754 floating point number representing the volume of wort lost to the lauter tun."
-     :json-schema/example    "0.1"}))
+     :json-schema/example    0.1}))
 
 
 (spec/def ::top-up-kettle
@@ -260,7 +260,7 @@
      impl/beer-xml-type-key  impl/beer-xml-floating-point
      impl/beer-xml-units-key impl/beer-xml-liter
      :description            "A non-negative IEEE-754 floating point number representing the volume of top-up water added to the boil kettle before the boil begins."
-     :json-schema/example    "2.1"}))
+     :json-schema/example    2.1}))
 
 
 (spec/def ::hop-utilization
@@ -269,7 +269,7 @@
      :spec                  ::prim/percent
      impl/beer-xml-type-key impl/beer-xml-percentage
      :description           "A non-negative IEEE-754 floating point number representing the percentage of large batch hop utilization."
-     :json-schema/example   "1.2"}))
+     :json-schema/example   1.2}))
 
 
 (spec/def ::display-boil-size

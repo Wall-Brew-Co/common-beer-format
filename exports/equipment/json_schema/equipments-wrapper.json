@@ -19,14 +19,14 @@
                 "type": "number",
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the volume of wort lost during transition from the boiler to primary fermentation vessel.",
-                "example": "0.1",
+                "example": 0.1,
                 "title": "common-beer-format.equipment\/trub-chiller-loss"
               },
               "tun-volume": {
                 "type": "number",
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the volume of the of the mash tun in liters.",
-                "example": "15.0",
+                "example": 15.0,
                 "title": "common-beer-format.equipment\/tun-volume"
               },
               "display-top-up-kettle": {
@@ -39,7 +39,7 @@
                 "type": "number",
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the specific heat of the mash tun in Calories per gram-degree Celsius.",
-                "example": "0.2",
+                "example": 0.2,
                 "title": "common-beer-format.equipment\/tun-specific-heat"
               },
               "name": {
@@ -52,14 +52,14 @@
                 "type": "number",
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the percentage of wort lost to evaporation per hour of the boil.",
-                "example": "1.2",
+                "example": 1.2,
                 "title": "common-beer-format.equipment\/evap-rate"
               },
               "hop-utilization": {
                 "type": "number",
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the percentage of large batch hop utilization.",
-                "example": "1.2",
+                "example": 1.2,
                 "title": "common-beer-format.equipment\/hop-utilization"
               },
               "display-trub-chiller-loss": {
@@ -78,7 +78,7 @@
                 "type": "number",
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the pre-boil volume for the equipment setup.",
-                "example": "10.8",
+                "example": 10.8,
                 "title": "common-beer-format.equipment\/boil-size"
               },
               "version": {
@@ -96,21 +96,21 @@
                 "type": "number",
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the volume of wort lost to the lauter tun.",
-                "example": "0.1",
+                "example": 0.1,
                 "title": "common-beer-format.equipment\/lauter-deadspace"
               },
               "tun-weight": {
                 "type": "number",
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the weight of the of the mash tun in kilograms.",
-                "example": "15.0",
+                "example": 15.0,
                 "title": "common-beer-format.equipment\/tun-weight"
               },
               "batch-size": {
                 "type": "number",
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the target volume of the batch at the start of fermentation.",
-                "example": "5.8",
+                "example": 5.8,
                 "title": "common-beer-format.equipment\/batch-size"
               },
               "display-batch-size": {
@@ -123,14 +123,14 @@
                 "type": "number",
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the volume of top-up water added before fermentation in liters.",
-                "example": "2.1",
+                "example": 2.1,
                 "title": "common-beer-format.equipment\/top-up-water"
               },
               "boil-time": {
                 "type": "number",
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the normal amount of time one boils for this equipment setup. This can be used with the evaporation rate to calculate the evaporation loss.",
-                "example": "15",
+                "example": 15,
                 "title": "common-beer-format.equipment\/boil-time"
               },
               "notes": {
@@ -141,7 +141,7 @@
               },
               "calc-boil-volume": {
                 "description": "A boolean denoting whether or not programs reading this equipment record should calculate the boil size.\nWhen absent, assume false.\nWhen true, then boil-size = `(batch-size - top-up-water - trub-chiller-loss) * (1 + boil-time * evap-rate)`",
-                "example": "TRUE",
+                "example": true,
                 "title": "common-beer-format.equipment\/calc-boil-volume"
               },
               "display-tun-volume": {
@@ -160,7 +160,7 @@
                 "type": "number",
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the volume of top-up water added to the boil kettle before the boil begins.",
-                "example": "2.1",
+                "example": 2.1,
                 "title": "common-beer-format.equipment\/top-up-kettle"
               }
             },
