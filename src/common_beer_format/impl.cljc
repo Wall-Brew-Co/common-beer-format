@@ -13,6 +13,7 @@
   "A transformer that strips extra keys and values and converts strings to their appropriate types"
   (st/type-transformer st/strip-extra-keys-transformer st/strip-extra-values-transformer st/string-transformer))
 
+
 (defn is-boolean?
   "Returns true iff `x` is a boolean.
    Compatibility extension for older versions of Clojure."
