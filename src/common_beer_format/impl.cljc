@@ -6,7 +6,6 @@
    :no-doc true}
   (:require [clojure.string :as str]
             [clojure.test.check.generators :as gen]
-            [nnichols.parse :as n-parse]
             [spec-tools.core :as st]))
 
 
@@ -15,13 +14,26 @@
   (st/type-transformer st/strip-extra-keys-transformer st/strip-extra-values-transformer st/string-transformer))
 
 
+(defn is-boolean?
+  "Returns true iff `x` is a boolean.
+   Compatibility extension for older versions of Clojure."
+  {:added  "2.6"
+   :no-doc true}
+  [x]
+  #?(:clj  (instance? Boolean x)
+     :cljs (or (true? x)
+               (false? x))))
+
+
 (defn decode-boolean
   "Decode an XML-like Boolean string to an actual boolean."
   {:added    "1.0"
    :no-doc   true
    :see-also ["encode-boolean"]}
   [_spec value]
-  (-> value str n-parse/parse-boolean))
+  (if (boolean? value)
+    value
+    (-> value str str/lower-case parse-boolean)))
 
 
 (defn encode-boolean

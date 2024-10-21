@@ -7,7 +7,9 @@
 (deftest decode-boolean-test
   (testing "Can decode strings into booleans"
     (is (true? (sut/decode-boolean :somearg "true")))
-    (is (false? (sut/decode-boolean :somearg "false")))))
+    (is (false? (sut/decode-boolean :somearg "false")))
+    (is (true? (sut/decode-boolean :somearg true)))
+    (is (false? (sut/decode-boolean :somearg false)))))
 
 
 (deftest encode-boolean-test

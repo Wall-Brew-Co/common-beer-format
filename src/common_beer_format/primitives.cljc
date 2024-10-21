@@ -4,7 +4,6 @@
   (:require [clojure.spec.alpha :as spec]
             [clojure.string :as str]
             [common-beer-format.impl :as impl]
-            [nnichols.predicate :as np]
             [spec-tools.core :as st]))
 
 
@@ -96,7 +95,7 @@
 
 (spec/def ::boolean
   (st/spec
-    {:spec                  np/boolean?
+    {:spec                  impl/is-boolean?
      :description           "A boolean logic value of true or false."
      impl/beer-xml-type-key impl/beer-xml-boolean
      :json-schema/example   false
