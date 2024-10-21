@@ -16,7 +16,7 @@
             "type": "number",
             "format": "double",
             "description": "A non-negative IEEE-754 floating point number representing the percent contents of caryophyllene in the hop.",
-            "example": "10.7",
+            "example": 10.7,
             "title": "common-beer-format.hops\/caryophyllene"
           },
           "display-time": {
@@ -29,14 +29,14 @@
             "type": "number",
             "format": "double",
             "description": "A non-negative IEEE-754 floating point number representing the Hop Stability Index, or percent decay of a hop's alpha acid over six months.",
-            "example": "2.2",
+            "example": 2.2,
             "title": "common-beer-format.hops\/hsi"
           },
           "myrcene": {
             "type": "number",
             "format": "double",
             "description": "A non-negative IEEE-754 floating point number representing the percent contents of myrcene in the hop.",
-            "example": "10.7",
+            "example": 10.7,
             "title": "common-beer-format.hops\/myrcene"
           },
           "form": {
@@ -48,7 +48,7 @@
             "type": "number",
             "format": "double",
             "description": "A non-negative IEEE-754 floating point number representing the percent contents of humulene in the hop.",
-            "example": "10.7",
+            "example": 10.7,
             "title": "common-beer-format.hops\/humulene"
           },
           "name": {
@@ -61,7 +61,7 @@
             "type": "number",
             "format": "double",
             "description": "A non-negative IEEE-754 floating point number representing the time in minutes the hop was added dependant on the `:use` field.\n\n- Boil: this is the boil time.\n- Mash: this is the mash time.\n- First Wort: this is the boil time.\n- Aroma: this is the steep time.\n- Dry Hop: this is the amount of time to dry hop.",
-            "example": "15.0",
+            "example": 15.0,
             "title": "common-beer-format.hops\/time"
           },
           "inventory": {
@@ -86,7 +86,7 @@
             "type": "number",
             "format": "double",
             "description": "A non-negative IEEE-754 floating point number representing the percent contents of cohumulone in the hop.",
-            "example": "10.7",
+            "example": 10.7,
             "title": "common-beer-format.hops\/cohumulone"
           },
           "version": {
@@ -98,14 +98,14 @@
             "type": "number",
             "format": "double",
             "description": "A non-negative IEEE-754 floating point number representing the percent contents of alpha acid in the hop.",
-            "example": "10.7",
+            "example": 10.7,
             "title": "common-beer-format.hops\/alpha"
           },
           "beta": {
             "type": "number",
             "format": "double",
             "description": "A non-negative IEEE-754 floating point number representing the percent contents of beta acid in the hop.",
-            "example": "10.7",
+            "example": 10.7,
             "title": "common-beer-format.hops\/beta"
           },
           "notes": {

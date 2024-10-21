@@ -16,7 +16,7 @@
             "type": "number",
             "format": "double",
             "description": "A non-negative IEEE-754 floating point number representing the temperature of the sparge in degrees Celsius.",
-            "example": "50",
+            "example": 50,
             "title": "common-beer-format.mash\/sparge-temp"
           },
           "display-grain-temp": {
@@ -27,28 +27,28 @@
           },
           "equip-adjust": {
             "description": "A boolean denoting whether or not programs should account for the temperature effects of the equipment used.\nWhen absent, assume false.",
-            "example": "true",
+            "example": true,
             "title": "common-beer-format.mash\/equip-adjust"
           },
           "tun-temp": {
             "type": "number",
             "format": "double",
             "description": "A non-negative IEEE-754 floating point number representing the temperature of the grain tun in degrees Celsius.",
-            "example": "80",
+            "example": 80,
             "title": "common-beer-format.mash\/tun-temp"
           },
           "grain-temp": {
             "type": "number",
             "format": "double",
             "description": "A non-negative IEEE-754 floating point number representing the temperature of the grain before adding it to the mash in degrees Celsius.",
-            "example": "80",
+            "example": 80,
             "title": "common-beer-format.mash\/grain-temp"
           },
           "tun-specific-heat": {
             "type": "number",
             "format": "double",
             "description": "A non-negative IEEE-754 floating point number representing the specific heat of the mash tun in Calories per gram-degree Celsius.",
-            "example": "0.2",
+            "example": 0.2,
             "title": "common-beer-format.mash\/tun-specific-heat"
           },
           "name": {
@@ -69,7 +69,7 @@
                       "type": "number",
                       "format": "double",
                       "description": "A non-negative IEEE-754 floating point number representing the volume of water in liters required for an infusion step.",
-                      "example": "5.8",
+                      "example": 5.8,
                       "title": "common-beer-format.mash\/infuse-amount"
                     },
                     "display-infuse-amt": {
@@ -82,7 +82,7 @@
                       "type": "number",
                       "format": "double",
                       "description": "A non-negative IEEE-754 floating point number representing the time in minutes to spend at this step.",
-                      "example": "45.0",
+                      "example": 45.0,
                       "title": "common-beer-format.mash\/step-time"
                     },
                     "infuse-temp": {
@@ -101,7 +101,7 @@
                       "type": "number",
                       "format": "double",
                       "description": "A non-negative IEEE-754 floating point number representing the temperature of the mash after the step has completed in degrees Celsius.",
-                      "example": "80",
+                      "example": 80,
                       "title": "common-beer-format.mash\/end-temp"
                     },
                     "name": {
@@ -114,7 +114,7 @@
                       "type": "number",
                       "format": "double",
                       "description": "A non-negative IEEE-754 floating point number representing the time in minutes to achieve the desired step temperature.",
-                      "example": "45.0",
+                      "example": 45.0,
                       "title": "common-beer-format.mash\/ramp-time"
                     },
                     "type": {
@@ -143,7 +143,7 @@
                       "type": "number",
                       "format": "double",
                       "description": "A non-negative IEEE-754 floating point number representing the temperature of the mash step should be performed at in degrees Celsius.",
-                      "example": "80",
+                      "example": 80,
                       "title": "common-beer-format.mash\/step-temp"
                     },
                     "description": {
@@ -184,7 +184,7 @@
             "type": "number",
             "format": "double",
             "description": "A non-negative IEEE-754 floating point number representing the PH of the water.",
-            "example": "2.5",
+            "example": 2.5,
             "title": "common-beer-format.mash\/ph"
           },
           "version": {
@@ -196,7 +196,7 @@
             "type": "number",
             "format": "double",
             "description": "A non-negative IEEE-754 floating point number representing the weight of the of the mash tun in kilograms.",
-            "example": "15.0",
+            "example": 15.0,
             "title": "common-beer-format.mash\/tun-weight"
           },
           "notes": {

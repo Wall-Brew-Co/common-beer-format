@@ -10,7 +10,14 @@
     "update-toc": "doctoc . -u --github",
     "markdownlint": "markdownlint '**/*.md' --ignore node_modules --disable MD013 --disable MD024",
     "json-schema/validate/equipment": "ajv validate --strict=false -s exports/equipment/json_schema/equipment-wrapper.json -d resources/json/equipment.json",
-    "json-schema/validate/fermentables": "ajv validate --strict=false --spec=draft2020 -s exports/fermentables/json_schema/fermentables-wrapper.json -d resources/json/fermentables.json"
+    "json-schema/validate/fermentables": "ajv validate --strict=false --spec=draft2020 -s exports/fermentables/json_schema/fermentables-wrapper.json -d resources/json/fermentables.json",
+    "json-schema/validate/hops": "ajv validate --strict=false --spec=draft2020 -s exports/hops/json_schema/hops-wrapper.json -d resources/json/hops.json",
+    "json-schema/validate/mash": "ajv validate --strict=false --spec=draft2020 -s exports/mash/json_schema/mash-wrapper.json -d resources/json/mash.json",
+    "json-schema/validate/miscs": "ajv validate --strict=false --spec=draft2020 -s exports/miscs/json_schema/miscs-wrapper.json -d resources/json/miscs.json",
+    "json-schema/validate/recipes": "ajv validate --strict=false --spec=draft2020 -s exports/recipes/json_schema/recipes-wrapper.json -d resources/json/recipes.json",
+    "json-schema/validate/styles": "ajv validate --strict=false --spec=draft2020 -s exports/styles/json_schema/style-wrapper.json -d resources/json/style.json",
+    "json-schema/validate/waters": "ajv validate --strict=false --spec=draft2020 -s exports/waters/json_schema/waters-wrapper.json -d resources/json/waters.json",
+    "json-schema/validate/yeasts": "ajv validate --strict=false --spec=draft2020 -s exports/yeasts/json_schema/yeasts-wrapper.json -d resources/json/yeasts.json"
   },
   "repository": {
     "type": "git",

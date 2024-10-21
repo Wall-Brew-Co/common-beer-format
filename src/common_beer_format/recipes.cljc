@@ -377,7 +377,7 @@
      impl/beer-xml-type-key  impl/beer-xml-floating-point
      impl/beer-xml-units-key impl/beer-xml-liter
      :description            "A non-negative IEEE-754 floating point number representing the target final volume of recipe."
-     :json-schema/example    "5.8"}))
+     :json-schema/example    5.8}))
 
 
 (spec/def ::boil-size
@@ -387,7 +387,7 @@
      impl/beer-xml-type-key  impl/beer-xml-floating-point
      impl/beer-xml-units-key impl/beer-xml-liter
      :description            "A non-negative IEEE-754 floating point number representing the starting volume of the wort."
-     :json-schema/example    "7.5"}))
+     :json-schema/example    7.5}))
 
 
 (spec/def ::boil-time
@@ -397,7 +397,7 @@
      impl/beer-xml-type-key  impl/beer-xml-floating-point
      impl/beer-xml-units-key impl/beer-xml-minute
      :description            "A non-negative IEEE-754 floating point number representing the time in minutes to boil the wort."
-     :json-schema/example    "45.0"}))
+     :json-schema/example    45.0}))
 
 
 (spec/def ::asst-brewer
@@ -416,7 +416,7 @@
      :spec                  ::prim/percent
      impl/beer-xml-type-key impl/beer-xml-percentage
      :description           "A non-negative IEEE-754 floating point number representing the percent brewhouse efficiency to be used for estimating the starting gravity of the beer."
-     :json-schema/example   "85.6"}))
+     :json-schema/example   85.6}))
 
 
 (spec/def ::taste-notes
@@ -435,7 +435,7 @@
      impl/beer-xml-type-key impl/beer-xml-floating-point
      :gen                   impl/real-double-generator
      :description           "An IEEE-754 floating point number representing the tasting score of the beer."
-     :json-schema/example   "100.0"}))
+     :json-schema/example   100.0}))
 
 
 (spec/def ::og
@@ -446,7 +446,7 @@
      impl/beer-xml-units-key impl/beer-xml-specific-gravity
      impl/display-name-key   "Original Gravity"
      :description            "A non-negative IEEE-754 floating point number representing the pre-fermentation specific gravity of the recipe."
-     :json-schema/example    "1.060"}))
+     :json-schema/example    1.06}))
 
 
 (spec/def ::fg
@@ -457,7 +457,7 @@
      impl/beer-xml-units-key impl/beer-xml-specific-gravity
      impl/display-name-key   "Final Gravity"
      :description            "A non-negative IEEE-754 floating point number representing the post-fermentation specific gravity of the recipe."
-     :json-schema/example    "1.048"}))
+     :json-schema/example    1.048}))
 
 
 (spec/def ::fermentation-stages
@@ -466,7 +466,7 @@
      :spec                  (spec/and integer? pos?)
      impl/beer-xml-type-key impl/beer-xml-integer
      :description           "An integer representing the number of fermentation stages in the recipe."
-     :json-schema/example   "2"}))
+     :json-schema/example   2}))
 
 
 (spec/def ::primary-age
@@ -477,7 +477,7 @@
      impl/beer-xml-units-key impl/beer-xml-day
      :gen                    impl/real-positive-double-generator
      :description            "A positive IEEE-754 floating point number representing the number of days spent in primary fermentation."
-     :json-schema/example    "12.0"}))
+     :json-schema/example    12.0}))
 
 
 (spec/def ::primary-temp
@@ -488,7 +488,7 @@
      impl/beer-xml-units-key impl/beer-xml-degrees-celsius
      impl/display-name-key   "Primary Temperature"
      :description            "A non-negative IEEE-754 floating point number representing the temperature in degrees Celsius for primary fermentation."
-     :json-schema/example    "12.0"}))
+     :json-schema/example    12.0}))
 
 
 (spec/def ::secondary-age
@@ -499,7 +499,7 @@
      impl/beer-xml-units-key impl/beer-xml-day
      :gen                    impl/real-positive-double-generator
      :description            "A non-negative IEEE-754 floating point number representing the number of days spent in secondary fermentation."
-     :json-schema/example    "12.0"}))
+     :json-schema/example    12.0}))
 
 
 (spec/def ::secondary-temp
@@ -510,7 +510,7 @@
      impl/beer-xml-units-key impl/beer-xml-degrees-celsius
      impl/display-name-key   "Secondary Temperature"
      :description            "A non-negative IEEE-754 floating point number representing the temperature in degrees Celsius for secondary fermentation."
-     :json-schema/example    "12.0"}))
+     :json-schema/example    12.0}))
 
 
 (spec/def ::tertiary-age
@@ -521,7 +521,7 @@
      impl/beer-xml-units-key impl/beer-xml-day
      :gen                    impl/real-positive-double-generator
      :description            "A non-negative IEEE-754 floating point number representing the number of days spent in tertiary fermentation."
-     :json-schema/example    "12.0"}))
+     :json-schema/example    12.0}))
 
 
 (spec/def ::tertiary-temp
@@ -532,7 +532,7 @@
      impl/beer-xml-units-key impl/beer-xml-degrees-celsius
      impl/display-name-key   "Tertiary Temperature"
      :description            "A non-negative IEEE-754 floating point number representing the temperature in degrees Celsius for tertiary fermentation."
-     :json-schema/example    "12.0"}))
+     :json-schema/example    12.0}))
 
 
 (spec/def ::age
@@ -543,7 +543,7 @@
      impl/beer-xml-units-key impl/beer-xml-day
      :gen                    impl/real-positive-double-generator
      :description            "A non-negative IEEE-754 floating point number representing the number of days to bottle age the beer."
-     :json-schema/example    "12.0"}))
+     :json-schema/example    12.0}))
 
 
 (spec/def ::age-temp
@@ -554,7 +554,7 @@
      impl/beer-xml-units-key impl/beer-xml-degrees-celsius
      impl/display-name-key   "Aging Temperature"
      :description            "A non-negative IEEE-754 floating point number representing the temperature in degrees Celsius for bottle aging."
-     :json-schema/example    "12.0"}))
+     :json-schema/example    12.0}))
 
 
 (spec/def ::date
@@ -576,7 +576,7 @@
      impl/beer-xml-units-key impl/beer-xml-volumes-of-co2
      :gen                    impl/real-double-generator
      :description            "An IEEE-754 floating point number representing the carbonation for this recipe in volumes of CO2."
-     :json-schema/example    "1.5"}))
+     :json-schema/example    1.5}))
 
 
 (spec/def ::forced-carbonation
@@ -586,7 +586,7 @@
      :description           (impl/multiline
                               "A boolean representing if this batch was force carbonated with CO2 pressure."
                               "When absent, assume false.")
-     :json-schema/example   "false"
+     :json-schema/example   false
      :decode/string         impl/decode-boolean
      :encode/string         impl/encode-boolean}))
 
@@ -607,7 +607,7 @@
      impl/beer-xml-type-key  impl/beer-xml-floating-point
      impl/beer-xml-units-key impl/beer-xml-degrees-celsius
      :description            "An IEEE-754 floating point number representing the temperature in degrees Celsius for either bottling or forced carbonation."
-     :json-schema/example    "12.0"}))
+     :json-schema/example    12.0}))
 
 
 (spec/def ::priming-sugar-equiv
@@ -618,7 +618,7 @@
      impl/beer-xml-type-key impl/beer-xml-floating-point
      :gen                   impl/real-double-generator
      :description           "An IEEE-754 floating point number representing the conversion factor to an equivalent amount of corn sugar."
-     :json-schema/example   "1.5"}))
+     :json-schema/example   1.5}))
 
 
 (spec/def ::keg-priming-factor
@@ -628,7 +628,7 @@
      impl/beer-xml-type-key impl/beer-xml-floating-point
      :gen                   impl/real-double-generator
      :description           "An IEEE-754 floating point number representing the conversion factor of sugar needed to prime carbonation in large containers."
-     :json-schema/example   "1.5"}))
+     :json-schema/example   1.5}))
 
 
 (spec/def ::est-og
@@ -670,7 +670,7 @@
      impl/beer-xml-units-key impl/beer-xml-ibu
      :gen                    impl/real-positive-double-generator
      :description            "A positive IEEE-754 floating point number representing the bitterness in IBUs for the recipe."
-     :json-schema/example    "40"}))
+     :json-schema/example    40}))
 
 
 (def rager
@@ -719,7 +719,7 @@
      impl/beer-xml-type-key  impl/beer-xml-floating-point
      impl/beer-xml-units-key impl/beer-xml-abv
      :description            "A non-negative IEEE-754 floating point number representing the estimated ABV for the recipe."
-     :json-schema/example    "40.1"}))
+     :json-schema/example    40.1}))
 
 
 (spec/def ::abv
@@ -729,7 +729,7 @@
      impl/beer-xml-type-key  impl/beer-xml-floating-point
      impl/beer-xml-units-key impl/beer-xml-abv
      :description            "A non-negative IEEE-754 floating point number representing the actual ABV for the recipe."
-     :json-schema/example    "40.2"}))
+     :json-schema/example    40.2}))
 
 
 (spec/def ::actual-efficiency
@@ -738,7 +738,7 @@
      :spec                  ::prim/percent
      impl/beer-xml-type-key impl/beer-xml-floating-point
      :description           "A non-negative IEEE-754 floating point number representing the actual conversion efficiency between the measured final and original gravities."
-     :json-schema/example   "40.3"}))
+     :json-schema/example   40.3}))
 
 
 (spec/def ::calories

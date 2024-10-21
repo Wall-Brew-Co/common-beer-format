@@ -203,6 +203,8 @@ In addition to surfacing clojure.spec definitions for the BeerXML schema, this l
 
 - [JSON Schema](https://json-schema.org/specification)
 
+These files are generated from the clojure.spec definitions and are available in the `exports` directory of this repository.
+
 ## License
 
 Copyright © [Wall Brew Co](https://wallbrew.com/)

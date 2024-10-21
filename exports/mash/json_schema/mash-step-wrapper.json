@@ -8,7 +8,7 @@
           "type": "number",
           "format": "double",
           "description": "A non-negative IEEE-754 floating point number representing the volume of water in liters required for an infusion step.",
-          "example": "5.8",
+          "example": 5.8,
           "title": "common-beer-format.mash\/infuse-amount"
         },
         "display-infuse-amt": {
@@ -21,7 +21,7 @@
           "type": "number",
           "format": "double",
           "description": "A non-negative IEEE-754 floating point number representing the time in minutes to spend at this step.",
-          "example": "45.0",
+          "example": 45.0,
           "title": "common-beer-format.mash\/step-time"
         },
         "infuse-temp": {
@@ -40,7 +40,7 @@
           "type": "number",
           "format": "double",
           "description": "A non-negative IEEE-754 floating point number representing the temperature of the mash after the step has completed in degrees Celsius.",
-          "example": "80",
+          "example": 80,
           "title": "common-beer-format.mash\/end-temp"
         },
         "name": {
@@ -53,7 +53,7 @@
           "type": "number",
           "format": "double",
           "description": "A non-negative IEEE-754 floating point number representing the time in minutes to achieve the desired step temperature.",
-          "example": "45.0",
+          "example": 45.0,
           "title": "common-beer-format.mash\/ramp-time"
         },
         "type": {
@@ -82,7 +82,7 @@
           "type": "number",
           "format": "double",
           "description": "A non-negative IEEE-754 floating point number representing the temperature of the mash step should be performed at in degrees Celsius.",
-          "example": "80",
+          "example": 80,
           "title": "common-beer-format.mash\/step-temp"
         },
         "description": {

@@ -28,7 +28,7 @@
       "type": "number",
       "format": "double",
       "description": "A non-negative IEEE-754 floating point number representing the time in minutes the ingredient was added dependant on the `:use` field.\nFor \"Boil\" this is the boil time.\nFor \"Mash\" this is the mash time.\nFor \"Primary\", \"Secondary\", and \"Bottling\" this is the amount of time the ingredient spent in that state.",
-      "example": "15.0",
+      "example": 15.0,
       "title": "common-beer-format.miscs\/time"
     },
     "inventory": {

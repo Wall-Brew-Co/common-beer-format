@@ -32,20 +32,20 @@
                 "format": "double",
                 "description": "An IEEE-754 floating point number representing the conversion factor to an equivalent amount of corn sugar.",
                 "title": "common-beer-format.recipes\/priming-sugar-equiv",
-                "example": "1.5"
+                "example": 1.5
               },
               "taste-rating": {
                 "type": "number",
                 "format": "double",
                 "description": "An IEEE-754 floating point number representing the tasting score of the beer.",
                 "title": "common-beer-format.recipes\/taste-rating",
-                "example": "100.0"
+                "example": 100.0
               },
               "age-temp": {
                 "type": "number",
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the temperature in degrees Celsius for bottle aging.",
-                "example": "12.0",
+                "example": 12.0,
                 "title": "common-beer-format.recipes\/age-temp"
               },
               "og": {
@@ -60,14 +60,14 @@
                   }
                 ],
                 "description": "A non-negative IEEE-754 floating point number representing the pre-fermentation specific gravity of the recipe.",
-                "example": "1.060",
+                "example": 1.06,
                 "title": "common-beer-format.recipes\/og"
               },
               "primary-age": {
                 "type": "number",
                 "format": "double",
                 "description": "A positive IEEE-754 floating point number representing the number of days spent in primary fermentation.",
-                "example": "12.0",
+                "example": 12.0,
                 "title": "common-beer-format.recipes\/primary-age"
               },
               "carbonation-used": {
@@ -86,7 +86,7 @@
                 "type": "number",
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the number of days to bottle age the beer.",
-                "example": "12.0",
+                "example": 12.0,
                 "title": "common-beer-format.recipes\/age"
               },
               "keg-priming-factor": {
@@ -94,7 +94,7 @@
                 "format": "double",
                 "description": "An IEEE-754 floating point number representing the conversion factor of sugar needed to prime carbonation in large containers.",
                 "title": "common-beer-format.recipes\/keg-priming-factor",
-                "example": "1.5"
+                "example": 1.5
               },
               "hops": {
                 "type": "array",
@@ -114,7 +114,7 @@
                           "type": "number",
                           "format": "double",
                           "description": "A non-negative IEEE-754 floating point number representing the percent contents of caryophyllene in the hop.",
-                          "example": "10.7",
+                          "example": 10.7,
                           "title": "common-beer-format.hops\/caryophyllene"
                         },
                         "display-time": {
@@ -127,14 +127,14 @@
                           "type": "number",
                           "format": "double",
                           "description": "A non-negative IEEE-754 floating point number representing the Hop Stability Index, or percent decay of a hop's alpha acid over six months.",
-                          "example": "2.2",
+                          "example": 2.2,
                           "title": "common-beer-format.hops\/hsi"
                         },
                         "myrcene": {
                           "type": "number",
                           "format": "double",
                           "description": "A non-negative IEEE-754 floating point number representing the percent contents of myrcene in the hop.",
-                          "example": "10.7",
+                          "example": 10.7,
                           "title": "common-beer-format.hops\/myrcene"
                         },
                         "form": {
@@ -146,7 +146,7 @@
                           "type": "number",
                           "format": "double",
                           "description": "A non-negative IEEE-754 floating point number representing the percent contents of humulene in the hop.",
-                          "example": "10.7",
+                          "example": 10.7,
                           "title": "common-beer-format.hops\/humulene"
                         },
                         "name": {
@@ -159,7 +159,7 @@
                           "type": "number",
                           "format": "double",
                           "description": "A non-negative IEEE-754 floating point number representing the time in minutes the hop was added dependant on the `:use` field.\n\n- Boil: this is the boil time.\n- Mash: this is the mash time.\n- First Wort: this is the boil time.\n- Aroma: this is the steep time.\n- Dry Hop: this is the amount of time to dry hop.",
-                          "example": "15.0",
+                          "example": 15.0,
                           "title": "common-beer-format.hops\/time"
                         },
                         "inventory": {
@@ -184,7 +184,7 @@
                           "type": "number",
                           "format": "double",
                           "description": "A non-negative IEEE-754 floating point number representing the percent contents of cohumulone in the hop.",
-                          "example": "10.7",
+                          "example": 10.7,
                           "title": "common-beer-format.hops\/cohumulone"
                         },
                         "version": {
@@ -196,14 +196,14 @@
                           "type": "number",
                           "format": "double",
                           "description": "A non-negative IEEE-754 floating point number representing the percent contents of alpha acid in the hop.",
-                          "example": "10.7",
+                          "example": 10.7,
                           "title": "common-beer-format.hops\/alpha"
                         },
                         "beta": {
                           "type": "number",
                           "format": "double",
                           "description": "A non-negative IEEE-754 floating point number representing the percent contents of beta acid in the hop.",
-                          "example": "10.7",
+                          "example": 10.7,
                           "title": "common-beer-format.hops\/beta"
                         },
                         "notes": {
@@ -292,7 +292,7 @@
                           "type": "number",
                           "format": "double",
                           "description": "A non-negative IEEE-754 floating point number representing the time in minutes the ingredient was added dependant on the `:use` field.\nFor \"Boil\" this is the boil time.\nFor \"Mash\" this is the mash time.\nFor \"Primary\", \"Secondary\", and \"Bottling\" this is the amount of time the ingredient spent in that state.",
-                          "example": "15.0",
+                          "example": 15.0,
                           "title": "common-beer-format.miscs\/time"
                         },
                         "inventory": {
@@ -368,7 +368,7 @@
                 "format": "double",
                 "description": "An IEEE-754 floating point number representing the carbonation for this recipe in volumes of CO2.",
                 "title": "common-beer-format.recipes\/carbonation",
-                "example": "1.5"
+                "example": 1.5
               },
               "display-tertiary-temp": {
                 "type": "string",
@@ -386,7 +386,7 @@
                 "type": "number",
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the number of days spent in tertiary fermentation.",
-                "example": "12.0",
+                "example": 12.0,
                 "title": "common-beer-format.recipes\/tertiary-age"
               },
               "ibu-method": {
@@ -421,7 +421,7 @@
                       }
                     ],
                     "description": "A non-negative IEEE-754 floating point number representing the minimum pre-fermentation specific gravity for the style.",
-                    "example": "1.048",
+                    "example": 1.048,
                     "title": "common-beer-format.styles\/og-min"
                   },
                   "display-color-min": {
@@ -435,14 +435,14 @@
                     "format": "double",
                     "description": "A non-negative IEEE-754 floating point number representing the maximum bitterness in IBUs for the style.",
                     "title": "common-beer-format.styles\/ibu-max",
-                    "example": "40"
+                    "example": 40
                   },
                   "carb-max": {
                     "type": "number",
                     "format": "double",
                     "description": "A non-negative IEEE-754 floating point number representing the maximum carbonation for this style in volumes of CO2.",
                     "title": "common-beer-format.styles\/carb-max",
-                    "example": "2.2"
+                    "example": 2.2
                   },
                   "profile": {
                     "type": "string",
@@ -455,13 +455,13 @@
                     "format": "double",
                     "description": "A non-negative IEEE-754 floating point number representing the minimum carbonation for this style in volumes of CO2.",
                     "title": "common-beer-format.styles\/carb-min",
-                    "example": "1.5"
+                    "example": 1.5
                   },
                   "abv-max": {
                     "type": "number",
                     "format": "double",
                     "description": "A non-negative IEEE-754 floating point number representing the maximum recommended ABV percentage for the style.",
-                    "example": "0.04",
+                    "example": 0.04,
                     "title": "common-beer-format.styles\/abv-max"
                   },
                   "name": {
@@ -505,7 +505,7 @@
                     "format": "double",
                     "description": "A non-negative IEEE-754 floating point number representing the darkest color in SRM for the style.",
                     "title": "common-beer-format.styles\/color-max",
-                    "example": "40"
+                    "example": 40
                   },
                   "category-number": {
                     "type": "string",
@@ -525,7 +525,7 @@
                       }
                     ],
                     "description": "A non-negative IEEE-754 floating point number representing the minimum post-fermentation specific gravity for the style.",
-                    "example": "1.048",
+                    "example": 1.048,
                     "title": "common-beer-format.styles\/fg-min"
                   },
                   "display-color-max": {
@@ -546,7 +546,7 @@
                       }
                     ],
                     "description": "A non-negative IEEE-754 floating point number representing the maximum post-fermentation specific gravity for the style.",
-                    "example": "1.060",
+                    "example": 1.06,
                     "title": "common-beer-format.styles\/fg-max"
                   },
                   "ibu-min": {
@@ -554,7 +554,7 @@
                     "format": "double",
                     "description": "A non-negative IEEE-754 floating point number representing the minimum bitterness in IBUs for the style.",
                     "title": "common-beer-format.styles\/ibu-min",
-                    "example": "32"
+                    "example": 32
                   },
                   "type": {
                     "description": "A case-sensitive string representing the type of beverage the style dictates.\nMust be one of: \"Lager\", \"Cider\", \"Mixed\", \"Mead\", \"Wheat\", \"Ale\"\n\n- Ale: A top-fermented beer with a fruity, hoppy taste and a dry finish.\n- Cider: A fermented beverage made from fruit and water.\n- Lager: A light, bottom-fermented beer with a clean, crisp taste and a smooth finish.\n- Mead: A fermented beverage made from honey and water.\n- Mixed: A beer style that blends two or more styles.\n- Wheat: A beer made with a large proportion of wheat malt.",
@@ -596,7 +596,7 @@
                       }
                     ],
                     "description": "A non-negative IEEE-754 floating point number representing the maximum pre-fermentation specific gravity for the style.",
-                    "example": "1.060",
+                    "example": 1.06,
                     "title": "common-beer-format.styles\/og-max"
                   },
                   "category": {
@@ -622,7 +622,7 @@
                     "format": "double",
                     "description": "A non-negative IEEE-754 floating point number representing the lightest color in SRM for the style.",
                     "title": "common-beer-format.styles\/color-min",
-                    "example": "32"
+                    "example": 32
                   },
                   "examples": {
                     "type": "string",
@@ -634,7 +634,7 @@
                     "type": "number",
                     "format": "double",
                     "description": "A non-negative IEEE-754 floating point number representing the minimum recommended ABV percentage for the style.",
-                    "example": "0.032",
+                    "example": 0.032,
                     "title": "common-beer-format.styles\/abv-min"
                   },
                   "style-guide": {
@@ -674,14 +674,14 @@
                 "type": "number",
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the actual conversion efficiency between the measured final and original gravities.",
-                "example": "40.3",
+                "example": 40.3,
                 "title": "common-beer-format.recipes\/actual-efficiency"
               },
               "carbonation-temp": {
                 "type": "number",
                 "format": "double",
                 "description": "An IEEE-754 floating point number representing the temperature in degrees Celsius for either bottling or forced carbonation.",
-                "example": "12.0",
+                "example": 12.0,
                 "title": "common-beer-format.recipes\/carbonation-temp"
               },
               "priming-sugar-name": {
@@ -692,14 +692,14 @@
               },
               "forced-carbonation": {
                 "description": "A boolean representing if this batch was force carbonated with CO2 pressure.\nWhen absent, assume false.",
-                "example": "false",
+                "example": false,
                 "title": "common-beer-format.recipes\/forced-carbonation"
               },
               "tertiary-temp": {
                 "type": "number",
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the temperature in degrees Celsius for tertiary fermentation.",
-                "example": "12.0",
+                "example": 12.0,
                 "title": "common-beer-format.recipes\/tertiary-temp"
               },
               "display-carb-temp": {
@@ -718,7 +718,7 @@
                 "type": "number",
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the number of days spent in secondary fermentation.",
-                "example": "12.0",
+                "example": 12.0,
                 "title": "common-beer-format.recipes\/secondary-age"
               },
               "est-og": {
@@ -737,14 +737,14 @@
                 "type": "number",
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the actual ABV for the recipe.",
-                "example": "40.2",
+                "example": 40.2,
                 "title": "common-beer-format.recipes\/abv"
               },
               "ibu": {
                 "type": "number",
                 "format": "double",
                 "description": "A positive IEEE-754 floating point number representing the bitterness in IBUs for the recipe.",
-                "example": "40",
+                "example": 40,
                 "title": "common-beer-format.recipes\/ibu"
               },
               "waters": {
@@ -759,7 +759,7 @@
                           "type": "number",
                           "format": "double",
                           "description": "A positive IEEE-754 floating point number representing the amount of calcium (Ca) in parts per million.",
-                          "example": "2.5",
+                          "example": 2.5,
                           "title": "common-beer-format.waters\/calcium"
                         },
                         "name": {
@@ -772,28 +772,28 @@
                           "type": "number",
                           "format": "double",
                           "description": "A positive IEEE-754 floating point number representing the amount of sulfate (SO4) in parts per million.",
-                          "example": "2.5",
+                          "example": 2.5,
                           "title": "common-beer-format.waters\/sulfate"
                         },
                         "chloride": {
                           "type": "number",
                           "format": "double",
                           "description": "A positive IEEE-754 floating point number representing the amount of chloride (Cl-) in parts per million.",
-                          "example": "2.5",
+                          "example": 2.5,
                           "title": "common-beer-format.waters\/chloride"
                         },
                         "ph": {
                           "type": "number",
                           "format": "double",
                           "description": "A positive IEEE-754 floating point number representing the PH of the water.",
-                          "example": "2.5",
+                          "example": 2.5,
                           "title": "common-beer-format.waters\/ph"
                         },
                         "bicarbonate": {
                           "type": "number",
                           "format": "double",
                           "description": "A positive IEEE-754 floating point number representing the amount of bicarbonate (HCO3) in parts per million.",
-                          "example": "2.5",
+                          "example": 2.5,
                           "title": "common-beer-format.waters\/bicarbonate"
                         },
                         "amount": {
@@ -818,14 +818,14 @@
                           "type": "number",
                           "format": "double",
                           "description": "A positive IEEE-754 floating point number representing the amount of magnesium (Mg) in parts per million.",
-                          "example": "2.5",
+                          "example": 2.5,
                           "title": "common-beer-format.waters\/magnesium"
                         },
                         "sodium": {
                           "type": "number",
                           "format": "double",
                           "description": "A positive IEEE-754 floating point number representing the amount of sodium (Na) in parts per million.",
-                          "example": "2.5",
+                          "example": 2.5,
                           "title": "common-beer-format.waters\/sodium"
                         },
                         "display-amount": {
@@ -874,7 +874,7 @@
                 "type": "number",
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the starting volume of the wort.",
-                "example": "7.5",
+                "example": 7.5,
                 "title": "common-beer-format.recipes\/boil-size"
               },
               "fg": {
@@ -889,7 +889,7 @@
                   }
                 ],
                 "description": "A non-negative IEEE-754 floating point number representing the post-fermentation specific gravity of the recipe.",
-                "example": "1.048",
+                "example": 1.048,
                 "title": "common-beer-format.recipes\/fg"
               },
               "version": {
@@ -1250,7 +1250,7 @@
                 "type": "number",
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the estimated ABV for the recipe.",
-                "example": "40.1",
+                "example": 40.1,
                 "title": "common-beer-format.recipes\/est-abv"
               },
               "date": {
@@ -1263,7 +1263,7 @@
                 "type": "number",
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the target final volume of recipe.",
-                "example": "5.8",
+                "example": 5.8,
                 "title": "common-beer-format.recipes\/batch-size"
               },
               "display-batch-size": {
@@ -1276,7 +1276,7 @@
                 "type": "number",
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the temperature in degrees Celsius for secondary fermentation.",
-                "example": "12.0",
+                "example": 12.0,
                 "title": "common-beer-format.recipes\/secondary-temp"
               },
               "yeasts": {
@@ -1306,7 +1306,7 @@
                         },
                         "add-to-secondary": {
                           "description": "A boolean representing if this yeast was added for a secondary fermentation.\nWhen absent, assume false.",
-                          "example": "false",
+                          "example": false,
                           "title": "common-beer-format.yeasts\/add-to-secondary"
                         },
                         "max-reuse": {
@@ -1322,7 +1322,7 @@
                           ],
                           "description": "A non-negative integer representing the suggested maximum number of times the yeast may be harvested and recultured.",
                           "title": "common-beer-format.yeasts\/max-reuse",
-                          "example": "3"
+                          "example": 3
                         },
                         "name": {
                           "type": "string",
@@ -1350,7 +1350,7 @@
                           "type": "number",
                           "format": "double",
                           "description": "An IEEE-754 floating point number representing the minimum recommended temperature of fermentation.",
-                          "example": "19.5",
+                          "example": 19.5,
                           "title": "common-beer-format.yeasts\/min-temperature"
                         },
                         "laboratory": {
@@ -1396,7 +1396,7 @@
                           ],
                           "description": "A non-negative integer representing the number of times this yeast has been harvested and re-used.\nA value of zero assumes the yeast came directly from the manufacturer.",
                           "title": "common-beer-format.yeasts\/times-cultured",
-                          "example": "1"
+                          "example": 1
                         },
                         "version": {
                           "description": "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.",
@@ -1419,7 +1419,7 @@
                           "type": "number",
                           "format": "double",
                           "description": "An IEEE-754 floating point number representing the maximum recommended temperature of fermentation.",
-                          "example": "23.9",
+                          "example": 23.9,
                           "title": "common-beer-format.yeasts\/max-temperature"
                         },
                         "display-amount": {
@@ -1432,7 +1432,7 @@
                           "type": "number",
                           "format": "double",
                           "description": "A positive IEEE-754 floating point number representing the percent of malt sugar that can be converted to ethanol and carbon dioxide.",
-                          "example": "73.2",
+                          "example": 73.2,
                           "title": "common-beer-format.yeasts\/attenuation"
                         }
                       },
@@ -1460,7 +1460,7 @@
                 "type": "number",
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the time in minutes to boil the wort.",
-                "example": "45.0",
+                "example": 45.0,
                 "title": "common-beer-format.recipes\/boil-time"
               },
               "notes": {
@@ -1473,7 +1473,7 @@
                 "type": "number",
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the percent brewhouse efficiency to be used for estimating the starting gravity of the beer.",
-                "example": "85.6",
+                "example": 85.6,
                 "title": "common-beer-format.recipes\/efficiency"
               },
               "mash": {
@@ -1489,7 +1489,7 @@
                     "type": "number",
                     "format": "double",
                     "description": "A non-negative IEEE-754 floating point number representing the temperature of the sparge in degrees Celsius.",
-                    "example": "50",
+                    "example": 50,
                     "title": "common-beer-format.mash\/sparge-temp"
                   },
                   "display-grain-temp": {
@@ -1500,28 +1500,28 @@
                   },
                   "equip-adjust": {
                     "description": "A boolean denoting whether or not programs should account for the temperature effects of the equipment used.\nWhen absent, assume false.",
-                    "example": "true",
+                    "example": true,
                     "title": "common-beer-format.mash\/equip-adjust"
                   },
                   "tun-temp": {
                     "type": "number",
                     "format": "double",
                     "description": "A non-negative IEEE-754 floating point number representing the temperature of the grain tun in degrees Celsius.",
-                    "example": "80",
+                    "example": 80,
                     "title": "common-beer-format.mash\/tun-temp"
                   },
                   "grain-temp": {
                     "type": "number",
                     "format": "double",
                     "description": "A non-negative IEEE-754 floating point number representing the temperature of the grain before adding it to the mash in degrees Celsius.",
-                    "example": "80",
+                    "example": 80,
                     "title": "common-beer-format.mash\/grain-temp"
                   },
                   "tun-specific-heat": {
                     "type": "number",
                     "format": "double",
                     "description": "A non-negative IEEE-754 floating point number representing the specific heat of the mash tun in Calories per gram-degree Celsius.",
-                    "example": "0.2",
+                    "example": 0.2,
                     "title": "common-beer-format.mash\/tun-specific-heat"
                   },
                   "name": {
@@ -1542,7 +1542,7 @@
                               "type": "number",
                               "format": "double",
                               "description": "A non-negative IEEE-754 floating point number representing the volume of water in liters required for an infusion step.",
-                              "example": "5.8",
+                              "example": 5.8,
                               "title": "common-beer-format.mash\/infuse-amount"
                             },
                             "display-infuse-amt": {
@@ -1555,7 +1555,7 @@
                               "type": "number",
                               "format": "double",
                               "description": "A non-negative IEEE-754 floating point number representing the time in minutes to spend at this step.",
-                              "example": "45.0",
+                              "example": 45.0,
                               "title": "common-beer-format.mash\/step-time"
                             },
                             "infuse-temp": {
@@ -1574,7 +1574,7 @@
                               "type": "number",
                               "format": "double",
                               "description": "A non-negative IEEE-754 floating point number representing the temperature of the mash after the step has completed in degrees Celsius.",
-                              "example": "80",
+                              "example": 80,
                               "title": "common-beer-format.mash\/end-temp"
                             },
                             "name": {
@@ -1587,7 +1587,7 @@
                               "type": "number",
                               "format": "double",
                               "description": "A non-negative IEEE-754 floating point number representing the time in minutes to achieve the desired step temperature.",
-                              "example": "45.0",
+                              "example": 45.0,
                               "title": "common-beer-format.mash\/ramp-time"
                             },
                             "type": {
@@ -1616,7 +1616,7 @@
                               "type": "number",
                               "format": "double",
                               "description": "A non-negative IEEE-754 floating point number representing the temperature of the mash step should be performed at in degrees Celsius.",
-                              "example": "80",
+                              "example": 80,
                               "title": "common-beer-format.mash\/step-temp"
                             },
                             "description": {
@@ -1657,7 +1657,7 @@
                     "type": "number",
                     "format": "double",
                     "description": "A non-negative IEEE-754 floating point number representing the PH of the water.",
-                    "example": "2.5",
+                    "example": 2.5,
                     "title": "common-beer-format.mash\/ph"
                   },
                   "version": {
@@ -1669,7 +1669,7 @@
                     "type": "number",
                     "format": "double",
                     "description": "A non-negative IEEE-754 floating point number representing the weight of the of the mash tun in kilograms.",
-                    "example": "15.0",
+                    "example": 15.0,
                     "title": "common-beer-format.mash\/tun-weight"
                   },
                   "notes": {
@@ -1704,7 +1704,7 @@
                 "type": "number",
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the temperature in degrees Celsius for primary fermentation.",
-                "example": "12.0",
+                "example": 12.0,
                 "title": "common-beer-format.recipes\/primary-temp"
               },
               "fermentation-stages": {
@@ -1719,7 +1719,7 @@
                 ],
                 "description": "An integer representing the number of fermentation stages in the recipe.",
                 "title": "common-beer-format.recipes\/fermentation-stages",
-                "example": "2"
+                "example": 2
               }
             },
             "required": [

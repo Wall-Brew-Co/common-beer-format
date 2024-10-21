@@ -17,6 +17,7 @@
             [common-beer-format.yeasts :as yeasts]
             [spec-tools.json-schema :as json-schema]))
 
+
 (defn json-schema-fixup
   "spec-tools only supports Draft 4 JSON Schema, so we need to fix it up to Draft 7."
   [schema-string]

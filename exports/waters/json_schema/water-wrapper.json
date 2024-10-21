@@ -8,7 +8,7 @@
           "type": "number",
           "format": "double",
           "description": "A positive IEEE-754 floating point number representing the amount of calcium (Ca) in parts per million.",
-          "example": "2.5",
+          "example": 2.5,
           "title": "common-beer-format.waters\/calcium"
         },
         "name": {
@@ -21,28 +21,28 @@
           "type": "number",
           "format": "double",
           "description": "A positive IEEE-754 floating point number representing the amount of sulfate (SO4) in parts per million.",
-          "example": "2.5",
+          "example": 2.5,
           "title": "common-beer-format.waters\/sulfate"
         },
         "chloride": {
           "type": "number",
           "format": "double",
           "description": "A positive IEEE-754 floating point number representing the amount of chloride (Cl-) in parts per million.",
-          "example": "2.5",
+          "example": 2.5,
           "title": "common-beer-format.waters\/chloride"
         },
         "ph": {
           "type": "number",
           "format": "double",
           "description": "A positive IEEE-754 floating point number representing the PH of the water.",
-          "example": "2.5",
+          "example": 2.5,
           "title": "common-beer-format.waters\/ph"
         },
         "bicarbonate": {
           "type": "number",
           "format": "double",
           "description": "A positive IEEE-754 floating point number representing the amount of bicarbonate (HCO3) in parts per million.",
-          "example": "2.5",
+          "example": 2.5,
           "title": "common-beer-format.waters\/bicarbonate"
         },
         "amount": {
@@ -67,14 +67,14 @@
           "type": "number",
           "format": "double",
           "description": "A positive IEEE-754 floating point number representing the amount of magnesium (Mg) in parts per million.",
-          "example": "2.5",
+          "example": 2.5,
           "title": "common-beer-format.waters\/magnesium"
         },
         "sodium": {
           "type": "number",
           "format": "double",
           "description": "A positive IEEE-754 floating point number representing the amount of sodium (Na) in parts per million.",
-          "example": "2.5",
+          "example": 2.5,
           "title": "common-beer-format.waters\/sodium"
         },
         "display-amount": {

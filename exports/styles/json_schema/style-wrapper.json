@@ -28,7 +28,7 @@
             }
           ],
           "description": "A non-negative IEEE-754 floating point number representing the minimum pre-fermentation specific gravity for the style.",
-          "example": "1.048",
+          "example": 1.048,
           "title": "common-beer-format.styles\/og-min"
         },
         "display-color-min": {
@@ -42,14 +42,14 @@
           "format": "double",
           "description": "A non-negative IEEE-754 floating point number representing the maximum bitterness in IBUs for the style.",
           "title": "common-beer-format.styles\/ibu-max",
-          "example": "40"
+          "example": 40
         },
         "carb-max": {
           "type": "number",
           "format": "double",
           "description": "A non-negative IEEE-754 floating point number representing the maximum carbonation for this style in volumes of CO2.",
           "title": "common-beer-format.styles\/carb-max",
-          "example": "2.2"
+          "example": 2.2
         },
         "profile": {
           "type": "string",
@@ -62,13 +62,13 @@
           "format": "double",
           "description": "A non-negative IEEE-754 floating point number representing the minimum carbonation for this style in volumes of CO2.",
           "title": "common-beer-format.styles\/carb-min",
-          "example": "1.5"
+          "example": 1.5
         },
         "abv-max": {
           "type": "number",
           "format": "double",
           "description": "A non-negative IEEE-754 floating point number representing the maximum recommended ABV percentage for the style.",
-          "example": "0.04",
+          "example": 0.04,
           "title": "common-beer-format.styles\/abv-max"
         },
         "name": {
@@ -112,7 +112,7 @@
           "format": "double",
           "description": "A non-negative IEEE-754 floating point number representing the darkest color in SRM for the style.",
           "title": "common-beer-format.styles\/color-max",
-          "example": "40"
+          "example": 40
         },
         "category-number": {
           "type": "string",
@@ -132,7 +132,7 @@
             }
           ],
           "description": "A non-negative IEEE-754 floating point number representing the minimum post-fermentation specific gravity for the style.",
-          "example": "1.048",
+          "example": 1.048,
           "title": "common-beer-format.styles\/fg-min"
         },
         "display-color-max": {
@@ -153,7 +153,7 @@
             }
           ],
           "description": "A non-negative IEEE-754 floating point number representing the maximum post-fermentation specific gravity for the style.",
-          "example": "1.060",
+          "example": 1.06,
           "title": "common-beer-format.styles\/fg-max"
         },
         "ibu-min": {
@@ -161,7 +161,7 @@
           "format": "double",
           "description": "A non-negative IEEE-754 floating point number representing the minimum bitterness in IBUs for the style.",
           "title": "common-beer-format.styles\/ibu-min",
-          "example": "32"
+          "example": 32
         },
         "type": {
           "description": "A case-sensitive string representing the type of beverage the style dictates.\nMust be one of: \"Lager\", \"Cider\", \"Mixed\", \"Mead\", \"Wheat\", \"Ale\"\n\n- Ale: A top-fermented beer with a fruity, hoppy taste and a dry finish.\n- Cider: A fermented beverage made from fruit and water.\n- Lager: A light, bottom-fermented beer with a clean, crisp taste and a smooth finish.\n- Mead: A fermented beverage made from honey and water.\n- Mixed: A beer style that blends two or more styles.\n- Wheat: A beer made with a large proportion of wheat malt.",
@@ -203,7 +203,7 @@
             }
           ],
           "description": "A non-negative IEEE-754 floating point number representing the maximum pre-fermentation specific gravity for the style.",
-          "example": "1.060",
+          "example": 1.06,
           "title": "common-beer-format.styles\/og-max"
         },
         "category": {
@@ -229,7 +229,7 @@
           "format": "double",
           "description": "A non-negative IEEE-754 floating point number representing the lightest color in SRM for the style.",
           "title": "common-beer-format.styles\/color-min",
-          "example": "32"
+          "example": 32
         },
         "examples": {
           "type": "string",
@@ -241,7 +241,7 @@
           "type": "number",
           "format": "double",
           "description": "A non-negative IEEE-754 floating point number representing the minimum recommended ABV percentage for the style.",
-          "example": "0.032",
+          "example": 0.032,
           "title": "common-beer-format.styles\/abv-min"
         },
         "style-guide": {

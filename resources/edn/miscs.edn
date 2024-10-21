@@ -2,6 +2,6 @@
                  :version "1"
                  :type    "Fining"
                  :use     "Boil"
-                 :time    "15.0"
+                 :time    15.0
                  :amount  "0.010"
                  :notes   "Used as a clarifying agent during the last few minutes of the boil"}}]}

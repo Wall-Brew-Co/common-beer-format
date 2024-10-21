@@ -47,7 +47,7 @@ changelog/render:
 # Testing
 #
 .PHONY: tests/all
-tests/all: tests/clojure tests/clojurescript
+tests/all: tests/clojure tests/clojurescript tests/json-schema
 
 .PHONY: tests/clojure
 tests/clojure:
@@ -66,6 +66,13 @@ tests/json-schema:
 	$(info Running JSON Schema tests...)
 	@ npm run json-schema/validate/equipment
 	@ npm run json-schema/validate/fermentables
+	@ npm run json-schema/validate/hops
+	@ npm run json-schema/validate/mash
+	@ npm run json-schema/validate/miscs
+	@ npm run json-schema/validate/recipes
+	@ npm run json-schema/validate/styles
+	@ npm run json-schema/validate/waters
+	@ npm run json-schema/validate/yeasts
 
 #
 # Code Formatting

@@ -107,7 +107,7 @@ A non-negative IEEE-754 floating point number representing the temperature of th
 - BeerXML Unit: Degrees Celsius
 - Clojure Key Name: `:grain-temp`
 - Clojure Type: Double
-- Example: `80.0`
+- Example: `80`
 
 ## Name
 
@@ -144,7 +144,7 @@ A non-negative IEEE-754 floating point number representing the temperature of th
 - BeerXML Unit: Degrees Celsius
 - Clojure Key Name: `:sparge-temp`
 - Clojure Type: Double
-- Example: `50.0`
+- Example: `50`
 
 ## Tun Specific Heat
 
@@ -164,7 +164,7 @@ A non-negative IEEE-754 floating point number representing the temperature of th
 - BeerXML Unit: Degrees Celsius
 - Clojure Key Name: `:tun-temp`
 - Clojure Type: Double
-- Example: `80.0`
+- Example: `80`
 
 ## Tun Weight
 
@@ -271,7 +271,7 @@ A non-negative IEEE-754 floating point number representing the temperature of th
 - BeerXML Unit: Degrees Celsius
 - Clojure Key Name: `:end-temp`
 - Clojure Type: Double
-- Example: `80.0`
+- Example: `80`
 
 ## Infuse Amount
 
@@ -319,7 +319,7 @@ A non-negative IEEE-754 floating point number representing the temperature of th
 - BeerXML Unit: Degrees Celsius
 - Clojure Key Name: `:step-temp`
 - Clojure Type: Double
-- Example: `80.0`
+- Example: `80`
 
 ## Step Time
 

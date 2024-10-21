@@ -25,7 +25,7 @@
           },
           "add-to-secondary": {
             "description": "A boolean representing if this yeast was added for a secondary fermentation.\nWhen absent, assume false.",
-            "example": "false",
+            "example": false,
             "title": "common-beer-format.yeasts\/add-to-secondary"
           },
           "max-reuse": {
@@ -41,7 +41,7 @@
             ],
             "description": "A non-negative integer representing the suggested maximum number of times the yeast may be harvested and recultured.",
             "title": "common-beer-format.yeasts\/max-reuse",
-            "example": "3"
+            "example": 3
           },
           "name": {
             "type": "string",
@@ -69,7 +69,7 @@
             "type": "number",
             "format": "double",
             "description": "An IEEE-754 floating point number representing the minimum recommended temperature of fermentation.",
-            "example": "19.5",
+            "example": 19.5,
             "title": "common-beer-format.yeasts\/min-temperature"
           },
           "laboratory": {
@@ -115,7 +115,7 @@
             ],
             "description": "A non-negative integer representing the number of times this yeast has been harvested and re-used.\nA value of zero assumes the yeast came directly from the manufacturer.",
             "title": "common-beer-format.yeasts\/times-cultured",
-            "example": "1"
+            "example": 1
           },
           "version": {
             "description": "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.",
@@ -138,7 +138,7 @@
             "type": "number",
             "format": "double",
             "description": "An IEEE-754 floating point number representing the maximum recommended temperature of fermentation.",
-            "example": "23.9",
+            "example": 23.9,
             "title": "common-beer-format.yeasts\/max-temperature"
           },
           "display-amount": {
@@ -151,7 +151,7 @@
             "type": "number",
             "format": "double",
             "description": "A positive IEEE-754 floating point number representing the percent of malt sugar that can be converted to ethanol and carbon dioxide.",
-            "example": "73.2",
+            "example": 73.2,
             "title": "common-beer-format.yeasts\/attenuation"
           }
         },

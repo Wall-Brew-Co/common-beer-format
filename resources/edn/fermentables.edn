@@ -8,10 +8,10 @@
                                :notes            "All purpose base malt for English styles"
                                :protein          "10.2"
                                :origin           "United Kingdom"
-                               :coarse-fine-diff "1.5"
+                               :coarse-fine-diff 1.5
                                :version          "1"
                                :max-in-batch     "100.0"
-                               :diastatic-power  "45.0"}}
+                               :diastatic-power  45.0}}
                 {:fermentable {:amount           "0.91"
                                :yield            "70.0"
                                :supplier         "Fussybrewer Malting"
@@ -22,10 +22,10 @@
                                :notes            "Adds body to porters and stouts, must be mashed"
                                :protein          "13.2"
                                :origin           "United Kingdom"
-                               :coarse-fine-diff "1.5"
+                               :coarse-fine-diff 1.5
                                :version          "1"
                                :max-in-batch     "20.0"
-                               :recommend-mash   "TRUE"
+                               :recommend-mash   true
                                :diastatic-power  "0.0"}}
                 {:fermentable {:amount           "0.45"
                                :yield            "78.0"
@@ -37,7 +37,7 @@
                                :notes            "Unmalted roasted barley for stouts, porters"
                                :protein          "13.2"
                                :origin           "United Kingdom"
-                               :coarse-fine-diff "1.5"
+                               :coarse-fine-diff 1.5
                                :version          "1"
                                :max-in-batch     "10.0"
                                :diastatic-power  "0.0"}}]}

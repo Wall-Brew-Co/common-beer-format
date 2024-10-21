@@ -238,7 +238,7 @@
                                "For \"Boil\" this is the boil time."
                                "For \"Mash\" this is the mash time."
                                "For \"Primary\", \"Secondary\", and \"Bottling\" this is the amount of time the ingredient spent in that state.")
-     :json-schema/example    "15.0"}))
+     :json-schema/example    15.0}))
 
 
 (spec/def ::use-for

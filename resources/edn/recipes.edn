@@ -20,7 +20,7 @@
                                                    :version "1"
                                                    :type    "Fining"
                                                    :use     "Boil"
-                                                   :time    "15.0"
+                                                   :time    15.0
                                                    :amount  "0.010"
                                                    :notes   "Used as a clarifying agent during the last few minutes of the boil"}}]
                      :type                "All Grain"
@@ -55,7 +55,7 @@
                      :waters              [{:water {:amount      "20.0"
                                                     :name        "Burton on Trent, UK"
                                                     :sulfate     "725.0"
-                                                    :magnesium   "45.0"
+                                                    :magnesium   45.0
                                                     :calcium     "295.0"
                                                     :bicarbonate "300.0"
                                                     :notes       "Use for distinctive pale ales strongly hopped.  Very hard water accentuates the hops flavor. Example: Bass Ale"
@@ -75,10 +75,10 @@
                                                           :notes            "All purpose base malt for English styles"
                                                           :protein          "10.2"
                                                           :origin           "United Kingdom"
-                                                          :coarse-fine-diff "1.5"
+                                                          :coarse-fine-diff 1.5
                                                           :version          "1"
                                                           :max-in-batch     "100.0"
-                                                          :diastatic-power  "45.0"}}
+                                                          :diastatic-power  45.0}}
                                            {:fermentable {:amount           "0.91"
                                                           :yield            "70.0"
                                                           :supplier         "Fussybrewer Malting"
@@ -89,10 +89,10 @@
                                                           :notes            "Adds body to porters and stouts, must be mashed"
                                                           :protein          "13.2"
                                                           :origin           "United Kingdom"
-                                                          :coarse-fine-diff "1.5"
+                                                          :coarse-fine-diff 1.5
                                                           :version          "1"
                                                           :max-in-batch     "20.0"
-                                                          :recommend-mash   "TRUE"
+                                                          :recommend-mash   true
                                                           :diastatic-power  "0.0"}}
                                            {:fermentable {:amount           "0.45"
                                                           :yield            "78.0"
@@ -104,7 +104,7 @@
                                                           :notes            "Unmalted roasted barley for stouts, porters"
                                                           :protein          "13.2"
                                                           :origin           "United Kingdom"
-                                                          :coarse-fine-diff "1.5"
+                                                          :coarse-fine-diff 1.5
                                                           :version          "1"
                                                           :max-in-batch     "10.0"
                                                           :diastatic-power  "0.0"}}]

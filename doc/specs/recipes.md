@@ -394,7 +394,7 @@ A positive IEEE-754 floating point number representing the bitterness in IBUs fo
 - BeerXML Unit: IBU
 - Clojure Key Name: `:ibu`
 - Clojure Type: Double
-- Example: `40.0`
+- Example: `40`
 
 ## Ibu Method
 

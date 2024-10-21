@@ -1,5 +1,5 @@
 {:equipment {:lauter-deadspace  0.95
-             :calc-boil-volume  "TRUE"
+             :calc-boil-volume  true
              :top-up-water      0.0
              :hop-utilization   100.0
              :name              "8 Gal pot with 5 gal Igloo Cooler"
