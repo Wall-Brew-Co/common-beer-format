@@ -144,7 +144,7 @@
      impl/beer-xml-type-key  impl/beer-xml-floating-point
      impl/beer-xml-units-key impl/beer-xml-liter
      :description            "A non-negative IEEE-754 floating point number representing the volume of water in liters required for an infusion step."
-     :json-schema/example    "5.8"}))
+     :json-schema/example    5.8}))
 
 
 (spec/def ::step-temp
@@ -155,7 +155,7 @@
      impl/beer-xml-units-key impl/beer-xml-degrees-celsius
      :spec                   ::prim/degrees-celsius
      :description            "A non-negative IEEE-754 floating point number representing the temperature of the mash step should be performed at in degrees Celsius."
-     :json-schema/example    "80"}))
+     :json-schema/example    80}))
 
 
 (spec/def ::step-time
@@ -165,7 +165,7 @@
      impl/beer-xml-type-key  impl/beer-xml-floating-point
      impl/beer-xml-units-key impl/beer-xml-minute
      :description            "A non-negative IEEE-754 floating point number representing the time in minutes to spend at this step."
-     :json-schema/example    "45.0"}))
+     :json-schema/example    45.0}))
 
 
 (spec/def ::ramp-time
@@ -175,7 +175,7 @@
      impl/beer-xml-type-key  impl/beer-xml-floating-point
      impl/beer-xml-units-key impl/beer-xml-minute
      :description            "A non-negative IEEE-754 floating point number representing the time in minutes to achieve the desired step temperature."
-     :json-schema/example    "45.0"}))
+     :json-schema/example    45.0}))
 
 
 (spec/def ::end-temp
@@ -186,7 +186,7 @@
      impl/beer-xml-units-key impl/beer-xml-degrees-celsius
      :spec                   ::prim/degrees-celsius
      :description            "A non-negative IEEE-754 floating point number representing the temperature of the mash after the step has completed in degrees Celsius."
-     :json-schema/example    "80"}))
+     :json-schema/example    80}))
 
 
 (spec/def ::description
@@ -359,7 +359,7 @@
      impl/beer-xml-units-key impl/beer-xml-degrees-celsius
      :spec                   ::prim/degrees-celsius
      :description            "A non-negative IEEE-754 floating point number representing the temperature of the grain before adding it to the mash in degrees Celsius."
-     :json-schema/example    "80"}))
+     :json-schema/example    80}))
 
 
 (spec/def ::tun-temp
@@ -370,7 +370,7 @@
      impl/beer-xml-units-key impl/beer-xml-degrees-celsius
      :spec                   ::prim/degrees-celsius
      :description            "A non-negative IEEE-754 floating point number representing the temperature of the grain tun in degrees Celsius."
-     :json-schema/example    "80"}))
+     :json-schema/example    80}))
 
 
 (spec/def ::sparge-temp
@@ -381,7 +381,7 @@
      impl/beer-xml-units-key impl/beer-xml-degrees-celsius
      :spec                   ::prim/degrees-celsius
      :description            "A non-negative IEEE-754 floating point number representing the temperature of the sparge in degrees Celsius."
-     :json-schema/example    "50"}))
+     :json-schema/example    50}))
 
 
 (spec/def ::ph
@@ -391,7 +391,7 @@
      impl/beer-xml-type-key impl/beer-xml-floating-point
      :spec                  ::prim/non-negative-number
      :description           "A non-negative IEEE-754 floating point number representing the PH of the water."
-     :json-schema/example   "2.5"}))
+     :json-schema/example   2.5}))
 
 
 (spec/def ::tun-weight
@@ -401,7 +401,7 @@
      impl/beer-xml-type-key  impl/beer-xml-floating-point
      impl/beer-xml-units-key impl/beer-xml-kilogram
      :description            "A non-negative IEEE-754 floating point number representing the weight of the of the mash tun in kilograms."
-     :json-schema/example    "15.0"}))
+     :json-schema/example    15.0}))
 
 
 (spec/def ::tun-specific-heat
@@ -411,7 +411,7 @@
      impl/beer-xml-units-key impl/beer-xml-calories-per-gram-degree-celsius
      :spec                   ::prim/non-negative-number
      :description            "A non-negative IEEE-754 floating point number representing the specific heat of the mash tun in Calories per gram-degree Celsius."
-     :json-schema/example    "0.2"}))
+     :json-schema/example    0.2}))
 
 
 (spec/def ::equip-adjust
@@ -421,7 +421,7 @@
      impl/beer-xml-type-key impl/beer-xml-boolean
      :description           (impl/multiline "A boolean denoting whether or not programs should account for the temperature effects of the equipment used."
                                             "When absent, assume false.")
-     :json-schema/example   "true"
+     :json-schema/example   true
      :decode/string         impl/decode-boolean
      :encode/string         impl/encode-boolean}))
 

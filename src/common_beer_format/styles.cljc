@@ -306,7 +306,7 @@
      impl/beer-xml-type-key  impl/beer-xml-floating-point
      impl/beer-xml-units-key impl/beer-xml-specific-gravity
      :description            "A non-negative IEEE-754 floating point number representing the minimum pre-fermentation specific gravity for the style."
-     :json-schema/example    "1.048"}))
+     :json-schema/example    1.048}))
 
 
 (spec/def ::og-max
@@ -317,7 +317,7 @@
      impl/beer-xml-type-key  impl/beer-xml-floating-point
      impl/beer-xml-units-key impl/beer-xml-specific-gravity
      :description            "A non-negative IEEE-754 floating point number representing the maximum pre-fermentation specific gravity for the style."
-     :json-schema/example    "1.060"}))
+     :json-schema/example    1.06}))
 
 
 (spec/def ::fg-min
@@ -328,7 +328,7 @@
      impl/beer-xml-type-key  impl/beer-xml-floating-point
      impl/beer-xml-units-key impl/beer-xml-specific-gravity
      :description            "A non-negative IEEE-754 floating point number representing the minimum post-fermentation specific gravity for the style."
-     :json-schema/example    "1.048"}))
+     :json-schema/example    1.048}))
 
 
 (spec/def ::fg-max
@@ -339,7 +339,7 @@
      impl/beer-xml-type-key  impl/beer-xml-floating-point
      impl/beer-xml-units-key impl/beer-xml-specific-gravity
      :description            "A non-negative IEEE-754 floating point number representing the maximum post-fermentation specific gravity for the style."
-     :json-schema/example    "1.060"}))
+     :json-schema/example    1.06}))
 
 
 (spec/def ::ibu-min
@@ -351,7 +351,7 @@
      impl/beer-xml-units-key impl/beer-xml-ibu
      :gen                    impl/real-double-generator
      :description            "A non-negative IEEE-754 floating point number representing the minimum bitterness in IBUs for the style."
-     :json-schema/example    "32"}))
+     :json-schema/example    32}))
 
 
 (spec/def ::ibu-max
@@ -363,7 +363,7 @@
      impl/beer-xml-units-key impl/beer-xml-ibu
      :gen                    impl/real-double-generator
      :description            "A non-negative IEEE-754 floating point number representing the maximum bitterness in IBUs for the style."
-     :json-schema/example    "40"}))
+     :json-schema/example    40}))
 
 
 (spec/def ::color-min
@@ -374,7 +374,7 @@
      impl/beer-xml-type-key  impl/beer-xml-floating-point
      impl/beer-xml-units-key impl/beer-xml-srm
      :description            "A non-negative IEEE-754 floating point number representing the lightest color in SRM for the style."
-     :json-schema/example    "32"}))
+     :json-schema/example    32}))
 
 
 (spec/def ::color-max
@@ -385,7 +385,7 @@
      impl/beer-xml-type-key  impl/beer-xml-floating-point
      impl/beer-xml-units-key impl/beer-xml-srm
      :description            "A non-negative IEEE-754 floating point number representing the darkest color in SRM for the style."
-     :json-schema/example    "40"}))
+     :json-schema/example    40}))
 
 
 (spec/def ::carb-min
@@ -397,7 +397,7 @@
      impl/beer-xml-type-key  impl/beer-xml-percentage
      impl/beer-xml-units-key impl/beer-xml-volumes-of-co2
      :description            "A non-negative IEEE-754 floating point number representing the minimum carbonation for this style in volumes of CO2."
-     :json-schema/example    "1.5"}))
+     :json-schema/example    1.5}))
 
 
 (spec/def ::carb-max
@@ -409,7 +409,7 @@
      impl/beer-xml-units-key impl/beer-xml-volumes-of-co2
      :gen                    impl/real-double-generator
      :description            "A non-negative IEEE-754 floating point number representing the maximum carbonation for this style in volumes of CO2."
-     :json-schema/example    "2.2"}))
+     :json-schema/example    2.2}))
 
 
 (spec/def ::abv-min
@@ -419,7 +419,7 @@
      impl/beer-xml-type-key  impl/beer-xml-percentage
      impl/beer-xml-units-key impl/beer-xml-abv
      :description            "A non-negative IEEE-754 floating point number representing the minimum recommended ABV percentage for the style."
-     :json-schema/example    "0.032"}))
+     :json-schema/example    0.032}))
 
 
 (spec/def ::abv-max
@@ -429,7 +429,7 @@
      impl/beer-xml-type-key  impl/beer-xml-percentage
      impl/beer-xml-units-key impl/beer-xml-abv
      :description            "A non-negative IEEE-754 floating point number representing the maximum recommended ABV percentage for the style."
-     :json-schema/example    "0.04"}))
+     :json-schema/example    0.04}))
 
 
 (spec/def ::profile

@@ -1,7 +1,7 @@
 {:waters [{:water {:amount      "20.0"
                    :name        "Burton on Trent, UK"
                    :sulfate     "725.0"
-                   :magnesium   "45.0"
+                   :magnesium   45.0
                    :calcium     "295.0"
                    :bicarbonate "300.0"
                    :notes       "Use for distinctive pale ales strongly hopped.  Very hard water accentuates the hops flavor. Example: Bass Ale"

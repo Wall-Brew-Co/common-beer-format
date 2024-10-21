@@ -144,7 +144,7 @@
      :spec                  ::prim/percent
      impl/beer-xml-type-key impl/beer-xml-percentage
      :description           "A non-negative IEEE-754 floating point number representing the percent contents of alpha acid in the hop."
-     :json-schema/example   "10.7"}))
+     :json-schema/example   10.7}))
 
 
 (def boil
@@ -212,7 +212,7 @@
                                "- First Wort: this is the boil time."
                                "- Aroma: this is the steep time."
                                "- Dry Hop: this is the amount of time to dry hop.")
-     :json-schema/example    "15.0"}))
+     :json-schema/example    15.0}))
 
 
 (def bittering
@@ -290,7 +290,7 @@
      :spec                  ::prim/percent
      impl/beer-xml-type-key impl/beer-xml-percentage
      :description           "A non-negative IEEE-754 floating point number representing the percent contents of beta acid in the hop."
-     :json-schema/example   "10.7"}))
+     :json-schema/example   10.7}))
 
 
 (spec/def ::hsi
@@ -300,7 +300,7 @@
      impl/beer-xml-type-key impl/beer-xml-percentage
      :spec                  ::prim/percent
      :description           "A non-negative IEEE-754 floating point number representing the Hop Stability Index, or percent decay of a hop's alpha acid over six months."
-     :json-schema/example   "2.2"}))
+     :json-schema/example   2.2}))
 
 
 (spec/def ::humulene
@@ -309,7 +309,7 @@
      :spec                  ::prim/percent
      impl/beer-xml-type-key impl/beer-xml-percentage
      :description           "A non-negative IEEE-754 floating point number representing the percent contents of humulene in the hop."
-     :json-schema/example   "10.7"}))
+     :json-schema/example   10.7}))
 
 
 (spec/def ::caryophyllene
@@ -318,7 +318,7 @@
      :spec                  ::prim/percent
      impl/beer-xml-type-key impl/beer-xml-percentage
      :description           "A non-negative IEEE-754 floating point number representing the percent contents of caryophyllene in the hop."
-     :json-schema/example   "10.7"}))
+     :json-schema/example   10.7}))
 
 
 (spec/def ::cohumulone
@@ -327,7 +327,7 @@
      :spec                  ::prim/percent
      impl/beer-xml-type-key impl/beer-xml-percentage
      :description           "A non-negative IEEE-754 floating point number representing the percent contents of cohumulone in the hop."
-     :json-schema/example   "10.7"}))
+     :json-schema/example   10.7}))
 
 
 (spec/def ::myrcene
@@ -336,7 +336,7 @@
      :spec                  ::prim/percent
      impl/beer-xml-type-key impl/beer-xml-percentage
      :description           "A non-negative IEEE-754 floating point number representing the percent contents of myrcene in the hop."
-     :json-schema/example   "10.7"}))
+     :json-schema/example   10.7}))
 
 
 (spec/def ::hop

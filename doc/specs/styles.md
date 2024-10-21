@@ -158,7 +158,7 @@ A non-negative IEEE-754 floating point number representing the darkest color in 
 - BeerXML Unit: SRM
 - Clojure Key Name: `:color-max`
 - Clojure Type: Double
-- Example: `40.0`
+- Example: `40`
 
 ## Color Min
 
@@ -168,7 +168,7 @@ A non-negative IEEE-754 floating point number representing the lightest color in
 - BeerXML Unit: SRM
 - Clojure Key Name: `:color-min`
 - Clojure Type: Double
-- Example: `32.0`
+- Example: `32`
 
 ## Color Range
 
@@ -279,7 +279,7 @@ A non-negative IEEE-754 floating point number representing the maximum bitternes
 - BeerXML Unit: IBU
 - Clojure Key Name: `:ibu-max`
 - Clojure Type: Double
-- Example: `40.0`
+- Example: `40`
 
 ## Minimum International Bittering Units
 
@@ -289,7 +289,7 @@ A non-negative IEEE-754 floating point number representing the minimum bitternes
 - BeerXML Unit: IBU
 - Clojure Key Name: `:ibu-min`
 - Clojure Type: Double
-- Example: `32.0`
+- Example: `32`
 
 ## International Bittering Units Range
 
@@ -325,7 +325,7 @@ A non-empty string representing any notes about the subject.
 - BeerXML Type: `Text`
 - Clojure Key Name: `:notes`
 - Clojure Type: String
-- Example: `"A wonderful, zesty aroma"`
+- Example: `"A wonderful, zesty aroma."`
 
 ## Maximum Original Gravity
 

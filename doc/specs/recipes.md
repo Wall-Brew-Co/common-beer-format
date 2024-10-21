@@ -394,7 +394,7 @@ A positive IEEE-754 floating point number representing the bitterness in IBUs fo
 - BeerXML Unit: IBU
 - Clojure Key Name: `:ibu`
 - Clojure Type: Double
-- Example: `40.0`
+- Example: `40`
 
 ## Ibu Method
 
@@ -435,7 +435,7 @@ A non-empty string representing any notes about the subject.
 - BeerXML Type: `Text`
 - Clojure Key Name: `:notes`
 - Clojure Type: String
-- Example: `"A wonderful, zesty aroma"`
+- Example: `"A wonderful, zesty aroma."`
 
 ## Original Gravity
 

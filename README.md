@@ -10,6 +10,22 @@ The library endeavors to support the data specification as a [clojure spec](http
 
 This repository follows the guidelines and standards of the [Wall Brew Open Source Policy.](https://github.com/Wall-Brew-Co/open-source "Our open source guidelines")
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [Domain Experience](#domain-experience)
+- [Installation](#installation)
+- [Documentation](#documentation)
+- [Usage](#usage)
+  - [Core Data Functions](#core-data-functions)
+- [Additional Notes](#additional-notes)
+  - [Wrappers](#wrappers)
+  - [Pre-Packaged Data](#pre-packaged-data)
+  - [Alternative Representations](#alternative-representations)
+- [License](#license)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## Domain Experience
 
 This documentation and library assumes a moderately advanced level of familiarity with homebrewing- specifically the brewing of beer.
@@ -180,6 +196,14 @@ This information is still available; however, it must now be loaded as a separat
 You can find that data in the [common-beer-data](https://github.com/Wall-Brew-Co/common-beer-data) repository.
 
 If we've missed an ingredient you'd like to see in common-beer-data, you can fork that repository and open a pull request or [suggest it here.](https://github.com/Wall-Brew-Co/common-beer-data/issues/new?template=data_request.md)
+
+### Alternative Representations
+
+In addition to surfacing clojure.spec definitions for the BeerXML schema, this library also provides exported type/schema information in the following formats:
+
+- [JSON Schema](https://json-schema.org/specification)
+
+These files are generated from the clojure.spec definitions and are available in the `exports` directory of this repository.
 
 ## License
 

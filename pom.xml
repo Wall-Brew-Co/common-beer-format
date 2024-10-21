@@ -4,7 +4,7 @@
   <groupId>com.wallbrew</groupId>
   <artifactId>common-beer-format</artifactId>
   <packaging>jar</packaging>
-  <version>2.4.1</version>
+  <version>2.5.0</version>
   <name>common-beer-format</name>
   <description>An implementation of the BeerXML spec in multiple formats.</description>
   <url>https://github.com/Wall-Brew-Co/common-beer-format</url>
@@ -20,7 +20,7 @@
     <url>https://github.com/Wall-Brew-Co/common-beer-format</url>
     <connection>scm:git:git://github.com/Wall-Brew-Co/common-beer-format.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/Wall-Brew-Co/common-beer-format.git</developerConnection>
-    <tag>9ec47feec261da14a8f09411da8edb9a093bbfc3</tag>
+    <tag>fe7eeddfc8d84ab7eba600f6016f50032285e907</tag>
   </scm>
   <build>
     <sourceDirectory>src</sourceDirectory>
@@ -102,6 +102,12 @@
       <groupId>doo</groupId>
       <artifactId>doo</artifactId>
       <version>0.1.11</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>mvxcvi</groupId>
+      <artifactId>cljstyle</artifactId>
+      <version>0.16.630</version>
       <scope>test</scope>
     </dependency>
     <dependency>

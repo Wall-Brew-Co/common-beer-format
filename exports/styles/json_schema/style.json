@@ -1,0 +1,276 @@
+{
+  "type": "object",
+  "properties": {
+    "og-range": {
+      "type": "string",
+      "description": "A non-empty string denoting a display value for the range of original gravities formatted for display in arbitrary units.",
+      "example": "1.036sg-1.050sg",
+      "title": "common-beer-format.styles\/og-range"
+    },
+    "display-fg-max": {
+      "type": "string",
+      "description": "A non-empty string denoting a display value for the maximum final gravity formatted for display in arbitrary units.",
+      "example": "1.050sg",
+      "title": "common-beer-format.styles\/display-fg-max"
+    },
+    "og-min": {
+      "allOf": [
+        {
+          "type": "number",
+          "format": "double"
+        },
+        {
+          "minimum": 0,
+          "exclusiveMinimum": 0
+        }
+      ],
+      "description": "A non-negative IEEE-754 floating point number representing the minimum pre-fermentation specific gravity for the style.",
+      "example": 1.048,
+      "title": "common-beer-format.styles\/og-min"
+    },
+    "display-color-min": {
+      "type": "string",
+      "description": "A non-empty string denoting a display value for the minimum color formatted for display in arbitrary units.",
+      "example": "32SRM",
+      "title": "common-beer-format.styles\/display-color-min"
+    },
+    "ibu-max": {
+      "type": "number",
+      "format": "double",
+      "description": "A non-negative IEEE-754 floating point number representing the maximum bitterness in IBUs for the style.",
+      "title": "common-beer-format.styles\/ibu-max",
+      "example": 40
+    },
+    "carb-max": {
+      "type": "number",
+      "format": "double",
+      "description": "A non-negative IEEE-754 floating point number representing the maximum carbonation for this style in volumes of CO2.",
+      "title": "common-beer-format.styles\/carb-max",
+      "example": 2.2
+    },
+    "profile": {
+      "type": "string",
+      "description": "A non-empty string denoting the aroma and flavor profile of the style.",
+      "example": "Full-bodied and dark.",
+      "title": "common-beer-format.styles\/profile"
+    },
+    "carb-min": {
+      "type": "number",
+      "format": "double",
+      "description": "A non-negative IEEE-754 floating point number representing the minimum carbonation for this style in volumes of CO2.",
+      "title": "common-beer-format.styles\/carb-min",
+      "example": 1.5
+    },
+    "abv-max": {
+      "type": "number",
+      "format": "double",
+      "description": "A non-negative IEEE-754 floating point number representing the maximum recommended ABV percentage for the style.",
+      "example": 0.04,
+      "title": "common-beer-format.styles\/abv-max"
+    },
+    "name": {
+      "type": "string",
+      "description": "A non-empty string representing the name of the ingredient.",
+      "example": "Citra",
+      "title": "common-beer-format.primitives\/name"
+    },
+    "display-og-max": {
+      "type": "string",
+      "description": "A non-empty string denoting a display value for the maximum original gravity formatted for display in arbitrary units.",
+      "example": "1.050sg",
+      "title": "common-beer-format.styles\/display-og-max"
+    },
+    "style-letter": {
+      "type": "string",
+      "description": "A non-empty string denoting the letter used to denote the style or sub-style.",
+      "example": "A",
+      "title": "common-beer-format.styles\/style-letter"
+    },
+    "ingredients": {
+      "type": "string",
+      "description": "A non-empty string denoting the suggested ingredients for the style.",
+      "example": "water, barley, and hops.",
+      "title": "common-beer-format.styles\/ingredients"
+    },
+    "color-range": {
+      "type": "string",
+      "description": "A non-empty string denoting a display value for the range of colors formatted for display in arbitrary units.",
+      "example": "10 - 22 SRM",
+      "title": "common-beer-format.styles\/color-range"
+    },
+    "carb-range": {
+      "type": "string",
+      "description": "A non-empty string denoting a display value for the range of carbonation volumes formatted for display in arbitrary units.",
+      "example": "2.0-2.6 vols CO2",
+      "title": "common-beer-format.styles\/carb-range"
+    },
+    "color-max": {
+      "type": "number",
+      "format": "double",
+      "description": "A non-negative IEEE-754 floating point number representing the darkest color in SRM for the style.",
+      "title": "common-beer-format.styles\/color-max",
+      "example": 40
+    },
+    "category-number": {
+      "type": "string",
+      "description": "A non-empty string denoting the category number of this style.\nThe category number is a string because it can be a letter followed by a number, e.g. 'A1' on some guides.",
+      "example": "1",
+      "title": "common-beer-format.styles\/category-number"
+    },
+    "fg-min": {
+      "allOf": [
+        {
+          "type": "number",
+          "format": "double"
+        },
+        {
+          "minimum": 0,
+          "exclusiveMinimum": 0
+        }
+      ],
+      "description": "A non-negative IEEE-754 floating point number representing the minimum post-fermentation specific gravity for the style.",
+      "example": 1.048,
+      "title": "common-beer-format.styles\/fg-min"
+    },
+    "display-color-max": {
+      "type": "string",
+      "description": "A non-empty string denoting a display value for the maximum color formatted for display in arbitrary units.",
+      "example": "40 SRM",
+      "title": "common-beer-format.styles\/display-color-max"
+    },
+    "fg-max": {
+      "allOf": [
+        {
+          "type": "number",
+          "format": "double"
+        },
+        {
+          "minimum": 0,
+          "exclusiveMinimum": 0
+        }
+      ],
+      "description": "A non-negative IEEE-754 floating point number representing the maximum post-fermentation specific gravity for the style.",
+      "example": 1.06,
+      "title": "common-beer-format.styles\/fg-max"
+    },
+    "ibu-min": {
+      "type": "number",
+      "format": "double",
+      "description": "A non-negative IEEE-754 floating point number representing the minimum bitterness in IBUs for the style.",
+      "title": "common-beer-format.styles\/ibu-min",
+      "example": 32
+    },
+    "type": {
+      "description": "A case-sensitive string representing the type of beverage the style dictates.\nMust be one of: \"Lager\", \"Cider\", \"Mixed\", \"Mead\", \"Wheat\", \"Ale\"\n\n- Ale: A top-fermented beer with a fruity, hoppy taste and a dry finish.\n- Cider: A fermented beverage made from fruit and water.\n- Lager: A light, bottom-fermented beer with a clean, crisp taste and a smooth finish.\n- Mead: A fermented beverage made from honey and water.\n- Mixed: A beer style that blends two or more styles.\n- Wheat: A beer made with a large proportion of wheat malt.",
+      "title": "common-beer-format.styles\/type",
+      "example": "Lager"
+    },
+    "display-og-min": {
+      "type": "string",
+      "description": "A non-empty string denoting a display value for the minimum original gravity formatted for display in arbitrary units.",
+      "example": "1.036sg",
+      "title": "common-beer-format.styles\/display-og-min"
+    },
+    "display-fg-min": {
+      "type": "string",
+      "description": "A non-empty string denoting a display value for the minimum final gravity formatted for display in arbitrary units.",
+      "example": "1.036sg",
+      "title": "common-beer-format.styles\/display-fg-min"
+    },
+    "version": {
+      "description": "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.",
+      "title": "common-beer-format.primitives\/version",
+      "example": 1
+    },
+    "fg-range": {
+      "type": "string",
+      "description": "A non-empty string denoting a display value for the range of final gravities formatted for display in arbitrary units.",
+      "example": "1.036sg-1.050sg",
+      "title": "common-beer-format.styles\/fg-range"
+    },
+    "og-max": {
+      "allOf": [
+        {
+          "type": "number",
+          "format": "double"
+        },
+        {
+          "minimum": 0,
+          "exclusiveMinimum": 0
+        }
+      ],
+      "description": "A non-negative IEEE-754 floating point number representing the maximum pre-fermentation specific gravity for the style.",
+      "example": 1.06,
+      "title": "common-beer-format.styles\/og-max"
+    },
+    "category": {
+      "type": "string",
+      "description": "A non-empty string denoting the category this style belongs to.",
+      "example": "American Lagers",
+      "title": "common-beer-format.styles\/category"
+    },
+    "ibu-range": {
+      "type": "string",
+      "description": "A non-empty string denoting a display value for the range of International Bittering Units formatted for display in arbitrary units.",
+      "example": "10-20IBUs",
+      "title": "common-beer-format.styles\/ibu-range"
+    },
+    "notes": {
+      "type": "string",
+      "description": "A non-empty string representing any notes about the subject.",
+      "example": "A wonderful, zesty aroma.",
+      "title": "common-beer-format.primitives\/notes"
+    },
+    "color-min": {
+      "type": "number",
+      "format": "double",
+      "description": "A non-negative IEEE-754 floating point number representing the lightest color in SRM for the style.",
+      "title": "common-beer-format.styles\/color-min",
+      "example": 32
+    },
+    "examples": {
+      "type": "string",
+      "description": "A non-empty string denoting example beers of this style.",
+      "example": "Every overly citrus IPA on the market.",
+      "title": "common-beer-format.styles\/examples"
+    },
+    "abv-min": {
+      "type": "number",
+      "format": "double",
+      "description": "A non-negative IEEE-754 floating point number representing the minimum recommended ABV percentage for the style.",
+      "example": 0.032,
+      "title": "common-beer-format.styles\/abv-min"
+    },
+    "style-guide": {
+      "type": "string",
+      "description": "A non-empty string denoting the name of the style guide the style\/category belongs to.",
+      "example": "BJCP",
+      "title": "common-beer-format.styles\/style-guide"
+    },
+    "abv-range": {
+      "type": "string",
+      "description": "A non-empty string denoting a display value for the range of ABV levels formatted for display in arbitrary units.",
+      "example": "8.0-11.2%",
+      "title": "common-beer-format.styles\/abv-range"
+    }
+  },
+  "required": [
+    "name",
+    "version",
+    "category",
+    "category-number",
+    "style-letter",
+    "style-guide",
+    "type",
+    "og-min",
+    "og-max",
+    "fg-min",
+    "fg-max",
+    "ibu-min",
+    "ibu-max",
+    "color-min",
+    "color-max"
+  ],
+  "description": "A record representing a beer style.",
+  "title": "common-beer-format.styles\/style"
+}

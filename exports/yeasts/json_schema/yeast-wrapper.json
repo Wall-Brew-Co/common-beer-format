@@ -1,0 +1,172 @@
+{
+  "type": "object",
+  "properties": {
+    "yeast": {
+      "type": "object",
+      "properties": {
+        "product-id": {
+          "type": "string",
+          "description": "A non-empty string denoting the product label or id number that identifies the strain of yeast.",
+          "example": "WLP008",
+          "title": "common-beer-format.yeasts\/product-id"
+        },
+        "form": {
+          "description": "A case-sensitive string representing the form of the yeast added to the beer.\nMust be one of: \"Culture\", \"Slant\", \"Dry\", \"Liquid\"\n\n- Liquid: A liquid slurry of yeast, usually with a source of nutrients or sugars.\n- Dry: Dry yeast sold in a dehydrated state to extend shelf life.\n- Slant: Yeast cultivated on a solid growth medium.\n- Culture: Yeast cultivated from previous fermentations.",
+          "title": "common-beer-format.yeasts\/form",
+          "example": "Ale"
+        },
+        "disp-min-temp": {
+          "type": "string",
+          "description": "A non-empty string denoting a display value for the minimum fermentation temperature formatted for display in arbitrary units.",
+          "example": "68F",
+          "title": "common-beer-format.yeasts\/disp-min-temp"
+        },
+        "add-to-secondary": {
+          "description": "A boolean representing if this yeast was added for a secondary fermentation.\nWhen absent, assume false.",
+          "example": false,
+          "title": "common-beer-format.yeasts\/add-to-secondary"
+        },
+        "max-reuse": {
+          "allOf": [
+            {
+              "type": "integer",
+              "format": "int64"
+            },
+            {
+              "minimum": 0,
+              "exclusiveMinimum": 0
+            }
+          ],
+          "description": "A non-negative integer representing the suggested maximum number of times the yeast may be harvested and recultured.",
+          "title": "common-beer-format.yeasts\/max-reuse",
+          "example": 3
+        },
+        "name": {
+          "type": "string",
+          "description": "A non-empty string representing the name of the ingredient.",
+          "example": "Citra",
+          "title": "common-beer-format.primitives\/name"
+        },
+        "amount-is-weight": {
+          "description": "A boolean representing if the amount of the substance is measured in kilograms.\nWhen absent, assume false and that the amount of substance is measured in liters.",
+          "example": false,
+          "title": "common-beer-format.primitives\/amount-is-weight"
+        },
+        "culture-date": {
+          "type": "string",
+          "description": "A non-empty string denoting a display value for the date the yeast sample was last cultured formatted for display in arbitrary structure.",
+          "example": "10\/10\/2020",
+          "title": "common-beer-format.yeasts\/culture-date"
+        },
+        "flocculation": {
+          "description": "A case-sensitive string representing how dense of a floc the yeast will form.\nMust be one of: \"Medium\", \"Very high\", \"High\", \"Low\"\n\n- Low: The yeast settles out of suspension slowly.\n- Medium: The yeast settles out of suspension at a moderate rate.\n- High: The yeast settles out of suspension quickly.\n- Very High: The yeast settles out of suspension very quickly.",
+          "title": "common-beer-format.yeasts\/flocculation",
+          "example": "High"
+        },
+        "min-temperature": {
+          "type": "number",
+          "format": "double",
+          "description": "An IEEE-754 floating point number representing the minimum recommended temperature of fermentation.",
+          "example": 19.5,
+          "title": "common-beer-format.yeasts\/min-temperature"
+        },
+        "laboratory": {
+          "type": "string",
+          "description": "A non-empty string denoting the laboratory that cultivated the yeast.",
+          "example": "White Labs",
+          "title": "common-beer-format.yeasts\/laboratory"
+        },
+        "inventory": {
+          "type": "string",
+          "description": "A non-empty string denoting a display value for the amount of the ingredient in inventory formatted for display in arbitrary units.",
+          "example": "100 lbs",
+          "title": "common-beer-format.primitives\/inventory"
+        },
+        "disp-max-temp": {
+          "type": "string",
+          "description": "A non-empty string denoting a display value for the maximum fermentation temperature formatted for display in arbitrary units.",
+          "example": "75F",
+          "title": "common-beer-format.yeasts\/disp-max-temp"
+        },
+        "type": {
+          "description": "A case-sensitive string representing the type of yeast added to the beer.\nMust be one of: \"Lager\", \"Wheat\", \"Ale\", \"Champagne\", \"Wine\"\n\n- Ale: Yeast that ferments at higher temperatures and produces a more fruity, estery, and alcohol-forward beer.\n- Lager: Yeast that ferments at lower temperatures and produces a crisp, clean, and alcohol-restrained beer.\n- Wheat: Yeast that ferments at higher temperatures and produces a fruity and phenol-forward beer.\n- Wine: Yeast traditionally used in wine making.\n- Champagne: Yeast traditionally used in champagne making, offering a dry taste.",
+          "title": "common-beer-format.yeasts\/type",
+          "example": "Ale"
+        },
+        "amount": {
+          "type": "number",
+          "format": "double",
+          "description": "A value representing the amount of a particular ingredient.\nWhen measuring weight, this is in kilograms.\nWhen measuring volume, this is in liters.",
+          "example": 12.5,
+          "title": "common-beer-format.primitives\/amount"
+        },
+        "times-cultured": {
+          "allOf": [
+            {
+              "type": "integer",
+              "format": "int64"
+            },
+            {
+              "minimum": 0,
+              "exclusiveMinimum": 0
+            }
+          ],
+          "description": "A non-negative integer representing the number of times this yeast has been harvested and re-used.\nA value of zero assumes the yeast came directly from the manufacturer.",
+          "title": "common-beer-format.yeasts\/times-cultured",
+          "example": 1
+        },
+        "version": {
+          "description": "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.",
+          "title": "common-beer-format.primitives\/version",
+          "example": 1
+        },
+        "best-for": {
+          "type": "string",
+          "description": "A non-empty string denoting the styles of beer this yeast is best suited for.",
+          "example": "WLP008",
+          "title": "common-beer-format.yeasts\/best-for"
+        },
+        "notes": {
+          "type": "string",
+          "description": "A non-empty string representing any notes about the subject.",
+          "example": "A wonderful, zesty aroma.",
+          "title": "common-beer-format.primitives\/notes"
+        },
+        "max-temperature": {
+          "type": "number",
+          "format": "double",
+          "description": "An IEEE-754 floating point number representing the maximum recommended temperature of fermentation.",
+          "example": 23.9,
+          "title": "common-beer-format.yeasts\/max-temperature"
+        },
+        "display-amount": {
+          "type": "string",
+          "description": "A non-empty string denoting a display value for the amount of the ingredient in a recipe formatted for display in arbitrary units.",
+          "example": "100 g",
+          "title": "common-beer-format.primitives\/display-amount"
+        },
+        "attenuation": {
+          "type": "number",
+          "format": "double",
+          "description": "A positive IEEE-754 floating point number representing the percent of malt sugar that can be converted to ethanol and carbon dioxide.",
+          "example": 73.2,
+          "title": "common-beer-format.yeasts\/attenuation"
+        }
+      },
+      "required": [
+        "name",
+        "version",
+        "type",
+        "form",
+        "amount"
+      ],
+      "description": "A record representing the yeast in a beer recipe.",
+      "title": "common-beer-format.yeasts\/yeast"
+    }
+  },
+  "required": [
+    "yeast"
+  ],
+  "description": "A `::yeast` record wrapped in a `:yeast` map.",
+  "title": "common-beer-format.yeasts\/yeast-wrapper"
+}

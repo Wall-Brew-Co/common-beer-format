@@ -1,15 +1,15 @@
 {
-    "hops": [
-        {
-            "hop": {
-                "name": "Goldings, East Kent",
-                "version": "1",
-                "alpha": "5.0",
-                "amount": "0.0638",
-                "use": "Boil",
-                "time": "60.0",
-                "notes": "Great all purpose UK hop for ales, stouts, porters"
-            }
-        }
-    ]
+  "hops": [
+    {
+      "hop": {
+        "name": "Goldings, East Kent",
+        "version": "1",
+        "alpha": 5.0,
+        "amount": 0.0638,
+        "use": "Boil",
+        "time": 60.0,
+        "notes": "Great all purpose UK hop for ales, stouts, porters"
+      }
+    }
+  ]
 }

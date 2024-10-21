@@ -1,0 +1,165 @@
+{
+  "type": "object",
+  "properties": {
+    "hops": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "hop": {
+            "type": "object",
+            "properties": {
+              "origin": {
+                "type": "string",
+                "description": "A non-empty string denoting the place of origin for a particular ingredient.",
+                "example": "Nice, France",
+                "title": "common-beer-format.primitives\/origin"
+              },
+              "caryophyllene": {
+                "type": "number",
+                "format": "double",
+                "description": "A non-negative IEEE-754 floating point number representing the percent contents of caryophyllene in the hop.",
+                "example": 10.7,
+                "title": "common-beer-format.hops\/caryophyllene"
+              },
+              "display-time": {
+                "type": "string",
+                "description": "A non-empty string denoting a display value for an amount of time formatted for display in arbitrary units.",
+                "example": "10 days",
+                "title": "common-beer-format.primitives\/display-time"
+              },
+              "hsi": {
+                "type": "number",
+                "format": "double",
+                "description": "A non-negative IEEE-754 floating point number representing the Hop Stability Index, or percent decay of a hop's alpha acid over six months.",
+                "example": 2.2,
+                "title": "common-beer-format.hops\/hsi"
+              },
+              "myrcene": {
+                "type": "number",
+                "format": "double",
+                "description": "A non-negative IEEE-754 floating point number representing the percent contents of myrcene in the hop.",
+                "example": 10.7,
+                "title": "common-beer-format.hops\/myrcene"
+              },
+              "form": {
+                "description": "A case-sensitive string representing the physical form of the hop.\nMust be one of: \"Pellet\", \"Leaf\", \"Plug\"\n\n- Pellet: Ground and compressed hop cones.\n- Plug: Whole hop cones compressed into plugs.\n- Leaf: Whole hop cones.",
+                "title": "common-beer-format.hops\/form",
+                "example": "leaf"
+              },
+              "humulene": {
+                "type": "number",
+                "format": "double",
+                "description": "A non-negative IEEE-754 floating point number representing the percent contents of humulene in the hop.",
+                "example": 10.7,
+                "title": "common-beer-format.hops\/humulene"
+              },
+              "name": {
+                "type": "string",
+                "description": "A non-empty string representing the name of the ingredient.",
+                "example": "Citra",
+                "title": "common-beer-format.primitives\/name"
+              },
+              "time": {
+                "type": "number",
+                "format": "double",
+                "description": "A non-negative IEEE-754 floating point number representing the time in minutes the hop was added dependant on the `:use` field.\n\n- Boil: this is the boil time.\n- Mash: this is the mash time.\n- First Wort: this is the boil time.\n- Aroma: this is the steep time.\n- Dry Hop: this is the amount of time to dry hop.",
+                "example": 15.0,
+                "title": "common-beer-format.hops\/time"
+              },
+              "inventory": {
+                "type": "string",
+                "description": "A non-empty string denoting a display value for the amount of the ingredient in inventory formatted for display in arbitrary units.",
+                "example": "100 lbs",
+                "title": "common-beer-format.primitives\/inventory"
+              },
+              "type": {
+                "description": "A case-sensitive string representing the typical purpose of the hop's addition to a beer.\nMust be one of: \"Both\", \"Aroma\", \"Bittering\"\n\n- Bittering: Hops added solely for their bittering properties.\n- Aroma: Hops added solely for their aromatic properties and flavor.\n- Both: Hops which may be added for both\/either their bittering and\/or aromatic properties.",
+                "title": "common-beer-format.hops\/type",
+                "example": "bittering"
+              },
+              "amount": {
+                "type": "number",
+                "format": "double",
+                "description": "A value representing the amount of a particular ingredient.\nWhen measuring weight, this is in kilograms.\nWhen measuring volume, this is in liters.",
+                "example": 12.5,
+                "title": "common-beer-format.primitives\/amount"
+              },
+              "cohumulone": {
+                "type": "number",
+                "format": "double",
+                "description": "A non-negative IEEE-754 floating point number representing the percent contents of cohumulone in the hop.",
+                "example": 10.7,
+                "title": "common-beer-format.hops\/cohumulone"
+              },
+              "version": {
+                "description": "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.",
+                "title": "common-beer-format.primitives\/version",
+                "example": 1
+              },
+              "alpha": {
+                "type": "number",
+                "format": "double",
+                "description": "A non-negative IEEE-754 floating point number representing the percent contents of alpha acid in the hop.",
+                "example": 10.7,
+                "title": "common-beer-format.hops\/alpha"
+              },
+              "beta": {
+                "type": "number",
+                "format": "double",
+                "description": "A non-negative IEEE-754 floating point number representing the percent contents of beta acid in the hop.",
+                "example": 10.7,
+                "title": "common-beer-format.hops\/beta"
+              },
+              "notes": {
+                "type": "string",
+                "description": "A non-empty string representing any notes about the subject.",
+                "example": "A wonderful, zesty aroma.",
+                "title": "common-beer-format.primitives\/notes"
+              },
+              "display-amount": {
+                "type": "string",
+                "description": "A non-empty string denoting a display value for the amount of the ingredient in a recipe formatted for display in arbitrary units.",
+                "example": "100 g",
+                "title": "common-beer-format.primitives\/display-amount"
+              },
+              "use": {
+                "description": "A case-sensitive string representing the means by which the hop is added to the beer.\nMust be one of: \"Mash\", \"Boil\", \"Dry hop\", \"First wort\", \"Aroma\"\n\n- Aroma: Hops added to the beer after the boil. They do not significantly contribute to the bitterness of the beer.\n- Boil: Hops added to the boil for bittering.\n- Dry Hop: Hops added to the fermentation vessel after pitching yeast. They do not significantly contribute to the bitterness of the beer.\n- First Wort: Hops added to first wort prior to the boil.\n- Mash: Hops added to the mash prior to the boil.",
+                "title": "common-beer-format.hops\/use",
+                "example": "mash"
+              },
+              "substitutes": {
+                "type": "string",
+                "description": "A non-empty string denoting ingredients with me bay used in place of those denoted in the record.",
+                "example": "Citra or Sorachi",
+                "title": "common-beer-format.primitives\/substitutes"
+              }
+            },
+            "required": [
+              "name",
+              "version",
+              "alpha",
+              "amount",
+              "use",
+              "time"
+            ],
+            "description": "A record representing a hop in a beer recipe.",
+            "title": "common-beer-format.hops\/hop"
+          }
+        },
+        "required": [
+          "hop"
+        ],
+        "description": "A `::hop` record wrapped in a `:hop` map.",
+        "title": "common-beer-format.hops\/hop-wrapper"
+      },
+      "description": "A vector of valid `::hop-wrapper` records.",
+      "title": "common-beer-format.hops\/hops"
+    }
+  },
+  "required": [
+    "hops"
+  ],
+  "description": "A `::hops-wrapper` record set.",
+  "title": "common-beer-format.hops\/hops-wrapper"
+}

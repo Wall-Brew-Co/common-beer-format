@@ -294,7 +294,7 @@
      impl/beer-xml-type-key  impl/beer-xml-floating-point
      impl/beer-xml-units-key impl/beer-xml-degrees-celsius
      :description            "An IEEE-754 floating point number representing the minimum recommended temperature of fermentation."
-     :json-schema/example    "19.5"}))
+     :json-schema/example    19.5}))
 
 
 (spec/def ::max-temperature
@@ -305,7 +305,7 @@
      impl/beer-xml-type-key  impl/beer-xml-floating-point
      impl/beer-xml-units-key impl/beer-xml-degrees-celsius
      :description            "An IEEE-754 floating point number representing the maximum recommended temperature of fermentation."
-     :json-schema/example    "23.9"}))
+     :json-schema/example    23.9}))
 
 
 (def yeast-flocculation-types
@@ -338,7 +338,7 @@
      :spec                  ::prim/percent
      impl/beer-xml-type-key impl/beer-xml-percentage
      :description           "A positive IEEE-754 floating point number representing the percent of malt sugar that can be converted to ethanol and carbon dioxide."
-     :json-schema/example   "73.2"}))
+     :json-schema/example   73.2}))
 
 
 (spec/def ::best-for
@@ -358,7 +358,7 @@
      :description           (impl/multiline
                               "A non-negative integer representing the number of times this yeast has been harvested and re-used."
                               "A value of zero assumes the yeast came directly from the manufacturer.")
-     :json-schema/example   "1"}))
+     :json-schema/example   1}))
 
 
 (spec/def ::max-reuse
@@ -367,7 +367,7 @@
      :spec                  (spec/and int? pos?)
      impl/beer-xml-type-key impl/beer-xml-integer
      :description           "A non-negative integer representing the suggested maximum number of times the yeast may be harvested and recultured."
-     :json-schema/example   "3"}))
+     :json-schema/example   3}))
 
 
 (spec/def ::add-to-secondary
@@ -377,7 +377,7 @@
      :description           (impl/multiline
                               "A boolean representing if this yeast was added for a secondary fermentation."
                               "When absent, assume false.")
-     :json-schema/example   "false"
+     :json-schema/example   false
      :decode/string         impl/decode-boolean
      :encode/string         impl/encode-boolean}))
 

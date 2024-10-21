@@ -1,0 +1,11 @@
+{:version      {:major 2
+                :minor 5
+                :patch 0}
+ :version-type :semver3
+ :changes      {:added      ["Development time functionality to export specs as JSON Schema"]
+                :changed    []
+                :deprecated []
+                :removed    []
+                :fixed      ["Updated the sample data in each spec to render as the correct type"]
+                :security   []}
+ :timestamp    "2024-10-21T13:46:46.274048374Z"}

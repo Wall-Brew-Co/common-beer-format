@@ -16,4 +16,8 @@
                      ["Water" {:file "doc/specs/water.md"}]
                      ["Yeast" {:file "doc/specs/yeast.md"}]]]
                    ["Adopted Patterns" {}
-                    ["Symbolic Keywords" {:file "doc/patterns/symbolic_keywords.md"}]]]}
+                    ["Symbolic Keywords" {:file "doc/patterns/symbolic_keywords.md"}]]
+                   ["Developing" {}
+                    ["Required Tooling" {:file "doc/developing/001_required_tooling.md"}]
+                    ["Managed Tooling" {:file "doc/developing/002_managed_tooling.md"}]
+                    ["Contribution Guidelines" {:file "doc/developing/003_contribution_guidelines.md"}]]]}

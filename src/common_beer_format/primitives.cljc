@@ -15,7 +15,7 @@
      impl/beer-xml-type-key impl/beer-xml-floating-point
      :gen                   impl/real-positive-double-generator
      :description           "A non-negative IEEE-754 floating point number."
-     :json-schema/example   "10.7"}))
+     :json-schema/example   10.7}))
 
 
 (spec/def ::kilogram
@@ -26,7 +26,7 @@
      :spec                   ::non-negative-number
      :gen                    impl/real-positive-double-generator
      :description            "A non-negative IEEE-754 floating point number representing weight in kilograms."
-     :json-schema/example    "10.7"}))
+     :json-schema/example    10.7}))
 
 
 (spec/def ::liter
@@ -37,7 +37,7 @@
      :spec                   ::non-negative-number
      :gen                    impl/real-positive-double-generator
      :description            "A non-negative IEEE-754 floating point number representing volume in liters."
-     :json-schema/example    "12.3"}))
+     :json-schema/example    12.3}))
 
 
 (spec/def ::degrees-celsius
@@ -48,7 +48,7 @@
      impl/beer-xml-units-key impl/beer-xml-degrees-celsius
      :gen                    impl/real-double-generator
      :description            "An IEEE-754 floating point number representing degress in Celsius."
-     :json-schema/example    "-10.7"}))
+     :json-schema/example    -10.7}))
 
 
 (spec/def ::minute
@@ -59,7 +59,7 @@
      impl/beer-xml-units-key impl/beer-xml-minute
      :gen                    impl/real-positive-double-generator
      :description            "A non-negative IEEE-754 floating point number representing time in minutes."
-     :json-schema/example    "45.0"}))
+     :json-schema/example    45.0}))
 
 
 (spec/def ::specific-gravity
@@ -70,7 +70,7 @@
      impl/beer-xml-units-key impl/beer-xml-specific-gravity
      :gen                    impl/real-positive-double-generator
      :description            "A positive IEEE-754 floating point number representing the specific gravity relative to the weight of the same size sample of water."
-     :json-schema/example    "1.045"}))
+     :json-schema/example    1.045}))
 
 
 (spec/def ::kilopascal
@@ -81,7 +81,7 @@
      impl/beer-xml-units-key impl/beer-xml-kilopascal
      :gen                    impl/real-positive-double-generator
      :description            "A non-negative IEEE-754 floating point number representing pressure in kilopascals."
-     :json-schema/example    "101.325"}))
+     :json-schema/example    101.325}))
 
 
 (spec/def ::percent
@@ -91,7 +91,7 @@
      impl/beer-xml-type-key  impl/beer-xml-percentage
      :gen                    impl/real-double-generator
      :description            "An IEEE-754 floating point number representing a human-readable percentage out of 100 - e.g 5.5 to represent 5.5%"
-     :json-schema/example    "4.5"}))
+     :json-schema/example    4.5}))
 
 
 (spec/def ::boolean
@@ -99,7 +99,7 @@
     {:spec                  np/boolean?
      :description           "A boolean logic value of true or false."
      impl/beer-xml-type-key impl/beer-xml-boolean
-     :json-schema/example   "false"
+     :json-schema/example   false
      :gen                   #(spec/gen boolean?)
      :decode/string         impl/decode-boolean
      :encode/string         impl/encode-boolean}))
@@ -121,7 +121,7 @@
      impl/beer-xml-type-key impl/beer-xml-integer
      :gen                   #(spec/gen #{1})
      :description           "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists."
-     :json-schema/example   "1"}))
+     :json-schema/example   1}))
 
 
 (spec/def ::name
@@ -143,7 +143,7 @@
                                "A value representing the amount of a particular ingredient."
                                "When measuring weight, this is in kilograms."
                                "When measuring volume, this is in liters.")
-     :json-schema/example    "12.5"}))
+     :json-schema/example    12.5}))
 
 
 (spec/def ::notes
@@ -152,7 +152,7 @@
      impl/beer-xml-type-key impl/beer-xml-text
      :spec                  ::text
      :description           "A non-empty string representing any notes about the subject."
-     :json-schema/example   "A wonderful, zesty aroma"}))
+     :json-schema/example   "A wonderful, zesty aroma."}))
 
 
 (spec/def ::origin
@@ -181,7 +181,7 @@
      :description           (impl/multiline
                               "A boolean representing if the amount of the substance is measured in kilograms."
                               "When absent, assume false and that the amount of substance is measured in liters.")
-     :json-schema/example   "false"
+     :json-schema/example   false
      :decode/string         impl/decode-boolean
      :encode/string         impl/encode-boolean}))
 

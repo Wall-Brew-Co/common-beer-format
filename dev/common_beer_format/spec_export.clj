@@ -21,7 +21,7 @@
             [common-beer-format.yeasts :as yeasts]))
 
 
-(defn ->capital-sting
+(defn ->capital-string
   "Convert a string sequence to a single string with all words capitalized."
   [string-sequence]
   (str/join " " (map str/capitalize string-sequence)))
@@ -37,7 +37,7 @@
           name
           (str/replace #"-" " ")
           (str/split #" ")
-          ->capital-sting))))
+          ->capital-string))))
 
 
 (defn beer-xml-units->markdown
