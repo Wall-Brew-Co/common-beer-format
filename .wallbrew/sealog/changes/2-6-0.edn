@@ -1,0 +1,11 @@
+{:version      {:major 2
+                :minor 6
+                :patch 0}
+ :version-type :semver3
+ :changes      {:added      []
+                :changed    ["Removed dependency on `nnichols/nnichols` and added an explicit dependency on `org.clojure/test.check`"]
+                :deprecated []
+                :removed    []
+                :fixed      []
+                :security   []}
+ :timestamp    "2024-10-21T14:23:47.927779058Z"}
