@@ -10,10 +10,11 @@
   :pom-addition [:organization
                  [:name "Wall Brew Co."]
                  [:url "https://wallbrew.com"]]
+  :pedantic? true
   :dependencies [[metosin/spec-tools "0.10.7"]
-                 [nnichols/nnichols "1.1.0"]
                  [org.clojure/clojure "1.12.0"]
-                 [org.clojure/clojurescript "1.11.132" :scope "provided"]]
+                 [org.clojure/clojurescript "1.11.132" :scope "provided"]
+                 [org.clojure/test.check "1.1.1"]]
   :plugins [[com.github.clj-kondo/lein-clj-kondo "2024.09.27"]
             [com.wallbrew/bouncer "1.1.1"]
             [com.wallbrew/lein-sealog "1.8.0"]
