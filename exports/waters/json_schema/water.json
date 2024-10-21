@@ -46,18 +46,18 @@
       "type": "number",
       "format": "double",
       "description": "A value representing the amount of a particular ingredient.\nWhen measuring weight, this is in kilograms.\nWhen measuring volume, this is in liters.",
-      "example": "12.5",
+      "example": 12.5,
       "title": "common-beer-format.primitives\/amount"
     },
     "version": {
       "description": "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.",
       "title": "common-beer-format.primitives\/version",
-      "example": "1"
+      "example": 1
     },
     "notes": {
       "type": "string",
       "description": "A non-empty string representing any notes about the subject.",
-      "example": "A wonderful, zesty aroma",
+      "example": "A wonderful, zesty aroma.",
       "title": "common-beer-format.primitives\/notes"
     },
     "magnesium": {

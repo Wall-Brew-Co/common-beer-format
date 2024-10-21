@@ -195,7 +195,7 @@
      :spec                  ::prim/percent
      impl/beer-xml-type-key impl/beer-xml-percentage
      :description           "A non-negative IEEE-754 floating point number representing the percent rendered sugar from the fermentable."
-     :json-schema/example   "0.856"}))
+     :json-schema/example   0.856}))
 
 
 (spec/def ::color
@@ -206,7 +206,7 @@
      impl/beer-xml-units-key [impl/beer-xml-lovibond impl/beer-xml-srm]
      :gen                    impl/real-double-generator
      :description            "A non-negative IEEE-754 floating point number representing the color in Lovibond for the grain type, and SRM for all other types for the fermentable."
-     :json-schema/example    "32"}))
+     :json-schema/example    32}))
 
 
 (spec/def ::add-after-boil
@@ -215,7 +215,7 @@
      impl/beer-xml-type-key impl/beer-xml-boolean
      :description           (impl/multiline "A boolean representing if the fermentable was added after the boil."
                                             "When absent, assume false.")
-     :json-schema/example   "false"
+     :json-schema/example   false
      :decode/string         impl/decode-boolean
      :encode/string         impl/encode-boolean}))
 
@@ -237,7 +237,7 @@
      :spec                  ::prim/percent
      :description           (impl/multiline "A non-negative IEEE-754 floating point number representing the percent difference between the coarse grain yield and fine grain yield."
                                             "Only appropriate for the 'Grain' or 'Adjunct' types.")
-     :json-schema/example   "0.856"}))
+     :json-schema/example   0.856}))
 
 
 (spec/def ::moisture
@@ -247,7 +247,7 @@
      impl/beer-xml-type-key impl/beer-xml-percentage
      :description           (impl/multiline "A non-negative IEEE-754 floating point number representing the percent moisture in the grain."
                                             "Only appropriate for the 'Grain' or 'Adjunct' types.")
-     :json-schema/example   "45.0"}))
+     :json-schema/example   45.0}))
 
 
 (spec/def ::diastatic-power
@@ -258,7 +258,7 @@
      :gen                   impl/real-double-generator
      :description           (impl/multiline "A non-negative IEEE-754 floating point number representing the diastatic power of the grain in Lintner units."
                                             "Only appropriate for the 'Grain' or 'Adjunct' types.")
-     :json-schema/example   "0.65"}))
+     :json-schema/example   0.65}))
 
 
 (spec/def ::protein
@@ -268,7 +268,7 @@
      impl/beer-xml-type-key impl/beer-xml-percentage
      :description           (impl/multiline "A non-negative IEEE-754 floating point number representing the protein contents of the grain."
                                             "Only appropriate for the 'Grain' or 'Adjunct' types.")
-     :json-schema/example   "10.0"}))
+     :json-schema/example   10.0}))
 
 
 (spec/def ::max-in-batch
@@ -277,7 +277,7 @@
      :spec                  ::prim/percent
      impl/beer-xml-type-key impl/beer-xml-percentage
      :description           "A non-negative IEEE-754 floating point number representing the suggested maximum percent by weight of the fermentable with respect to all fermentables."
-     :json-schema/example   "1.0"}))
+     :json-schema/example   1.0}))
 
 
 (spec/def ::recommend-mash
@@ -287,7 +287,7 @@
      :description           (impl/multiline "A boolean representing if the fermentable is recommended to be included in the mashing step."
                                             "Only appropriate for the 'Grain' or 'Adjunct' types."
                                             "When absent, assume false.")
-     :json-schema/example   "false"
+     :json-schema/example   false
      :decode/string         impl/decode-boolean
      :encode/string         impl/encode-boolean}))
 
@@ -300,7 +300,7 @@
      :gen                   impl/real-double-generator
      :description           (impl/multiline "A non-negative IEEE-754 floating point number representing the IBUs per pound per gallon of water assuming a 60 minute boil."
                                             "Only appropriate for the 'Extract' type.")
-     :json-schema/example   "12.5"}))
+     :json-schema/example   12.5}))
 
 
 (spec/def ::potential
@@ -310,7 +310,7 @@
      impl/beer-xml-type-key  impl/beer-xml-floating-point
      impl/beer-xml-units-key impl/beer-xml-specific-gravity
      :description            "A non-negative IEEE-754 floating point number representing the potential yield in specific gravity units of the ingredient."
-     :json-schema/example    "1.048"}))
+     :json-schema/example    1.048}))
 
 
 (spec/def ::display-color

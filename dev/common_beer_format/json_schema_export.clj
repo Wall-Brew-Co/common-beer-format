@@ -5,6 +5,7 @@
   {:no-doc true}
   (:require [clojure.data.json :as json]
             [clojure.java.io :as io]
+            [clojure.string :as str]
             [common-beer-format.equipment :as equipment]
             [common-beer-format.fermentables :as fermentables]
             [common-beer-format.hops :as hops]
@@ -16,6 +17,12 @@
             [common-beer-format.yeasts :as yeasts]
             [spec-tools.json-schema :as json-schema]))
 
+(defn json-schema-fixup
+  "spec-tools only supports Draft 4 JSON Schema, so we need to fix it up to Draft 7."
+  [schema-string]
+  (-> schema-string
+      (str/replace "\"exclusiveMinimum\": true" "\"exclusiveMinimum\": 0")))
+
 
 (defn export-spec-as-json!
   "Convert a spec to a JSON Schema."
@@ -23,7 +30,7 @@
   (io/make-parents filename)
   (let [schema (json-schema/transform spec)]
     (println "Exporting" filename)
-    (spit filename (json/write-str schema {:indent true}))))
+    (spit filename (json-schema-fixup (json/write-str schema {:indent true})))))
 
 
 (defn render-equipment-file!

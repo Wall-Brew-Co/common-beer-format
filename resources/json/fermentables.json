@@ -4,55 +4,55 @@
             "fermentable": {
                 "name": "Pale Malt (2 row) UK",
                 "version": "1",
-                "amount": "2.27",
+                "amount": 2.27,
                 "type": "Grain",
-                "yield": "78.0",
-                "color": "3.0",
+                "yield": 78.0,
+                "color": 3.0,
                 "origin": "United Kingdom",
                 "supplier": "Fussybrewer Malting",
                 "notes": "All purpose base malt for English styles",
-                "coarse-fine-diff": "1.5",
-                "moisture": "4.0",
-                "diastatic-power": "45.0",
-                "protein": "10.2",
-                "max-in-batch": "100.0"
+                "coarse-fine-diff": 1.5,
+                "moisture": 4.0,
+                "diastatic-power": 45.0,
+                "protein": 10.2,
+                "max-in-batch": 100.0
             }
         },
         {
             "fermentable": {
                 "name": "Barley, Flaked",
                 "version": "1",
-                "amount": "0.91",
+                "amount": 0.91,
                 "type": "Grain",
-                "yield": "70.0",
-                "color": "2.0",
+                "yield": 70.0,
+                "color": 2.0,
                 "origin": "United Kingdom",
                 "supplier": "Fussybrewer Malting",
                 "notes": "Adds body to porters and stouts, must be mashed",
-                "coarse-fine-diff": "1.5",
-                "moisture": "9.0",
-                "diastatic-power": "0.0",
-                "protein": "13.2",
-                "max-in-batch": "20.0",
-                "recommend-mash": "TRUE"
+                "coarse-fine-diff": 1.5,
+                "moisture": 9.0,
+                "diastatic-power": 0.0,
+                "protein": 13.2,
+                "max-in-batch": 20.0,
+                "recommend-mash": true
             }
         },
         {
             "fermentable": {
                 "name": "Black Barley",
                 "version": "1",
-                "amount": "0.45",
+                "amount": 0.45,
                 "type": "Grain",
-                "yield": "78.0",
-                "color": "500.0",
+                "yield": 78.0,
+                "color": 500.0,
                 "origin": "United Kingdom",
                 "supplier": "Fussybrewer Malting",
                 "notes": "Unmalted roasted barley for stouts, porters",
-                "coarse-fine-diff": "1.5",
-                "moisture": "5.0",
-                "diastatic-power": "0.0",
-                "protein": "13.2",
-                "max-in-batch": "10.0"
+                "coarse-fine-diff": 1.5,
+                "moisture": 5.0,
+                "diastatic-power": 0.0,
+                "protein": 13.2,
+                "max-in-batch": 10.0
             }
         }
     ]

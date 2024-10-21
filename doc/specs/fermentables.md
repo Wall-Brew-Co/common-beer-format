@@ -99,7 +99,7 @@ A non-negative IEEE-754 floating point number representing the color in Lovibond
 - BeerXML Units: Lovibond, SRM
 - Clojure Key Name: `:color`
 - Clojure Type: Double
-- Example: `32.0`
+- Example: `32`
 
 ## Diastatic Power
 
@@ -183,7 +183,7 @@ A non-empty string representing any notes about the subject.
 - BeerXML Type: `Text`
 - Clojure Key Name: `:notes`
 - Clojure Type: String
-- Example: `"A wonderful, zesty aroma"`
+- Example: `"A wonderful, zesty aroma."`
 
 ## Origin
 

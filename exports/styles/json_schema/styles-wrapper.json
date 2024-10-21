@@ -29,7 +29,7 @@
                   },
                   {
                     "minimum": 0,
-                    "exclusiveMinimum": true
+                    "exclusiveMinimum": 0
                   }
                 ],
                 "description": "A non-negative IEEE-754 floating point number representing the minimum pre-fermentation specific gravity for the style.",
@@ -133,7 +133,7 @@
                   },
                   {
                     "minimum": 0,
-                    "exclusiveMinimum": true
+                    "exclusiveMinimum": 0
                   }
                 ],
                 "description": "A non-negative IEEE-754 floating point number representing the minimum post-fermentation specific gravity for the style.",
@@ -154,7 +154,7 @@
                   },
                   {
                     "minimum": 0,
-                    "exclusiveMinimum": true
+                    "exclusiveMinimum": 0
                   }
                 ],
                 "description": "A non-negative IEEE-754 floating point number representing the maximum post-fermentation specific gravity for the style.",
@@ -188,7 +188,7 @@
               "version": {
                 "description": "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.",
                 "title": "common-beer-format.primitives\/version",
-                "example": "1"
+                "example": 1
               },
               "fg-range": {
                 "type": "string",
@@ -204,7 +204,7 @@
                   },
                   {
                     "minimum": 0,
-                    "exclusiveMinimum": true
+                    "exclusiveMinimum": 0
                   }
                 ],
                 "description": "A non-negative IEEE-754 floating point number representing the maximum pre-fermentation specific gravity for the style.",
@@ -226,7 +226,7 @@
               "notes": {
                 "type": "string",
                 "description": "A non-empty string representing any notes about the subject.",
-                "example": "A wonderful, zesty aroma",
+                "example": "A wonderful, zesty aroma.",
                 "title": "common-beer-format.primitives\/notes"
               },
               "color-min": {

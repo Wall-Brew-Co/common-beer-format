@@ -48,7 +48,7 @@
         },
         {
           "minimum": 0,
-          "exclusiveMinimum": true
+          "exclusiveMinimum": 0
         }
       ],
       "description": "A non-negative IEEE-754 floating point number representing the pre-fermentation specific gravity of the recipe.",
@@ -169,7 +169,7 @@
                 "type": "number",
                 "format": "double",
                 "description": "A value representing the amount of a particular ingredient.\nWhen measuring weight, this is in kilograms.\nWhen measuring volume, this is in liters.",
-                "example": "12.5",
+                "example": 12.5,
                 "title": "common-beer-format.primitives\/amount"
               },
               "cohumulone": {
@@ -182,7 +182,7 @@
               "version": {
                 "description": "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.",
                 "title": "common-beer-format.primitives\/version",
-                "example": "1"
+                "example": 1
               },
               "alpha": {
                 "type": "number",
@@ -201,7 +201,7 @@
               "notes": {
                 "type": "string",
                 "description": "A non-empty string representing any notes about the subject.",
-                "example": "A wonderful, zesty aroma",
+                "example": "A wonderful, zesty aroma.",
                 "title": "common-beer-format.primitives\/notes"
               },
               "display-amount": {
@@ -271,7 +271,7 @@
               },
               "amount-is-weight": {
                 "description": "A boolean representing if the amount of the substance is measured in kilograms.\nWhen absent, assume false and that the amount of substance is measured in liters.",
-                "example": "false",
+                "example": false,
                 "title": "common-beer-format.primitives\/amount-is-weight"
               },
               "use-for": {
@@ -302,18 +302,18 @@
                 "type": "number",
                 "format": "double",
                 "description": "A value representing the amount of a particular ingredient.\nWhen measuring weight, this is in kilograms.\nWhen measuring volume, this is in liters.",
-                "example": "12.5",
+                "example": 12.5,
                 "title": "common-beer-format.primitives\/amount"
               },
               "version": {
                 "description": "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.",
                 "title": "common-beer-format.primitives\/version",
-                "example": "1"
+                "example": 1
               },
               "notes": {
                 "type": "string",
                 "description": "A non-empty string representing any notes about the subject.",
-                "example": "A wonderful, zesty aroma",
+                "example": "A wonderful, zesty aroma.",
                 "title": "common-beer-format.primitives\/notes"
               },
               "display-amount": {
@@ -409,7 +409,7 @@
             },
             {
               "minimum": 0,
-              "exclusiveMinimum": true
+              "exclusiveMinimum": 0
             }
           ],
           "description": "A non-negative IEEE-754 floating point number representing the minimum pre-fermentation specific gravity for the style.",
@@ -513,7 +513,7 @@
             },
             {
               "minimum": 0,
-              "exclusiveMinimum": true
+              "exclusiveMinimum": 0
             }
           ],
           "description": "A non-negative IEEE-754 floating point number representing the minimum post-fermentation specific gravity for the style.",
@@ -534,7 +534,7 @@
             },
             {
               "minimum": 0,
-              "exclusiveMinimum": true
+              "exclusiveMinimum": 0
             }
           ],
           "description": "A non-negative IEEE-754 floating point number representing the maximum post-fermentation specific gravity for the style.",
@@ -568,7 +568,7 @@
         "version": {
           "description": "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.",
           "title": "common-beer-format.primitives\/version",
-          "example": "1"
+          "example": 1
         },
         "fg-range": {
           "type": "string",
@@ -584,7 +584,7 @@
             },
             {
               "minimum": 0,
-              "exclusiveMinimum": true
+              "exclusiveMinimum": 0
             }
           ],
           "description": "A non-negative IEEE-754 floating point number representing the maximum pre-fermentation specific gravity for the style.",
@@ -606,7 +606,7 @@
         "notes": {
           "type": "string",
           "description": "A non-empty string representing any notes about the subject.",
-          "example": "A wonderful, zesty aroma",
+          "example": "A wonderful, zesty aroma.",
           "title": "common-beer-format.primitives\/notes"
         },
         "color-min": {
@@ -792,18 +792,18 @@
                 "type": "number",
                 "format": "double",
                 "description": "A value representing the amount of a particular ingredient.\nWhen measuring weight, this is in kilograms.\nWhen measuring volume, this is in liters.",
-                "example": "12.5",
+                "example": 12.5,
                 "title": "common-beer-format.primitives\/amount"
               },
               "version": {
                 "description": "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.",
                 "title": "common-beer-format.primitives\/version",
-                "example": "1"
+                "example": 1
               },
               "notes": {
                 "type": "string",
                 "description": "A non-empty string representing any notes about the subject.",
-                "example": "A wonderful, zesty aroma",
+                "example": "A wonderful, zesty aroma.",
                 "title": "common-beer-format.primitives\/notes"
               },
               "magnesium": {
@@ -877,7 +877,7 @@
         },
         {
           "minimum": 0,
-          "exclusiveMinimum": true
+          "exclusiveMinimum": 0
         }
       ],
       "description": "A non-negative IEEE-754 floating point number representing the post-fermentation specific gravity of the recipe.",
@@ -887,7 +887,7 @@
     "version": {
       "description": "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.",
       "title": "common-beer-format.primitives\/version",
-      "example": "1"
+      "example": 1
     },
     "display-boil-size": {
       "type": "string",
@@ -913,33 +913,33 @@
                 "type": "number",
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the percent rendered sugar from the fermentable.",
-                "example": "0.856",
+                "example": 0.856,
                 "title": "common-beer-format.fermentables\/yield"
               },
               "recommend-mash": {
                 "description": "A boolean representing if the fermentable is recommended to be included in the mashing step.\nOnly appropriate for the 'Grain' or 'Adjunct' types.\nWhen absent, assume false.",
-                "example": "false",
+                "example": false,
                 "title": "common-beer-format.fermentables\/recommend-mash"
               },
               "moisture": {
                 "type": "number",
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the percent moisture in the grain.\nOnly appropriate for the 'Grain' or 'Adjunct' types.",
-                "example": "45.0",
+                "example": 45.0,
                 "title": "common-beer-format.fermentables\/moisture"
               },
               "coarse-fine-diff": {
                 "type": "number",
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the percent difference between the coarse grain yield and fine grain yield.\nOnly appropriate for the 'Grain' or 'Adjunct' types.",
-                "example": "0.856",
+                "example": 0.856,
                 "title": "common-beer-format.fermentables\/coarse-fine-diff"
               },
               "max-in-batch": {
                 "type": "number",
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the suggested maximum percent by weight of the fermentable with respect to all fermentables.",
-                "example": "1.0",
+                "example": 1.0,
                 "title": "common-beer-format.fermentables\/max-in-batch"
               },
               "name": {
@@ -953,11 +953,11 @@
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the diastatic power of the grain in Lintner units.\nOnly appropriate for the 'Grain' or 'Adjunct' types.",
                 "title": "common-beer-format.fermentables\/diastatic-power",
-                "example": "0.65"
+                "example": 0.65
               },
               "add-after-boil": {
                 "description": "A boolean representing if the fermentable was added after the boil.\nWhen absent, assume false.",
-                "example": "false",
+                "example": false,
                 "title": "common-beer-format.fermentables\/add-after-boil"
               },
               "inventory": {
@@ -975,19 +975,19 @@
                 "type": "number",
                 "format": "double",
                 "description": "A value representing the amount of a particular ingredient.\nWhen measuring weight, this is in kilograms.\nWhen measuring volume, this is in liters.",
-                "example": "12.5",
+                "example": 12.5,
                 "title": "common-beer-format.primitives\/amount"
               },
               "version": {
                 "description": "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.",
                 "title": "common-beer-format.primitives\/version",
-                "example": "1"
+                "example": 1
               },
               "protein": {
                 "type": "number",
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the protein contents of the grain.\nOnly appropriate for the 'Grain' or 'Adjunct' types.",
-                "example": "10.0",
+                "example": 10.0,
                 "title": "common-beer-format.fermentables\/protein"
               },
               "supplier": {
@@ -999,7 +999,7 @@
               "notes": {
                 "type": "string",
                 "description": "A non-empty string representing any notes about the subject.",
-                "example": "A wonderful, zesty aroma",
+                "example": "A wonderful, zesty aroma.",
                 "title": "common-beer-format.primitives\/notes"
               },
               "display-color": {
@@ -1019,14 +1019,14 @@
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the IBUs per pound per gallon of water assuming a 60 minute boil.\nOnly appropriate for the 'Extract' type.",
                 "title": "common-beer-format.fermentables\/ibu-gal-per-lb",
-                "example": "12.5"
+                "example": 12.5
               },
               "color": {
                 "type": "number",
                 "format": "double",
                 "description": "A non-negative IEEE-754 floating point number representing the color in Lovibond for the grain type, and SRM for all other types for the fermentable.",
                 "title": "common-beer-format.fermentables\/color",
-                "example": "32"
+                "example": 32
               },
               "potential": {
                 "allOf": [
@@ -1036,11 +1036,11 @@
                   },
                   {
                     "minimum": 0,
-                    "exclusiveMinimum": true
+                    "exclusiveMinimum": 0
                   }
                 ],
                 "description": "A non-negative IEEE-754 floating point number representing the potential yield in specific gravity units of the ingredient.",
-                "example": "1.048",
+                "example": 1.048,
                 "title": "common-beer-format.fermentables\/potential"
               }
             },
@@ -1149,7 +1149,7 @@
         "version": {
           "description": "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.",
           "title": "common-beer-format.primitives\/version",
-          "example": "1"
+          "example": 1
         },
         "display-boil-size": {
           "type": "string",
@@ -1201,7 +1201,7 @@
         "notes": {
           "type": "string",
           "description": "A non-empty string representing any notes about the subject.",
-          "example": "A wonderful, zesty aroma",
+          "example": "A wonderful, zesty aroma.",
           "title": "common-beer-format.primitives\/notes"
         },
         "calc-boil-volume": {
@@ -1309,7 +1309,7 @@
                   },
                   {
                     "minimum": 0,
-                    "exclusiveMinimum": true
+                    "exclusiveMinimum": 0
                   }
                 ],
                 "description": "A non-negative integer representing the suggested maximum number of times the yeast may be harvested and recultured.",
@@ -1324,7 +1324,7 @@
               },
               "amount-is-weight": {
                 "description": "A boolean representing if the amount of the substance is measured in kilograms.\nWhen absent, assume false and that the amount of substance is measured in liters.",
-                "example": "false",
+                "example": false,
                 "title": "common-beer-format.primitives\/amount-is-weight"
               },
               "culture-date": {
@@ -1372,7 +1372,7 @@
                 "type": "number",
                 "format": "double",
                 "description": "A value representing the amount of a particular ingredient.\nWhen measuring weight, this is in kilograms.\nWhen measuring volume, this is in liters.",
-                "example": "12.5",
+                "example": 12.5,
                 "title": "common-beer-format.primitives\/amount"
               },
               "times-cultured": {
@@ -1383,7 +1383,7 @@
                   },
                   {
                     "minimum": 0,
-                    "exclusiveMinimum": true
+                    "exclusiveMinimum": 0
                   }
                 ],
                 "description": "A non-negative integer representing the number of times this yeast has been harvested and re-used.\nA value of zero assumes the yeast came directly from the manufacturer.",
@@ -1393,7 +1393,7 @@
               "version": {
                 "description": "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.",
                 "title": "common-beer-format.primitives\/version",
-                "example": "1"
+                "example": 1
               },
               "best-for": {
                 "type": "string",
@@ -1404,7 +1404,7 @@
               "notes": {
                 "type": "string",
                 "description": "A non-empty string representing any notes about the subject.",
-                "example": "A wonderful, zesty aroma",
+                "example": "A wonderful, zesty aroma.",
                 "title": "common-beer-format.primitives\/notes"
               },
               "max-temperature": {
@@ -1458,7 +1458,7 @@
     "notes": {
       "type": "string",
       "description": "A non-empty string representing any notes about the subject.",
-      "example": "A wonderful, zesty aroma",
+      "example": "A wonderful, zesty aroma.",
       "title": "common-beer-format.primitives\/notes"
     },
     "efficiency": {
@@ -1596,7 +1596,7 @@
                   "version": {
                     "description": "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.",
                     "title": "common-beer-format.primitives\/version",
-                    "example": "1"
+                    "example": 1
                   },
                   "decoction-amt": {
                     "type": "string",
@@ -1655,7 +1655,7 @@
         "version": {
           "description": "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.",
           "title": "common-beer-format.primitives\/version",
-          "example": "1"
+          "example": 1
         },
         "tun-weight": {
           "type": "number",
@@ -1667,7 +1667,7 @@
         "notes": {
           "type": "string",
           "description": "A non-empty string representing any notes about the subject.",
-          "example": "A wonderful, zesty aroma",
+          "example": "A wonderful, zesty aroma.",
           "title": "common-beer-format.primitives\/notes"
         },
         "display-tun-temp": {
@@ -1706,7 +1706,7 @@
         },
         {
           "minimum": 0,
-          "exclusiveMinimum": true
+          "exclusiveMinimum": 0
         }
       ],
       "description": "An integer representing the number of fermentation stages in the recipe.",

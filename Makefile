@@ -38,8 +38,10 @@ version/patch:
 
 .PHONY: changelog/render
 changelog/render:
-	$(info Rendering CHANGELOG...)
+	$(info Rendering CHANGELOG and generated files...)
 	@ lein sealog render
+	@ lein export-specs
+	@ lein export-schema
 
 #
 # Testing
@@ -58,6 +60,12 @@ tests/clojurescript:
 	@ lein clean
 	@ lein cljsbuild once test
 	@ lein doo once
+
+.PHONY: tests/json-schema
+tests/json-schema:
+	$(info Running JSON Schema tests...)
+	@ npm run json-schema/validate/equipment
+	@ npm run json-schema/validate/fermentables
 
 #
 # Code Formatting

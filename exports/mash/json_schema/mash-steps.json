@@ -72,7 +72,7 @@
           "version": {
             "description": "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.",
             "title": "common-beer-format.primitives\/version",
-            "example": "1"
+            "example": 1
           },
           "decoction-amt": {
             "type": "string",

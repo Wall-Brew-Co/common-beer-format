@@ -31,7 +31,7 @@
         },
         {
           "minimum": 0,
-          "exclusiveMinimum": true
+          "exclusiveMinimum": 0
         }
       ],
       "description": "A non-negative integer representing the suggested maximum number of times the yeast may be harvested and recultured.",
@@ -46,7 +46,7 @@
     },
     "amount-is-weight": {
       "description": "A boolean representing if the amount of the substance is measured in kilograms.\nWhen absent, assume false and that the amount of substance is measured in liters.",
-      "example": "false",
+      "example": false,
       "title": "common-beer-format.primitives\/amount-is-weight"
     },
     "culture-date": {
@@ -94,7 +94,7 @@
       "type": "number",
       "format": "double",
       "description": "A value representing the amount of a particular ingredient.\nWhen measuring weight, this is in kilograms.\nWhen measuring volume, this is in liters.",
-      "example": "12.5",
+      "example": 12.5,
       "title": "common-beer-format.primitives\/amount"
     },
     "times-cultured": {
@@ -105,7 +105,7 @@
         },
         {
           "minimum": 0,
-          "exclusiveMinimum": true
+          "exclusiveMinimum": 0
         }
       ],
       "description": "A non-negative integer representing the number of times this yeast has been harvested and re-used.\nA value of zero assumes the yeast came directly from the manufacturer.",
@@ -115,7 +115,7 @@
     "version": {
       "description": "An integer representing the version of the BeerXML standard implemented in a given record. Currently, only 1 exists.",
       "title": "common-beer-format.primitives\/version",
-      "example": "1"
+      "example": 1
     },
     "best-for": {
       "type": "string",
@@ -126,7 +126,7 @@
     "notes": {
       "type": "string",
       "description": "A non-empty string representing any notes about the subject.",
-      "example": "A wonderful, zesty aroma",
+      "example": "A wonderful, zesty aroma.",
       "title": "common-beer-format.primitives\/notes"
     },
     "max-temperature": {

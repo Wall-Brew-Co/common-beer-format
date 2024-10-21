@@ -9,7 +9,8 @@
   "scripts": {
     "update-toc": "doctoc . -u --github",
     "markdownlint": "markdownlint '**/*.md' --ignore node_modules --disable MD013 --disable MD024",
-    "json-schema/validate/equipment": "ajv validate --strict=false -s exports/equipment/json_schema/equipment-wrapper.json -d resources/json/equipment.json"
+    "json-schema/validate/equipment": "ajv validate --strict=false -s exports/equipment/json_schema/equipment-wrapper.json -d resources/json/equipment.json",
+    "json-schema/validate/fermentables": "ajv validate --strict=false --spec=draft2020 -s exports/fermentables/json_schema/fermentables-wrapper.json -d resources/json/fermentables.json"
   },
   "repository": {
     "type": "git",

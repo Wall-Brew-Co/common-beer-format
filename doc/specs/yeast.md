@@ -239,7 +239,7 @@ A non-empty string representing any notes about the subject.
 - BeerXML Type: `Text`
 - Clojure Key Name: `:notes`
 - Clojure Type: String
-- Example: `"A wonderful, zesty aroma"`
+- Example: `"A wonderful, zesty aroma."`
 
 ## Product Id
 
