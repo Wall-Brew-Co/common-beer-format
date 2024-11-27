@@ -25,7 +25,7 @@
                                       [com.wallbrew/spoon "1.4.0"]
                                       [doo/doo "0.1.11"]
                                       [mvxcvi/cljstyle "0.16.630"]
-                                      [org.clojure/data.json "2.5.0"]]
+                                      [org.clojure/data.json "2.5.1"]]
                        :plugins      [[lein-doo/lein-doo "0.1.11"]]}
              :export  {:source-paths ["src" "dev"]}}
   :deploy-branches ["master"]
