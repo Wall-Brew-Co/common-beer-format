@@ -107,7 +107,7 @@
     <dependency>
       <groupId>mvxcvi</groupId>
       <artifactId>cljstyle</artifactId>
-      <version>0.16.630</version>
+      <version>0.17.642</version>
       <scope>test</scope>
     </dependency>
     <dependency>
