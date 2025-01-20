@@ -89,7 +89,7 @@
     <dependency>
       <groupId>com.wallbrew</groupId>
       <artifactId>clj-xml</artifactId>
-      <version>1.12.0</version>
+      <version>1.13.0</version>
       <scope>test</scope>
     </dependency>
     <dependency>
