@@ -18,7 +18,7 @@
                  [org.clojure/test.check "1.1.1"]]
   :plugins [[com.github.clj-kondo/lein-clj-kondo "2025.01.16"]
             [com.wallbrew/bouncer "1.1.1"]
-            [com.wallbrew/lein-sealog "1.8.0"]
+            [com.wallbrew/lein-sealog "1.9.0"]
             [lein-cljsbuild/lein-cljsbuild "1.1.8"]
             [mvxcvi/cljstyle "0.17.642"]]
   :profiles {:uberjar {:aot :all}
