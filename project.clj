@@ -12,7 +12,7 @@
                  [:name "Wall Brew Co."]
                  [:url "https://wallbrew.com"]]
   :pedantic? true
-  :dependencies [[metosin/spec-tools "0.10.7"]
+  :dependencies [[metosin/spec-tools "0.10.8"]
                  [org.clojure/clojure "1.12.4"]
                  [org.clojure/clojurescript "1.12.42" :scope "provided"]
                  [org.clojure/test.check "1.1.2"]]

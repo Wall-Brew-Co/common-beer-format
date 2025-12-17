@@ -68,7 +68,7 @@
     <dependency>
       <groupId>metosin</groupId>
       <artifactId>spec-tools</artifactId>
-      <version>0.10.7</version>
+      <version>0.10.8</version>
     </dependency>
     <dependency>
       <groupId>org.clojure</groupId>
