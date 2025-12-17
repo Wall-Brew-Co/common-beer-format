@@ -13,7 +13,7 @@
                  [:url "https://wallbrew.com"]]
   :pedantic? true
   :dependencies [[metosin/spec-tools "0.10.7"]
-                 [org.clojure/clojure "1.12.3"]
+                 [org.clojure/clojure "1.12.4"]
                  [org.clojure/clojurescript "1.12.42" :scope "provided"]
                  [org.clojure/test.check "1.1.2"]]
   :plugins [[com.github.clj-kondo/lein-clj-kondo "2025.10.23"]
