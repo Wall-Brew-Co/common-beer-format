@@ -14,7 +14,7 @@
   :pedantic? true
   :dependencies [[metosin/spec-tools "0.10.8"]
                  [org.clojure/clojure "1.12.5"]
-                 [org.clojure/clojurescript "1.12.134" :scope "provided"]
+                 [org.clojure/clojurescript "1.12.145" :scope "provided"]
                  [org.clojure/test.check "1.1.3"]]
   :plugins [[com.github.clj-kondo/lein-clj-kondo "2026.04.15"]
             [com.wallbrew/bouncer "1.2.0"]
